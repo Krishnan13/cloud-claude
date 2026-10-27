@@ -1,0 +1,1019 @@
+\noindent{\LARGE Similar Triangles}\hfill{\large Class 2}\par\vspace{3pt}
+\noindent\rule{\linewidth}{0.6pt}\par\medskip
+
+\ifteacher
+\colorbox{panel}{%
+  \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+    \small\textbf{Teacher's copy: overview.}
+    \begin{itemize}[leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+      \item \textbf{Aims.} Students prove the Basic Proportionality Theorem and use it with its converse. They decide whether AA, SSS or SAS proves that two triangles are similar. They write the similarity statement in the correct vertex order. They use similarity to find lengths and angles and to prove simple results.
+      \item \textbf{Syllabus.} The CBSE syllabus requires the proof of the Basic Proportionality Theorem (Theorem~1). The converse and the three criteria (Theorems 2 to 5) are to be motivated. Their proofs appear under ``Why it works'' for understanding; they are not examinable. Areas of similar triangles and the Pythagoras theorem are not part of this class.
+      \item \textbf{NCERT links.} Theorems 1 to 5 are NCERT Theorems 6.1 to 6.5. The worked examples follow the methods of NCERT Examples 1 to 8. The exercises cover the problem types of NCERT Exercises 6.2 and 6.3.
+      \item \textbf{Before the class.} Students need a ruler, a set square, a protractor and a compass. Revise the area of a triangle, triangles on the same base and between the same parallels, the angles made by a transversal with parallel lines, and the midpoint theorem.
+      \item \textbf{Exercises.} Each exercise starts with one direct question. The other questions ask students to work backwards, find a mistake, judge a claim, draw, explain or prove. Ask students to draw a rough figure for every question and to write every step with its reason.
+      \item \textbf{If time is short.} Teach the activities, the theorems and the first worked example of each section. Give the later exercise questions and Section~10 as homework.
+    \end{itemize}}}
+\else
+\colorbox{panel}{%
+  \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+    \textbf{\color{accent}How to use this companion.}
+    Read, discuss, and refer to the diagrams and questions during class. For every question, draw a rough figure, mark the given measurements, and write every step with its reason in your notebook.}}
+\fi
+
+\section{What we know from Class 1}
+
+Two triangles are \textbf{similar} when they have the same shape, though not necessarily the same size. For similar triangles,
+\begin{itemize}[leftmargin=1.8em,itemsep=1pt]
+  \item the corresponding angles are equal, and
+  \item the corresponding sides are in the same ratio. This common ratio is the \textbf{scale factor}.
+\end{itemize}
+
+The statement $\tr ABC\sim\tr PQR$ also tells us which vertices correspond: $A\leftrightarrow P$, $B\leftrightarrow Q$, $C\leftrightarrow R$. So
+\[
+\angle A=\angle P,\quad \angle B=\angle Q,\quad \angle C=\angle R
+\qquad\text{and}\qquad
+\dfrac{AB}{PQ}=\dfrac{BC}{QR}=\dfrac{CA}{RP}.
+\]
+
+\begin{exercise}{2A}
+  \item $\tr ABC\sim\tr PQR$. Write the angle of $\tr PQR$ that is equal to $\angle B$, and the side of $\tr PQR$ that corresponds to $AC$. Then complete $\dfrac{AB}{PQ}=\dfrac{\quad}{QR}=\dfrac{\quad}{\quad}$.
+  \item A triangular kolam pattern has sides $6$ cm, $8$ cm and $10$ cm. An enlarged copy of the same shape has its shortest side $9$ cm. Find the other two sides of the copy.
+  \item $\tr DEF\sim\tr XYZ$, with $DE=12$ cm, $XY=8$ cm and $YZ=10$ cm. Find $EF$.
+  \item Arjun says, ``The triangles with sides $3$, $4$, $5$ cm and $5$, $6$, $7$ cm are similar, because every side of the second triangle is $2$ cm longer.'' Is he right? Explain.
+  \item $\tr ABC\sim\tr PQR$, with $AB=6$ cm, $BC=8$ cm and $PQ=9$ cm. A student writes
+  $QR=\dfrac{8\times6}{9}=\dfrac{16}{3}$ cm. Find the mistake and find the correct $QR$.
+\end{exercise}
+
+\begin{answerblock}
+\ans{1.} $\angle Q$; $PR$. $\dfrac{AB}{PQ}=\dfrac{BC}{QR}=\dfrac{CA}{RP}$.
+% A1
+\ansfig{
+  \coordinate (A) at (0,0); \coordinate (B) at (2.6,0); \coordinate (C) at (0.9,2.2);
+  \coordinate (P) at (4.6,0); \coordinate (Q) at (8.76,0); \coordinate (R) at (6.04,3.52);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (P) -- (Q) -- (R) -- cycle;
+  \draw[thick] (A) -- (C);
+  \draw[thick] (P) -- (R);
+  \pic[draw,angle radius=7pt] {angle=C--B--A};
+  \pic[draw,angle radius=7pt] {angle=R--Q--P};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[above] at (C) {$C$};
+  \node[below left] at (P) {$P$};
+  \node[below right] at (Q) {$Q$};
+  \node[above] at (R) {$R$};
+}
+\ans{2.} The scale factor is $\dfrac{9}{6}=\dfrac32$. The other sides are $8\times\dfrac32=12$ cm and $10\times\dfrac32=15$ cm.
+% A2
+\ansfig{
+  \coordinate (A) at (0,0); \coordinate (B) at (3.2,0); \coordinate (C) at (0,2.4);
+  \coordinate (P) at (4.8,0); \coordinate (Q) at (9.6,0); \coordinate (R) at (4.8,3.6);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (P) -- (Q) -- (R) -- cycle;
+  \ramark{A}{B}{C}
+  \ramark{P}{Q}{R}
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[above] at (C) {$C$};
+  \slab{A}{B}{$8$ cm}
+  \slab{C}{A}{$6$ cm}
+  \slab{B}{C}{$10$ cm}
+  \slab{R}{P}{$9$ cm}
+  \slab{P}{Q}{$?$}
+  \slab{Q}{R}{$?$}
+}
+\ans{3.} $\dfrac{DE}{XY}=\dfrac{EF}{YZ}$, so $\dfrac{12}{8}=\dfrac{EF}{10}$ and $EF=15$ cm.
+% A3
+\ansfig{
+  \coordinate (D) at (0,0); \coordinate (E) at (4.8,0); \coordinate (F) at (7.336,5.438);
+  \coordinate (X) at (7.9,0); \coordinate (Y) at (11.1,0); \coordinate (Z) at (12.79,3.625);
+  \draw (D) -- (E) -- (F) -- cycle;
+  \draw (X) -- (Y) -- (Z) -- cycle;
+  \node[below left] at (D) {$D$};
+  \node[below right] at (E) {$E$};
+  \node[above] at (F) {$F$};
+  \node[below left] at (X) {$X$};
+  \node[below right] at (Y) {$Y$};
+  \node[above] at (Z) {$Z$};
+  \slab{D}{E}{$12$ cm}
+  \slab{E}{F}{$?$}
+  \slab{X}{Y}{$8$ cm}
+  \slab{Y}{Z}{$10$ cm}
+}
+\ans{4.} No. Similar triangles need equal \emph{ratios}, not equal differences. $\dfrac35$, $\dfrac46$ and $\dfrac57$ are all different, so the triangles are not similar.
+% A4
+\ansfig{
+  \coordinate (A) at (0,0); \coordinate (B) at (2.0,0); \coordinate (C) at (0,1.5);
+  \coordinate (P) at (3.6,0); \coordinate (Q) at (6.1,0); \coordinate (R) at (4.2,2.939);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (P) -- (Q) -- (R) -- cycle;
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[above] at (C) {$C$};
+  \node[below left] at (P) {$P$};
+  \node[below right] at (Q) {$Q$};
+  \node[above] at (R) {$R$};
+  \slab{A}{B}{$4$ cm}
+  \slab{C}{A}{$3$ cm}
+  \slab{B}{C}{$5$ cm}
+  \slab{P}{Q}{$5$ cm}
+  \slab{R}{P}{$6$ cm}
+  \slab{Q}{R}{$7$ cm}
+}
+\ans{5.} The student matched $AB$ with $BC$. The correct proportion is $\dfrac{BC}{QR}=\dfrac{AB}{PQ}$, so $\dfrac{8}{QR}=\dfrac{6}{9}$ and $QR=12$ cm.
+% A5
+\ansfig{
+  \coordinate (A) at (0,0); \coordinate (B) at (2.7,0); \coordinate (C) at (3.931,3.383);
+  \coordinate (P) at (5.6,0); \coordinate (Q) at (9.65,0); \coordinate (R) at (11.497,5.074);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (P) -- (Q) -- (R) -- cycle;
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[above] at (C) {$C$};
+  \node[below left] at (P) {$P$};
+  \node[below right] at (Q) {$Q$};
+  \node[above] at (R) {$R$};
+  \slab{A}{B}{$6$ cm}
+  \slab{B}{C}{$8$ cm}
+  \slab{P}{Q}{$9$ cm}
+  \slab{Q}{R}{$?$}
+}
+\end{answerblock}
+
+\Needspace{20\baselineskip}
+\section{A parallel line divides two sides in the same ratio}
+
+In $\tr ABC$, the segment $DE$ is drawn parallel to $BC$, with $D$ on $AB$ and $E$ on $AC$.
+
+\begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+  \coordinate (A) at (2.334,5.527);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (9.437,0);
+  \coordinate (D) at (1.400,3.316);
+  \coordinate (E) at (5.175,3.316);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,accent] (D) -- (E);
+  \coordinate (mde) at ($(D)!0.5!(E)$);
+  \coordinate (mbc) at ($(B)!0.5!(C)$);
+  \draw[thick,accent] ($(mde)+(-0.13,0.17)$) -- (mde) -- ($(mde)+(-0.13,-0.17)$);
+  \draw[thick,accent] ($(mbc)+(-0.13,0.17)$) -- (mbc) -- ($(mbc)+(-0.13,-0.17)$);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[anchor=east] at (1.198,3.402) {$D$};
+  \node[anchor=west] at (5.310,3.490) {$E$};
+  \node[anchor=east] at (1.591,4.539) {$AD=4$ cm};
+  \node[anchor=east] at (0.424,1.775) {$DB=6$ cm};
+  \node[anchor=west] at (3.939,4.659) {$AE=6$ cm};
+  \node[anchor=west] at (7.490,1.895) {$EC=9$ cm};
+\end{tikzpicture}\end{center}
+
+\begin{activity}
+\begin{enumerate}[leftmargin=1.8em,itemsep=2pt,label=(\alph*)]
+  \item Find $\dfrac{AD}{DB}$ and $\dfrac{AE}{EC}$. What do you notice?
+  \item Find $\dfrac{AD}{AB}$ and $\dfrac{AE}{AC}$. What do you notice?
+  \item Draw any triangle $ABC$ in your notebook. Use a set square to draw a line parallel to $BC$ that cuts $AB$ at $D$ and $AC$ at $E$. Measure $AD$, $DB$, $AE$ and $EC$, and compare $\dfrac{AD}{DB}$ with $\dfrac{AE}{EC}$.
+\end{enumerate}
+\end{activity}
+
+\begin{answerblock}
+(a) Both are $\dfrac46=\dfrac69=\dfrac23$. \quad (b) Both are $\dfrac{4}{10}=\dfrac{6}{15}=\dfrac25$. \quad (c) The two ratios are equal, apart from small measuring errors.
+\end{answerblock}
+
+The parallel line cuts the two sides in the same ratio. Measuring suggests this, but a drawing cannot show that it happens in \emph{every} triangle. We need a proof.
+
+\begin{theorem}[Basic Proportionality Theorem]
+If a line is drawn parallel to one side of a triangle to intersect the other two sides in distinct points, the other two sides are divided in the same ratio.
+\end{theorem}
+
+\begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+  \coordinate (A) at (2.814,5.636);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (7.294,0);
+  \coordinate (D) at (1.548,3.101);
+  \coordinate (E) at (4.830,3.101);
+  \coordinate (N) at (2.202,4.411);
+  \coordinate (M) at (3.559,4.699);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,accent] (D) -- (E);
+  \draw[thin,accent] (B) -- (E);
+  \draw[thin,accent] (C) -- (D);
+  \draw[dashed,accent] (E) -- (N);
+  \draw[dashed,accent] (D) -- (M);
+  \ramark{N}{E}{A}
+  \ramark{M}{D}{A}
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node at (1.172,3.289) {$D$};
+  \node at (5.159,3.362) {$E$};
+  \node at (1.870,4.600) {$N$};
+  \node at (3.815,4.920) {$M$};
+\end{tikzpicture}\end{center}
+
+\textbf{Given:} In $\tr ABC$, $DE\parallel BC$, with $D$ on $AB$ and $E$ on $AC$.\\
+\textbf{To prove:} $\dfrac{AD}{DB}=\dfrac{AE}{EC}$.\\
+\textbf{Construction:} Join $BE$ and $CD$. Draw $EN\perp AB$ and $DM\perp AC$.
+
+\textbf{Proof.} Write $\operatorname{ar}$ for the area of a triangle.
+
+Triangles $ADE$ and $BDE$ have bases $AD$ and $DB$ on the same line, and the same height $EN$. So
+\[
+\dfrac{\operatorname{ar}(ADE)}{\operatorname{ar}(BDE)}=\dfrac{\tfrac12\times AD\times EN}{\tfrac12\times DB\times EN}=\dfrac{AD}{DB}. \tag{1}
+\]
+Triangles $ADE$ and $DEC$ have bases $AE$ and $EC$ on the same line, and the same height $DM$. So
+\[
+\dfrac{\operatorname{ar}(ADE)}{\operatorname{ar}(DEC)}=\dfrac{\tfrac12\times AE\times DM}{\tfrac12\times EC\times DM}=\dfrac{AE}{EC}. \tag{2}
+\]
+Triangles $BDE$ and $DEC$ are on the same base $DE$ and between the same parallels $DE$ and $BC$. So
+\[
+\operatorname{ar}(BDE)=\operatorname{ar}(DEC). \tag{3}
+\]
+By (3), the left sides of (1) and (2) are equal. Therefore $\dfrac{AD}{DB}=\dfrac{AE}{EC}$. \hfill$\square$
+
+\facilitatornote{Step (3) carries the proof. Before stating it, ask which two triangles stand on the base $DE$, and where their third vertices lie. Students should name $\tr BDE$ and $\tr DEC$ and see that $B$ and $C$ lie on the line parallel to $DE$.}
+
+The theorem is also called \textbf{BPT}. From now on we use only this name.
+
+\begin{example}
+In $\tr ABC$, $DE\parallel BC$, with $D$ on $AB$ and $E$ on $AC$. $AD=3$ cm, $DB=5$ cm and $AE=6$ cm. Find $EC$.
+
+\exfig{
+  \coordinate (A) at (1.066,4.269);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (8.761,0);
+  \coordinate (D) at (0.666,2.668);
+  \coordinate (E) at (3.952,2.668);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,accent] (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[anchor=east] at (0.453,2.721) {$D$};
+  \node[anchor=west] at (4.058,2.860) {$E$};
+  \node[anchor=east] at (0.575,3.541) {$AD=3$ cm};
+  \node[anchor=east] at (0.042,1.407) {$DB=5$ cm};
+  \node[anchor=west] at (2.654,3.731) {$AE=6$ cm};
+  \node[anchor=west] at (6.502,1.596) {$EC=?$};
+}
+
+\textbf{Given:} $DE\parallel BC$, $AD=3$ cm, $DB=5$ cm, $AE=6$ cm.\\
+\textbf{To find:} $EC$.
+
+\textbf{Solution.}
+\[
+\begin{aligned}
+\dfrac{AD}{DB}&=\dfrac{AE}{EC} &&\text{(BPT, since $DE\parallel BC$)}\\
+\dfrac{3}{5}&=\dfrac{6}{EC}\\
+EC&=\dfrac{6\times5}{3}=10.
+\end{aligned}
+\]
+
+\textbf{Answer:} $EC=10$ cm.
+\end{example}
+
+\begin{example}
+In $\tr ABC$, a line parallel to $BC$ meets $AB$ at $D$ and $AC$ at $E$. Prove that $\dfrac{AD}{AB}=\dfrac{AE}{AC}$.
+
+\exfig{
+  \coordinate (A) at (1.845,4.431);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (5.890,0);
+  \coordinate (D) at (0.923,2.216);
+  \coordinate (E) at (3.868,2.216);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,accent] (D) -- (E);
+  \draw[thick,accent] ($(2.945,0)+(-0.13,0.17)$) -- (2.945,0) -- ($(2.945,0)+(-0.13,-0.17)$);
+  \draw[thick,accent] ($(2.396,2.216)+(-0.13,0.17)$) -- (2.396,2.216) -- ($(2.396,2.216)+(-0.13,-0.17)$);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right] at (E) {$E$};
+}
+
+\textbf{Given:} In $\tr ABC$, $DE\parallel BC$.\\
+\textbf{To prove:} $\dfrac{AD}{AB}=\dfrac{AE}{AC}$.
+
+\textbf{Proof.}
+\[
+\begin{aligned}
+\dfrac{AD}{DB}&=\dfrac{AE}{EC} &&\text{(BPT)}\\
+\dfrac{DB}{AD}&=\dfrac{EC}{AE} &&\text{(take the reciprocal of each side)}\\
+\dfrac{DB}{AD}+1&=\dfrac{EC}{AE}+1 &&\text{(add $1$ to each side)}\\
+\dfrac{DB+AD}{AD}&=\dfrac{EC+AE}{AE}\\
+\dfrac{AB}{AD}&=\dfrac{AC}{AE} &&\text{($AD+DB=AB$ and $AE+EC=AC$)}\\
+\dfrac{AD}{AB}&=\dfrac{AE}{AC}. &&\text{(take the reciprocal again)}
+\end{aligned}
+\]
+\hfill$\square$
+\end{example}
+
+So BPT can be used in either form: part to part, $\dfrac{AD}{DB}=\dfrac{AE}{EC}$, or part to whole side, $\dfrac{AD}{AB}=\dfrac{AE}{AC}$.
+
+\begin{example}
+$ABCD$ is a trapezium with $AB\parallel DC$. $E$ is a point on $AD$ and $F$ is a point on $BC$ such that $EF\parallel AB$. Prove that $\dfrac{AE}{ED}=\dfrac{BF}{FC}$.
+
+\exfig{
+  \coordinate (A) at (1,4.5);
+  \coordinate (B) at (6,4.5);
+  \coordinate (C) at (9,0);
+  \coordinate (D) at (0,0);
+  \coordinate (E) at (0.45,2.025);
+  \coordinate (F) at (7.65,2.025);
+  \coordinate (G) at (5.4,2.025);
+  \draw[thick,accent] (A) -- (B) -- (C) -- (D) -- cycle;
+  \draw[thick,accent] (E) -- (F);
+  \draw[thin,accent] (A) -- (C);
+  \draw[thick,accent] ($(3.5,4.5)+(-0.13,0.17)$) -- (3.5,4.5) -- ($(3.5,4.5)+(-0.13,-0.17)$);
+  \draw[thick,accent] ($(4.05,2.025)+(-0.13,0.17)$) -- (4.05,2.025) -- ($(4.05,2.025)+(-0.13,-0.17)$);
+  \draw[thick,accent] ($(4.5,0)+(-0.13,0.17)$) -- (4.5,0) -- ($(4.5,0)+(-0.13,-0.17)$);
+  \node[above] at (A) {$A$};
+  \node[above] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[below left] at (D) {$D$};
+  \node[anchor=east] at (0.18,2.08) {$E$};
+  \node[anchor=west] at (7.92,2.08) {$F$};
+  \node[above right=1pt] at (G) {$G$};
+}
+
+\textbf{Given:} $AB\parallel DC$ and $EF\parallel AB$.\\
+\textbf{To prove:} $\dfrac{AE}{ED}=\dfrac{BF}{FC}$.\\
+\textbf{Construction:} Join $AC$. Let it meet $EF$ at $G$.
+
+\textbf{Proof.} Since $EF\parallel AB$ and $AB\parallel DC$, we have $EF\parallel DC$.
+
+In $\tr ADC$, $EG\parallel DC$. So
+\[
+\dfrac{AE}{ED}=\dfrac{AG}{GC}. \qquad\text{(BPT)}
+\]
+In $\tr CAB$, $GF\parallel AB$. So
+\[
+\dfrac{CG}{GA}=\dfrac{CF}{FB}, \quad\text{that is,}\quad \dfrac{AG}{GC}=\dfrac{BF}{FC}. \qquad\text{(BPT, then reciprocals)}
+\]
+Both results equal $\dfrac{AG}{GC}$. Therefore $\dfrac{AE}{ED}=\dfrac{BF}{FC}$. \hfill$\square$
+\end{example}
+
+\facilitatornote{The diagonal is the key construction. It splits the trapezium into two triangles, and BPT needs a triangle. Ask students why BPT cannot be applied to the trapezium directly before showing the construction.}
+
+\begin{example}
+The front of a village house roof is a triangle $ABC$, with $A$ at the top. A horizontal wooden beam $DE$ is fixed parallel to the base $BC$, with $D$ on $AB$ and $E$ on $AC$. $AD=80$ cm, $DB=120$ cm and $AE=100$ cm. Find $EC$ and the length of the slope $AC$.
+
+\exfig{
+  \coordinate (A) at (4.218,4.267);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (10.386,0);
+  \coordinate (D) at (2.531,2.560);
+  \coordinate (E) at (6.686,2.560);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,accent] (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[anchor=east] at (2.375,2.715) {$D$};
+  \node[anchor=west] at (6.811,2.741) {$E$};
+  \node[anchor=east] at (3.161,3.624) {$AD=80$ cm};
+  \node[anchor=east] at (1.052,1.491) {$DB=120$ cm};
+  \node[anchor=west] at (5.623,3.660) {$AE=100$ cm};
+  \node[anchor=west] at (8.707,1.527) {$EC=?$};
+}
+
+\textbf{Given:} $DE\parallel BC$, $AD=80$ cm, $DB=120$ cm, $AE=100$ cm.\\
+\textbf{To find:} $EC$ and $AC$.
+
+\textbf{Solution.}
+\[
+\begin{aligned}
+\dfrac{AD}{DB}&=\dfrac{AE}{EC} &&\text{(BPT, since $DE\parallel BC$)}\\
+\dfrac{80}{120}&=\dfrac{100}{EC}\\
+EC&=\dfrac{100\times120}{80}=150.
+\end{aligned}
+\]
+\[
+AC=AE+EC=100+150=250.
+\]
+
+\textbf{Answer:} $EC=150$ cm and $AC=250$ cm.
+\end{example}
+
+\begin{example}
+In $\tr ABC$, $DE\parallel BC$, with $D$ on $AB$ and $E$ on $AC$. $AD=x$ cm, $DB=(x-2)$ cm, $AE=(x+2)$ cm and $EC=(x-1)$ cm. Find $x$.
+
+\exfig{
+  \coordinate (A) at (1.371,3.970);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (6.263,0);
+  \coordinate (D) at (0.457,1.323);
+  \coordinate (E) at (4.633,1.323);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,accent] (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[anchor=east] at (0.249,1.395) {$D$};
+  \node[anchor=west] at (4.771,1.494) {$E$};
+  \node[anchor=east] at (0.631,2.744) {$x$};
+  \node[anchor=east] at (-0.055,0.760) {$x-2$};
+  \node[anchor=west] at (3.191,2.879) {$x+2$};
+  \node[anchor=west] at (5.637,0.895) {$x-1$};
+}
+
+\textbf{Given:} $DE\parallel BC$, $AD=x$, $DB=x-2$, $AE=x+2$, $EC=x-1$ (in cm).\\
+\textbf{To find:} $x$.
+
+\textbf{Solution.}
+\[
+\begin{aligned}
+\dfrac{x}{x-2}&=\dfrac{x+2}{x-1} &&\text{(BPT)}\\
+x(x-1)&=(x+2)(x-2) &&\text{(cross-multiply)}\\
+x^2-x&=x^2-4\\
+x&=4.
+\end{aligned}
+\]
+Check: $AD=4$, $DB=2$, $AE=6$, $EC=3$, and $\dfrac42=\dfrac63$.
+
+\textbf{Answer:} $x=4$.
+\end{example}
+
+\begin{exercise}{2B}
+  \item In $\tr ABC$, $DE\parallel BC$, with $D$ on $AB$ and $E$ on $AC$. $AD=6$ cm, $DB=4$ cm and $AE=9$ cm. Find $EC$.
+  \item In $\tr PQR$, $S$ is on $PQ$ and $T$ is on $PR$, with $ST\parallel QR$. $PS=4$ cm, $PQ=10$ cm and $PR=15$ cm. Draw a rough figure and mark the given lengths. Find $PT$ and $TR$.
+  \item In $\tr ABC$, $DE\parallel BC$, with $D$ on $AB$ and $E$ on $AC$. $AD=x$ cm, $DB=(x+3)$ cm, $AE=(x+1)$ cm and $EC=(x+5)$ cm. Find $x$. Then find $AB$ and $AC$.
+  \item In $\tr ABC$, $DE\parallel BC$, $AD=5$ cm, $DB=10$ cm and $AE=4$ cm. Ravi writes
+  \[
+  \dfrac{AD}{DB}=\dfrac{EC}{AE},\qquad \dfrac{5}{10}=\dfrac{EC}{4},\qquad EC=2\text{ cm}.
+  \]
+  Find Ravi's mistake. Find the correct $EC$.
+  \item In $\tr ABC$, $DE\parallel BC$. Kiran says, ``Because $\dfrac{AD}{DB}=\dfrac{AE}{EC}$, it is also true that $\dfrac{DB}{AB}=\dfrac{EC}{AC}$.'' Is he right? Explain.
+  \item Draw a triangle $ABC$ with $AB=6$ cm and $AC=9$ cm (choose any angle at $A$). Mark $D$ on $AB$ with $AD=2$ cm. Use a set square to draw $DE\parallel BC$, with $E$ on $AC$. Before you measure, calculate $AE$. Then measure $AE$ and compare.
+  \item A triangular plot of land $ABC$ lies beside a road. A fence $DE$ is built parallel to the side $BC$, with $D$ on $AB$ and $E$ on $AC$. $AD=30$ m, $DB=20$ m and $AC=75$ m. How far from $A$, along $AC$, does the fence meet $AC$?
+  \Needspace{16\baselineskip}\item In $\tr ABC$, $D$ is on $AB$ and $E$ is on $BC$, with $DE\parallel AC$. $F$ is on $BE$ with $DF\parallel AE$. Prove that $\dfrac{BF}{FE}=\dfrac{BE}{EC}$.
+  \begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+  \coordinate (A) at (3.2,5.2);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (7.2,0);
+  \coordinate (D) at (1.6,2.6);
+  \coordinate (E) at (3.6,0);
+  \coordinate (F) at (1.8,0);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,accent] (D) -- (E);
+  \draw[thin,accent] (A) -- (E);
+  \draw[thick,accent] (D) -- (F);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[anchor=east] at (1.413,2.715) {$D$};
+  \node[below] at (3.6,-0.22) {$E$};
+  \node[below] at (1.8,-0.22) {$F$};
+\end{tikzpicture}\end{center}
+\end{exercise}
+
+\begin{answerblock}
+\ans{1.} $\dfrac{AD}{DB}=\dfrac{AE}{EC}$ (BPT), so $\dfrac64=\dfrac{9}{EC}$ and $EC=6$ cm.
+% B1
+\ansfig{
+  \coordinate (A) at (2.334,5.527);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (9.437,0);
+  \coordinate (D) at (0.934,2.211);
+  \coordinate (E) at (6.595,2.211);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \slab{A}{D}{$AD=6$ cm}
+  \slab{D}{B}{$DB=4$ cm}
+  \slab{E}{A}{$AE=9$ cm}
+  \slab{C}{E}{$EC=?$}
+}
+\ans{2.} $\dfrac{PS}{PQ}=\dfrac{PT}{PR}$ (BPT, whole-side form), so $\dfrac4{10}=\dfrac{PT}{15}$ and $PT=6$ cm. $TR=15-6=9$ cm.
+% B2
+\ansfig{
+  \coordinate (P) at (1.796,5.199);
+  \coordinate (Q) at (0,0);
+  \coordinate (R) at (8.202,0);
+  \coordinate (S) at (1.078,3.119);
+  \coordinate (T) at (4.358,3.119);
+  \draw (P) -- (Q) -- (R) -- cycle;
+  \draw (S) -- (T);
+  \node[above] at (P) {$P$};
+  \node[below left] at (Q) {$Q$};
+  \node[below right] at (R) {$R$};
+  \node[left=2pt] at (S) {$S$};
+  \node[above right=1pt] at (T) {$T$};
+  \slab{P}{S}{$4$ cm}
+  \dimlab{P}{Q}{1.8cm}{$PQ=10$ cm}
+  \slab{T}{P}{$PT=?$}
+  \dimlab{R}{P}{1.75cm}{$PR=15$ cm}
+}
+\ans{3.} $\dfrac{x}{x+3}=\dfrac{x+1}{x+5}$, so $x^2+5x=x^2+4x+3$ and $x=3$. Then $AD=3$, $DB=6$, $AE=4$, $EC=8$. $AB=9$ cm and $AC=12$ cm.
+% B3
+\ansfig{
+  \coordinate (A) at (2.151,4.953);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (7.376,0);
+  \coordinate (D) at (1.434,3.302);
+  \coordinate (E) at (3.892,3.302);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \slab{A}{D}{$x$}
+  \slab{D}{B}{$x+3$}
+  \slab{E}{A}{$x+1$}
+  \slab{C}{E}{$x+5$}
+}
+\ans{4.} Ravi wrote the second ratio upside down. Both ratios must be in the same order: $\dfrac{AD}{DB}=\dfrac{AE}{EC}$. So $\dfrac5{10}=\dfrac{4}{EC}$ and $EC=8$ cm.
+% B4
+\ansfig{
+  \coordinate (A) at (5.212,5.394);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (7.840,0);
+  \coordinate (D) at (3.474,3.596);
+  \coordinate (E) at (6.088,3.596);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \slab{A}{D}{$AD=5$}
+  \slab{D}{B}{$DB=10$}
+  \slab{E}{A}{$AE=4$}
+  \slab{C}{E}{$EC=?$}
+}
+\ans{5.} Yes. From $\dfrac{AD}{DB}=\dfrac{AE}{EC}$, adding $1$ to each side gives $\dfrac{AB}{DB}=\dfrac{AC}{EC}$. Taking reciprocals gives $\dfrac{DB}{AB}=\dfrac{EC}{AC}$.
+% B5
+\ansfig{
+  \coordinate (A) at (1.682,4.656);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (6.360,0);
+  \coordinate (D) at (0.925,2.561);
+  \coordinate (E) at (3.787,2.561);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \draw[thick] ($(3.180,0)+(-0.13,0.17)$) -- (3.180,0) -- ($(3.180,0)+(-0.13,-0.17)$);
+  \draw[thick] ($(2.356,2.561)+(-0.13,0.17)$) -- (2.356,2.561) -- ($(2.356,2.561)+(-0.13,-0.17)$);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right] at (E) {$E$};
+}
+\ans{6.} $\dfrac{AD}{AB}=\dfrac{AE}{AC}$, so $\dfrac26=\dfrac{AE}{9}$ and $AE=3$ cm. The measured value should be close to $3$ cm.
+% B6
+\ansfig{
+  \coordinate (A) at (1.274,3.686);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (5.816,0);
+  \coordinate (D) at (0.849,2.457);
+  \coordinate (E) at (2.788,2.457);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \slab[0.4]{A}{D}{$AD=2$}
+  \slab[0.6]{D}{B}{$DB=4$}
+  \slab[0.6]{E}{A}{$AE=3$}
+  \slab{C}{E}{$EC=6$}
+}
+\ans{7.} $AB=30+20=50$ m. $\dfrac{AD}{AB}=\dfrac{AE}{AC}$ (BPT), so $\dfrac{30}{50}=\dfrac{AE}{75}$ and $AE=45$ m. The fence meets $AC$ at $45$ m from $A$.
+% B7
+\ansfig{
+  \coordinate (A) at (2.334,5.527);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (9.437,0);
+  \coordinate (D) at (0.934,2.211);
+  \coordinate (E) at (6.595,2.211);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[below left=1pt] at (E) {$E$};
+  \slab{A}{D}{$AD=30$ m}
+  \slab{D}{B}{$DB=20$ m}
+  \path (E) -- (A) node[midway, auto=left, inner sep=2.5pt] {$AE=?$};
+  \dimlab{C}{A}{0.7cm}{$AC=75$ m}
+}
+\ans{8.} In $\tr ABC$, $DE\parallel AC$, so $\dfrac{BD}{DA}=\dfrac{BE}{EC}$ (BPT).
+In $\tr ABE$, $DF\parallel AE$, so $\dfrac{BD}{DA}=\dfrac{BF}{FE}$ (BPT).
+Both right sides equal $\dfrac{BD}{DA}$. Therefore $\dfrac{BF}{FE}=\dfrac{BE}{EC}$.
+% B8
+\ansfig{
+  \coordinate (A) at (3.2,5.2);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (7.2,0);
+  \coordinate (D) at (1.6,2.6);
+  \coordinate (E) at (3.6,0);
+  \coordinate (F) at (1.8,0);
+  \fill[panel] (A) -- (B) -- (E) -- cycle;
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \draw (A) -- (E);
+  \draw (D) -- (F);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[anchor=east] at (1.413,2.715) {$D$};
+  \node[below] at (3.6,-0.22) {$E$};
+  \node[below] at (1.8,-0.22) {$F$};
+}
+\end{answerblock}
+
+\section{Can equal division force a parallel line?}
+
+BPT says: if $DE\parallel BC$, then $\dfrac{AD}{DB}=\dfrac{AE}{EC}$. Now ask the reverse question. If $D$ and $E$ divide $AB$ and $AC$ in the same ratio, must $DE$ be parallel to $BC$?
+
+\begin{activity}
+\begin{enumerate}[leftmargin=1.8em,itemsep=2pt,label=(\alph*)]
+  \item Draw a triangle $ABC$ with $AB=6$ cm and $AC=9$ cm. Mark $D$ on $AB$ with $AD=2$ cm and $E$ on $AC$ with $AE=3$ cm. Find $\dfrac{AD}{DB}$ and $\dfrac{AE}{EC}$. Join $DE$ and check with a set square whether $DE\parallel BC$.
+  \item On the same triangle, mark $F$ on $AC$ with $AF=5$ cm. Find $\dfrac{AF}{FC}$. Join $DF$. Is $DF\parallel BC$?
+\end{enumerate}
+\end{activity}
+
+\begin{answerblock}
+(a) Both ratios are $\dfrac12$; $DE$ is parallel to $BC$. \quad (b) $\dfrac{AF}{FC}=\dfrac54\neq\dfrac12$; $DF$ is not parallel to $BC$.
+\end{answerblock}
+
+\begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+  \coordinate (A) at (1.371,3.970);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (6.263,0);
+  \coordinate (D) at (0.914,2.647);
+  \coordinate (E) at (3.002,2.647);
+  \coordinate (F) at (4.089,1.764);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,accent] (D) -- (E);
+  \draw[dashed,accent] (D) -- (F);
+  \draw[thick,accent] ($(1.958,2.647)+(-0.13,0.17)$) -- (1.958,2.647) -- ($(1.958,2.647)+(-0.13,-0.17)$);
+  \draw[thick,accent] ($(3.131,0)+(-0.13,0.17)$) -- (3.131,0) -- ($(3.131,0)+(-0.13,-0.17)$);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \node[above right=1pt] at (F) {$F$};
+  \slab{A}{D}{$AD=2$ cm}
+  \slab{E}{A}{$AE=3$ cm}
+  \node[below left=3pt] at (F) {$AF=5$ cm};
+\end{tikzpicture}\end{center}
+
+\begin{theorem}[Converse of BPT]
+If a line divides any two sides of a triangle in the same ratio, then the line is parallel to the third side.
+\end{theorem}
+
+\textbf{Why it works.} In $\tr ABC$, let $\dfrac{AD}{DB}=\dfrac{AE}{EC}$. Suppose $DE$ is \emph{not} parallel to $BC$. Draw $DE'\parallel BC$, with $E'$ on $AC$.
+
+\begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+  \coordinate (A) at (1.845,4.431);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (5.890,0);
+  \coordinate (D) at (1.107,2.659);
+  \coordinate (E) at (3.948,2.127);
+  \coordinate (F) at (3.463,2.659);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,accent] (D) -- (E);
+  \draw[dashed,accent] (D) -- (F);
+  \draw[thick,accent] ($(3.463,2.659)+(-0.13,0.17)$) -- (3.463,2.659) -- ($(3.463,2.659)+(-0.13,-0.17)$);
+  \draw[thick,accent] ($(2.945,0)+(-0.13,0.17)$) -- (2.945,0) -- ($(2.945,0)+(-0.13,-0.17)$);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[anchor=east] at (0.904,2.744) {$D$};
+  \node[anchor=west] at (4.111,2.275) {$E$};
+  \node[above right=1pt] at (F) {$E'$};
+\end{tikzpicture}\end{center}
+
+By BPT, $\dfrac{AD}{DB}=\dfrac{AE'}{E'C}$. So $\dfrac{AE}{EC}=\dfrac{AE'}{E'C}$. Adding $1$ to each side gives $\dfrac{AC}{EC}=\dfrac{AC}{E'C}$. So $EC=E'C$, and $E$ and $E'$ are the same point. Therefore $DE$ is the line $DE'$, and $DE\parallel BC$.
+
+\facilitatornote{This argument uses BPT; it does not assume the result. Students often ``prove'' the converse by quoting BPT directly. Ask them which statement is given and which is to be shown.}
+
+\begin{example}
+In $\tr PQR$, $S$ is on $PQ$ and $T$ is on $PR$. $PS=3$ cm, $SQ=6$ cm, $PT=4$ cm and $TR=8$ cm. Is $ST\parallel QR$? Give a reason.
+
+\exfig{
+  \coordinate (P) at (2.151,4.953);
+  \coordinate (Q) at (0,0);
+  \coordinate (R) at (7.376,0);
+  \coordinate (S) at (1.434,3.302);
+  \coordinate (T) at (3.892,3.302);
+  \draw[thick,accent] (P) -- (Q) -- (R) -- cycle;
+  \draw[thick,accent] (S) -- (T);
+  \node[above] at (P) {$P$};
+  \node[below left] at (Q) {$Q$};
+  \node[below right] at (R) {$R$};
+  \node[left=2pt] at (S) {$S$};
+  \node[above right=1pt] at (T) {$T$};
+  \slab{P}{S}{$PS=3$ cm}
+  \slab{S}{Q}{$SQ=6$ cm}
+  \slab{T}{P}{$PT=4$ cm}
+  \slab{R}{T}{$TR=8$ cm}
+}
+
+\textbf{Given:} $PS=3$ cm, $SQ=6$ cm, $PT=4$ cm, $TR=8$ cm.\\
+\textbf{To find:} whether $ST\parallel QR$.
+
+\textbf{Solution.}
+\[
+\dfrac{PS}{SQ}=\dfrac36=\dfrac12,\qquad \dfrac{PT}{TR}=\dfrac48=\dfrac12.
+\]
+The two ratios are equal. So $ST\parallel QR$ (converse of BPT).
+
+\textbf{Answer:} Yes, $ST\parallel QR$.
+\end{example}
+
+\begin{example}
+In $\tr PQR$, $S$ is on $PQ$ and $T$ is on $PR$. $PS=3$ cm, $SQ=6$ cm, $PT=5$ cm and $TR=8$ cm. Is $ST\parallel QR$?
+
+\textbf{Given:} $PS=3$ cm, $SQ=6$ cm, $PT=5$ cm, $TR=8$ cm.\\
+\textbf{To find:} whether $ST\parallel QR$.
+
+\textbf{Solution.}
+\[
+\dfrac{PS}{SQ}=\dfrac12,\qquad \dfrac{PT}{TR}=\dfrac58.
+\]
+The ratios are not equal. If $ST$ were parallel to $QR$, BPT would make them equal. So $ST$ is not parallel to $QR$.
+
+\textbf{Answer:} No.
+\end{example}
+
+\begin{example}
+In $\tr PQR$, $S$ is on $PQ$ and $T$ is on $PR$, with $\dfrac{PS}{SQ}=\dfrac{PT}{TR}$ and $\angle PST=\angle PRQ$. Prove that $\tr PQR$ is isosceles.
+
+\exfig{
+  \coordinate (P) at (1.835,5.079);
+  \coordinate (Q) at (0,0);
+  \coordinate (R) at (6.938,0);
+  \coordinate (S) at (1.101,3.047);
+  \coordinate (T) at (3.876,3.047);
+  \draw[thick,accent] (P) -- (Q) -- (R) -- cycle;
+  \draw[thick,accent] (S) -- (T);
+  \pic[draw,angle radius=7pt] {angle=T--S--P};
+  \pic[draw,angle radius=7pt] {angle=P--R--Q};
+  \node[above] at (P) {$P$};
+  \node[below left] at (Q) {$Q$};
+  \node[below right] at (R) {$R$};
+  \node[anchor=east] at (0.894,3.122) {$S$};
+  \node[anchor=west] at (4.031,3.203) {$T$};
+}
+
+\textbf{Given:} $\dfrac{PS}{SQ}=\dfrac{PT}{TR}$ and $\angle PST=\angle PRQ$.\\
+\textbf{To prove:} $\tr PQR$ is isosceles.
+
+\textbf{Proof.}
+\[
+\begin{aligned}
+&ST\parallel QR &&\text{(converse of BPT)}\\
+&\angle PST=\angle PQR &&\text{(corresponding angles, $ST\parallel QR$)}\\
+&\angle PST=\angle PRQ &&\text{(given)}\\
+&\angle PQR=\angle PRQ &&\text{(both equal $\angle PST$)}\\
+&PR=PQ &&\text{(sides opposite equal angles)}
+\end{aligned}
+\]
+So $\tr PQR$ is isosceles. \hfill$\square$
+\end{example}
+
+\begin{exercise}{2C}
+  \item In $\tr ABC$, $D$ is on $AB$ and $E$ is on $AC$. Decide whether $DE\parallel BC$ in each case. Give a reason.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item $AD=4$ cm, $DB=6$ cm, $AE=6$ cm, $EC=9$ cm.
+    \item $AD=5$ cm, $DB=7$ cm, $AE=6$ cm, $EC=9$ cm.
+  \end{enumerate}
+  \item In $\tr ABC$, $D$ is on $AB$ and $E$ is on $AC$. $AB=12$ cm, $AD=4$ cm, $AC=18$ cm and $AE=6$ cm. Draw a rough figure and mark the given lengths. Is $DE\parallel BC$? Give a reason.
+  \item In $\tr ABC$, $D$ is on $AB$ and $E$ is on $AC$. $AD=6$ cm, $DB=9$ cm and $AE=8$ cm. Find the length $EC$ must have for $DE$ to be parallel to $BC$.
+  \item $D$ and $E$ are the midpoints of the sides $AB$ and $AC$ of $\tr ABC$. Use the converse of BPT to explain why $DE\parallel BC$.
+  \item In $\tr ABC$, $D$ is on $AB$ and $E$ is on $AC$, with $AD=4$ cm, $AE=6$ cm, $DB=8$ cm and $EC=12$ cm. Sohan finds $\dfrac{AD}{AE}=\dfrac{DB}{EC}=\dfrac23$. He says, ``This is not the ratio in the converse of BPT, so I cannot decide whether $DE\parallel BC$.'' Is he right? Explain.
+  \item In $\tr LMN$, $X$ is on $LM$ and $Y$ is on $LN$. $LX=3$ cm, $XM=5$ cm, $LY=6$ cm and $YN=10$ cm. Leela says $XY\parallel MN$. Is she right? Explain.
+  \item Draw a triangle $ABC$ with $AB=6$ cm and $AC=9$ cm. Mark $D$ on $AB$ with $AD=2$ cm. Calculate where $E$ must be on $AC$ so that $DE\parallel BC$. Mark $E$, join $DE$, and check with a set square.
+  \item A carpenter fixes a crossbar $DE$ on a triangular wooden frame $ABC$, with $D$ on $AB$ and $E$ on $AC$. $AD=25$ cm, $DB=50$ cm, $AE=30$ cm and $EC=60$ cm. Will the crossbar be parallel to the base $BC$? Explain.
+  \Needspace{16\baselineskip}\item The diagonals of a quadrilateral $ABCD$ meet at $O$, and $\dfrac{AO}{BO}=\dfrac{CO}{DO}$. Prove that $ABCD$ is a trapezium. (Hint: draw $OE\parallel AB$, with $E$ on $AD$.)
+  \begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+  \coordinate (A) at (1,4.5);
+  \coordinate (B) at (6,4.5);
+  \coordinate (C) at (9,0);
+  \coordinate (D) at (0,0);
+  \coordinate (O) at (3.857,2.893);
+  \coordinate (E) at (0.643,2.893);
+  \draw[thick,accent] (A) -- (B) -- (C) -- (D) -- cycle;
+  \draw[thin,accent] (A) -- (C);
+  \draw[thin,accent] (B) -- (D);
+  \draw[dashed,accent] (O) -- (E);
+  \draw[thick,accent] ($(3.5,4.5)+(-0.13,0.17)$) -- (3.5,4.5) -- ($(3.5,4.5)+(-0.13,-0.17)$);
+  \draw[thick,accent] ($(4.5,0)+(-0.13,0.17)$) -- (4.5,0) -- ($(4.5,0)+(-0.13,-0.17)$);
+  \node[above] at (A) {$A$};
+  \node[above] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[below left] at (D) {$D$};
+  \node[anchor=west] at (4.060,2.960) {$O$};
+  \node[anchor=east] at (0.420,3.020) {$E$};
+\end{tikzpicture}\end{center}
+\end{exercise}
+
+\begin{answerblock}
+\ans{1.} (a) $\dfrac46=\dfrac23$ and $\dfrac69=\dfrac23$; equal, so $DE\parallel BC$ (converse of BPT). (b) $\dfrac57\neq\dfrac69$; so $DE$ is not parallel to $BC$.
+% C1
+\ansfig{
+  \coordinate (A) at (0.914,2.647);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (4.176,0);
+  \coordinate (D) at (0.549,1.588);
+  \coordinate (E) at (2.219,1.588);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[anchor=east] at (0.360,1.653) {$D$};
+  \node[anchor=west] at (2.345,1.743) {$E$};
+  \begin{scope}[shift={(1.2,0)}]
+  \coordinate (P) at (6.672,3.020);
+  \coordinate (Q) at (5.200,0);
+  \coordinate (R) at (9.590,0);
+  \coordinate (S) at (6.059,1.762);
+  \coordinate (T) at (7.839,1.812);
+  \draw (P) -- (Q) -- (R) -- cycle;
+  \draw (S) -- (T);
+  \node[above] at (P) {$A$};
+  \node[below left] at (Q) {$B$};
+  \node[below right] at (R) {$C$};
+  \node[anchor=east] at (5.879,1.850) {$D$};
+  \node[anchor=west] at (7.983,1.951) {$E$};
+  \node at (7.40,-0.62) {(b)};
+  \end{scope}
+  \node at (2.10,-0.62) {(a)};
+}
+\ans{2.} $DB=12-4=8$ cm and $EC=18-6=12$ cm. $\dfrac{AD}{DB}=\dfrac48=\dfrac12$ and $\dfrac{AE}{EC}=\dfrac6{12}=\dfrac12$. Equal, so $DE\parallel BC$ (converse of BPT).
+% C2
+\ansfig{
+  \coordinate (A) at (1.567,4.537);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (7.158,0);
+  \coordinate (D) at (1.045,3.025);
+  \coordinate (E) at (3.431,3.025);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \slab[0.5]{A}{D}{$4$}
+  \slab[0.5]{D}{B}{$8$}
+  \slab[0.5]{E}{A}{$6$}
+  \slab[0.5]{C}{E}{$12$}
+}
+\ans{3.} For $DE\parallel BC$ we need $\dfrac{AD}{DB}=\dfrac{AE}{EC}$, so $\dfrac69=\dfrac{8}{EC}$ and $EC=12$ cm.
+% C3
+\ansfig{
+  \coordinate (A) at (2.091,4.816);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (7.171,0);
+  \coordinate (D) at (1.254,2.889);
+  \coordinate (E) at (4.123,2.889);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \slab[0.5]{A}{D}{$AD=6$}
+  \slab[0.5]{D}{B}{$DB=9$}
+  \slab[0.5]{E}{A}{$AE=8$}
+  \slab[0.5]{C}{E}{$EC=?$}
+}
+\ans{4.} $AD=DB$ and $AE=EC$, so $\dfrac{AD}{DB}=1=\dfrac{AE}{EC}$. By the converse of BPT, $DE\parallel BC$.
+% C4
+\ansfig{
+  \coordinate (A) at (1.538,3.693);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (4.909,0);
+  \coordinate (D) at (0.769,1.846);
+  \coordinate (E) at (3.223,1.846);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[anchor=east] at (0.566,1.931) {$D$};
+  \node[anchor=west] at (3.386,1.995) {$E$};
+  \draw (1.033,2.819) -- (1.274,2.720);
+  \draw (0.264,0.973) -- (0.505,0.873);
+  \draw (2.396,2.946) -- (2.204,2.771);
+  \draw (2.557,2.768) -- (2.365,2.593);
+  \draw (4.081,1.099) -- (3.889,0.924);
+  \draw (4.243,0.922) -- (4.051,0.747);
+}
+\ans{5.} No. From $\dfrac{AD}{AE}=\dfrac{DB}{EC}$, cross-multiplying gives $AD\times EC=AE\times DB$, which is the same as $\dfrac{AD}{DB}=\dfrac{AE}{EC}$. Here $\dfrac48=\dfrac6{12}=\dfrac12$, so $DE\parallel BC$.
+% C5
+\ansfig{
+  \coordinate (A) at (1.567,4.537);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (7.158,0);
+  \coordinate (D) at (1.045,3.025);
+  \coordinate (E) at (3.431,3.025);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \slab[0.5]{A}{D}{$AD=4$}
+  \slab[0.5]{D}{B}{$DB=8$}
+  \slab[0.5]{E}{A}{$AE=6$}
+  \slab[0.5]{C}{E}{$EC=12$}
+}
+\ans{6.} Yes. $\dfrac{LX}{XM}=\dfrac35$ and $\dfrac{LY}{YN}=\dfrac6{10}=\dfrac35$. Equal, so $XY\parallel MN$ (converse of BPT).
+% C6
+\ansfig{
+  \coordinate (L) at (0.872,3.493);
+  \coordinate (M) at (0,0);
+  \coordinate (N) at (7.168,0);
+  \coordinate (X) at (0.545,2.183);
+  \coordinate (Y) at (3.233,2.183);
+  \draw (L) -- (M) -- (N) -- cycle;
+  \draw (X) -- (Y);
+  \node[above] at (L) {$L$};
+  \node[below left] at (M) {$M$};
+  \node[below right] at (N) {$N$};
+  \node[left=2pt] at (X) {$X$};
+  \node[above right=1pt] at (Y) {$Y$};
+  \slab[0.5]{L}{X}{$LX=3$ cm}
+  \slab[0.5]{X}{M}{$XM=5$ cm}
+  \slab[0.5]{Y}{L}{$LY=6$ cm}
+  \slab[0.5]{N}{Y}{$YN=10$ cm}
+}
+\ans{7.} $\dfrac{AD}{AB}=\dfrac{AE}{AC}$ gives $\dfrac26=\dfrac{AE}9$, so $AE=3$ cm. Mark $E$ at $3$ cm from $A$.
+% C7
+\ansfig{
+  \coordinate (A) at (1.078,3.119);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (4.921,0);
+  \coordinate (D) at (0.718,2.079);
+  \coordinate (E) at (2.359,2.079);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \slab[0.4]{A}{D}{$AD=2$}
+  \slab[0.6]{D}{B}{$DB=4$}
+  \slab[0.6]{E}{A}{$AE=3$}
+  \slab[0.5]{C}{E}{$EC=6$}
+}
+\ans{8.} Yes. $\dfrac{AD}{DB}=\dfrac{25}{50}=\dfrac12$ and $\dfrac{AE}{EC}=\dfrac{30}{60}=\dfrac12$. By the converse of BPT, $DE\parallel BC$.
+% C8
+\ansfig{
+  \coordinate (A) at (2.433,4.652);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (6.680,0);
+  \coordinate (D) at (1.622,3.102);
+  \coordinate (E) at (3.848,3.102);
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left=2pt] at (D) {$D$};
+  \node[above right=1pt] at (E) {$E$};
+  \slab[0.5]{A}{D}{$25$ cm}
+  \slab[0.5]{D}{B}{$50$ cm}
+  \slab[0.5]{E}{A}{$30$ cm}
+  \slab[0.5]{C}{E}{$60$ cm}
+}
+\ans{9.} Draw $OE\parallel AB$, with $E$ on $AD$. In $\tr ABD$, $OE\parallel AB$, so $\dfrac{AE}{ED}=\dfrac{BO}{OD}$ (BPT). The given ratio $\dfrac{AO}{BO}=\dfrac{CO}{DO}$ gives $\dfrac{AO}{OC}=\dfrac{BO}{OD}$. So $\dfrac{AE}{ED}=\dfrac{AO}{OC}$. In $\tr ADC$, this means $EO\parallel DC$ (converse of BPT). Now $AB\parallel EO$ and $EO\parallel DC$, so $AB\parallel DC$, and $ABCD$ is a trapezium.
+% C9
+\ansfig{
+  \coordinate (A) at (1,4.5);
+  \coordinate (B) at (6,4.5);
+  \coordinate (C) at (9,0);
+  \coordinate (D) at (0,0);
+  \coordinate (O) at (3.857,2.893);
+  \coordinate (E) at (0.643,2.893);
+  \draw (A) -- (B) -- (C) -- (D) -- cycle;
+  \draw (A) -- (C);
+  \draw (B) -- (D);
+  \draw (O) -- (E);
+  \node[above] at (A) {$A$};
+  \node[above] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[below left] at (D) {$D$};
+  \node[anchor=west] at (4.060,2.960) {$O$};
+  \node[anchor=east] at (0.420,3.020) {$E$};
+}
+\end{answerblock}

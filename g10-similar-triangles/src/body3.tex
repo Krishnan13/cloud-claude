@@ -1,0 +1,620 @@
+\section{Choosing the criterion}
+
+\begin{center}
+\begin{tabular}{@{}p{2.0cm}>{\raggedright\arraybackslash}p{6.0cm}>{\raggedright\arraybackslash}p{6.2cm}@{}}
+\textbf{Criterion} & \textbf{What must be known} & \textbf{Watch for}\\[2pt]
+\hline
+AA  & two pairs of equal angles & parallel lines, vertically opposite angles, a common angle, right angles\\
+SSS & three pairs of sides in one ratio & sort the sides by length before pairing\\
+SAS & two pairs of sides in one ratio, and the angles \emph{between} them equal & the angle must be included
+\end{tabular}
+\end{center}
+
+A proof of similarity is written in four steps.
+\begin{enumerate}[leftmargin=1.8em,itemsep=2pt]
+  \item Name the two triangles.
+  \item List only the facts the criterion needs, with a reason for each.
+  \item Name the criterion and write the similarity statement in matching order.
+  \item Only then use the equal angles or the proportional sides.
+\end{enumerate}
+
+\begin{example}
+In $\tr ABC$, $DE\parallel BC$, with $D$ on $AB$ and $E$ on $AC$. $AD=4$ cm, $AB=12$ cm and $BC=15$ cm. Find $DE$.
+
+\exfig{%
+% F8.1
+\coordinate (A) at (2.4,4.157); \coordinate (B) at (0,0); \coordinate (C) at (6,0);
+\coordinate (D) at ($(A)!0.3333!(B)$); \coordinate (E) at ($(A)!0.3333!(C)$);
+\draw[thick,accent] (A)--(B)--(C)--cycle;
+\draw[thick,accent] (D)--(E);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[left=2pt] at (D) {$D$};
+\node[above right=1pt] at (E) {$E$};
+\slab{A}{D}{$4$ cm}
+\dimlab{A}{B}{1.25cm}{$12$ cm}
+\slab{B}{C}{$15$ cm}
+\node[above] at ($(D)!0.5!(E)$) {$?$};
+}
+
+\textbf{Given:} $DE\parallel BC$, $AD=4$ cm, $AB=12$ cm, $BC=15$ cm.\\
+\textbf{To find:} $DE$.
+
+\textbf{Solution.} BPT compares only the pieces of $AB$ and $AC$. For $DE$ we need similar triangles.
+\[
+\begin{aligned}
+\angle ADE&=\angle ABC &&\text{(corresponding angles, $DE\parallel BC$)}\\
+\angle DAE&=\angle BAC &&\text{(common angle)}
+\end{aligned}
+\]
+So $\tr ADE\sim\tr ABC$ (AA). Therefore
+\[
+\dfrac{DE}{BC}=\dfrac{AD}{AB},\qquad \dfrac{DE}{15}=\dfrac4{12},\qquad DE=5.
+\]
+
+\textbf{Answer:} $DE=5$ cm.
+\end{example}
+
+\facilitatornote{The ratio for $DE$ uses the whole side $AB$, not $DB$. Students who write $\dfrac{DE}{BC}=\dfrac{AD}{DB}$ should name the two similar triangles and read the corresponding sides from them.}
+
+\begin{exercise}{2G}
+  \item[] \hspace*{-\leftmargin}\parbox[t]{\textwidth}{For each case, name the criterion that proves the two triangles similar, or write ``not enough information''. Give a reason.}
+  \item $\angle A=\angle P$ and $\angle B=\angle Q$.
+  \item The sides are $4$, $6$, $8$ cm and $6$, $9$, $12$ cm.
+  \item $\dfrac{AB}{PQ}=\dfrac{AC}{PR}=\dfrac23$ and $\angle B=\angle Q$.
+  \item $\dfrac{AB}{PQ}=\dfrac{AC}{PR}=\dfrac57$ and $\angle A=\angle P$.
+  \item Only $\angle A=\angle P$ is known.
+  \item Both triangles are right-angled, and one acute angle of the first equals one acute angle of the second.
+  \item In $\tr ABC$, $DE\parallel BC$, with $D$ on $AB$ and $E$ on $AC$; the triangles are $\tr ADE$ and $\tr ABC$.
+  \item Both triangles are right-angled. The sides forming the right angle are $5$ cm and $12$ cm in one, and $10$ cm and $24$ cm in the other.
+  \item Two triangles have angles $48^\circ$, $62^\circ$, $70^\circ$ and $70^\circ$, $48^\circ$, $62^\circ$, but very different side lengths.
+\end{exercise}
+
+\begin{answerblock}
+\ans{1.} AA. \quad
+\ans{2.} SSS: each ratio is $\dfrac23$. \quad
+\ans{3.} Not enough information: $\angle B$ is not between $AB$ and $AC$. \quad
+\ans{4.} SAS: $\angle A$ is between $AB$ and $AC$. \quad
+\ans{5.} Not enough information: one angle fixes nothing about the shape. \quad
+\ans{6.} AA: the right angles and the acute angles. \quad
+\ans{7.} AA: $\angle ADE=\angle ABC$ (corresponding angles) and $\angle A$ is common. \quad
+\ans{8.} SAS: $\dfrac5{10}=\dfrac{12}{24}=\dfrac12$ and the included right angles are equal. \quad
+\ans{9.} AA: different sizes do not prevent similarity.
+\ansfig{%
+% G
+\coordinate (B1) at (0,0); \coordinate (C1) at (2.2,0); \coordinate (A1) at (1.2,1.7);
+\draw[thick] (A1)--(B1)--(C1)--cycle;
+\draw[thick] ($(A1)!0.5!(B1)+(0.07,-0.05)$)--($(A1)!0.5!(B1)+(-0.07,0.05)$);
+\draw[thick] ($(A1)!0.5!(C1)+(0.06,0.045)$)--($(A1)!0.5!(C1)+(-0.06,-0.045)$);
+\pic[draw,angle radius=11pt] {angle=C1--B1--A1};
+\node[above] at (A1) {$A$};
+\node[below left] at (B1) {$B$};
+\node[below right] at (C1) {$C$};
+\node at (1.1,-0.8) {(3)};
+\coordinate (B2) at (4.2,0); \coordinate (C2) at (6.4,0); \coordinate (A2) at (5.4,1.7);
+\draw[thick] (A2)--(B2)--(C2)--cycle;
+\draw[thick] ($(A2)!0.5!(B2)+(0.07,-0.05)$)--($(A2)!0.5!(B2)+(-0.07,0.05)$);
+\draw[thick] ($(A2)!0.5!(C2)+(0.06,0.045)$)--($(A2)!0.5!(C2)+(-0.06,-0.045)$);
+\pic[draw,angle radius=11pt] {angle=B2--A2--C2};
+\node[above] at (A2) {$A$};
+\node[below left] at (B2) {$B$};
+\node[below right] at (C2) {$C$};
+\node at (5.3,-0.8) {(4)};
+\begin{scope}[shift={(0.7,0)}]
+\coordinate (P1) at (7.6,0); \coordinate (X1) at (8.8,0); \coordinate (Y1) at (7.6,0.5);
+\draw[thick] (P1)--(X1)--(Y1)--cycle;
+\ramark{P1}{X1}{Y1}
+\node[left] at (7.6,0.25) {$5$};
+\node[below] at (8.2,-0.05) {$12$};
+\coordinate (P2) at (9.9,0); \coordinate (X2) at (12.3,0); \coordinate (Y2) at (9.9,1.0);
+\draw[thick] (P2)--(X2)--(Y2)--cycle;
+\ramark{P2}{X2}{Y2}
+\node[left] at (9.9,0.5) {$10$};
+\node[below] at (11.1,-0.05) {$24$};
+\node at (9.95,-0.8) {(8)};
+\end{scope}
+}
+\end{answerblock}
+
+\section{Using similarity}
+
+\begin{example}
+At the same time of day, a boy $1.5$ m tall casts a shadow $2$ m long, and a temple tower casts a shadow $36$ m long. Find the height of the tower.
+
+\begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+% F9.1
+\coordinate (B) at (0,0); \coordinate (A) at (0,1.2); \coordinate (C) at (1.6,0);
+\coordinate (Q) at (3.6,0); \coordinate (P) at (3.6,3.6); \coordinate (R) at (8.4,0);
+\draw[thick,accent] (A)--(B)--(C)--cycle;
+\draw[thick,accent] (P)--(Q)--(R)--cycle;
+\ramark{B}{A}{C}
+\ramark{Q}{P}{R}
+\pic[draw,angle radius=9pt] {angle=A--C--B};
+\pic[draw,angle radius=9pt] {angle=P--R--Q};
+\node[above left] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[above left] at (P) {$P$};
+\node[below left] at (Q) {$Q$};
+\node[below right] at (R) {$R$};
+\node[left] at ($(A)!0.5!(B)$) {$1.5$ m};
+\node[below] at ($(B)!0.5!(C)$) {$2$ m};
+\node[left] at ($(P)!0.5!(Q)$) {$?$};
+\node[below] at ($(Q)!0.5!(R)$) {$36$ m};
+\end{tikzpicture}\end{center}
+
+\textbf{Given:} boy $AB=1.5$ m, his shadow $BC=2$ m; tower shadow $QR=36$ m.\\
+\textbf{To find:} the height $PQ$ of the tower.
+
+\textbf{Solution.}
+\[
+\begin{aligned}
+\angle ABC&=\angle PQR=90^\circ &&\text{(both stand vertically on level ground)}\\
+\angle ACB&=\angle PRQ &&\text{(the sun's rays make the same angle with the ground)}
+\end{aligned}
+\]
+So $\tr ABC\sim\tr PQR$ (AA). Therefore
+\[
+\dfrac{PQ}{AB}=\dfrac{QR}{BC},\qquad \dfrac{PQ}{1.5}=\dfrac{36}{2},\qquad PQ=1.5\times18=27.
+\]
+
+\textbf{Answer:} The tower is $27$ m high.
+\end{example}
+
+\begin{example}
+A girl $1.2$ m tall walks away from the base of a lamp post at $1$ m per second. The lamp is $4.8$ m above the ground. Find the length of her shadow after $3$ seconds.
+
+\begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+% F9.2
+\coordinate (B) at (0,0); \coordinate (A) at (0,4.8);
+\coordinate (D) at (3,0); \coordinate (C) at (3,1.2); \coordinate (E) at (4,0);
+\draw[thick,accent] (A)--(B);
+\draw[thick,accent] (B)--(E);
+\draw[thick,accent] (D)--(C);
+\draw[thick,accent] (A)--(E);
+\ramark{B}{A}{E}
+\ramark{D}{C}{E}
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[above right=1pt] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[below right] at (E) {$E$};
+\node[left] at ($(A)!0.5!(B)$) {$4.8$ m};
+\node[left] at ($(D)!0.5!(C)$) {$1.2$ m};
+\node[below] at ($(B)!0.5!(D)$) {$3$ m};
+\slab{D}{E}{$?$}
+\end{tikzpicture}\end{center}
+
+\textbf{Given:} $AB=4.8$ m, $CD=1.2$ m, $BD=1\times3=3$ m.\\
+\textbf{To find:} the shadow $DE$.
+
+\textbf{Solution.} Let $DE=s$ m.
+\[
+\begin{aligned}
+\angle EDC&=\angle EBA=90^\circ &&\text{(both vertical on level ground)}\\
+\angle DEC&=\angle BEA &&\text{(common angle at $E$)}
+\end{aligned}
+\]
+So $\tr EDC\sim\tr EBA$ (AA). Therefore
+\[
+\dfrac{DE}{BE}=\dfrac{CD}{AB},\qquad \dfrac{s}{s+3}=\dfrac{1.2}{4.8}=\dfrac14,\qquad 4s=s+3,\qquad s=1.
+\]
+
+\textbf{Answer:} Her shadow is $1$ m long.
+\end{example}
+
+\begin{example}
+$\tr ABC\sim\tr PQR$. $AD$ and $PM$ are medians of the two triangles. Prove that $\dfrac{AB}{PQ}=\dfrac{AD}{PM}$.
+
+\begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+% F9.3
+\coordinate (B) at (0,0); \coordinate (C) at (3.6,0); \coordinate (A) at (1.4,2.7);
+\coordinate (D) at ($(B)!0.5!(C)$);
+\coordinate (Q) at (5.4,0); \coordinate (R) at (10.44,0); \coordinate (P) at (7.36,3.78);
+\coordinate (M) at ($(Q)!0.5!(R)$);
+\draw[thick,accent] (A)--(B)--(C)--cycle;
+\draw[thick,accent] (P)--(Q)--(R)--cycle;
+\draw[thick,accent] (A)--(D);
+\draw[thick,accent] (P)--(M);
+\draw[thick,accent] ($(B)!0.5!(D)+(-0.035,0.10)$)--($(B)!0.5!(D)+(0.035,-0.10)$);
+\draw[thick,accent] ($(D)!0.5!(C)+(-0.035,0.10)$)--($(D)!0.5!(C)+(0.035,-0.10)$);
+\draw[thick,accent] ($(Q)!0.40!(M)+(-0.035,0.10)$)--($(Q)!0.40!(M)+(0.035,-0.10)$);
+\draw[thick,accent] ($(Q)!0.56!(M)+(-0.035,0.10)$)--($(Q)!0.56!(M)+(0.035,-0.10)$);
+\draw[thick,accent] ($(M)!0.44!(R)+(-0.035,0.10)$)--($(M)!0.44!(R)+(0.035,-0.10)$);
+\draw[thick,accent] ($(M)!0.60!(R)+(-0.035,0.10)$)--($(M)!0.60!(R)+(0.035,-0.10)$);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[above] at (P) {$P$};
+\node[below left] at (Q) {$Q$};
+\node[below right] at (R) {$R$};
+\node[below] at (M) {$M$};
+\end{tikzpicture}\end{center}
+
+\textbf{Given:} $\tr ABC\sim\tr PQR$; $D$ is the midpoint of $BC$ and $M$ is the midpoint of $QR$.\\
+\textbf{To prove:} $\dfrac{AB}{PQ}=\dfrac{AD}{PM}$.
+
+\textbf{Proof.}
+\[
+\begin{aligned}
+\dfrac{AB}{PQ}&=\dfrac{BC}{QR} &&\text{(corresponding sides, $\tr ABC\sim\tr PQR$)}\\
+&=\dfrac{2BD}{2QM}=\dfrac{BD}{QM} &&\text{($D$ and $M$ are midpoints)}\\
+\angle ABD&=\angle PQM &&\text{(corresponding angles, $\tr ABC\sim\tr PQR$)}
+\end{aligned}
+\]
+So $\tr ABD\sim\tr PQM$ (SAS). Therefore $\dfrac{AB}{PQ}=\dfrac{AD}{PM}$. \hfill$\square$
+\end{example}
+
+\begin{exercise}{2H}
+  \item In $\tr ABC$, $DE\parallel BC$, with $D$ on $AB$ and $E$ on $AC$. $AD=4$ cm, $DB=8$ cm and $BC=18$ cm. Divya writes $\dfrac{DE}{BC}=\dfrac{AD}{DB}=\dfrac12$, so $DE=9$ cm. Find her mistake and find the correct $DE$.
+  \item $ABCD$ is a trapezium with $AB\parallel DC$. Its diagonals meet at $O$. $AO=6$ cm, $OC=9$ cm, $BO=8$ cm and $AB=10$ cm. Draw a rough figure and mark the given lengths. Find $OD$ and $DC$.
+  \item A straight stick $2$ m long stands upright on the level school ground and casts a shadow $1.5$ m long. At the same time the flagpole casts a shadow $6$ m long.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find the height of the flagpole.
+    \item Later in the day the flagpole's shadow is $10$ m long. Find the length of the stick's shadow at that time.
+  \end{enumerate}
+  \item A man $1.8$ m tall stands $4$ m from the base of a street lamp $5.4$ m high. Draw a rough figure and mark the given lengths.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find the length of his shadow.
+    \item What if he moves $2$ m farther from the lamp? Find his new shadow.
+  \end{enumerate}
+  \Needspace{16\baselineskip}\item To find the height of a coconut tree, Arun lays a small mirror flat on level ground $12$ m from the foot of the tree. He stands $2$ m from the mirror, on the other side, and sees the top of the tree in the mirror. His eyes are $1.5$ m above the ground. The angle at which light falls on the mirror equals the angle at which it leaves the mirror. Find the height of the tree.
+  \begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+  % F9.4
+  \coordinate (T) at (0,0); \coordinate (U) at (0,3.6);
+  \coordinate (M) at (4.8,0); \coordinate (F) at (5.6,0); \coordinate (E) at (5.6,0.6);
+  \draw[thick,accent] (T)--(F);
+  \draw[thick,accent] (T)--(U);
+  \draw[thick,accent] (F)--(E);
+  \draw[thick,accent] (U)--(M)--(E);
+  \ramark{T}{U}{M}
+  \ramark{F}{E}{M}
+  \pic[draw,angle radius=7pt] {angle=U--M--T};
+  \pic[draw,angle radius=8pt] {angle=F--M--E};
+  \node[above] at (U) {$T'$};
+  \node[below left] at (T) {$T$};
+  \node[below left] at (M) {$M$};
+  \node[below right] at (F) {$F$};
+  \node[above right] at (E) {$E$};
+  \node[above] at (2.4,0.06) {$12$ m};
+  \node[below] at (5.25,-0.45) {$2$ m};
+  \node[right] at (5.72,0.3) {$1.5$ m};
+  \node[left] at ($(T)!0.6!(U)$) {$?$};
+  \end{tikzpicture}\end{center}
+  \item $\tr ABC\sim\tr PQR$, with $AB=12$ cm and $PQ=8$ cm. The median $AD$ of $\tr ABC$ is $9$ cm. Find the median $PM$ of $\tr PQR$.
+  \item $\tr ABC\sim\tr PQR$. $AD$ and $PM$ are the altitudes of the two triangles, with $D$ on $BC$ and $M$ on $QR$. Prove that $\dfrac{AB}{PQ}=\dfrac{AD}{PM}$.
+  \Needspace{16\baselineskip}\item In the isosceles triangle $ABC$, $AB=AC$. $E$ is a point on $CB$ produced beyond $B$. $AD\perp BC$, with $D$ on $BC$, and $EF\perp AC$, with $F$ on $AC$. Prove that $\tr ABD\sim\tr ECF$.
+  \begin{center}\begin{tikzpicture}[scale=0.6, every node/.style={font=\small}]
+  % F9.5
+  \coordinate (B) at (-2,0); \coordinate (C) at (2,0); \coordinate (A) at (0,6);
+  \coordinate (E) at (-4,0); \coordinate (D) at (0,0); \coordinate (F) at (1.4,1.8);
+  \draw[thick,accent] (E)--(C);
+  \draw[thick,accent] (A)--(B);
+  \draw[thick,accent] (A)--(C);
+  \draw[thick,accent,dashed] (A)--(D);
+  \draw[thick,accent] (E)--(F);
+  \ramark{D}{A}{C}
+  \ramark{F}{E}{C}
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[below left] at (E) {$E$};
+  \node[below left] at (D) {$D$};
+  \node[above right] at (F) {$F$};
+  \end{tikzpicture}\end{center}
+  \item In Question 2, what if $AB$ were equal to $DC$? What kind of quadrilateral would $ABCD$ be, and how would $AO$ compare with $OC$?
+\end{exercise}
+
+\begin{answerblock}
+\ans{1.} $DE$ belongs to $\tr ADE$, which is similar to $\tr ABC$ (AA). Its partner in $\tr ABC$ is the whole side $AB$, not $DB$. So $\dfrac{DE}{BC}=\dfrac{AD}{AB}=\dfrac4{12}=\dfrac13$, and $DE=6$ cm.
+\ansfig{%
+% H1
+\coordinate (B) at (0,0); \coordinate (C) at (5.4,0); \coordinate (A) at (1.8,3.118);
+\coordinate (D) at ($(A)!0.3333!(B)$); \coordinate (E) at ($(A)!0.3333!(C)$);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (D)--(E);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[left=2pt] at (D) {$D$};
+\node[above right=1pt] at (E) {$E$};
+\slab{A}{D}{$4$}
+\slab{D}{B}{$8$}
+\slab{B}{C}{$18$}
+\node[above] at ($(D)!0.5!(E)$) {$?$};
+}
+\ans{2.} $\angle OAB=\angle OCD$ (alternate angles, $AB\parallel DC$) and $\angle AOB=\angle COD$ (vertically opposite). So $\tr AOB\sim\tr COD$ (AA). Then $\dfrac{AO}{CO}=\dfrac{BO}{DO}=\dfrac{AB}{CD}$: $\dfrac69=\dfrac8{OD}=\dfrac{10}{DC}$. So $OD=12$ cm and $DC=15$ cm.
+\ansfig{%
+% H2
+\begin{scope}[scale=1.3]
+\coordinate (A) at (-1.5,0.9); \coordinate (B) at (1.5,0.9);
+\coordinate (C) at (2.25,-1.35); \coordinate (D) at (-2.25,-1.35);
+\coordinate (O) at (0,0);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[thick] (A)--(C);
+\draw[thick] (B)--(D);
+\node[above left] at (A) {$A$};
+\node[above right] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[above=3pt] at (O) {$O$};
+\slab{B}{A}{$10$}
+\slab{D}{C}{$?$}
+\slab{A}{O}{$6$}
+\slab{C}{O}{$9$}
+\slab{O}{B}{$8$}
+\slab{O}{D}{$?$}
+\end{scope}
+}
+\ans{3.} (a) Stick and flagpole make similar right triangles with their shadows (AA). $\dfrac{h}{6}=\dfrac{2}{1.5}$, so $h=8$ m. \quad (b) Height to shadow is now $8:10$ for the flagpole, so for the stick $2:s$ with $\dfrac{2}{s}=\dfrac{8}{10}$; $s=2.5$ m.
+\ansfig{%
+% H3
+\begin{scope}[scale=1.3]
+\coordinate (A) at (0,1.4); \coordinate (B) at (0,0); \coordinate (C) at (1.05,0);
+\coordinate (P) at (3.2,5.6); \coordinate (Q) at (3.2,0); \coordinate (R) at (7.4,0);
+\draw[thick] (A)--(B)--(C);
+\draw[thick] (A)--(C);
+\draw[thick] (P)--(Q)--(R);
+\draw[thick] (P)--(R);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[above] at (P) {$P$};
+\node[below left] at (Q) {$Q$};
+\node[below right] at (R) {$R$};
+\node[left] at (0,0.7) {$2$ m};
+\slab{B}{C}{$1.5$ m}
+\node[left] at (3.2,2.8) {$?$};
+\slab{Q}{R}{$6$ m}
+\end{scope}
+}
+\ans{4.} (a) Let the shadow be $s$ m. Similar triangles (AA) give $\dfrac{s}{s+4}=\dfrac{1.8}{5.4}=\dfrac13$, so $3s=s+4$ and $s=2$ m. \quad (b) $\dfrac{s}{s+6}=\dfrac13$, so $s=3$ m. The shadow becomes longer.
+\ansfig{%
+% H4
+\begin{scope}[scale=1.3]
+\coordinate (B) at (0,0); \coordinate (A) at (0,3.24);
+\coordinate (D) at (2.4,0); \coordinate (C) at (2.4,1.08); \coordinate (E) at (3.6,0);
+\draw[thick] (A)--(B)--(E);
+\draw[thick] (D)--(C);
+\draw[thick] (A)--(E);
+\ramark{B}{A}{E}
+\ramark{D}{C}{E}
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[above right=1pt] at (C) {$C$};
+\node[below=2pt] at (D) {$D$};
+\node[below right] at (E) {$E$};
+\node[left] at (-0.10,1.620) {$5.4$ m};
+\node[left] at (2.25,0.540) {$1.8$ m};
+\slab[0.45]{B}{D}{$4$ m}
+\slab[0.6]{D}{E}{$?$}
+\end{scope}
+}
+\ans{5.} $\angle T=\angle F=90^\circ$ and $\angle T'MT=\angle EMF$ (equal angles at the mirror). So $\tr T'TM\sim\tr EFM$ (AA). $\dfrac{TT'}{FE}=\dfrac{TM}{FM}$, so $\dfrac{TT'}{1.5}=\dfrac{12}{2}$ and $TT'=9$ m.
+\ansfig{%
+% H5
+\coordinate (T) at (0,0); \coordinate (U) at (0,3.6);
+\coordinate (M) at (4.8,0); \coordinate (F) at (5.6,0); \coordinate (E) at (5.6,0.6);
+\draw[thick] (T)--(F);
+\draw[thick] (T)--(U);
+\draw[thick] (F)--(E);
+\draw[thick] (U)--(M)--(E);
+\ramark{T}{U}{M}
+\ramark{F}{E}{M}
+\pic[draw,angle radius=8pt] {angle=U--M--T};
+\pic[draw,angle radius=9pt] {angle=F--M--E};
+\node[above] at (U) {$T'$};
+\node[below left] at (T) {$T$};
+\node[below left] at (M) {$M$};
+\node[below right] at (F) {$F$};
+\node[above right] at (E) {$E$};
+\node[above] at (2.4,0.06) {$12$ m};
+\node[below] at (5.25,-0.45) {$2$ m};
+\node[right] at (5.72,0.3) {$1.5$ m};
+\node[left] at ($(T)!0.6!(U)$) {$?$};
+}
+\ans{6.} By the result for medians, $\dfrac{AB}{PQ}=\dfrac{AD}{PM}$. So $\dfrac{12}{8}=\dfrac9{PM}$ and $PM=6$ cm.
+\ansfig{%
+% H6
+\coordinate (B) at (0,0); \coordinate (C) at (4.2,0); \coordinate (A) at (1.8,3);
+\coordinate (D) at ($(B)!0.5!(C)$);
+\coordinate (Q) at (6.7,0); \coordinate (R) at (9.5,0); \coordinate (P) at (7.9,2);
+\coordinate (M) at ($(Q)!0.5!(R)$);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (P)--(Q)--(R)--cycle;
+\draw[thick] (A)--(D);
+\draw[thick] (P)--(M);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[above] at (P) {$P$};
+\node[below left] at (Q) {$Q$};
+\node[below right] at (R) {$R$};
+\node[below] at (M) {$M$};
+\slab{A}{B}{$12$}
+\slab{D}{A}{$9$}
+\slab{P}{Q}{$8$}
+\slab{M}{P}{$?$}
+}
+\ans{7.} $\angle ABD=\angle PQM$ (corresponding angles of similar triangles) and $\angle ADB=\angle PMQ=90^\circ$. So $\tr ABD\sim\tr PQM$ (AA), and $\dfrac{AB}{PQ}=\dfrac{AD}{PM}$.
+\ansfig{%
+% H7
+\coordinate (B) at (0,0); \coordinate (C) at (4.2,0); \coordinate (A) at (1.8,3);
+\coordinate (D) at (1.8,0);
+\coordinate (Q) at (6.2,0); \coordinate (R) at (9,0); \coordinate (P) at (7.4,2);
+\coordinate (M) at (7.4,0);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (P)--(Q)--(R)--cycle;
+\draw[thick,dashed] (A)--(D);
+\draw[thick,dashed] (P)--(M);
+\ramark{D}{A}{C}
+\ramark{M}{P}{R}
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[above] at (P) {$P$};
+\node[below left] at (Q) {$Q$};
+\node[below right] at (R) {$R$};
+\node[below left] at (M) {$M$};
+}
+\ans{8.} $\angle ABD=\angle ACB$ (angles opposite equal sides $AB=AC$), and $\angle ACB=\angle ECF$ (the same angle, since $E$ lies on line $CB$). So $\angle ABD=\angle ECF$. Also $\angle ADB=\angle EFC=90^\circ$. Hence $\tr ABD\sim\tr ECF$ (AA).
+\ansfig{%
+% H8
+\coordinate (B) at (-2,0); \coordinate (C) at (2,0); \coordinate (A) at (0,6);
+\coordinate (E) at (-4,0); \coordinate (D) at (0,0); \coordinate (F) at (1.4,1.8);
+\draw[thick] (E)--(C);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(C);
+\draw[thick,dashed] (A)--(D);
+\draw[thick] (E)--(F);
+\ramark{D}{A}{C}
+\ramark{F}{E}{C}
+\pic[draw,angle radius=11pt] {angle=D--B--A};
+\pic[draw,angle radius=11pt] {angle=A--C--E};
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (E) {$E$};
+\node[below left] at (D) {$D$};
+\node[above right] at (F) {$F$};
+}
+\ans{9.} If $AB=DC$ and $AB\parallel DC$, then $ABCD$ is a parallelogram. The scale factor $\dfrac{AB}{CD}$ is $1$, so $AO=OC$: the diagonals bisect each other.
+\ansfig{%
+% H9
+\coordinate (A) at (0,0); \coordinate (B) at (3.6,0);
+\coordinate (C) at (5.0,2.2); \coordinate (D) at (1.4,2.2);
+\coordinate (O) at ($(A)!0.5!(C)$);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[thick] (A)--(C);
+\draw[thick] (B)--(D);
+\draw[thick] ($(A)!0.5!(O)+(-0.05,0.11)$)--($(A)!0.5!(O)+(0.05,-0.11)$);
+\draw[thick] ($(O)!0.5!(C)+(-0.05,0.11)$)--($(O)!0.5!(C)+(0.05,-0.11)$);
+\node[below left] at (A) {$A$};
+\node[below right] at (B) {$B$};
+\node[above right] at (C) {$C$};
+\node[above left] at (D) {$D$};
+\node[below=4pt] at (O) {$O$};
+}
+\end{answerblock}
+
+\Needspace{18\baselineskip}
+\rememberbox{%
+\begin{itemize}[leftmargin=1.6em,itemsep=2pt,topsep=2pt]
+  \item \textbf{BPT:} if $DE\parallel BC$ in $\tr ABC$, then $\dfrac{AD}{DB}=\dfrac{AE}{EC}$, and also $\dfrac{AD}{AB}=\dfrac{AE}{AC}$.
+  \item \textbf{Converse of BPT:} if $\dfrac{AD}{DB}=\dfrac{AE}{EC}$, then $DE\parallel BC$.
+  \item \textbf{AA:} two pairs of equal angles. \textbf{SSS:} three pairs of sides in one ratio. \textbf{SAS:} two pairs of sides in one ratio with the \emph{included} angles equal.
+  \item Two sides in one ratio and an angle that is \emph{not} included do not prove similarity.
+  \item Write the similarity statement so that corresponding vertices are in the same order.
+  \item For a length such as $DE$, use similar triangles: $\dfrac{DE}{BC}=\dfrac{AD}{AB}$, not $\dfrac{AD}{DB}$.
+\end{itemize}}
+
+\section{If you are ready for more}
+
+\begin{exercise}{R}
+  \item Use BPT to prove: a line drawn through the midpoint of one side of a triangle, parallel to another side, bisects the third side.
+  \Needspace{16\baselineskip}\item In $\tr ABC$, $AD$ bisects $\angle A$ and meets $BC$ at $D$. Prove that $\dfrac{BD}{DC}=\dfrac{AB}{AC}$. (Hint: through $C$, draw a line parallel to $DA$ to meet $BA$ produced at $E$.)
+  \begin{center}\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+  % FR.1
+  \coordinate (A) at (0,1.5); \coordinate (B) at (-2,0); \coordinate (C) at (2.4,0);
+  \coordinate (D) at (0.064,0); \coordinate (E) at (2.264,3.198);
+  \draw[thick,accent] (B)--(C);
+  \draw[thick,accent] (A)--(B);
+  \draw[thick,accent] (A)--(C);
+  \draw[thick,accent] (A)--(D);
+  \draw[thick,accent] (A)--(E);
+  \draw[thick,accent,dashed] (C)--(E);
+  \pic[draw,angle radius=11pt] {angle=B--A--D};
+  \pic[draw,angle radius=11pt] {angle=D--A--C};
+  \node[above left] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[below] at (D) {$D$};
+  \node[above right] at (E) {$E$};
+  \end{tikzpicture}\end{center}
+  \item Can two triangles have all three angles of one equal to the three angles of the other, and two sides of one equal to two sides of the other, and still not be congruent? Test the triangles with sides $8$, $12$, $18$ cm and $12$, $18$, $27$ cm.
+  \item In $\tr ABC$ and $\tr PQR$, $AD$ and $PM$ are medians, and $\dfrac{AB}{PQ}=\dfrac{AC}{PR}=\dfrac{AD}{PM}$. Prove that $\tr ABC\sim\tr PQR$. (Hint: produce $AD$ to $E$ so that $DE=AD$, and $PM$ to $N$ so that $MN=PM$.)
+\end{exercise}
+
+\begin{answerblock}
+\ans{1.} In $\tr ABC$, let $D$ be the midpoint of $AB$ and $DE\parallel BC$, with $E$ on $AC$. By BPT, $\dfrac{AE}{EC}=\dfrac{AD}{DB}=1$. So $AE=EC$, and $E$ is the midpoint of $AC$.
+\ansfig{%
+% R1
+\coordinate (B) at (0,0); \coordinate (C) at (3.6,0); \coordinate (A) at (1.2,2.6);
+\coordinate (D) at ($(A)!0.5!(B)$);
+\coordinate (E) at ($(A)!0.5!(C)$);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (D)--(E);
+\draw[thick] ($(A)!0.5!(D)+(0.06,-0.03)$)--($(A)!0.5!(D)+(-0.06,0.03)$);
+\draw[thick] ($(D)!0.5!(B)+(0.06,-0.03)$)--($(D)!0.5!(B)+(-0.06,0.03)$);
+\draw[thick] ($(A)!0.44!(E)+(0.05,0.05)$)--($(A)!0.44!(E)+(-0.05,-0.05)$);
+\draw[thick] ($(A)!0.58!(E)+(0.05,0.05)$)--($(A)!0.58!(E)+(-0.05,-0.05)$);
+\draw[thick] ($(E)!0.42!(C)+(0.05,0.05)$)--($(E)!0.42!(C)+(-0.05,-0.05)$);
+\draw[thick] ($(E)!0.56!(C)+(0.05,0.05)$)--($(E)!0.56!(C)+(-0.05,-0.05)$);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[left] at (D) {$D$};
+\node[right] at (E) {$E$};
+}
+\ans{2.} $CE\parallel DA$. So $\angle BAD=\angle AEC$ (corresponding angles) and $\angle DAC=\angle ACE$ (alternate angles). Since $\angle BAD=\angle DAC$, we get $\angle AEC=\angle ACE$, so $AE=AC$. In $\tr BCE$, $DA\parallel CE$, so $\dfrac{BD}{DC}=\dfrac{BA}{AE}$ (BPT) $=\dfrac{AB}{AC}$.
+\ansfig{%
+% R2
+\coordinate (A) at (0,1.5); \coordinate (B) at (-2,0); \coordinate (C) at (2.4,0);
+\coordinate (D) at (0.064,0); \coordinate (E) at (2.264,3.198);
+\draw[thick] (B)--(C);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(C);
+\draw[thick] (A)--(D);
+\draw[thick] (A)--(E);
+\draw[thick,dashed] (C)--(E);
+\pic[draw,angle radius=11pt] {angle=A--E--C};
+\pic[draw,angle radius=11pt] {angle=E--C--A};
+\node[above left] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[above right] at (E) {$E$};
+}
+\ans{3.} Yes. The ratios are $\dfrac{12}8=\dfrac{18}{12}=\dfrac{27}{18}=\dfrac32$, so the triangles are similar (SSS) and all three angle pairs are equal. The sides $12$ and $18$ appear in both triangles. So five parts are equal, but the triangles are not congruent, because their sizes differ.
+\ansfig{%
+% R3
+\begin{scope}[scale=1.3]
+\coordinate (B) at (0,0); \coordinate (C) at (3,0); \coordinate (A) at (1.87,0.708);
+\draw[thick] (A)--(B)--(C)--cycle;
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\slab{A}{B}{$12$}
+\slab{C}{A}{$8$}
+\slab{B}{C}{$18$}
+\coordinate (Q) at (5,0); \coordinate (R) at (9.5,0); \coordinate (P) at (7.806,1.062);
+\draw[thick] (P)--(Q)--(R)--cycle;
+\node[above] at (P) {$P$};
+\node[below left] at (Q) {$Q$};
+\node[below right] at (R) {$R$};
+\slab{P}{Q}{$18$}
+\slab{R}{P}{$12$}
+\slab{Q}{R}{$27$}
+\end{scope}
+}
+\ans{4.} $ABEC$ and $PQNR$ are parallelograms (the diagonals bisect each other), so $BE=AC$ and $QN=PR$. Also $AE=2AD$ and $PN=2PM$. So $\dfrac{AB}{PQ}=\dfrac{BE}{QN}=\dfrac{AE}{PN}$, and $\tr ABE\sim\tr PQN$ (SSS); hence $\angle BAE=\angle QPN$. In the same way, $\tr ACE\sim\tr PRN$, so $\angle CAE=\angle RPN$. Adding, $\angle BAC=\angle QPR$. With $\dfrac{AB}{PQ}=\dfrac{AC}{PR}$, $\tr ABC\sim\tr PQR$ (SAS).
+\ansfig{%
+% R4
+\coordinate (B) at (0,0); \coordinate (C) at (3.2,0); \coordinate (A) at (1,1.8);
+\coordinate (D) at ($(B)!0.5!(C)$);
+\coordinate (E) at ($(D)+(D)-(A)$);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(E);
+\draw[thick,dashed] (B)--(E);
+\draw[thick,dashed] (C)--(E);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[above left=1pt] at (D) {$D$};
+\node[below right] at (E) {$E$};
+}
+\end{answerblock}
