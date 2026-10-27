@@ -76,6 +76,6 @@ If this file, the handbook and Shashi disagree: what Shashi says now wins, then 
 
 ## 8. Where the classes are (handbook 7; check with Shashi before planning)
 
-- Grade 9, Chapter 6 (Ganita Manjari): perimeter, arc and sector perimeter, parallelogram and triangle area, median theorem, Heron's formula: taught. Area of circle (Ex 6.3A) probably started 22 Oct, not confirmed. Sector and segment area: not confirmed.
+- Grade 9, Chapter 6 (Ganita Manjari): whole chapter taught, including area of circle, sector and segment (Shashi, 27 Oct 2026). Tests on Drive: test 1, test 2 (50 marks), test 3 (30 marks, made 27 Oct 2026, in `g9-ch6-perimeter-area/test3/`).
 - Grade 10: nothing recorded yet.
 - Prerana (30 Oct 2026): waiting for Shashi to pick one of four activities (handbook 3.9).
