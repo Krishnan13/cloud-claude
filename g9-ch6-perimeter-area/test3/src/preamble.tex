@@ -1,0 +1,46 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm,top=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{tgschola}\usepackage{fouriernc}
+\linespread{1.05}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc,arrows.meta}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage{tfrupee}
+\definecolor{figline}{RGB}{64,64,64}
+\definecolor{figfill}{RGB}{232,232,232}
+\definecolor{figfill2}{RGB}{214,214,214}
+\definecolor{muted}{RGB}{72,74,78}
+\definecolor{thinrule}{RGB}{128,128,128}
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\lineskiplimit}{2pt}\setlength{\lineskip}{4pt}
+\setlength{\emergencystretch}{2em}
+\tikzset{fig/.style={draw=figline}}
+\newcommand{\nl}{\\[3pt]}
+\newcounter{qn}
+\newcommand{\ques}{\par\medskip\refstepcounter{qn}\noindent\hangindent=1.7em\hangafter=1\makebox[1.7em][l]{\textbf{\arabic{qn}.}}\ignorespaces}
+\newcommand{\pc}[2]{\par\smallskip\noindent\hspace*{2em}\hangindent=4.3em\hangafter=1\makebox[2em][l]{(#1)}\hspace{0.3em}#2\par}
+\newcommand{\mcqone}[4]{\par\smallskip\noindent\hspace*{2em}\hangindent=4.3em\hangafter=1(a)~#1 \qquad (b)~#2 \qquad (c)~#3 \qquad (d)~#4\par}
+\newcommand{\mcqtwo}[4]{\par\smallskip\noindent\hspace*{2em}\begin{tabular}[t]{@{}p{0.42\linewidth}@{\hspace{1.6em}}p{0.42\linewidth}@{}}(a)~#1 & (b)~#2 \\[5pt](c)~#3 & (d)~#4\end{tabular}\par\smallskip}
+\newcommand{\optline}[1]{\par\vspace{2pt}\noindent\hspace*{2em}\hangindent=4.3em\hangafter=1 #1}
+\newcommand{\aritem}[2]{\par\smallskip\noindent\hspace*{1.7em}\hangindent=1.7em\hangafter=1 #1:~#2\par}
+\newcommand{\orline}{\par\smallskip{\centering\textit{OR}\par}\nopagebreak\smallskip}
+\newcommand{\sect}[1]{\par\medskip\Needspace{15\baselineskip}{\small\bfseries #1}\par\nopagebreak\smallskip}
+\ifteacher
+\newenvironment{answerblock}
+  {\par\needspace{6\baselineskip}\smallskip\begingroup\small\linespread{1.2}\selectfont\color{muted}\noindent\textit{Answer.}\par}
+  {\par\endgroup\medskip}
+\newcommand{\ap}[1]{\par\smallskip\noindent\textbf{(#1)}\ }
+\else
+\usepackage{comment}
+\excludecomment{answerblock}
+\fi
+\makeatletter
+\newcommand{\figslot}[1]{\@ifundefined{fig@#1}{}{\csname fig@#1\endcsname}}
+\makeatother
+\makeatletter\input{../src/figs.tex}\makeatother
