@@ -1,0 +1,133 @@
+\Needspace{8\baselineskip}
+\ques A circular lotus pond in a temple garden is fenced once with $132$~m of wire. Draw a rough diagram.\par
+\pc{a}{Find the radius of the pond.}
+\pc{b}{A second fence is put up $7$~m outside the first fence, all the way round. Find how much more wire the second fence needs than the first.}
+\pc{c}{Another pond has a radius of $35$~m. It also gets a second fence $7$~m outside the first one. Will the extra wire needed be more than, less than, or the same as your answer to (b)? Explain.}
+\begin{answerblock}
+\ap{a} The wire is the circumference of the pond, so $2\times\dfrac{22}{7}\times r=132$.\nl
+Therefore $r=132\times\dfrac{7}{2\times22}=21$. The radius of the pond is $21$~m.\nl
+\ap{b} The second fence has radius $21+7=28$~m, so its circumference is $2\times\dfrac{22}{7}\times28=176$~m.\nl
+The extra wire is $176-132=44$~m.\nl
+\ap{c} The extra wire is the same, $44$~m. For any radius $R$ the extra is $2\times\dfrac{22}{7}\times(R+7)-2\times\dfrac{22}{7}\times R=2\times\dfrac{22}{7}\times7=44$~m.\nl
+Check with $R=35$: $2\times\dfrac{22}{7}\times42-2\times\dfrac{22}{7}\times35=264-220=44$~m.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (0,0) circle (2);
+\draw[fig] (0,0) circle (1.5);
+\draw[fig] (0,0) -- (1.5,0);
+\draw[fig] (0,0) -- (0,-2);
+\fill[figline] (0,0) circle (0.04);
+\node at (0.72,0.17) {$21$~m};
+\node at (-0.36,-1.05) {$28$~m};
+\node at (0,1.76) {$7$~m};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques Say whether each statement is true or false. Give a reason for each answer.\par
+\pc{a}{The value of $\pi$ is exactly $\dfrac{22}{7}$.}
+\pc{b}{For every circle, the circumference divided by the diameter gives the same number.}
+\pc{c}{Arjun measures a bangle. Its circumference is $22$~cm and its diameter is $7$~cm. Arjun says, ``This proves that $\pi$ is exactly $\dfrac{22}{7}$.''}
+\begin{answerblock}
+\ap{a} False. $\pi$ is irrational, so no fraction of two whole numbers equals it.\nl
+$\dfrac{22}{7}=3.142\ldots$ and $\pi=3.14159\ldots$, so $\dfrac{22}{7}$ is only a close approximation.\nl
+\ap{b} True. This constant ratio is the same for every circle, and it is the number $\pi$.\nl
+\ap{c} False. Every measurement is approximate, so a measurement cannot prove an exact value.\nl
+Also $\pi$ is irrational, so $\pi$ cannot equal $\dfrac{22}{7}$.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (0,0) circle (1.2);
+\draw[fig] (-1.2,0) -- (1.2,0);
+\draw[fig,->] (35:1.32) arc (35:85:1.32);
+\node at (-0.55,-0.2) {$d$};
+\node at (95:1.6) {$C$};
+\node at (0,-1.72) {$\dfrac{C}{d}=\pi$ for every circle};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques A railway line goes round a curve. The curve is an arc of a circle of radius $210$~m.\par
+\pc{a}{A train goes round the curve and turns through an angle of $60^\circ$. Draw a rough diagram. Find the distance the train travels on the curve.}
+\pc{b}{On another curve of the same radius, a train travels $330$~m. Find the angle through which the train turns.}
+\begin{answerblock}
+\ap{a} The diagram below shows the arc, its radius and the angle at the centre.\nl
+The arc is the fraction $\dfrac{60}{360}=\dfrac16$ of the whole circle.\nl
+Arc $=\dfrac{60}{360}\times2\times\dfrac{22}{7}\times210=\dfrac16\times1320=220$~m. The train travels $220$~m.\nl
+\ap{b} The whole circumference is $2\times\dfrac{22}{7}\times210=1320$~m.\nl
+The arc is $\dfrac{330}{1320}=\dfrac14$ of the circle, so the angle is $\dfrac14\times360=90^\circ$.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (0,0) -- (30:1.9);
+\draw[fig] (0,0) -- (-30:1.9);
+\draw[fig] (30:1.9) arc (30:-30:1.9);
+\draw[fig] (30:0.5) arc (30:-30:0.5);
+\fill[figline] (0,0) circle (0.04);
+\node at (-0.18,-0.22) {$O$};
+\node at (0.62,0.88) {$210$~m};
+\node at (0.8,0) {$60^\circ$};
+\node at (2.3,0.45) {$220$~m};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques In a $200$~m race on a school track, each runner runs one bend and one straight. The bend in every lane is a semicircle. Each lane is $1.4$~m wide. All runners finish at the same line. Assume that each runner runs along the inner edge of the lane. Draw a rough diagram of lanes 1 and 2.\par
+\pc{a}{Explain why the runner in lane 2 must start ahead of the runner in lane 1.}
+\pc{b}{Find how far ahead of the lane 1 runner the lane 2 runner must start.}
+\pc{c}{Find how far ahead of the lane 1 runner the lane 4 runner must start.}
+\pc{d}{Ravi says, ``If the track had a bigger bend, the answer to (b) would change.'' Is Ravi right? Explain.}
+\begin{answerblock}
+\ap{a} The two straights are equal, but the bend in lane 2 has the larger radius, so it is longer.\nl
+Therefore the lane 2 runner starts ahead, so that every runner covers $200$~m.\nl
+\ap{b} The radius of the lane 2 bend is $r+1.4$, so the extra length is $\dfrac{22}{7}\times(r+1.4)-\dfrac{22}{7}\times r=\dfrac{22}{7}\times1.4=4.4$~m.\nl
+The lane 2 runner starts $4.4$~m ahead of the lane 1 runner.\nl
+\ap{c} The lane 4 bend has radius $r+3\times1.4=r+4.2$, so the extra length is $\dfrac{22}{7}\times4.2=13.2$~m, which is $3\times4.4$~m.\nl
+The lane 4 runner starts $13.2$~m ahead of the lane 1 runner.\nl
+\ap{d} No. The difference is $\dfrac{22}{7}\times1.4=4.4$~m, and the radius $r$ cancels from the subtraction.\nl
+So the stagger does not depend on the size of the bend, and Ravi is wrong.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (-2.2,0) -- (2.2,0);
+\draw[fig] (1.5,0) arc (0:180:1.5);
+\draw[fig] (2,0) arc (0:180:2);
+\draw[fig] (0,0) -- (0,1.5);
+\draw[fig] (1.5,0) -- (1.5,-0.2);
+\draw[fig] (2,0) -- (2,-0.2);
+\fill[figline] (0,0) circle (0.04);
+\node at (-0.17,0.85) {$r$};
+\node at (0,1.76) {$1.4$~m};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques A garden bed ABCD is shaped like a parallelogram. AB $=18$~m and AD $=12$~m. The perpendicular distance between the sides AB and DC is $10$~m.\par
+\pc{a}{Draw a rough diagram. Mark all the lengths and show the $10$~m distance with a dotted line.}
+\pc{b}{Raju finds the area like this: Area $=18\times12=216$~m$^2$. Explain Raju's mistake. Find the correct area of the bed.}
+\pc{c}{Find the perpendicular distance between the sides AD and BC.}
+\begin{answerblock}
+\ap{a} See the diagram below. The base $AB=18$~m and the slanting side $AD=12$~m are marked, and the height of $10$~m on $AB$ is drawn dotted.\nl
+\ap{b} Raju multiplied the two sides. The area of a parallelogram is base $\times$ perpendicular height on that base, and $12$~m is a slanting side, not the height on $AB$.\nl
+Area $=18\times10=180$~m$^2$.\nl
+\ap{c} The area also equals $AD\times$ the perpendicular height on $AD$, so $12\times h=180$.\nl
+Therefore $h=15$~m. The distance between $AD$ and $BC$ is $15$~m.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (0,0) -- (2.7,0) -- (3.6945,1.5) -- (0.9945,1.5) -- cycle;
+\draw[fig,densely dotted,line width=0.7pt] (0.9945,1.5) -- (0.9945,0);
+\draw[fig,densely dotted,line width=0.7pt] (2.7,0) -- (0.824,1.243);
+\draw[fig] (1.1145,0) -- (1.1145,0.12) -- (0.9945,0.12);
+\draw[fig] (0.824,1.243) -- (0.890,1.343) -- (0.990,1.277) -- (0.924,1.177);
+\node at (1.35,-0.22) {$18$~m};
+\node at (0.05,0.72) {$12$~m};
+\node[left] at (0.93,0.25) {$10$~m};
+\node at (1.55,0.32) {$15$~m};
+\node[below left] at (0,0) {$A$};
+\node[below right] at (2.7,0) {$B$};
+\node[above right] at (3.6945,1.5) {$C$};
+\node[above left] at (0.9945,1.5) {$D$};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}

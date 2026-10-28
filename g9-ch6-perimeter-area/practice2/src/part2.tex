@@ -1,0 +1,162 @@
+\Needspace{8\baselineskip}
+\ques A strip of cloth has two straight parallel edges that are $7$~cm apart. Kavi draws two triangles, $PQR$ and $SQR$, on the strip. Both triangles have the side $QR=12$~cm along the lower edge. The points $P$ and $S$ are on the upper edge. In triangle $PQR$, the angles at $Q$ and $R$ are acute. In triangle $SQR$, the angle at $Q$ is obtuse.\par
+\pc{a}{Draw both triangles in one rough diagram. Show the height of each triangle with a dotted line.}
+\pc{b}{Find the area of each triangle.}
+\pc{c}{Priya says, ``Triangle $SQR$ has the larger area, because its sides are longer.'' Is Priya right? Explain.}
+\begin{answerblock}
+\ap{a} See the diagram.
+\ap{b} Each triangle has base $QR=12$~cm and height $7$~cm, the distance between the parallel edges.\nl
+Area $=\dfrac12\times12\times7=42$~cm$^2$ each.\nl
+For $SQR$ the height falls outside the triangle, on $RQ$ extended, but it is still $7$~cm.
+\ap{c} No. The area depends on the base and the perpendicular height, not on the slanting sides.\nl
+Both triangles have base $12$~cm and height $7$~cm, so both areas are $42$~cm$^2$.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (-1.2,0) -- (3.2,0);
+\draw[fig] (-1.2,1.75) -- (3.2,1.75);
+\draw[fig] (1.2,1.75) -- (0,0) -- (3.0,0) -- cycle;
+\draw[fig] (-0.9,1.75) -- (0,0) -- (3.0,0) -- cycle;
+\draw[fig,dotted] (-0.9,1.75) -- (-0.9,0);
+\draw[fig,dotted] (1.2,1.75) -- (1.2,0);
+\draw[fig] (-0.9,0.1) -- (-0.78,0.1) -- (-0.78,0);
+\draw[fig] (1.2,0.1) -- (1.32,0.1) -- (1.32,0);
+\draw[fig,dotted] (3.1,0) -- (3.1,1.75);
+\node[above] at (1.2,1.79) {$P$};
+\node[above] at (-0.9,1.79) {$S$};
+\node[below] at (0,-0.03) {$Q$};
+\node[below] at (3.0,-0.03) {$R$};
+\node[below] at (1.5,-0.12) {$12$~cm};
+\node[right] at (3.16,0.875) {$7$~cm};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques A glass panel $ABCD$ in a lamp is shaped like a parallelogram, and its area is $96$~cm$^2$. Two thin metal strips run along the diagonals $AC$ and $BD$. They meet at $O$ and divide the glass into four triangular pieces. Draw a rough diagram.\par
+\pc{a}{Explain why triangles $AOB$ and $BOC$ have equal areas. (Hint: what is $BO$ in triangle $ABC$?)}
+\pc{b}{Explain why all four pieces have equal areas. Find the area of each piece.}
+\pc{c}{Neha says, ``The four pieces are congruent.'' Is Neha right? Explain.}
+\begin{answerblock}
+\ap{a} The diagonals of a parallelogram bisect each other, so $O$ is the midpoint of $AC$.\nl
+So $BO$ is a median of triangle $ABC$. A median divides a triangle into two triangles of equal area, so the area of $AOB$ equals the area of $BOC$.
+\ap{b} In the same way, $CO$ is a median of triangle $BCD$ ($O$ is the midpoint of $BD$), so the area of $BOC$ equals the area of $COD$; and $DO$ is a median of triangle $CDA$, so the area of $COD$ equals the area of $DOA$.\nl
+So all four pieces are equal. Each $=96\div4=24$~cm$^2$.
+\ap{c} Not in general. $AOB$ is congruent to $COD$, and $BOC$ is congruent to $DOA$ (SAS: $OA=OC$, $OB=OD$, vertically opposite angles).\nl
+But $AOB$ and $BOC$ have different sides when $AB\ne BC$, so they are not congruent.\nl
+They are all congruent only when $ABCD$ is a rhombus. Equal area does not mean congruent.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\fill[figfill] (0,0) -- (3.5,0) -- (2.2,1.2) -- cycle;
+\fill[figfill] (4.4,2.4) -- (0.9,2.4) -- (2.2,1.2) -- cycle;
+\draw[fig] (0,0) -- (3.5,0) -- (4.4,2.4) -- (0.9,2.4) -- cycle;
+\draw[fig] (0,0) -- (4.4,2.4);
+\draw[fig] (3.5,0) -- (0.9,2.4);
+\fill[figline] (2.2,1.2) circle (0.03);
+\node[below] at (2.2,1.02) {$O$};
+\node[below left] at (-0.03,-0.02) {$A$};
+\node[below right] at (3.53,-0.02) {$B$};
+\node[above right] at (4.42,2.42) {$C$};
+\node[above left] at (0.88,2.42) {$D$};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques A triangular plot $ABC$ has sides $BC=90$~m, $CA=100$~m and $AB=170$~m.\par
+\pc{a}{Find the area of the plot using Heron's formula.}
+\pc{b}{Use your answer to (a) to find the shortest distance from the corner $A$ to the line $BC$.}
+\pc{c}{Draw a rough diagram showing this shortest distance $AD$. Does $D$ lie on the side $BC$, or on $BC$ extended beyond $C$? Find $CD$ and check your answer to (b) using $AB$.}
+\begin{answerblock}
+\ap{a} $s=\dfrac{90+100+170}{2}=180$. $s-a=90$, $s-b=80$, $s-c=10$.\nl
+Area $=\sqrt{180\times90\times80\times10}=\sqrt{12960000}=3600$~m$^2$.
+\ap{b} $\dfrac12\times90\times AD=3600$, so $AD=80$~m.
+\ap{c} Angle $C$ is obtuse, so $D$ lies on $BC$ extended beyond $C$.\nl
+In right triangle $ADC$: $CD=\sqrt{100^2-80^2}=\sqrt{3600}=60$~m. $BD=90+60=150$~m.\nl
+In right triangle $ADB$: $AB=\sqrt{150^2+80^2}=\sqrt{28900}=170$~m.\nl
+This matches, so $AD=80$~m is correct.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (0,0) -- (2.52,0);
+\draw[fig,dashed] (2.52,0) -- (4.2,0);
+\draw[fig] (4.2,2.24) -- (0,0);
+\draw[fig] (4.2,2.24) -- (2.52,0);
+\draw[fig,dotted] (4.2,2.24) -- (4.2,0);
+\draw[fig] (4.1,0) -- (4.1,0.1) -- (4.2,0.1);
+\node[below left] at (-0.02,-0.02) {$B$};
+\node[below] at (2.52,-0.03) {$C$};
+\node[below] at (4.2,-0.03) {$D$};
+\node[above] at (4.2,2.28) {$A$};
+\node[below] at (1.26,-0.12) {$90$~m};
+\node[below] at (3.36,-0.12) {$60$~m};
+\node[left] at (2.015,1.28) {$170$~m};
+\node at (3.74,0.72) {$100$~m};
+\node[right] at (4.28,1.12) {$80$~m};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques A garden bed is shaped like an isosceles triangle. Its perimeter is $64$~m and its unequal side (the base) is $24$~m. Draw a rough diagram.\par
+\pc{a}{Find the length of each equal side.}
+\pc{b}{Find the area of the bed using Heron's formula.}
+\pc{c}{Find the area again in a different way, using the height on the base. Check that both answers agree.}
+\begin{answerblock}
+\ap{a} $(64-24)\div2=20$~m.
+\ap{b} $s=32$; $s-a=12$, $s-b=12$, $s-c=8$.\nl
+Area $=\sqrt{32\times12\times12\times8}=\sqrt{36864}=192$~m$^2$.
+\ap{c} The height from the top corner meets the base at its midpoint, $12$~m from each end.\nl
+Height $=\sqrt{20^2-12^2}=\sqrt{256}=16$~m. Area $=\dfrac12\times24\times16=192$~m$^2$.\nl
+Both answers agree.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (0,0) -- (3.36,0) -- (1.68,2.24) -- cycle;
+\draw[fig,dotted] (1.68,2.24) -- (1.68,0);
+\draw[fig] (1.58,0) -- (1.58,0.1) -- (1.68,0.1);
+\node[left] at (0.60,1.30) {$20$~m};
+\node[right] at (2.76,1.30) {$20$~m};
+\node[rotate=90] at (1.44,1.2) {$16$~m};
+\node[below] at (0.84,-0.12) {$12$~m};
+\node[below] at (2.52,-0.12) {$12$~m};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques A plot of land $ABCD$ has all four corners on a circle, as shown. $AB=25$~m, $BC=60$~m, $CD=52$~m and $DA=39$~m.\par
+\pc{a}{Find the area of the plot using Brahmagupta's formula.}
+\pc{b}{The diagonal $AC$ is a diameter of the circle, and $AC=65$~m. So the angles at $B$ and $D$ are right angles. Find the area of the plot again by splitting it along $AC$ into two triangles. Check that it agrees with (a).}
+\pc{c}{A rectangle $12$~m by $5$~m also has all four corners on a circle. Use Brahmagupta's formula to find its area. Does the formula give the answer you expect? Explain.}
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (0,0) circle (1.95);
+\draw[fig] (-1.95,0) -- (-1.373,1.385) -- (1.95,0) -- (-0.545,-1.872) -- cycle;
+\node at (-1.237,0.515) {$25$~m};
+\node at (0.450,1.080) {$60$~m};
+\node at (0.437,-0.583) {$52$~m};
+\node at (-0.879,-0.660) {$39$~m};
+\node[left] at (-1.95,0) {$A$};\node[above left] at (-1.373,1.385) {$B$};\node[right] at (1.95,0) {$C$};\node[below] at (-0.545,-1.872) {$D$};
+\end{tikzpicture}
+\end{center}
+\begin{answerblock}
+\ap{a} $s=\dfrac{25+60+52+39}{2}=88$. $s-a=63$, $s-b=28$, $s-c=36$, $s-d=49$.\nl
+Area $=\sqrt{63\times28\times36\times49}=\sqrt{3111696}=1764$~m$^2$.
+\ap{b} Area of $ABC=\dfrac12\times25\times60=750$~m$^2$; area of $ACD=\dfrac12\times39\times52=1014$~m$^2$; total $=750+1014=1764$~m$^2$.\nl
+This agrees with (a).
+\ap{c} $s=\dfrac{12+5+12+5}{2}=17$; $(17-12)(17-5)(17-12)(17-5)=5\times12\times5\times12=3600$; area $=\sqrt{3600}=60$~m$^2=12\times5$.\nl
+Yes: for a rectangle the formula gives $\sqrt{b\times l\times b\times l}=l\times b$, the correct area.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (0,0) circle (1.95);
+\draw[fig,dashed] (-1.95,0) -- (1.95,0);
+\draw[fig] (-1.95,0) -- (-1.373,1.385) -- (1.95,0) -- (-0.545,-1.872) -- cycle;
+\draw[fig] (-1.419,1.274) -- (-1.308,1.228) -- (-1.262,1.339);
+\draw[fig] (-0.451,-1.801) -- (-0.523,-1.705) -- (-0.617,-1.776);
+\node at (-1.237,0.515) {$25$~m};
+\node at (0.450,1.080) {$60$~m};
+\node at (0.437,-0.583) {$52$~m};
+\node at (-0.879,-0.660) {$39$~m};
+\node[left] at (-1.95,0) {$A$};\node[above left] at (-1.373,1.385) {$B$};\node[right] at (1.95,0) {$C$};\node[below] at (-0.545,-1.872) {$D$};
+\node at (-0.35,0.30) {$65$~m};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}

@@ -1,0 +1,173 @@
+\Needspace{13\baselineskip}
+\ques Long ago, Baudh\={a}yana showed how to change a rectangle into a square of the same area. Follow his steps for a rectangular field $18$~m long and $8$~m wide. Draw a diagram for each step.\par
+\pc{a}{Cut off a square of side $8$~m from one end of the rectangle. What are the length and breadth of the strip that is left?}
+\pc{b}{Cut the strip into two equal strips, each $8$~m long. Place one strip along the right side of the square and the other along the top of the square. This makes an L-shape. Show that the L-shape fits inside a square of side $13$~m, with a small square missing at one corner. Find the side of the missing square.}
+\pc{c}{Find the area of the L-shape in two ways: from the rectangle, and as (big square) $-$ (small square).}
+\pc{d}{Baudh\={a}yana now draws a right triangle with hypotenuse $13$~m and one side $5$~m. Find the third side. Explain why a square on this third side has the same area as the field.}
+\begin{answerblock}
+\ap{a} The square cut off has side $8$~m, so the strip left is $18-8=10$~m long and $8$~m broad.\nl
+Its area is $10\times8=80$~m$^2$.
+\ap{b} Each new strip is $5$~m by $8$~m, because the $10$~m side of the strip is cut in half.\nl
+The square then measures $8+5=13$~m along each side, except at the corner where a $5$~m by $5$~m square is empty.\nl
+So the side of the missing square is $5$~m.
+\ap{c} From the rectangle: $18\times8=144$~m$^2$.\nl
+From the squares: $13^2-5^2=169-25=144$~m$^2$. Both methods give $144$~m$^2$.
+\ap{d} The third side is $\sqrt{13^2-5^2}=\sqrt{144}=12$~m.\nl
+By Pythagoras, the square on this side has area $12^2=144$~m$^2$, and $13^2-5^2$ is also the area of the L-shape, which equals the area of the field.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\fill[figfill] (0,0) rectangle (1.62,0.72);
+\draw[fig] (0,0) rectangle (1.62,0.72);
+\draw[fig] (0.72,0) -- (0.72,0.72);
+\node at (0.36,0.36) {$8$};
+\node at (1.17,0.36) {$10$};
+\node[below] at (0.81,-0.07) {$18$~m};
+\node[above] at (0.36,0.76) {$8$~m};
+\fill[figfill] (2.00,0) -- (3.17,0) -- (3.17,0.72) -- (2.77,0.72) -- (2.77,1.17) -- (2.00,1.17) -- cycle;
+\draw[fig] (2.00,0) -- (3.17,0) -- (3.17,0.72) -- (2.77,0.72) -- (2.77,1.17) -- (2.00,1.17) -- cycle;
+\draw[fig,densely dotted] (3.17,0.72) -- (3.17,1.17) -- (2.77,1.17);
+\node[inner sep=0.5pt] at (2.96,0.95) {$5$};
+\node[below] at (2.585,-0.07) {$13$~m};
+\draw[fig] (3.45,0) -- (4.53,0) -- (4.53,0.45) -- cycle;
+\draw[fig] (4.43,0) -- (4.43,0.10) -- (4.53,0.10);
+\node[below] at (3.99,-0.07) {$12$~m};
+\node[right] at (4.57,0.225) {$5$~m};
+\node[above] at (3.92,0.40) {$13$~m};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{9\baselineskip}
+\ques The top of a round table has a circumference of $220$~cm.\par
+\pc{a}{Find the radius of the table top.}
+\pc{b}{Find the area of the table top.}
+\pc{c}{A bigger round table has a radius twice as long. Ravi says, ``Its top has twice the area.'' Is Ravi right? Find the area of the bigger table top and explain.}
+\begin{answerblock}
+\ap{a} $2\times\dfrac{22}{7}\times r=220$, so $r=220\times\dfrac{7}{22}\times\dfrac12=35$~cm.
+\ap{b} Area $=\dfrac{22}{7}\times35\times35=3850$~cm$^2$.
+\ap{c} No. The new radius is $70$~cm, so its area is $\dfrac{22}{7}\times70\times70=15400$~cm$^2$, which is $4\times3850$~cm$^2$.\nl
+When the radius doubles, $r\times r$ becomes four times as large, so the area becomes four times as large, not twice.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw[fig] (0,0) circle (0.65);
+\draw[fig,dash pattern=on 4pt off 2pt] (0,0) -- (0.65,0);
+\fill[figline] (0,0) circle (0.025);
+\node[below] at (0,-0.78) {$r=35$~cm};
+\draw[fig] (2.15,0) circle (1.30);
+\draw[fig,dash pattern=on 4pt off 2pt] (2.15,0) -- (3.45,0);
+\fill[figline] (2.15,0) circle (0.025);
+\node[below] at (2.15,-1.46) {$r=70$~cm};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{9\baselineskip}
+\ques A car's wiper arm is $21$~cm long and turns about one end, $O$. The rubber blade is fixed to the outer part of the arm, from $7$~cm to $21$~cm from $O$. The arm turns through an angle of $90^\circ$.\par
+\pc{a}{Draw a rough diagram. Shade the part of the glass that the blade wipes.}
+\pc{b}{Find the area of the glass that the blade wipes.}
+\pc{c}{Find the length of the path of the tip of the arm.}
+\begin{answerblock}
+\ap{a} See the diagram.
+\ap{b} The wiped part is the difference of two sectors of angle $90^\circ$, with radii $21$~cm and $7$~cm.\nl
+Area $=\dfrac{90}{360}\times\dfrac{22}{7}\times(21\times21-7\times7)=\dfrac14\times\dfrac{22}{7}\times392=308$~cm$^2$.
+\ap{c} The tip moves along an arc of radius $21$~cm.\nl
+Path $=\dfrac{90}{360}\times2\times\dfrac{22}{7}\times21=33$~cm.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\fill[figfill] (0,0) -- (0.7,0) arc (0:90:0.7) -- (0,2.1) arc (90:0:2.1) -- cycle;
+\draw[fig] (0,0) -- (0.7,0) arc (0:90:0.7) -- (0,2.1) arc (90:0:2.1) -- cycle;
+\draw[fig] (0.18,0) -- (0.18,0.18) -- (0,0.18);
+\node[below] at (0.33,-0.07) {$7$~cm};
+\node[below] at (1.55,-0.07) {$21$~cm};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{17\baselineskip}
+\ques A floor tile $ABCD$ is a square of side $14$~cm. Two quarter circles are drawn inside it: one with centre $A$ and radius $AB$, and one with centre $C$ and radius $CB$. Both arcs go from $B$ to $D$. The leaf-shaped part between the two arcs is shaded.\par
+\pc{a}{Find the area of the shaded leaf.}
+\pc{b}{Find the perimeter of the shaded leaf.}
+\pc{c}{Meena finds the area of the leaf like this: (area of one quarter circle) $+$ (area of the other quarter circle) $-$ (area of the square). Explain why her method works, and check that it gives the same answer.}
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\fill[figfill] (3.5,0) arc (0:90:3.5) arc (180:270:3.5) -- cycle;
+\draw[fig] (0,0) rectangle (3.5,3.5);
+\draw[fig] (3.5,0) arc (0:90:3.5);
+\draw[fig] (0,3.5) arc (180:270:3.5);
+\node[below left,inner sep=1pt] at (0,0) {$A$};
+\node[below right,inner sep=1pt] at (3.5,0) {$B$};
+\node[above right,inner sep=1pt] at (3.5,3.5) {$C$};
+\node[above left,inner sep=1pt] at (0,3.5) {$D$};
+\node[below] at (1.75,-0.20) {$14$~cm};
+\end{tikzpicture}
+\end{center}
+\begin{answerblock}
+\ap{a} The diagonal $BD$ cuts the leaf into two equal segments.\nl
+One segment $=\dfrac14\times\dfrac{22}{7}\times14\times14-\dfrac12\times14\times14=154-98=56$~cm$^2$.\nl
+Leaf $=2\times56=112$~cm$^2$.
+\ap{b} Each arc is a quarter of a circle of radius $14$~cm.\nl
+Arc $=\dfrac14\times2\times\dfrac{22}{7}\times14=22$~cm, so the perimeter $=2\times22=44$~cm.
+\ap{c} The two quarter circles together cover the whole square, and they overlap exactly in the leaf.\nl
+So $154+154=196+$ leaf, and the leaf $=308-196=112$~cm$^2$, which is the same answer.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\fill[figfill] (3.5,0) arc (0:90:3.5) arc (180:270:3.5) -- cycle;
+\draw[fig] (0,0) rectangle (3.5,3.5);
+\draw[fig] (3.5,0) arc (0:90:3.5);
+\draw[fig] (0,3.5) arc (180:270:3.5);
+\draw[fig,dashed] (3.5,0) -- (0,3.5);
+\node[below left,inner sep=1pt] at (0,0) {$A$};
+\node[below right,inner sep=1pt] at (3.5,0) {$B$};
+\node[above right,inner sep=1pt] at (3.5,3.5) {$C$};
+\node[above left,inner sep=1pt] at (0,3.5) {$D$};
+\node[below] at (1.75,-0.20) {$14$~cm};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
+
+\Needspace{16\baselineskip}
+\ques A square garden has side $28$~m. At each corner there is a flower bed shaped like a quarter circle of radius $14$~m, with its centre at the corner of the garden. The rest of the garden is lawn.\par
+\pc{a}{Find the area of the lawn.}
+\pc{b}{Find the perimeter of the lawn.}
+\pc{c}{The gardener makes the flower beds smaller, with radius $7$~m. Find the new area of the lawn and the new perimeter of the lawn.}
+\pc{d}{Did the perimeter of the lawn increase or decrease in (c)? Explain why.}
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\fill[figfill] (0,0) -- (2,0) arc (0:90:2) -- cycle;
+\fill[figfill] (4,0) -- (2,0) arc (180:90:2) -- cycle;
+\fill[figfill] (4,4) -- (4,2) arc (270:180:2) -- cycle;
+\fill[figfill] (0,4) -- (0,2) arc (270:360:2) -- cycle;
+\draw[fig] (0,0) rectangle (4,4);
+\draw[fig] (2,0) arc (0:90:2);
+\draw[fig] (2,0) arc (180:90:2);
+\draw[fig] (4,2) arc (270:180:2);
+\draw[fig] (0,2) arc (270:360:2);
+\node[below] at (2.6,-0.08) {$28$~m};
+\end{tikzpicture}
+\end{center}
+\begin{answerblock}
+\ap{a} The four quarter circles make one full circle of radius $14$~m.\nl
+Beds $=\dfrac{22}{7}\times14\times14=616$~m$^2$, so the lawn $=28\times28-616=784-616=168$~m$^2$.
+\ap{b} The boundary of the lawn is made of four quarter arcs, which make one full circumference.\nl
+Perimeter $=2\times\dfrac{22}{7}\times14=88$~m.
+\ap{c} With radius $7$~m the beds make one circle of area $\dfrac{22}{7}\times7\times7=154$~m$^2$.\nl
+Lawn $=784-154=630$~m$^2$. Perimeter $=2\times\dfrac{22}{7}\times7=44$~m of arcs, plus four straight pieces of $28-7-7=14$~m each, so $44+4\times14=100$~m.
+\ap{d} The perimeter increased, because $100$~m is more than $88$~m.\nl
+With radius $14$~m the beds touch at the midpoints of the sides, so the boundary of the lawn is only arcs. With radius $7$~m the arcs are shorter, but four straight pieces appear along the sides of the square.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\fill[figfill] (0,0) -- (1,0) arc (0:90:1) -- cycle;
+\fill[figfill] (4,0) -- (3,0) arc (180:90:1) -- cycle;
+\fill[figfill] (4,4) -- (4,3) arc (270:180:1) -- cycle;
+\fill[figfill] (0,4) -- (0,3) arc (270:360:1) -- cycle;
+\draw[fig] (0,0) rectangle (4,4);
+\draw[fig] (1,0) arc (0:90:1);
+\draw[fig] (3,0) arc (180:90:1);
+\draw[fig] (4,3) arc (270:180:1);
+\draw[fig] (0,3) arc (270:360:1);
+\draw[fig] (1,-0.10) -- (1,-0.20);
+\draw[fig] (3,-0.10) -- (3,-0.20);
+\node[below] at (2,-0.20) {$14$~m};
+\end{tikzpicture}
+\end{center}
+\end{answerblock}
