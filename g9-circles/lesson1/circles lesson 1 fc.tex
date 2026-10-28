@@ -1,0 +1,508 @@
+\newif\ifteacher\teachertrue
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{tgschola}
+\usepackage{fouriernc}
+\usepackage{microtype}
+\usepackage{tfrupee}
+\linespread{1.04}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc,arrows.meta}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{38,52,70}
+\definecolor{panel}{RGB}{236,238,241}
+
+\newtheoremstyle{brand}{9pt}{9pt}{\itshape}{}{\bfseries\color{accent}}{.}{ }{}
+\newtheoremstyle{branddef}{9pt}{9pt}{}{}{\bfseries\color{accent}}{.}{ }{}
+\theoremstyle{brand}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{branddef}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}[section]
+\newtheorem{illus}{Illustration}
+\newtheorem{remark}{Remark}
+\newtheorem*{activity}{Activity}
+
+\newcommand{\tr}{\triangle}
+\newenvironment{exercise}[1]
+  {\par\medskip\Needspace{7\baselineskip}\noindent{\large\bfseries\color{accent}Exercise #1}
+   \par\smallskip
+   \begin{enumerate}[leftmargin=*,itemsep=4pt]}
+  {\end{enumerate}}
+\definecolor{muted}{RGB}{70,72,76}
+\newcommand{\nl}{\\[3pt]}
+\ifteacher
+\newenvironment{answerblock}
+  {\par\smallskip\Needspace{10\baselineskip}\begingroup\small\linespread{1.15}\selectfont\color{muted}\noindent\textit{Answers.}\par}
+  {\par\endgroup\medskip}
+\newcommand{\ans}[1]{\par\smallskip\Needspace{9\baselineskip}\noindent\textbf{#1}\ }
+\else
+\usepackage{comment}
+\excludecomment{answerblock}
+\fi
+\newcommand{\figph}[1]{\begin{center}\fbox{\parbox{.85\linewidth}{\small FIGURE: #1}}\end{center}}
+% right-angle mark at vertex #1 between the directions to #2 and #3
+\newcommand{\ramark}[3]{\coordinate (ra1) at ($(#1)!2mm!(#2)$);\coordinate (ra2) at ($(#1)!2mm!(#3)$);\draw[thin] (ra1) -- ($(ra1)+(ra2)-(#1)$) -- (ra2);}
+% side label: #4 placed beside segment #2--#3, on the right-hand side when walking from #2 to #3
+% (for a triangle named anticlockwise this is the outside); optional #1 = position along the segment
+\newcommand{\slab}[4][0.5]{\path (#2) -- (#3) node[pos=#1, auto=right, inner sep=2.5pt] {#4};}
+% dimension line for a whole side: drawn #3 away from segment #1--#2 on its right-hand side, labelled #4
+\newcommand{\dimlab}[4]{\draw[thin,{Bar[width=5pt]}-{Bar[width=5pt]}] ($(#1)!#3!-90:(#2)$) -- ($(#2)!#3!90:(#1)$) node[midway, auto=right, inner sep=2pt] {#4};}
+\newcommand{\exfig}[1]{\begin{center}\begin{tikzpicture}[scale=.75, every node/.style={font=\small}]#1\end{tikzpicture}\end{center}}
+% rough answer diagram (teacher copy only; it sits inside answerblock)
+\newcommand{\ansfig}[1]{\begin{center}\begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#1\end{tikzpicture}\end{center}}
+\newcommand{\rememberbox}[1]{%
+  \par\medskip\noindent
+  \colorbox{panel}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+      \medskip
+      \textbf{\color{accent}\large Things to Remember}
+      \par\smallskip #1 \medskip}}
+  \par\medskip}
+\ifteacher
+\newcommand{\facilitatornote}[1]{%
+  \par\medskip\noindent
+  \colorbox{panel}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+      \smallskip
+      {\small\textbf{Note for the teacher.}\ #1}
+      \smallskip}}
+  \par\medskip}
+\else
+\newcommand{\facilitatornote}[1]{}
+\fi
+
+\newcommand{\ModuleTitle}{CIRCLES}
+\newcommand{\PartTitle}{Lesson 1}
+\newcommand{\ModuleDescriptor}{Grade 9 mathematics facilitator copy}
+
+\pagestyle{plain}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+% keep tall fractions in running text from touching the line above or below
+\setlength{\lineskiplimit}{2pt}
+\setlength{\lineskip}{3pt}
+
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+% plain ruled panels instead of coloured boxes
+\renewcommand{\colorbox}[2]{\par\smallskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{3pt}\noindent#2\par\vspace{2pt}\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\smallskip}
+\begin{document}
+\noindent{\LARGE Circles}\hfill{\large Lesson 1}\par\vspace{3pt}
+\noindent\rule{\linewidth}{0.6pt}\par\medskip
+
+\colorbox{panel}{%
+  \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+    \small\textbf{Teacher's copy: overview.}
+    \begin{itemize}[leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+      \item \textbf{Aims.} Students use the terms of a circle correctly. They explain why equal chords subtend equal angles at the centre, and the converse. They explain why the perpendicular from the centre bisects a chord, and the converse. They find chord lengths and distances with the Pythagoras theorem.
+      \item \textbf{Syllabus.} CBSE Class IX 2026--27, Unit IV Geometry (25 of 80 marks). The syllabus asks students to \emph{explain why} each result holds. The explanations here use congruence (SSS, SAS, RHS).
+      \item \textbf{Materials.} Compass, ruler, set square, protractor, paper circles cut beforehand, scissors.
+      \item \textbf{Timing.} Section 1: 5 min. Section 2: 15 min. Section 3: 20 min. Practice: 15 min. Exit question: 5 min.
+      \item \textbf{Next lesson.} The circle through three points and the circumcircle of a triangle.
+    \end{itemize}}}
+
+\section{Parts of a circle \normalfont\small(5 min)}
+
+Start with familiar circles: the wheel of a bullock cart and the Ashoka Chakra on the national flag. Ask: what is the same about every spoke of a wheel?
+
+\begin{definition}
+A \textbf{circle} is the set of all points in a plane at a fixed distance from a fixed point. The fixed point is the \textbf{centre}. The fixed distance is the \textbf{radius}.
+\end{definition}
+
+\begin{itemize}[leftmargin=1.8em,itemsep=1pt]
+  \item A \textbf{chord} is a line segment that joins two points on the circle.
+  \item A \textbf{diameter} is a chord through the centre. Diameter $=2\times$ radius.
+  \item An \textbf{arc} is a part of the circle. A chord cuts the circle into a \textbf{minor arc} and a \textbf{major arc}.
+  \item A \textbf{segment} is the region between a chord and an arc.
+  \item A \textbf{sector} is the region between two radii and an arc.
+\end{itemize}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \fill[black!12] (O) -- (20:2.4) arc (20:75:2.4) -- cycle;
+  \fill[black!28] (200:2.4) arc (200:290:2.4) -- cycle;
+  \draw (O) circle (2.4);
+  \draw (200:2.4) -- (290:2.4);
+  \draw (O) -- (20:2.4); \draw (O) -- (75:2.4);
+  \draw (150:2.4) -- (330:2.4);
+  \fill (O) circle (1.5pt);
+  \node[below=2pt] at (O) {$O$};
+  \node[left] at (200:2.4) {$P$};
+  \node[below] at (290:2.4) {$Q$};
+  \node[left] at (150:2.4) {$B$};
+  \node[right] at (330:2.4) {$C$};
+  \node[above right] at (20:2.4) {$A$};
+  \node[above] at (75:2.4) {$D$};
+  \node[font=\footnotesize] at (47:1.6) {sector};
+  \node[font=\footnotesize,align=center] at (245:2.0) {segment};
+  \node[right,font=\footnotesize] at (2.9,0.6) {$OA$: radius};
+  \node[right,font=\footnotesize] at (2.9,0.1) {$BC$: diameter};
+  \node[right,font=\footnotesize] at (2.9,-0.4) {$PQ$: chord};
+}
+
+\facilitatornote{Ask students to draw a circle and name each part on their own drawing. Students often confuse a segment with a sector. A sector always has two radii as its sides; a segment has a chord.}
+
+\section{Equal chords and angles at the centre \normalfont\small(15 min)}
+
+\begin{activity}
+Draw a circle with centre $O$. Draw a chord $AB$. Use the compass to copy the length $AB$ and draw another chord $CD$ of the same length. Join $OA$, $OB$, $OC$ and $OD$. Measure $\angle AOB$ and $\angle COD$. What do you notice?
+\end{activity}
+
+\begin{theorem}
+Equal chords of a circle subtend equal angles at the centre.
+\end{theorem}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (100:2.2); \coordinate (B) at (170:2.2);
+  \coordinate (C) at (240:2.2); \coordinate (D) at (310:2.2);
+  \draw (O) circle (2.2);
+  \draw (A) -- (B); \draw (C) -- (D);
+  \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (C); \draw (O) -- (D);
+  \pic[draw,angle radius=9pt] {angle=A--O--B};
+  \pic[draw,angle radius=9pt] {angle=C--O--D};
+  \draw[thin] ($(A)!0.5!(B)!0.1!90:(B)$) -- ($(A)!0.5!(B)!0.1!-90:(B)$);
+  \draw[thin] ($(C)!0.5!(D)!0.1!90:(D)$) -- ($(C)!0.5!(D)!0.1!-90:(D)$);
+  \fill (O) circle (1.3pt);
+  \node[right=2pt] at (O) {$O$};
+  \node[above] at (A) {$A$}; \node[left] at (B) {$B$};
+  \node[below left] at (C) {$C$}; \node[below right] at (D) {$D$};
+}
+
+\textbf{Why it works.} In $\tr AOB$ and $\tr COD$:
+$OA=OC$ (radii), $OB=OD$ (radii) and $AB=CD$ (given).
+So $\tr AOB\cong\tr COD$ (SSS). Hence $\angle AOB=\angle COD$ (corresponding parts of congruent triangles).
+
+\begin{theorem}[Converse]
+If two chords of a circle subtend equal angles at the centre, then the chords are equal.
+\end{theorem}
+
+\textbf{Why it works.} In $\tr AOB$ and $\tr COD$: $OA=OC$, $\angle AOB=\angle COD$ and $OB=OD$. So $\tr AOB\cong\tr COD$ (SAS). Hence $AB=CD$.
+
+\begin{example}
+In a circle with centre $O$, chords $PQ$ and $RS$ are equal and $\angle POQ=80^\circ$. Find $\angle ROS$ and $\angle ORS$.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (P) at (60:2); \coordinate (Q) at (140:2);
+  \coordinate (R) at (220:2); \coordinate (S) at (300:2);
+  \draw (O) circle (2);
+  \draw (P) -- (Q); \draw (R) -- (S);
+  \draw (O) -- (P); \draw (O) -- (Q); \draw (O) -- (R); \draw (O) -- (S);
+  \pic[draw,angle radius=9pt,"$80^\circ$",angle eccentricity=2] {angle=P--O--Q};
+  \fill (O) circle (1.3pt);
+  \node[right=3pt] at (O) {$O$};
+  \node[above right] at (P) {$P$}; \node[above left] at (Q) {$Q$};
+  \node[below left] at (R) {$R$}; \node[below right] at (S) {$S$};
+}
+
+\textbf{Given:} $PQ=RS$ and $\angle POQ=80^\circ$.\\
+\textbf{To find:} $\angle ROS$ and $\angle ORS$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $\angle ROS=\angle POQ=80^\circ$ (equal chords subtend equal angles at the centre, Theorem 1).
+  \item $OR=OS$ (radii), so $\tr ORS$ is isosceles and $\angle ORS=\angle OSR$.
+  \item $\angle ORS+\angle OSR=180^\circ-80^\circ=100^\circ$ (angle sum of a triangle), so $\angle ORS=50^\circ$.
+\end{enumerate}
+\textbf{Answer:} $\angle ROS=80^\circ$ and $\angle ORS=50^\circ$.
+
+\facilitatornote{Stress that the angles are at the \emph{centre}. Ask: ``Would the result hold if the angles were measured at a point on the circle?'' Leave the question open for a later lesson.}
+\section{The perpendicular from the centre to a chord \normalfont\small(20 min)}
+
+\begin{activity}
+Cut out a paper circle and mark its centre $O$. Fold the paper once to make a crease $AB$; this is a chord. Now fold again so that $A$ falls exactly on $B$. Open the paper. Where does the new crease cross $AB$? Does it pass through $O$? Measure the angle between the two creases.
+\end{activity}
+
+\begin{theorem}
+The perpendicular from the centre of a circle to a chord bisects the chord.
+\end{theorem}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (215:2.2); \coordinate (B) at (325:2.2);
+  \coordinate (M) at ($(A)!0.5!(B)$);
+  \draw (O) circle (2.2);
+  \draw (A) -- (B); \draw (O) -- (M); \draw (O) -- (A); \draw (O) -- (B);
+  \ramark{M}{O}{B}
+  \draw[thin] ($(A)!0.5!(M)+(0,0.1)$) -- ($(A)!0.5!(M)-(0,0.1)$);
+  \draw[thin] ($(M)!0.5!(B)+(0,0.1)$) -- ($(M)!0.5!(B)-(0,0.1)$);
+  \fill (O) circle (1.3pt);
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+}
+
+\textbf{Why it works.} Let $OM\perp AB$. In $\tr OMA$ and $\tr OMB$:
+$\angle OMA=\angle OMB=90^\circ$, $OA=OB$ (radii) and $OM$ is common.
+So $\tr OMA\cong\tr OMB$ (RHS). Hence $AM=BM$.
+
+\begin{theorem}[Converse]
+The line joining the centre of a circle to the midpoint of a chord is perpendicular to the chord.
+\end{theorem}
+
+\textbf{Why it works.} Let $M$ be the midpoint of $AB$. In $\tr OMA$ and $\tr OMB$: $AM=BM$, $OA=OB$ (radii) and $OM$ is common. So $\tr OMA\cong\tr OMB$ (SSS) and $\angle OMA=\angle OMB$. These two angles form a linear pair, so each is $90^\circ$.
+
+\rememberbox{The \textbf{distance of a chord from the centre} is the length of the perpendicular from the centre to the chord. If the radius is $r$, the chord has length $c$ and its distance from the centre is $d$, then the right triangle $OMA$ gives
+\[\left(\dfrac{c}{2}\right)^2+d^2=r^2.\]}
+
+\begin{example}
+A chord of a circle of radius $10$ cm is $6$ cm from the centre. Find the length of the chord.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-1.6,-1.2); \coordinate (B) at (1.6,-1.2); \coordinate (M) at (0,-1.2);
+  \draw (O) circle (2);
+  \draw (A) -- (B); \draw (O) -- (M); \draw (O) -- (A);
+  \ramark{M}{O}{B}
+  \fill (O) circle (1.3pt);
+  \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[right] at ($(O)!0.5!(M)$) {$6$};
+  \node[above left] at ($(O)!0.5!(A)$) {$10$};
+}
+
+\textbf{Given:} radius $OA=10$ cm, $OM\perp AB$, $OM=6$ cm.\\
+\textbf{To find:} the length of chord $AB$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $AM=MB$ (the perpendicular from the centre bisects the chord, Theorem 3).
+  \item $\tr OMA$ is right-angled at $M$, so $AM^2=OA^2-OM^2=100-36=64$ (Pythagoras theorem). So $AM=8$ cm.
+  \item $AB=2\times AM=2\times 8=16$ cm.
+\end{enumerate}
+\textbf{Answer:} the chord is $16$ cm long.
+
+\begin{example}
+A chord of length $24$ cm is $9$ cm from the centre of a circle. Find the radius of the circle.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-1.6,-1.2); \coordinate (B) at (1.6,-1.2); \coordinate (M) at (0,-1.2);
+  \draw (O) circle (2);
+  \draw (A) -- (B); \draw (O) -- (M); \draw (O) -- (A);
+  \ramark{M}{O}{B}
+  \fill (O) circle (1.3pt);
+  \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[right] at ($(O)!0.5!(M)$) {$9$};
+  \node[above left] at ($(O)!0.5!(A)$) {$r$};
+  \node[above] at ($(M)!0.5!(B)$) {$12$};
+}
+
+\textbf{Given:} $AB=24$ cm, $OM\perp AB$, $OM=9$ cm.\\
+\textbf{To find:} the radius $OA$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $AM=\dfrac{24}{2}=12$ cm (Theorem 3).
+  \item $OA^2=AM^2+OM^2=144+81=225$ (Pythagoras theorem in $\tr OMA$). So $OA=15$ cm.
+\end{enumerate}
+\textbf{Answer:} the radius is $15$ cm.
+
+\facilitatornote{Students often use the whole chord in place of half of it. Ask them to mark the midpoint $M$ and the right angle before they calculate.}
+\section{Practice \normalfont\small(15 min)}
+
+Work in your exercise book. Draw a rough diagram for every question.
+
+\begin{exercise}{1A}
+\item The radius of a circle is 13 cm. A chord is 5 cm from the centre. Find the length of the chord. Draw a rough diagram first.
+\item A chord of length 30 cm is drawn in a circle of radius 17 cm. Find the distance of the chord from the centre.
+\item Chord $AB$ of a circle with centre $O$ is 48 cm long. $OM \perp AB$ and $OM = 7$ cm. Ravi writes: radius $=\sqrt{48^2+7^2}$. Find his mistake, and find the correct radius.
+\item In a circle with centre $O$, chords $AB$ and $CD$ are equal and $\angle AOB = 70^\circ$. Find $\angle COD$ and $\angle OCD$. Give a reason for each step.
+\item Draw a circle of radius 5 cm and a chord of length 8 cm in it. Use a set square to draw the perpendicular from the centre to the chord. Measure its length. Then find the length by calculation and compare.
+\item A round dining table top has radius 50 cm. A carpenter fixes a straight wooden strip on the underside along a chord, 30 cm from the centre. Find the length of the strip.
+\end{exercise}
+
+\facilitatornote{If time is short, set Questions 5 and 6 as homework. Questions 1 to 3 give the main practice in the relation $\left(\dfrac{c}{2}\right)^2 + d^2 = r^2$.}
+
+\begin{answerblock}
+\ans{1.} $OM \perp AB$, so $M$ is the midpoint of $AB$ (Theorem 3). In right triangle $OMA$,
+\[ AM^2 = OA^2 - OM^2 = 13^2 - 5^2 = 169 - 25 = 144, \]
+so $AM = 12$ cm, and $AB = 2 \times 12 = 24$ cm. \textbf{Answer:} 24 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.85,-0.77);
+  \coordinate (B) at (1.85,-0.77);
+  \coordinate (M) at (0,-0.77);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \draw (O) -- (B);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+  \node[right] at ($(M)!0.5!(O)$) {$5$};
+  \node[below] at ($(A)!0.5!(M)$) {$12$};
+  \node[above left] at ($(A)!0.5!(O)$) {$13$};
+}
+
+\ans{2.} $AM = \dfrac{30}{2} = 15$ cm. In right triangle $OMA$,
+\[ OM^2 = OA^2 - AM^2 = 17^2 - 15^2 = 289 - 225 = 64, \]
+so $OM = 8$ cm. \textbf{Answer:} 8 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.76,-0.94);
+  \coordinate (B) at (1.76,-0.94);
+  \coordinate (M) at (0,-0.94);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \draw (O) -- (B);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+  \node[right] at ($(M)!0.5!(O)$) {$8$};
+  \node[below] at ($(A)!0.5!(M)$) {$15$};
+  \node[above left] at ($(A)!0.5!(O)$) {$17$};
+}
+
+\ans{3.} Ravi used the whole chord in place of the half chord. $M$ is the midpoint of $AB$, so
+\[ AM = \dfrac{48}{2} = 24 \text{ cm}. \]
+In right triangle $OMA$,
+\[ OA^2 = AM^2 + OM^2 = 24^2 + 7^2 = 576 + 49 = 625, \]
+so $OA = 25$ cm. \textbf{Answer:} the radius is 25 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.92,-0.56);
+  \coordinate (B) at (1.92,-0.56);
+  \coordinate (M) at (0,-0.56);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \draw (O) -- (B);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+  \node[right] at ($(M)!0.5!(O)$) {$7$};
+  \node[below] at ($(A)!0.5!(M)$) {$24$};
+  \node[above left] at ($(A)!0.5!(O)$) {$25$};
+}
+
+\ans{4.} Equal chords subtend equal angles at the centre, so $\angle COD = \angle AOB = 70^\circ$ (Theorem 1). In triangle $OCD$, $OC = OD$ because both are radii, so the triangle is isosceles and $\angle OCD = \angle ODC$. Therefore
+\[ \angle OCD = \dfrac{180^\circ - 70^\circ}{2} = \dfrac{110^\circ}{2} = 55^\circ. \]
+\textbf{Answer:} $\angle COD = 70^\circ$, $\angle OCD = 55^\circ$.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (100:2);
+  \coordinate (B) at (170:2);
+  \coordinate (C) at (235:2);
+  \coordinate (D) at (305:2);
+  \draw (A) -- (B);
+  \draw (C) -- (D);
+  \draw (O) -- (C);
+  \draw (O) -- (D);
+  \coordinate (mab) at ($(A)!0.5!(B)$);
+  \coordinate (mcd) at ($(C)!0.5!(D)$);
+  \draw[thin] ($(mab)!0.08!90:(A)$) -- ($(mab)!0.08!-90:(A)$);
+  \draw[thin] ($(mcd)!0.08!90:(C)$) -- ($(mcd)!0.08!-90:(C)$);
+  \draw (235:0.4) arc (235:305:0.4);
+  \draw ($(C)+(0:0.35)$) arc (0:55:0.35);
+  \node[above] at (A) {$A$};
+  \node[left] at (B) {$B$};
+  \node[below left] at (C) {$C$};
+  \node[below right] at (D) {$D$};
+  \node[above right] at (O) {$O$};
+  \node[below] at (270:0.62) {$70^\circ$};
+  \node[font=\scriptsize] at ($(C)+(25:0.8)$) {$55^\circ$};
+}
+
+\ans{5.} The half chord is $AM = 4$ cm. In right triangle $OMA$,
+\[ OM^2 = OA^2 - AM^2 = 5^2 - 4^2 = 25 - 16 = 9, \]
+so $OM = 3$ cm. The measured length should be close to 3 cm. \textbf{Answer:} 3 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.6,-1.2);
+  \coordinate (B) at (1.6,-1.2);
+  \coordinate (M) at (0,-1.2);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \draw (O) -- (B);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+  \node[right] at ($(M)!0.5!(O)$) {$3$};
+  \node[below] at ($(A)!0.5!(M)$) {$4$};
+  \node[above left] at ($(A)!0.5!(O)$) {$5$};
+}
+
+\ans{6.} The strip is a chord. The half chord is
+\[ \sqrt{50^2 - 30^2} = \sqrt{2500 - 900} = \sqrt{1600} = 40 \text{ cm}, \]
+so the strip is $2 \times 40 = 80$ cm long. \textbf{Answer:} 80 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.6,-1.2);
+  \coordinate (B) at (1.6,-1.2);
+  \coordinate (M) at (0,-1.2);
+  \draw[very thick] (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[right] at ($(M)!0.5!(O)$) {$30$};
+  \node[above left] at ($(A)!0.5!(O)$) {$50$};
+  \node[below] at (0,-1.33) {$80$ cm};
+}
+\end{answerblock}
+
+\section{Exit question \normalfont\small(5 min)}
+
+Answer on a slip of paper.
+
+\begin{enumerate}[label=(\alph*),leftmargin=*]
+\item True or false? ``Every line through the midpoint of a chord passes through the centre.'' Give a reason.
+\item A chord of length 10 cm is drawn in a circle of radius 13 cm. How far is the chord from the centre?
+\end{enumerate}
+
+\begin{answerblock}
+\ans{(a)} False. The line joining the centre to the midpoint of a chord is perpendicular to the chord (Theorem 4). A slanted line through the midpoint does not pass through the centre. Only the perpendicular from the centre bisects the chord (Theorem 3). \textbf{Answer:} false.
+\ans{(b)} The half chord is 5 cm. In right triangle $OMA$,
+\[ d^2 = 13^2 - 5^2 = 169 - 25 = 144, \]
+so $d = 12$ cm. \textbf{Answer:} 12 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.25,-1.56);
+  \coordinate (B) at (1.25,-1.56);
+  \coordinate (M) at (0,-1.56);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \ramark{M}{O}{A};
+  \node[above right] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[right] at ($(M)!0.5!(O)$) {$12$};
+  \node[below] at ($(A)!0.5!(M)$) {$5$};
+  \node[above left] at ($(A)!0.5!(O)$) {$13$};
+}
+\end{answerblock}
+\end{document}

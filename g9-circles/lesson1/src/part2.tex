@@ -1,0 +1,91 @@
+\section{The perpendicular from the centre to a chord \normalfont\small(20 min)}
+
+\begin{activity}
+Cut out a paper circle and mark its centre $O$. Fold the paper once to make a crease $AB$; this is a chord. Now fold again so that $A$ falls exactly on $B$. Open the paper. Where does the new crease cross $AB$? Does it pass through $O$? Measure the angle between the two creases.
+\end{activity}
+
+\begin{theorem}
+The perpendicular from the centre of a circle to a chord bisects the chord.
+\end{theorem}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (215:2.2); \coordinate (B) at (325:2.2);
+  \coordinate (M) at ($(A)!0.5!(B)$);
+  \draw (O) circle (2.2);
+  \draw (A) -- (B); \draw (O) -- (M); \draw (O) -- (A); \draw (O) -- (B);
+  \ramark{M}{O}{B}
+  \draw[thin] ($(A)!0.5!(M)+(0,0.1)$) -- ($(A)!0.5!(M)-(0,0.1)$);
+  \draw[thin] ($(M)!0.5!(B)+(0,0.1)$) -- ($(M)!0.5!(B)-(0,0.1)$);
+  \fill (O) circle (1.3pt);
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+}
+
+\textbf{Why it works.} Let $OM\perp AB$. In $\tr OMA$ and $\tr OMB$:
+$\angle OMA=\angle OMB=90^\circ$, $OA=OB$ (radii) and $OM$ is common.
+So $\tr OMA\cong\tr OMB$ (RHS). Hence $AM=BM$.
+
+\begin{theorem}[Converse]
+The line joining the centre of a circle to the midpoint of a chord is perpendicular to the chord.
+\end{theorem}
+
+\textbf{Why it works.} Let $M$ be the midpoint of $AB$. In $\tr OMA$ and $\tr OMB$: $AM=BM$, $OA=OB$ (radii) and $OM$ is common. So $\tr OMA\cong\tr OMB$ (SSS) and $\angle OMA=\angle OMB$. These two angles form a linear pair, so each is $90^\circ$.
+
+\rememberbox{The \textbf{distance of a chord from the centre} is the length of the perpendicular from the centre to the chord. If the radius is $r$, the chord has length $c$ and its distance from the centre is $d$, then the right triangle $OMA$ gives
+\[\left(\dfrac{c}{2}\right)^2+d^2=r^2.\]}
+
+\begin{example}
+A chord of a circle of radius $10$ cm is $6$ cm from the centre. Find the length of the chord.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-1.6,-1.2); \coordinate (B) at (1.6,-1.2); \coordinate (M) at (0,-1.2);
+  \draw (O) circle (2);
+  \draw (A) -- (B); \draw (O) -- (M); \draw (O) -- (A);
+  \ramark{M}{O}{B}
+  \fill (O) circle (1.3pt);
+  \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[right] at ($(O)!0.5!(M)$) {$6$};
+  \node[above left] at ($(O)!0.5!(A)$) {$10$};
+}
+
+\textbf{Given:} radius $OA=10$ cm, $OM\perp AB$, $OM=6$ cm.\\
+\textbf{To find:} the length of chord $AB$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $AM=MB$ (the perpendicular from the centre bisects the chord, Theorem 3).
+  \item $\tr OMA$ is right-angled at $M$, so $AM^2=OA^2-OM^2=100-36=64$ (Pythagoras theorem). So $AM=8$ cm.
+  \item $AB=2\times AM=2\times 8=16$ cm.
+\end{enumerate}
+\textbf{Answer:} the chord is $16$ cm long.
+
+\begin{example}
+A chord of length $24$ cm is $9$ cm from the centre of a circle. Find the radius of the circle.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-1.6,-1.2); \coordinate (B) at (1.6,-1.2); \coordinate (M) at (0,-1.2);
+  \draw (O) circle (2);
+  \draw (A) -- (B); \draw (O) -- (M); \draw (O) -- (A);
+  \ramark{M}{O}{B}
+  \fill (O) circle (1.3pt);
+  \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[right] at ($(O)!0.5!(M)$) {$9$};
+  \node[above left] at ($(O)!0.5!(A)$) {$r$};
+  \node[above] at ($(M)!0.5!(B)$) {$12$};
+}
+
+\textbf{Given:} $AB=24$ cm, $OM\perp AB$, $OM=9$ cm.\\
+\textbf{To find:} the radius $OA$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $AM=\dfrac{24}{2}=12$ cm (Theorem 3).
+  \item $OA^2=AM^2+OM^2=144+81=225$ (Pythagoras theorem in $\tr OMA$). So $OA=15$ cm.
+\end{enumerate}
+\textbf{Answer:} the radius is $15$ cm.
+
+\facilitatornote{Students often use the whole chord in place of half of it. Ask them to mark the midpoint $M$ and the right angle before they calculate.}

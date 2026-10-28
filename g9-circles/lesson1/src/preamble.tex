@@ -1,0 +1,101 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{tgschola}
+\usepackage{fouriernc}
+\usepackage{microtype}
+\usepackage{tfrupee}
+\linespread{1.04}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc,arrows.meta}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{38,52,70}
+\definecolor{panel}{RGB}{236,238,241}
+
+\newtheoremstyle{brand}{9pt}{9pt}{\itshape}{}{\bfseries\color{accent}}{.}{ }{}
+\newtheoremstyle{branddef}{9pt}{9pt}{}{}{\bfseries\color{accent}}{.}{ }{}
+\theoremstyle{brand}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{branddef}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}[section]
+\newtheorem{illus}{Illustration}
+\newtheorem{remark}{Remark}
+\newtheorem*{activity}{Activity}
+
+\newcommand{\tr}{\triangle}
+\newenvironment{exercise}[1]
+  {\par\medskip\Needspace{7\baselineskip}\noindent{\large\bfseries\color{accent}Exercise #1}
+   \par\smallskip
+   \begin{enumerate}[leftmargin=*,itemsep=4pt]}
+  {\end{enumerate}}
+\definecolor{muted}{RGB}{70,72,76}
+\newcommand{\nl}{\\[3pt]}
+\ifteacher
+\newenvironment{answerblock}
+  {\par\smallskip\Needspace{10\baselineskip}\begingroup\small\linespread{1.15}\selectfont\color{muted}\noindent\textit{Answers.}\par}
+  {\par\endgroup\medskip}
+\newcommand{\ans}[1]{\par\smallskip\Needspace{9\baselineskip}\noindent\textbf{#1}\ }
+\else
+\usepackage{comment}
+\excludecomment{answerblock}
+\fi
+\newcommand{\figph}[1]{\begin{center}\fbox{\parbox{.85\linewidth}{\small FIGURE: #1}}\end{center}}
+% right-angle mark at vertex #1 between the directions to #2 and #3
+\newcommand{\ramark}[3]{\coordinate (ra1) at ($(#1)!2mm!(#2)$);\coordinate (ra2) at ($(#1)!2mm!(#3)$);\draw[thin] (ra1) -- ($(ra1)+(ra2)-(#1)$) -- (ra2);}
+% side label: #4 placed beside segment #2--#3, on the right-hand side when walking from #2 to #3
+% (for a triangle named anticlockwise this is the outside); optional #1 = position along the segment
+\newcommand{\slab}[4][0.5]{\path (#2) -- (#3) node[pos=#1, auto=right, inner sep=2.5pt] {#4};}
+% dimension line for a whole side: drawn #3 away from segment #1--#2 on its right-hand side, labelled #4
+\newcommand{\dimlab}[4]{\draw[thin,{Bar[width=5pt]}-{Bar[width=5pt]}] ($(#1)!#3!-90:(#2)$) -- ($(#2)!#3!90:(#1)$) node[midway, auto=right, inner sep=2pt] {#4};}
+\newcommand{\exfig}[1]{\begin{center}\begin{tikzpicture}[scale=.75, every node/.style={font=\small}]#1\end{tikzpicture}\end{center}}
+% rough answer diagram (teacher copy only; it sits inside answerblock)
+\newcommand{\ansfig}[1]{\begin{center}\begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#1\end{tikzpicture}\end{center}}
+\newcommand{\rememberbox}[1]{%
+  \par\medskip\noindent
+  \colorbox{panel}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+      \medskip
+      \textbf{\color{accent}\large Things to Remember}
+      \par\smallskip #1 \medskip}}
+  \par\medskip}
+\ifteacher
+\newcommand{\facilitatornote}[1]{%
+  \par\medskip\noindent
+  \colorbox{panel}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+      \smallskip
+      {\small\textbf{Note for the teacher.}\ #1}
+      \smallskip}}
+  \par\medskip}
+\else
+\newcommand{\facilitatornote}[1]{}
+\fi
+
+\newcommand{\ModuleTitle}{CIRCLES}
+\newcommand{\PartTitle}{Lesson 1}
+\newcommand{\ModuleDescriptor}{Grade 9 mathematics facilitator copy}
+
+\pagestyle{plain}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+% keep tall fractions in running text from touching the line above or below
+\setlength{\lineskiplimit}{2pt}
+\setlength{\lineskip}{3pt}
+
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+% plain ruled panels instead of coloured boxes
+\renewcommand{\colorbox}[2]{\par\smallskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{3pt}\noindent#2\par\vspace{2pt}\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\smallskip}

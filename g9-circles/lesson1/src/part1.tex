@@ -1,0 +1,120 @@
+\noindent{\LARGE Circles}\hfill{\large Lesson 1}\par\vspace{3pt}
+\noindent\rule{\linewidth}{0.6pt}\par\medskip
+
+\colorbox{panel}{%
+  \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+    \small\textbf{Teacher's copy: overview.}
+    \begin{itemize}[leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+      \item \textbf{Aims.} Students use the terms of a circle correctly. They explain why equal chords subtend equal angles at the centre, and the converse. They explain why the perpendicular from the centre bisects a chord, and the converse. They find chord lengths and distances with the Pythagoras theorem.
+      \item \textbf{Syllabus.} CBSE Class IX 2026--27, Unit IV Geometry (25 of 80 marks). The syllabus asks students to \emph{explain why} each result holds. The explanations here use congruence (SSS, SAS, RHS).
+      \item \textbf{Materials.} Compass, ruler, set square, protractor, paper circles cut beforehand, scissors.
+      \item \textbf{Timing.} Section 1: 5 min. Section 2: 15 min. Section 3: 20 min. Practice: 15 min. Exit question: 5 min.
+      \item \textbf{Next lesson.} The circle through three points and the circumcircle of a triangle.
+    \end{itemize}}}
+
+\section{Parts of a circle \normalfont\small(5 min)}
+
+Start with familiar circles: the wheel of a bullock cart and the Ashoka Chakra on the national flag. Ask: what is the same about every spoke of a wheel?
+
+\begin{definition}
+A \textbf{circle} is the set of all points in a plane at a fixed distance from a fixed point. The fixed point is the \textbf{centre}. The fixed distance is the \textbf{radius}.
+\end{definition}
+
+\begin{itemize}[leftmargin=1.8em,itemsep=1pt]
+  \item A \textbf{chord} is a line segment that joins two points on the circle.
+  \item A \textbf{diameter} is a chord through the centre. Diameter $=2\times$ radius.
+  \item An \textbf{arc} is a part of the circle. A chord cuts the circle into a \textbf{minor arc} and a \textbf{major arc}.
+  \item A \textbf{segment} is the region between a chord and an arc.
+  \item A \textbf{sector} is the region between two radii and an arc.
+\end{itemize}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \fill[black!12] (O) -- (20:2.4) arc (20:75:2.4) -- cycle;
+  \fill[black!28] (200:2.4) arc (200:290:2.4) -- cycle;
+  \draw (O) circle (2.4);
+  \draw (200:2.4) -- (290:2.4);
+  \draw (O) -- (20:2.4); \draw (O) -- (75:2.4);
+  \draw (150:2.4) -- (330:2.4);
+  \fill (O) circle (1.5pt);
+  \node[below=2pt] at (O) {$O$};
+  \node[left] at (200:2.4) {$P$};
+  \node[below] at (290:2.4) {$Q$};
+  \node[left] at (150:2.4) {$B$};
+  \node[right] at (330:2.4) {$C$};
+  \node[above right] at (20:2.4) {$A$};
+  \node[above] at (75:2.4) {$D$};
+  \node[font=\footnotesize] at (47:1.6) {sector};
+  \node[font=\footnotesize,align=center] at (245:2.0) {segment};
+  \node[right,font=\footnotesize] at (2.9,0.6) {$OA$: radius};
+  \node[right,font=\footnotesize] at (2.9,0.1) {$BC$: diameter};
+  \node[right,font=\footnotesize] at (2.9,-0.4) {$PQ$: chord};
+}
+
+\facilitatornote{Ask students to draw a circle and name each part on their own drawing. Students often confuse a segment with a sector. A sector always has two radii as its sides; a segment has a chord.}
+
+\section{Equal chords and angles at the centre \normalfont\small(15 min)}
+
+\begin{activity}
+Draw a circle with centre $O$. Draw a chord $AB$. Use the compass to copy the length $AB$ and draw another chord $CD$ of the same length. Join $OA$, $OB$, $OC$ and $OD$. Measure $\angle AOB$ and $\angle COD$. What do you notice?
+\end{activity}
+
+\begin{theorem}
+Equal chords of a circle subtend equal angles at the centre.
+\end{theorem}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (100:2.2); \coordinate (B) at (170:2.2);
+  \coordinate (C) at (240:2.2); \coordinate (D) at (310:2.2);
+  \draw (O) circle (2.2);
+  \draw (A) -- (B); \draw (C) -- (D);
+  \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (C); \draw (O) -- (D);
+  \pic[draw,angle radius=9pt] {angle=A--O--B};
+  \pic[draw,angle radius=9pt] {angle=C--O--D};
+  \draw[thin] ($(A)!0.5!(B)!0.1!90:(B)$) -- ($(A)!0.5!(B)!0.1!-90:(B)$);
+  \draw[thin] ($(C)!0.5!(D)!0.1!90:(D)$) -- ($(C)!0.5!(D)!0.1!-90:(D)$);
+  \fill (O) circle (1.3pt);
+  \node[right=2pt] at (O) {$O$};
+  \node[above] at (A) {$A$}; \node[left] at (B) {$B$};
+  \node[below left] at (C) {$C$}; \node[below right] at (D) {$D$};
+}
+
+\textbf{Why it works.} In $\tr AOB$ and $\tr COD$:
+$OA=OC$ (radii), $OB=OD$ (radii) and $AB=CD$ (given).
+So $\tr AOB\cong\tr COD$ (SSS). Hence $\angle AOB=\angle COD$ (corresponding parts of congruent triangles).
+
+\begin{theorem}[Converse]
+If two chords of a circle subtend equal angles at the centre, then the chords are equal.
+\end{theorem}
+
+\textbf{Why it works.} In $\tr AOB$ and $\tr COD$: $OA=OC$, $\angle AOB=\angle COD$ and $OB=OD$. So $\tr AOB\cong\tr COD$ (SAS). Hence $AB=CD$.
+
+\begin{example}
+In a circle with centre $O$, chords $PQ$ and $RS$ are equal and $\angle POQ=80^\circ$. Find $\angle ROS$ and $\angle ORS$.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (P) at (60:2); \coordinate (Q) at (140:2);
+  \coordinate (R) at (220:2); \coordinate (S) at (300:2);
+  \draw (O) circle (2);
+  \draw (P) -- (Q); \draw (R) -- (S);
+  \draw (O) -- (P); \draw (O) -- (Q); \draw (O) -- (R); \draw (O) -- (S);
+  \pic[draw,angle radius=9pt,"$80^\circ$",angle eccentricity=2] {angle=P--O--Q};
+  \fill (O) circle (1.3pt);
+  \node[right=3pt] at (O) {$O$};
+  \node[above right] at (P) {$P$}; \node[above left] at (Q) {$Q$};
+  \node[below left] at (R) {$R$}; \node[below right] at (S) {$S$};
+}
+
+\textbf{Given:} $PQ=RS$ and $\angle POQ=80^\circ$.\\
+\textbf{To find:} $\angle ROS$ and $\angle ORS$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $\angle ROS=\angle POQ=80^\circ$ (equal chords subtend equal angles at the centre, Theorem 1).
+  \item $OR=OS$ (radii), so $\tr ORS$ is isosceles and $\angle ORS=\angle OSR$.
+  \item $\angle ORS+\angle OSR=180^\circ-80^\circ=100^\circ$ (angle sum of a triangle), so $\angle ORS=50^\circ$.
+\end{enumerate}
+\textbf{Answer:} $\angle ROS=80^\circ$ and $\angle ORS=50^\circ$.
+
+\facilitatornote{Stress that the angles are at the \emph{centre}. Ask: ``Would the result hold if the angles were measured at a point on the circle?'' Leave the question open for a later lesson.}

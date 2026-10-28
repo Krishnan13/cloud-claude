@@ -1,0 +1,193 @@
+\section{Practice \normalfont\small(15 min)}
+
+Work in your exercise book. Draw a rough diagram for every question.
+
+\begin{exercise}{1A}
+\item The radius of a circle is 13 cm. A chord is 5 cm from the centre. Find the length of the chord. Draw a rough diagram first.
+\item A chord of length 30 cm is drawn in a circle of radius 17 cm. Find the distance of the chord from the centre.
+\item Chord $AB$ of a circle with centre $O$ is 48 cm long. $OM \perp AB$ and $OM = 7$ cm. Ravi writes: radius $=\sqrt{48^2+7^2}$. Find his mistake, and find the correct radius.
+\item In a circle with centre $O$, chords $AB$ and $CD$ are equal and $\angle AOB = 70^\circ$. Find $\angle COD$ and $\angle OCD$. Give a reason for each step.
+\item Draw a circle of radius 5 cm and a chord of length 8 cm in it. Use a set square to draw the perpendicular from the centre to the chord. Measure its length. Then find the length by calculation and compare.
+\item A round dining table top has radius 50 cm. A carpenter fixes a straight wooden strip on the underside along a chord, 30 cm from the centre. Find the length of the strip.
+\end{exercise}
+
+\facilitatornote{If time is short, set Questions 5 and 6 as homework. Questions 1 to 3 give the main practice in the relation $\left(\dfrac{c}{2}\right)^2 + d^2 = r^2$.}
+
+\begin{answerblock}
+\ans{1.} $OM \perp AB$, so $M$ is the midpoint of $AB$ (Theorem 3). In right triangle $OMA$,
+\[ AM^2 = OA^2 - OM^2 = 13^2 - 5^2 = 169 - 25 = 144, \]
+so $AM = 12$ cm, and $AB = 2 \times 12 = 24$ cm. \textbf{Answer:} 24 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.85,-0.77);
+  \coordinate (B) at (1.85,-0.77);
+  \coordinate (M) at (0,-0.77);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \draw (O) -- (B);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+  \node[right] at ($(M)!0.5!(O)$) {$5$};
+  \node[below] at ($(A)!0.5!(M)$) {$12$};
+  \node[above left] at ($(A)!0.5!(O)$) {$13$};
+}
+
+\ans{2.} $AM = \dfrac{30}{2} = 15$ cm. In right triangle $OMA$,
+\[ OM^2 = OA^2 - AM^2 = 17^2 - 15^2 = 289 - 225 = 64, \]
+so $OM = 8$ cm. \textbf{Answer:} 8 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.76,-0.94);
+  \coordinate (B) at (1.76,-0.94);
+  \coordinate (M) at (0,-0.94);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \draw (O) -- (B);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+  \node[right] at ($(M)!0.5!(O)$) {$8$};
+  \node[below] at ($(A)!0.5!(M)$) {$15$};
+  \node[above left] at ($(A)!0.5!(O)$) {$17$};
+}
+
+\ans{3.} Ravi used the whole chord in place of the half chord. $M$ is the midpoint of $AB$, so
+\[ AM = \dfrac{48}{2} = 24 \text{ cm}. \]
+In right triangle $OMA$,
+\[ OA^2 = AM^2 + OM^2 = 24^2 + 7^2 = 576 + 49 = 625, \]
+so $OA = 25$ cm. \textbf{Answer:} the radius is 25 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.92,-0.56);
+  \coordinate (B) at (1.92,-0.56);
+  \coordinate (M) at (0,-0.56);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \draw (O) -- (B);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+  \node[right] at ($(M)!0.5!(O)$) {$7$};
+  \node[below] at ($(A)!0.5!(M)$) {$24$};
+  \node[above left] at ($(A)!0.5!(O)$) {$25$};
+}
+
+\ans{4.} Equal chords subtend equal angles at the centre, so $\angle COD = \angle AOB = 70^\circ$ (Theorem 1). In triangle $OCD$, $OC = OD$ because both are radii, so the triangle is isosceles and $\angle OCD = \angle ODC$. Therefore
+\[ \angle OCD = \dfrac{180^\circ - 70^\circ}{2} = \dfrac{110^\circ}{2} = 55^\circ. \]
+\textbf{Answer:} $\angle COD = 70^\circ$, $\angle OCD = 55^\circ$.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (100:2);
+  \coordinate (B) at (170:2);
+  \coordinate (C) at (235:2);
+  \coordinate (D) at (305:2);
+  \draw (A) -- (B);
+  \draw (C) -- (D);
+  \draw (O) -- (C);
+  \draw (O) -- (D);
+  \coordinate (mab) at ($(A)!0.5!(B)$);
+  \coordinate (mcd) at ($(C)!0.5!(D)$);
+  \draw[thin] ($(mab)!0.08!90:(A)$) -- ($(mab)!0.08!-90:(A)$);
+  \draw[thin] ($(mcd)!0.08!90:(C)$) -- ($(mcd)!0.08!-90:(C)$);
+  \draw (235:0.4) arc (235:305:0.4);
+  \draw ($(C)+(0:0.35)$) arc (0:55:0.35);
+  \node[above] at (A) {$A$};
+  \node[left] at (B) {$B$};
+  \node[below left] at (C) {$C$};
+  \node[below right] at (D) {$D$};
+  \node[above right] at (O) {$O$};
+  \node[below] at (270:0.62) {$70^\circ$};
+  \node[font=\scriptsize] at ($(C)+(25:0.8)$) {$55^\circ$};
+}
+
+\ans{5.} The half chord is $AM = 4$ cm. In right triangle $OMA$,
+\[ OM^2 = OA^2 - AM^2 = 5^2 - 4^2 = 25 - 16 = 9, \]
+so $OM = 3$ cm. The measured length should be close to 3 cm. \textbf{Answer:} 3 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.6,-1.2);
+  \coordinate (B) at (1.6,-1.2);
+  \coordinate (M) at (0,-1.2);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \draw (O) -- (B);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+  \node[right] at ($(M)!0.5!(O)$) {$3$};
+  \node[below] at ($(A)!0.5!(M)$) {$4$};
+  \node[above left] at ($(A)!0.5!(O)$) {$5$};
+}
+
+\ans{6.} The strip is a chord. The half chord is
+\[ \sqrt{50^2 - 30^2} = \sqrt{2500 - 900} = \sqrt{1600} = 40 \text{ cm}, \]
+so the strip is $2 \times 40 = 80$ cm long. \textbf{Answer:} 80 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.6,-1.2);
+  \coordinate (B) at (1.6,-1.2);
+  \coordinate (M) at (0,-1.2);
+  \draw[very thick] (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \ramark{M}{O}{A};
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[right] at ($(M)!0.5!(O)$) {$30$};
+  \node[above left] at ($(A)!0.5!(O)$) {$50$};
+  \node[below] at (0,-1.33) {$80$ cm};
+}
+\end{answerblock}
+
+\section{Exit question \normalfont\small(5 min)}
+
+Answer on a slip of paper.
+
+\begin{enumerate}[label=(\alph*),leftmargin=*]
+\item True or false? ``Every line through the midpoint of a chord passes through the centre.'' Give a reason.
+\item A chord of length 10 cm is drawn in a circle of radius 13 cm. How far is the chord from the centre?
+\end{enumerate}
+
+\begin{answerblock}
+\ans{(a)} False. The line joining the centre to the midpoint of a chord is perpendicular to the chord (Theorem 4). A slanted line through the midpoint does not pass through the centre. Only the perpendicular from the centre bisects the chord (Theorem 3). \textbf{Answer:} false.
+\ans{(b)} The half chord is 5 cm. In right triangle $OMA$,
+\[ d^2 = 13^2 - 5^2 = 169 - 25 = 144, \]
+so $d = 12$ cm. \textbf{Answer:} 12 cm.
+\ansfig{
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2);
+  \coordinate (A) at (-1.25,-1.56);
+  \coordinate (B) at (1.25,-1.56);
+  \coordinate (M) at (0,-1.56);
+  \draw (A) -- (B);
+  \draw (O) -- (M);
+  \draw (O) -- (A);
+  \ramark{M}{O}{A};
+  \node[above right] at (O) {$O$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[right] at ($(M)!0.5!(O)$) {$12$};
+  \node[below] at ($(A)!0.5!(M)$) {$5$};
+  \node[above left] at ($(A)!0.5!(O)$) {$13$};
+}
+\end{answerblock}
