@@ -55,6 +55,7 @@ If this file, the handbook and Shashi disagree: what Shashi says now wins, then 
 - Whole-number answers (including steps) unless decimals are the point. Data must be possible.
 - Some questions: tell students to draw a rough diagram; sometimes make drawing a marked part.
 - Stay within what has been taught. Do not repeat earlier questions.
+- Lessons: students discover each result by solving short problems first ("Solve first"), not hands-on activities like paper folding (Shashi, 28 Oct 2026).
 - Student sheet: no difficulty labels, no question titles. Assignment heading: "Assignment" left, date right, one thin rule.
 - fc copy: for other teachers. Formal academic register ("Concepts assessed"), short sentences, active voice, no tool talk (TikZ, trap). A rough answer diagram for every question. "Common mistake" notes only when truly needed. Answers in smaller grey text.
 
