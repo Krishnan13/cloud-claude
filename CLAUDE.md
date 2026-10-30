@@ -86,3 +86,4 @@ If this file, the handbook and Shashi disagree: what Shashi says now wins, then 
 - The skill covers many story series. "Yabuuu" is only one of them.
 - Story and directing choices belong to each story only. Do not turn them into general rules.
 - Lessons on how the animation looks and moves (motion, physics, faces, camera) do carry over to all stories: record them as general rules.
+- Shashi's stories come in mixed formats (dialogue, backdrop notes, plot, characters implied), with gaps. First step is a story sheet: what is given, unclear or missing. Suggestions (new lines, imagined backdrops, a sharper plot) are marked as suggestions, kept separate from the writer's words, and include a "leave as is" option. Never change the writer's words silently; protect the human touch.
