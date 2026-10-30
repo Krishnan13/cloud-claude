@@ -79,3 +79,10 @@ If this file, the handbook and Shashi disagree: what Shashi says now wins, then 
 - Grade 9, Chapter 6 (Ganita Manjari): perimeter, arc and sector perimeter, parallelogram and triangle area, median theorem, Heron's formula: taught. Area of circle (Ex 6.3A) probably started 22 Oct, not confirmed. Sector and segment area: not confirmed.
 - Grade 10: nothing recorded yet.
 - Prerana (30 Oct 2026): waiting for Shashi to pick one of four activities (handbook 3.9).
+
+## 9. Cartoon videos (skill: cartoon-dialogue-video; new workflow being designed, 30 Oct 2026)
+
+- Shashi and Claude are co-directors: work in small modules, each ending in a short decision card (2-3 options, recommended one marked). Not one long run to a finished video.
+- The skill covers many story series. "Yabuuu" is only one of them.
+- Story and directing choices belong to each story only. Do not turn them into general rules.
+- Lessons on how the animation looks and moves (motion, physics, faces, camera) do carry over to all stories: record them as general rules.
