@@ -1,5 +1,7 @@
 # Craft book: how things look and move (all stories, all series)
 
+Last updated: 30 Oct 2026.
+
 These are general lessons on drawing, movement, camera and sound. They apply to every story. Most came from Shashi's feedback on Yabuuu episode 1.
 Story and directing choices (where the twist goes, pacing of one episode) do **not** belong here: they go in that episode's notebook.
 A series' own cast, colours and gags go in its `bible.md`.
