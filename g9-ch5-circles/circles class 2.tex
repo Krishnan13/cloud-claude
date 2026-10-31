@@ -36,6 +36,13 @@
    \textbf{Theorem \thethm}\ (NCERT Theorem #1).\ \itshape}
   {\end{tcolorbox}\par\medskip}
 
+% corollary of the previous theorem: same frame, no new theorem number
+\newenvironment{corollary}
+  {\par\medskip\Needspace{4\baselineskip}%
+   \begin{tcolorbox}[enhanced,sharp corners,colback=white,colframe=black,boxrule=0.9pt,
+     left=7pt,right=7pt,top=5pt,bottom=5pt]%
+   \textbf{Corollary of Theorem \thethm}\ (NCERT Corollary).\ \itshape}
+  {\end{tcolorbox}\par\medskip}
 \newcommand{\tr}{\triangle}
 \newenvironment{exercise}[1]
   {\par\medskip\Needspace{7\baselineskip}\noindent{\large\bfseries Exercise #1}
@@ -135,7 +142,24 @@ Jamuna has drawn a circle by tracing around a bangle. She wants to find its cent
   \item[(d)] Both creases are perpendicular to the same direction and both pass through the centre. So they are the same line, and no single point is fixed.
 \end{steps}}{%
 %FIG: circle (no centre dot drawn heavily), chord AB lower-left and chord CD on the right, not parallel. Dashed crease through the midpoint of AB, perpendicular to AB, and dashed crease through the midpoint of CD, perpendicular to CD; both dashed lines extend a little beyond the circle and cross at the centre O (small dot, label O placed clear of both dashed lines). Labels A, B, C, D outside the circle.
-\node{FIG};
+\begin{scope}
+\coordinate (O) at (0,0);
+\coordinate (A) at (200:2.2);
+\coordinate (B) at (250:2.2);
+\coordinate (C) at (15:2.2);
+\coordinate (D) at (325:2.2);
+\draw (O) circle (2.2);
+\draw (A) -- (B);
+\draw (C) -- (D);
+\draw[dashed] (-1.91,-1.91) -- (1.91,1.91);
+\draw[dashed] (170:2.7) -- (350:2.7);
+\fill (O) circle (1.4pt);
+\node at (-0.16,0.5) {$O$};
+\node[anchor=east] at (-2.55,-0.95) {$A$};
+\node[anchor=north] at (-0.9,-2.5) {$B$};
+\node[anchor=west] at (2.62,0.75) {$C$};
+\node[anchor=west] at (2.4,-1.45) {$D$};
+\end{scope}
 }
 \end{answerblock}
 
@@ -171,7 +195,17 @@ Jamuna has drawn a circle by tracing around a bangle. She wants to find its cent
   \item[(d)] No. The diameter would be $6$ cm, but the chord $AB$ would be $8$ cm.
 \end{steps}}{%
 %FIG: horizontal segment AB (length 8 units scaled), midpoint M with small tick marks showing AM = MB. Dashed vertical perpendicular bisector through M. Two centres O1 above and O2 below, each 3 units from M (scaled). Draw the circle with centre O1 radius 5 (scaled) solid, and the circle with centre O2 radius 5 dashed or lighter. Mark 4 on AM (below the segment), 3 on MO1 (right of the bisector), 5 on O1A. Also the small circle with centre M radius 4 drawn thin grey. Labels must not touch lines.
-\node{FIG};
+\begin{scope}[scale=1.6]
+\coordinate (A) at (-1.2,0); \coordinate (B) at (1.2,0); \coordinate (M) at (0,0);
+\coordinate (O1) at (0,0.9); \coordinate (O2) at (0,-0.9);
+\draw (O1) circle (1.5); \draw[dashed,black!50] (O2) circle (1.5); \draw[black!35] (M) circle (1.2);
+\draw[thick] (A) -- (B); \draw[dashed] (0,-2.5) -- (0,2.5); \draw (O1) -- (A);
+\fill (O1) circle (1.2pt); \fill (O2) circle (1.2pt);
+\node[right=2pt] at (O1) {$O_1$}; \node[right=2pt] at (O2) {$O_2$};
+\node[left=3pt] at (A) {$A$}; \node[right=3pt] at (B) {$B$}; \node[below right=1pt] at (M) {$M$};
+\node[below=1pt,font=\scriptsize] at (-0.6,0) {$4$}; \node[right=1pt,font=\scriptsize] at (0,0.42) {$3$};
+\node[above left=0pt,font=\scriptsize] at (-0.62,0.48) {$5$};
+\end{scope}
 }
 \ans{P3.}
 \begin{steps}
@@ -209,7 +243,25 @@ Jamuna has drawn a circle by tracing around a bangle. She wants to find its cent
   \item[(c)] No. A centre would have to lie on both bisectors, and parallel lines have no common point.
 \end{steps}}{%
 %FIG: horizontal line with points A, B, C (AB = 4, BC = 6, scaled small). Two dashed vertical lines: one through the midpoint of AB, one through the midpoint of BC, each with a small right-angle mark at the line. Labels A, B, C below the line; "4" and "6" above the line between the points, clear of the dashed lines.
-\node{FIG};
+\begin{scope}
+\coordinate (A) at (0,0);
+\coordinate (B) at (2,0);
+\coordinate (C) at (5,0);
+\coordinate (M1) at (1,0);
+\coordinate (M2) at (3.5,0);
+\coordinate (U1) at (1,0.5);
+\coordinate (U2) at (3.5,0.5);
+\draw (A) -- (C);
+\draw[dashed] (1,-0.5) -- (1,1.0);
+\draw[dashed] (3.5,-0.5) -- (3.5,1.0);
+\ramark{M1}{B}{U1}
+\ramark{M2}{C}{U2}
+\node[anchor=north] at (0,-0.15) {$A$};
+\node[anchor=north] at (2,-0.15) {$B$};
+\node[anchor=north] at (5,-0.15) {$C$};
+\node[anchor=south] at (0.55,0.12) {$4$};
+\node[anchor=south] at (2.7,0.12) {$6$};
+\end{scope}
 }
 \ans{P5.}
 \begin{steps}
@@ -227,7 +279,15 @@ There is a unique circle passing through three non-collinear points.
 
 \exfig{
 %FIG: acute triangle ABC (A top, B lower left, C lower right) inside its circumcircle. Dashed perpendicular bisectors of AB and BC (short segments, with small right-angle marks at the midpoints) meeting at O inside the triangle. Label O clear of the dashed lines. Labels A, B, C outside the circle.
-\node{FIG};
+\coordinate (O) at (0,0); \coordinate (A) at (100:2.2); \coordinate (B) at (215:2.2); \coordinate (C) at (325:2.2);
+\coordinate (P) at ($(A)!0.5!(B)$); \coordinate (Q) at ($(B)!0.5!(C)$);
+\draw[thick,accent] (O) circle (2.2);
+\draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+\draw[dashed] ($(P)!-0.25!(O)$) -- ($(P)!1.35!(O)$);
+\draw[dashed] ($(Q)!-0.25!(O)$) -- ($(Q)!1.35!(O)$);
+\ramark{P}{O}{A} \ramark{Q}{O}{C}
+\fill (O) circle (1.4pt); \node[above right=2pt] at (O) {$O$};
+\node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
 }
 
 \why
@@ -260,7 +320,23 @@ This circle is the \textbf{circumcircle} of $\tr ABC$. Its centre $O$ is the \te
   \item[(c)] Obtuse-angled triangle: the circumcentre is outside, beyond the longest side $YZ$. Circumradius about $3.5$ cm.
 \end{steps}}{%
 %FIG: three small figures side by side (or stacked), each a triangle with its circumcircle and centre dot: (a) acute triangle, centre inside; (b) right triangle P (right angle mark at P), Q, R with the centre on QR at its midpoint; (c) obtuse triangle X (obtuse angle at X), Y, Z with the centre outside, beyond side YZ. Label each "(a)", "(b)", "(c)" below it. Only the vertex labels and O are needed; keep labels clear of lines.
-\node{FIG};
+\begin{scope}[scale=1.4]
+\begin{scope}[every node/.style={font=\scriptsize}]
+\coordinate (A) at (-0.139,0.788); \coordinate (B) at (-0.613,-0.514); \coordinate (C) at (0.613,-0.514);
+\draw (0,0) circle (0.8); \draw[thick] (A) -- (B) -- (C) -- cycle; \fill (0,0) circle (1pt);
+\node[above] at (A) {$A$}; \node[below left=-1pt] at (B) {$B$}; \node[below right=-1pt] at (C) {$C$};
+\node at (0,-1.15) {(a)};
+\coordinate (P) at (1.826,0.752); \coordinate (Q) at (1.3,0); \coordinate (R) at (2.9,0);
+\draw (2.1,0) circle (0.8); \draw[thick] (P) -- (Q) -- (R) -- cycle; \fill (2.1,0) circle (1pt);
+\ramark{P}{Q}{R}
+\node[above] at (P) {$P$}; \node[left] at (Q) {$Q$}; \node[right] at (R) {$R$};
+\node at (2.1,-1.15) {(b)};
+\coordinate (X) at (4.2,0.8); \coordinate (Y) at (3.507,0.4); \coordinate (Z) at (4.893,0.4);
+\draw (4.2,0) circle (0.8); \draw[thick] (X) -- (Y) -- (Z) -- cycle; \fill (4.2,0) circle (1pt);
+\node[above] at (X) {$X$}; \node[left] at (Y) {$Y$}; \node[right] at (Z) {$Z$};
+\node at (4.2,-1.15) {(c)};
+\end{scope}
+\end{scope}
 }
 \end{answerblock}
 
@@ -274,7 +350,14 @@ A potter finds a broken piece of a round clay plate. Explain how to find the cen
 
 \exfig{
 %FIG: an arc of a circle (about 120 degrees, thick) with no circle drawn. Three points A, B, C marked on the arc. Chords AB and BC drawn. Dashed perpendicular bisectors of AB and BC meeting at O below the arc. Dotted radius O to A. Labels clear of all lines.
-\node{FIG};
+\coordinate (O) at (0,0); \coordinate (A) at (145:2.2); \coordinate (B) at (90:2.2); \coordinate (C) at (35:2.2);
+\draw[very thick,accent] (25:2.2) arc[start angle=25,end angle=155,radius=2.2];
+\draw (A) -- (B) -- (C);
+\coordinate (P) at ($(A)!0.5!(B)$); \coordinate (Q) at ($(B)!0.5!(C)$);
+\draw[dashed] ($(P)!-0.2!(O)$) -- ($(P)!1.15!(O)$); \draw[dashed] ($(Q)!-0.2!(O)$) -- ($(Q)!1.15!(O)$);
+\draw[dotted] (O) -- (A);
+\fill (O) circle (1.4pt); \node[below=7pt] at (O) {$O$};
+\node[above left] at (A) {$A$}; \node[above=3pt] at (B) {$B$}; \node[above right] at (C) {$C$};
 }
 
 \textbf{Given:} a piece of the rim of a circle.\\
@@ -310,7 +393,23 @@ A potter finds a broken piece of a round clay plate. Explain how to find the cen
 $\tr ABC$ is isosceles and acute-angled, so $O$ lies inside it, on the axis of symmetry through $C$ (the perpendicular bisector of $AB$).\par
 \textbf{Answer:} $OA=OB=OC\approx3.9$ cm.}{%
 %FIG: isosceles triangle with AB = 6 at the bottom (A left, B right), C at the top (CA = CB = 7), circumcircle, centre O inside on the vertical axis through C (O a little below the middle of the triangle). Dashed perpendicular bisector of AB. Labels clear.
-\node{FIG};
+\begin{scope}
+\coordinate (O) at (0,1.103);
+\coordinate (A) at (-1.35,0);
+\coordinate (B) at (1.35,0);
+\coordinate (C) at (0,2.846);
+\coordinate (M) at (0,0);
+\coordinate (U) at (0,0.6);
+\draw (O) circle (1.743);
+\draw (A) -- (B) -- (C) -- cycle;
+\draw[dashed] (0,-0.85) -- (0,2.5);
+\ramark{M}{A}{U}
+\fill (O) circle (1.2pt);
+\node[anchor=west] at (0.18,1.103) {$O$};
+\node[anchor=north] at (-1.35,-0.2) {$A$};
+\node[anchor=north] at (1.35,-0.2) {$B$};
+\node[anchor=south] at (0,2.98) {$C$};
+\end{scope}
 }
 \ans{2.}
 The least radius is $5$ cm, with $AB$ as a diameter. There is no greatest radius: the centre can be anywhere on the perpendicular bisector of $AB$, as far away as we like (P3).
@@ -323,7 +422,17 @@ The least radius is $5$ cm, with $AB$ as a diameter. There is no greatest radius
 \end{steps}
 \textbf{Answer:} (a) $4$ cm; (b) two.}{%
 %FIG: horizontal segment PQ with midpoint M. Two centres O1 (above) and O2 (below) on the dashed perpendicular bisector, each 4 units (scaled) from M. One solid circle centred at O1 through P and Q; the other dashed. Mark 3 on PM (below), 4 on MO1 (right of bisector), 5 on O1P (left of segment). Labels clear.
-\node{FIG};
+\begin{scope}[scale=1.5]
+\coordinate (P) at (-0.9,0); \coordinate (Q) at (0.9,0); \coordinate (M) at (0,0);
+\coordinate (O1) at (0,1.2); \coordinate (O2) at (0,-1.2);
+\draw (O1) circle (1.5); \draw[dashed,black!50] (O2) circle (1.5);
+\draw[thick] (P) -- (Q); \draw[dashed] (0,-2.8) -- (0,2.8); \draw (O1) -- (P);
+\fill (O1) circle (1.2pt); \fill (O2) circle (1.2pt);
+\node[right=2pt] at (O1) {$O_1$}; \node[right=2pt] at (O2) {$O_2$};
+\node[left=3pt] at (P) {$P$}; \node[right=3pt] at (Q) {$Q$}; \node[below right=1pt] at (M) {$M$};
+\node[below=1pt,font=\scriptsize] at (-0.45,0) {$3$}; \node[right=1pt,font=\scriptsize] at (0,0.6) {$4$};
+\node[above left=0pt,font=\scriptsize] at (-0.47,0.62) {$5$};
+\end{scope}
 }
 \ans{4.}
 No. $P$ would lie on the perpendicular bisectors of $AB$ and of $BC$. Both are perpendicular to the line $ABC$, so they are parallel and never meet. So no circle passes through three collinear points, and a line meets a circle in at most two points.
@@ -333,7 +442,25 @@ Join the villages to form a triangle and construct the perpendicular bisectors o
 \anspair{%
 Both creases are perpendicular to the parallel chords and both pass through the centre. So they are the \emph{same} line, and they do not fix a point. Kiran must draw two chords that are \emph{not} parallel.}{%
 %FIG: circle with two parallel horizontal chords (one above, one below the centre, different lengths). One dashed vertical line through the centre, perpendicular to both chords, extended beyond the circle. Small right-angle marks where the dashed line meets each chord. No other labels needed except O near the centre, clear of the dashed line.
-\node{FIG};
+\begin{scope}
+\coordinate (O) at (0,0);
+\coordinate (L1) at (-1.786,0.9);
+\coordinate (R1) at (1.786,0.9);
+\coordinate (L2) at (-1.671,-1.1);
+\coordinate (R2) at (1.671,-1.1);
+\coordinate (F1) at (0,0.9);
+\coordinate (F2) at (0,-1.1);
+\coordinate (U1) at (0,1.35);
+\coordinate (U2) at (0,-0.65);
+\draw (O) circle (2.0);
+\draw (L1) -- (R1);
+\draw (L2) -- (R2);
+\draw[dashed] (0,-2.5) -- (0,2.5);
+\ramark{F1}{R1}{U1}
+\ramark{F2}{R2}{U2}
+\fill (O) circle (1.2pt);
+\node[anchor=west] at (0.26,0.28) {$O$};
+\end{scope}
 }
 \ans{7.}
 Yes, infinitely many. Turn $\tr ABC$ about the circumcentre $O$ through any angle. The image is congruent to $\tr ABC$, and its vertices stay on the same circle. Reflecting in a diameter also works.
@@ -342,13 +469,30 @@ Yes, infinitely many. Turn $\tr ABC$ about the circumcentre $O$ through any angl
 $5^2+12^2=169=13^2$, so the triangle is right-angled, and $13$ cm is the hypotenuse. The circumcentre is the midpoint of the hypotenuse (P6).\par
 \textbf{Answer:} circumradius $=\dfrac{13}{2}=6.5$ cm.}{%
 %FIG: right triangle with legs 5 (vertical) and 12 (horizontal), right-angle mark, hypotenuse 13. Its circumcircle with centre O at the midpoint of the hypotenuse (dot, label O placed off the hypotenuse). Label the sides 5, 12, 13 outside the triangle, clear of the circle.
-\node{FIG};
+\begin{scope}
+\coordinate (A) at (0,0);
+\coordinate (B) at (0,1.5);
+\coordinate (C) at (3.6,0);
+\coordinate (O) at (1.8,0.75);
+\draw (O) circle (1.95);
+\draw (A) -- (B) -- (C) -- cycle;
+\ramark{A}{B}{C}
+\fill (O) circle (1.2pt);
+\node[anchor=east] at (-0.28,0.75) {$5$};
+\node[anchor=north] at (1.8,-0.28) {$12$};
+\node at (2.05,1.2) {$13$};
+\node[anchor=north east] at (1.62,0.42) {$O$};
+\node[anchor=north east] at (-0.22,-0.18) {$A$};
+\node[anchor=east] at (-0.22,1.58) {$B$};
+\node[anchor=west] at (3.78,-0.12) {$C$};
+\end{scope}
 }
 \ans{9.}
 A right-angled triangle, with the right angle at $A$. In P6 the circumcentre was on a side only for the right-angled triangle, and then $BC$ is the hypotenuse.
 \end{answerblock}
 
 \facilitatornote{Question 9 is checked by construction here. Students prove it in Class 3, using the angle in a semicircle.}
+
 
 \section{Chords and their distance from the centre}
 
@@ -385,7 +529,18 @@ Recall from Class 1: the distance of a chord from the centre is the length of th
   \item[(c)] No. For any chord of length $8$ cm the calculation uses the same radius and the same half chord, so the distance is always $3$ cm.
 \end{steps}}{%
 %FIG: circle radius 5 (scaled), centre O. Chord AB (length 8) in the upper part, chord CD (length 8) in the lower right, NOT parallel to AB. Perpendiculars OM to AB and ON to CD with right-angle marks. Mark "3" beside OM and beside ON, "4" beside AM, and "5" beside OA. Labels clear of lines.
-\node{FIG};
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (A) at (-1.760,1.320); \coordinate (B) at (1.760,1.320); \coordinate (M) at (0.000,1.320);
+\coordinate (C) at (2.184,-0.263); \coordinate (D) at (-0.864,-2.023); \coordinate (N) at (0.660,-1.143);
+\draw[thick] (A) -- (B); \draw[thick] (C) -- (D); \draw (O) -- (M); \draw (O) -- (N); \draw (O) -- (A);
+\ramark{M}{O}{B} \ramark{N}{O}{D}
+\fill (O) circle (1.2pt); \node[left=2pt] at (O) {$O$};
+\node[above left] at (A) {$A$}; \node[above right] at (B) {$B$}; \node[right] at (C) {$C$}; \node[below] at (D) {$D$};
+\node[above=1pt,font=\scriptsize] at (M) {$M$}; \node[below right=1pt,font=\scriptsize] at (N) {$N$};
+\node[right=2pt,font=\scriptsize] at (0.000,0.660) {$3$};
+\node[above right=1pt,font=\scriptsize] at (0.330,-0.572) {$3$};
+\node[below=1pt,font=\scriptsize] at (-0.88,1.32) {$4$};
+\node[below left=0pt,font=\scriptsize] at (-0.88,0.66) {$5$};
 }
 \ans{P8.}
 In right $\tr OMP$, $PM^2=5^2-4^2=9$, so $PM=3$ cm and $PQ=6$ cm. In the same way, $RS=6$ cm. Chords at equal distances from the centre are equal.
@@ -409,7 +564,14 @@ Chords of a circle having the same length are all at the same distance from the 
 
 \exfig{
 %FIG: circle centre O. Chord AB in the upper left and chord CD in the lower right, equal length, not parallel. Perpendiculars OM to AB and ON to CD with right-angle marks. Tick marks on AB and CD showing they are equal. Radii OA and OC drawn thin. Labels A, B, C, D outside the circle, M and N beside the feet of the perpendiculars, clear of lines.
-\node{FIG};
+\coordinate (O) at (0,0); \draw[thick,accent] (O) circle (2.2);
+\coordinate (A) at (-2.199,0.072); \coordinate (B) at (0.685,2.091); \coordinate (M) at (-0.757,1.081);
+\coordinate (C) at (2.178,0.311); \coordinate (D) at (-0.311,-2.178); \coordinate (N) at (0.933,-0.933);
+\draw[thick,accent] (A) -- (B); \draw[thick,accent] (C) -- (D); \draw (O) -- (M); \draw (O) -- (N); \draw[thin] (O) -- (A); \draw[thin] (O) -- (C);
+\ramark{M}{O}{B} \ramark{N}{O}{D} \tick{A}{B} \tick{C}{D}
+\fill (O) circle (1.4pt); \node[below left=1pt] at (O) {$O$};
+\node[left] at (A) {$A$}; \node[above] at (B) {$B$}; \node[right] at (C) {$C$}; \node[below] at (D) {$D$};
+\node[font=\small] at (-1.226,1.028) {$M$}; \node[font=\small] at (1.386,-0.800) {$N$};
 }
 
 \why
@@ -456,7 +618,19 @@ A circle has centre $O$ and radius $17$ cm. Chord $AB$ is $30$ cm long and chord
 
 \exfig{
 %FIG: circle radius 17 (scaled to about 2.2 units), centre O. Chord AB (30) above O at distance 8, chord CD (16) below O at distance 15, both horizontal. Perpendiculars OM (to AB) and ON (to CD) on the vertical line through O, right-angle marks. Mark 8 beside OM, 15 beside ON, 15 on half of AB, 8 on half of CD, and 17 on radius OA. Labels must not touch the circle or lines.
-\node{FIG};
+\coordinate (O) at (0,0); \draw[thick,accent] (O) circle (2.2);
+\coordinate (A) at (-1.941,1.035); \coordinate (B) at (1.941,1.035); \coordinate (M) at (0.000,1.035);
+\coordinate (D) at (1.035,-1.941); \coordinate (C) at (-1.035,-1.941); \coordinate (N) at (0.000,-1.941);
+\draw[thick,accent] (A) -- (B); \draw[thick,accent] (C) -- (D); \draw (M) -- (N); \draw (O) -- (A);
+\ramark{M}{O}{B} \ramark{N}{O}{D}
+\fill (O) circle (1.4pt); \node[left=2pt] at (O) {$O$};
+\node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below left] at (C) {$C$}; \node[below right] at (D) {$D$};
+\node[above left=1pt,font=\scriptsize] at (M) {$M$}; \node[above left=1pt,font=\scriptsize] at (N) {$N$};
+\node[right=2pt,font=\scriptsize] at (0,0.52) {$8$};
+\node[right=2pt,font=\scriptsize] at (0,-0.97) {$15$};
+\node[above=1pt,font=\scriptsize] at (0.97,1.035) {$15$};
+\node[above=1pt,font=\scriptsize] at (0.52,-1.941) {$8$};
+\node[below left=0pt,font=\scriptsize] at (-0.97,0.52) {$17$};
 }
 
 \textbf{Given:} $r=17$ cm, $AB=30$ cm, $CD=16$ cm; $OM\perp AB$, $ON\perp CD$.\\
@@ -474,7 +648,18 @@ Chords $AB$ and $CD$ of a circle with centre $O$ are each $6$ cm from $O$, and $
 
 \exfig{
 %FIG: circle centre O (radius 10 scaled to about 2.2). Chord AB horizontal above O at distance 6; chord CD below O, slanted (not parallel to AB), also at distance 6. Perpendiculars OM and ON with right-angle marks, "6" beside each. "8" on AM. Label OA with "?" (radius unknown). Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \draw[thick,accent] (O) circle (2.2);
+\coordinate (A) at (-1.760,1.320); \coordinate (B) at (1.760,1.320); \coordinate (M) at (0.000,1.320);
+\coordinate (C) at (0.864,-2.023); \coordinate (D) at (-2.184,-0.263); \coordinate (N) at (-0.660,-1.143);
+\draw[thick,accent] (A) -- (B); \draw[thick,accent] (C) -- (D); \draw (O) -- (M); \draw (O) -- (N); \draw (O) -- (A);
+\ramark{M}{O}{B} \ramark{N}{O}{C}
+\fill (O) circle (1.4pt); \node[right=2pt] at (O) {$O$};
+\node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below right] at (C) {$C$}; \node[left] at (D) {$D$};
+\node[above=1pt,font=\scriptsize] at (M) {$M$}; \node[below left=0pt,font=\scriptsize] at (N) {$N$};
+\node[right=2pt,font=\scriptsize] at (0,0.66) {$6$};
+\node[right=3pt,font=\scriptsize] at (-0.330,-0.572) {$6$};
+\node[above=1pt,font=\scriptsize] at (-0.88,1.32) {$8$};
+\node[below left=0pt,font=\scriptsize] at (-0.88,0.66) {$?$};
 }
 
 \textbf{Given:} $OM\perp AB$, $ON\perp CD$, $OM=ON=6$ cm, $AB=16$ cm.\\
@@ -522,7 +707,17 @@ Draw a rough figure for every question in Exercise 2B and mark all the given mea
 \end{steps}
 \textbf{Answer:} $8$ cm each; Theorem 6.}{%
 %FIG: circle centre O, two equal chords AB (upper) and CD (lower right), not parallel. Perpendicular OM to AB with right-angle mark; mark 10 on OA, 6 on AM, 8 on OM. Perpendicular ON to CD with right-angle mark and "8" beside it. Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (A) at (-1.320,1.760); \coordinate (B) at (1.320,1.760); \coordinate (M) at (0.000,1.760);
+\coordinate (C) at (2.197,-0.120); \coordinate (D) at (0.500,-2.142); \coordinate (N) at (1.348,-1.131);
+\draw[thick] (A) -- (B); \draw[thick] (C) -- (D); \draw (O) -- (M); \draw (O) -- (N); \draw (O) -- (A);
+\ramark{M}{O}{B} \ramark{N}{O}{D}
+\fill (O) circle (1.2pt); \node[below left=1pt] at (O) {$O$};
+\node[above left] at (A) {$A$}; \node[above right] at (B) {$B$}; \node[right] at (C) {$C$}; \node[below] at (D) {$D$};
+\node[right=2pt,font=\scriptsize] at (0,0.88) {$8$};
+\node[above right=0pt,font=\scriptsize] at (0.674,-0.566) {$8$};
+\node[above=1pt,font=\scriptsize] at (-0.66,1.76) {$6$};
+\node[below left=0pt,font=\scriptsize] at (-0.66,0.88) {$10$};
 }
 \ans{2.}
 \anspair{%
@@ -532,7 +727,17 @@ Draw a rough figure for every question in Exercise 2B and mark all the given mea
 \end{steps}
 \textbf{Answer:} $RS=24$ cm, radius $13$ cm.}{%
 %FIG: circle centre O, chord PQ above O (horizontal) and chord RS below O, each at distance 5 from O. Perpendiculars OM and ON with right-angle marks, "5" beside each. "12" on PM, and "r" beside OP (the radius is the unknown). Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (P) at (-2.031,0.846); \coordinate (Q) at (2.031,0.846); \coordinate (M) at (0.000,0.846);
+\coordinate (S) at (2.031,-0.846); \coordinate (R) at (-2.031,-0.846); \coordinate (N) at (0.000,-0.846);
+\draw[thick] (P) -- (Q); \draw[thick] (R) -- (S); \draw (M) -- (N); \draw (O) -- (P);
+\ramark{M}{O}{Q} \ramark{N}{O}{S}
+\fill (O) circle (1.2pt); \node[right=2pt] at (O) {$O$};
+\node[left] at (P) {$P$}; \node[right] at (Q) {$Q$}; \node[left] at (R) {$R$}; \node[right] at (S) {$S$};
+\node[right=2pt,font=\scriptsize] at (0,0.42) {$5$};
+\node[right=2pt,font=\scriptsize] at (0,-0.42) {$5$};
+\node[above=1pt,font=\scriptsize] at (-1.0,0.846) {$12$};
+\node[below=1pt,font=\scriptsize] at (-1.0,0.42) {$r$};
 }
 \ans{3.}
 Use the figure of Theorem 6, with $OM\perp AB$ and $ON\perp CD$.
@@ -551,14 +756,31 @@ The longest chord is nearest the centre (Theorem 8). Order: $26$ cm, $24$ cm, $1
 \end{steps}
 \textbf{Answer:} $0$ cm, $5$ cm, $12$ cm.}{%
 %FIG: circle radius 13 (scaled to about 2.2), centre O. Horizontal diameter (label 26 above it, near the right end). Chord of length 24 above O at distance 5 (label 24 above the chord). Chord of length 10 below O at distance 12 (label 10 below the chord, inside the circle). Vertical dashed line from O to both chords, labels 5 and 12 to the right of it. Labels must not touch lines or the circle.
-\node{FIG};
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (B) at (-2.031,0.846); \coordinate (A) at (2.031,0.846); \coordinate (M) at (0.000,0.846);
+\coordinate (D) at (0.846,-2.031); \coordinate (C) at (-0.846,-2.031); \coordinate (N) at (0.000,-2.031);
+\draw[thick] (-2.2,0) -- (2.2,0); \draw[thick] (A) -- (B); \draw[thick] (C) -- (D); \draw[dashed] (M) -- (N);
+\fill (O) circle (1.2pt); \node[below left=1pt] at (O) {$O$};
+\node[above=1pt,font=\scriptsize] at (1.5,0) {$26$};
+\node[above=1pt,font=\scriptsize] at (1.3,0.846) {$24$};
+\node[above=1pt,font=\scriptsize] at (-0.42,-2.031) {$10$};
+\node[right=2pt,font=\scriptsize] at (0,0.42) {$5$};
+\node[right=2pt,font=\scriptsize] at (0,-1.0) {$12$};
 }
 \ans{5.}
 \anspair{%
 For the $4$ cm chord, half the chord is $2$ cm, so $d^2=5^2-2^2=21$ and $d=\sqrt{21}\approx4.6$ cm, not $6$ cm. In fact, no chord can be $6$ cm from the centre: $6$ cm is more than the radius.\par
 Distance and length are not in proportion. They are linked by $\left(\dfrac{c}{2}\right)^2+d^2=r^2$.}{%
 %FIG: circle radius 5 (scaled), centre O. Chord of length 8 at distance 3 above O. Chord of length 4 at distance about 4.58 below O. Dashed vertical line from O; mark 3 and "4.6" beside the two distances. Keep it simple and labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (A) at (-1.760,1.320); \coordinate (B) at (1.760,1.320); \coordinate (M) at (0.000,1.320);
+\coordinate (D) at (0.880,-2.016); \coordinate (C) at (-0.880,-2.016); \coordinate (N) at (0.000,-2.016);
+\draw[thick] (A) -- (B); \draw[thick] (C) -- (D); \draw[dashed] (M) -- (N);
+\fill (O) circle (1.2pt); \node[left=2pt] at (O) {$O$};
+\node[right=2pt,font=\scriptsize] at (0,0.66) {$3$};
+\node[right=2pt,font=\scriptsize] at (0,-1.0) {$4.6$};
+\node[above=1pt,font=\scriptsize] at (1.0,1.32) {$8$};
+\node[above=1pt,font=\scriptsize] at (-0.44,-2.016) {$4$};
 }
 \ans{6.}
 Let $M$ be the foot of the perpendicular from the centre $O$ to the chord $AB$. Then $M$ is the midpoint of $AB$ (Theorem 4), and $\tr OMA$ is right-angled at $M$. So $AM^2=OA^2-OM^2=r^2-d^2$, and $AM=\sqrt{r^2-d^2}$. The chord is $AB=2AM=2\sqrt{r^2-d^2}$.
@@ -570,7 +792,16 @@ Let $M$ be the foot of the perpendicular from the centre $O$ to the chord $AB$. 
 \end{steps}
 \textbf{Answer:} (a) $8$ m each; (b) $16$ m.}{%
 %FIG: circle radius 17 (scaled), centre O (fountain, small dot). Two horizontal parallel chords, one 8 above O, one 8 below O. Vertical dashed line through O with right-angle marks at both chords; "8" beside each half of the dashed line; "15" on the right half of the upper chord; "17" on a radius from O to the right end of the upper chord. Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (A) at (-1.941,1.035); \coordinate (B) at (1.941,1.035); \coordinate (M) at (0.000,1.035);
+\coordinate (D) at (1.941,-1.035); \coordinate (C) at (-1.941,-1.035); \coordinate (N) at (0.000,-1.035);
+\draw[thick] (A) -- (B); \draw[thick] (C) -- (D); \draw[dashed] (M) -- (N); \draw (O) -- (B);
+\ramark{M}{O}{B} \ramark{N}{O}{D}
+\fill (O) circle (1.4pt); \node[left=2pt] at (O) {$O$};
+\node[left=2pt,font=\scriptsize] at (0,0.52) {$8$};
+\node[left=2pt,font=\scriptsize] at (0,-0.52) {$8$};
+\node[above=1pt,font=\scriptsize] at (0.97,1.035) {$15$};
+\node[below right=0pt,font=\scriptsize] at (0.97,0.52) {$17$};
 }
 \ans{8.}
 \anspair{%
@@ -581,7 +812,14 @@ Let $M$ be the foot of the perpendicular from the centre $O$ to the chord $AB$. 
 \end{steps}
 $OA^2=3^2+3^2=18$, so the radius is about $4.2$ cm.}{%
 %FIG: segment AB (6) horizontal, midpoint M, dashed perpendicular bisector, O 3 units above M (scaled), circle centre O through A and B. Mark 3 on AM (below), 3 on MO (right of bisector), right-angle mark at M. Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (A) at (-1.556,-1.556); \coordinate (B) at (1.556,-1.556); \coordinate (M) at (0,-1.556);
+\draw[thick] (A) -- (B); \draw[dashed] (0,-2.6) -- (0,0.6); \draw (O) -- (A);
+\ramark{M}{O}{B}
+\fill (O) circle (1.2pt); \node[above right=1pt] at (O) {$O$};
+\node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below right=1pt,font=\scriptsize] at (M) {$M$};
+\node[below=1pt,font=\scriptsize] at (-0.778,-1.556) {$3$};
+\node[right=2pt,font=\scriptsize] at (0,-0.778) {$3$};
 }
 \ans{9.}
 \begin{steps}
@@ -599,7 +837,13 @@ $OA^2=3^2+3^2=18$, so the radius is about $4.2$ cm.}{%
 \end{steps}
 (Another way: $AB=AC$, so the chords are equidistant from $O$ (Theorem 6). A point equidistant from the two arms of an angle lies on its bisector.)}{%
 %FIG: circle centre O. Point A at the top of the circle, chords AB (to the lower left) and AC (to the lower right) of equal length, with tick marks. Segments OB, OC (thin) and AO extended a little as a dashed bisector. Small equal-angle arcs at A on both sides of AO. Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (A) at (0.000,2.200); \coordinate (B) at (-1.802,-1.262); \coordinate (C) at (1.802,-1.262);
+\draw[thick] (A) -- (B); \draw[thick] (A) -- (C); \draw[thin] (O) -- (B); \draw[thin] (O) -- (C); \draw[dashed] (A) -- (0,-1.0);
+\tick{A}{B} \tick{A}{C}
+\pic[draw,angle radius=12pt] {angle=B--A--O}; \pic[draw,angle radius=14pt] {angle=O--A--C};
+\fill (O) circle (1.2pt); \node[right=2pt] at (O) {$O$};
+\node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
 }
 \end{answerblock}
 
@@ -623,7 +867,15 @@ Half the chord is $\sqrt{7^2-6^2}=\sqrt{13}$ cm, so the chord is $2\sqrt{13}$ cm
   \item $PB=AB-AP=CD-CP=PD$.
 \end{steps}}{%
 %FIG: circle centre O. Two equal chords AB and CD crossing at P inside the circle (an X shape, roughly symmetric about the line OP). Perpendiculars OM to AB and ON to CD with right-angle marks; segment OP dashed. Labels A, B, C, D outside the circle; M, N, P, O clear of lines.
-\node{FIG};
+\begin{scope}[scale=1.25]
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (A) at (-0.658,-2.099); \coordinate (B) at (2.086,0.700); \coordinate (C) at (2.086,-0.700); \coordinate (D) at (-0.658,2.099); \coordinate (P) at (1.4,0); \coordinate (M) at (0.714,-0.700); \coordinate (N) at (0.714,0.700);
+\draw[thick] (A) -- (B); \draw[thick] (C) -- (D); \draw (O) -- (M); \draw (O) -- (N); \draw[dashed] (O) -- (P);
+\ramark{M}{O}{B} \ramark{N}{O}{D}
+\fill (O) circle (1.2pt); \node[left=2pt] at (O) {$O$}; \fill (P) circle (1pt); \node[right=4pt] at (P) {$P$};
+\node[below left] at (A) {$A$}; \node[right=2pt] at (B) {$B$}; \node[right=2pt] at (C) {$C$}; \node[above left] at (D) {$D$};
+\node[above right=1pt] at (N) {$N$}; \node[below right=1pt] at (M) {$M$};
+\end{scope}
 }
 \ans{F3.}
 \anspair{%
@@ -632,7 +884,14 @@ Half the chord is $\sqrt{7^2-6^2}=\sqrt{13}$ cm, so the chord is $2\sqrt{13}$ cm
   \item A chord farther from the centre is shorter (Theorem 8). So the chord through $P$ that is farthest from $O$, at distance $OP$, is the shortest. It is the chord perpendicular to $OP$.
 \end{steps}}{%
 %FIG: circle centre O, point P inside to the right of O. Chord through P perpendicular to OP (thick). Another chord through P, slanted (thin), with the perpendicular OM from O to it (right-angle mark). Segment OP. Labels O, P, M clear.
-\node{FIG};
+\begin{scope}[scale=1.25]
+\coordinate (O) at (0,0); \draw (O) circle (2.2);
+\coordinate (P) at (1.3,0); \draw[very thick] (1.3,1.775) -- (1.3,-1.775);
+\coordinate (E) at (2.145,0.488); \coordinate (F) at (-1.495,-1.614); \coordinate (M) at (0.325,-0.563);
+\draw (E) -- (F); \draw (O) -- (M); \draw[dashed] (O) -- (P); \ramark{M}{O}{E}
+\fill (O) circle (1.2pt); \node[left=2pt] at (O) {$O$}; \fill (P) circle (1pt); \node[below right=1pt] at (P) {$P$};
+\node[below=2pt] at (M) {$M$};
+\end{scope}
 }
 \end{answerblock}
 

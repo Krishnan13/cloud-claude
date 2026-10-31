@@ -124,7 +124,15 @@ Two points $A$ and $B$ on a circle cut it into two \textbf{arcs}. The smaller on
 
 \exfig{
 %FIG: circle centre O. Points A (lower left, about 210 deg) and B (lower right, about 330 deg). Minor arc AB (the lower arc) drawn thick; point X on the minor arc labelled below it. Major arc (the upper part) normal; point Y on it labelled above. Radii OA and OB thin, with a small angle arc for angle AOB on the minor-arc side. Labels A, B outside the circle; O above the centre dot, clear of lines.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw[thick,accent] (O) circle (2.2);
+\coordinate (A) at (-1.905,-1.100);
+\coordinate (B) at (1.905,-1.100);
+\draw[line width=2.2pt,accent] (210:2.2) arc[start angle=210,end angle=330,radius=2.2];
+\draw (O) -- (A); \draw (O) -- (B);
+\pic[draw,angle radius=9pt] {angle=A--O--B};
+\node[above=2pt] at (O) {$O$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
+\node[below=2pt] at (270:2.2) {$X$}; \node[above=2pt] at (90:2.2) {$Y$}; \fill (270:2.2) circle (1.2pt); \fill (90:2.2) circle (1.2pt);
 }
 
 The angle that an arc \textbf{subtends at the centre} is the angle swept as the radius turns from $OA$ to $OB$ along that arc. The minor arc $AXB$ subtends $\angle AOB$. The major arc $AYB$ subtends the reflex angle $AOB$, which is $360^\circ-\angle AOB$.
@@ -177,7 +185,18 @@ The angle that arc $AB$ \textbf{subtends at a point} $C$ on the rest of the circ
   \item[(c)] $\angle AOD=50^\circ=2\times25^\circ=2\angle ACD$.
 \end{steps}}{%
 %FIG: circle centre O, vertical diameter CD with C at the top and D at the bottom. A on the circle at the lower left (about 230 deg). Segments CA and OA. Angle mark "25°" at C between CO and CA (inside the angle, small), angle mark "25°" at A between AC and AO, and angle mark "50°" at O between OA and OD. Labels C above, D below, A left, O to the right of the centre dot. Labels clear of lines.
-\node{FIG};
+\begin{scope}[scale=1.6]
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (C) at (0.000,2.200);
+\coordinate (D) at (-0.000,-2.200);
+\coordinate (A) at (-1.685,-1.414);
+\draw (C) -- (D); \draw[thick] (C) -- (A); \draw (O) -- (A);
+\pic[draw,angle radius=14pt] {angle=A--C--O}; \node[font=\scriptsize] at (-0.290,0.880) {$25^\circ$};
+\pic[draw,angle radius=10pt] {angle=O--A--C}; \node[font=\scriptsize] at (-1.137,-0.700) {$25^\circ$};
+\pic[draw,angle radius=9pt] {angle=A--O--D}; \node[font=\scriptsize] at (-0.232,-0.498) {$50^\circ$};
+\node[right=2pt] at (O) {$O$}; \node[above] at (C) {$C$}; \node[below] at (D) {$D$}; \node[left] at (A) {$A$};
+\end{scope}
 }
 \ans{P3.}
 \anspair{%
@@ -187,7 +206,20 @@ The angle that arc $AB$ \textbf{subtends at a point} $C$ on the rest of the circ
   \item[(c)] $\angle AOB=2\angle ACB$.
 \end{steps}}{%
 %FIG: circle centre O, vertical diameter CD (C top, D bottom). A on the lower left (about 220 deg), B on the lower right (about 300 deg). Segments CA, CB, OA, OB. Angle marks at C: "20°" between CO and CA and "30°" between CO and CB (small font, inside the angles). Angle marks at O for angle AOD ("40°") and BOD ("60°") below O. Labels clear.
-\node{FIG};
+\begin{scope}[scale=1.6]
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (C) at (0.000,2.200);
+\coordinate (D) at (-0.000,-2.200);
+\coordinate (A) at (-1.414,-1.685);
+\coordinate (B) at (1.905,-1.100);
+\draw (C) -- (D); \draw[thick] (C) -- (A); \draw[thick] (C) -- (B); \draw (O) -- (A); \draw (O) -- (B);
+\pic[draw,angle radius=16pt] {angle=A--C--O}; \node[font=\scriptsize] at (-0.278,0.624) {$20^\circ$};
+\pic[draw,angle radius=13pt] {angle=O--C--B}; \node[font=\scriptsize] at (0.414,0.655) {$30^\circ$};
+\pic[draw,angle radius=9pt] {angle=A--O--D}; \node[font=\scriptsize] at (-0.205,-0.564) {$40^\circ$};
+\pic[draw,angle radius=11pt] {angle=D--O--B}; \node[font=\scriptsize] at (0.300,-0.520) {$60^\circ$};
+\node[left=2pt] at (O) {$O$}; \node[above] at (C) {$C$}; \node[below] at (D) {$D$}; \node[below left] at (A) {$A$}; \node[right] at (B) {$B$};
+\end{scope}
 }
 \ans{P4.}
 \anspair{%
@@ -197,7 +229,18 @@ The angle that arc $AB$ \textbf{subtends at a point} $C$ on the rest of the circ
   \item[(c)] $\angle AOB=2\angle ACB$. In all three problems the angle at the centre is double the angle at $C$.
 \end{steps}}{%
 %FIG: circle centre O, vertical diameter CD (C top, D bottom). A on the left (about 190 deg) and B on the lower left (about 240 deg), both on the same side of CD. Segments CA, CB, OA, OB. Mark angle ACB small at C, and angle AOB at O. Labels "40°" and "15°" at C may be omitted if crowded; only letters A, B, C, D, O required. Labels clear.
-\node{FIG};
+\begin{scope}[scale=1.6]
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (C) at (0.000,2.200);
+\coordinate (D) at (-0.000,-2.200);
+\coordinate (A) at (-2.167,-0.382);
+\coordinate (B) at (-1.100,-1.905);
+\draw (C) -- (D); \draw[thick] (C) -- (A); \draw[thick] (C) -- (B); \draw (O) -- (A); \draw (O) -- (B);
+\pic[draw,angle radius=14pt] {angle=A--C--B};
+\pic[draw,angle radius=9pt] {angle=A--O--B};
+\node[right=2pt] at (O) {$O$}; \node[above] at (C) {$C$}; \node[below] at (D) {$D$}; \node[left] at (A) {$A$}; \node[below left] at (B) {$B$};
+\end{scope}
 }
 \end{answerblock}
 
@@ -209,7 +252,16 @@ The angle subtended by an arc at the centre of the circle is double the angle su
 
 \exfig{
 %FIG: circle centre O. Minor arc AB at the bottom (A about 225 deg, B about 315 deg). Point C at the top of the circle. Segments CA, CB, OA, OB; dashed diameter from C through O to D on the arc AB. Angle marks: one arc at C labelled "x" (inside angle ACB, near C), one arc at O labelled "2x" (inside angle AOB, below O). Labels A, B, C, D outside the circle, O beside the centre dot, clear of the dashed line.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw[thick,accent] (O) circle (2.2);
+\coordinate (A) at (-1.556,-1.556);
+\coordinate (B) at (1.556,-1.556);
+\coordinate (C) at (0.000,2.200);
+\coordinate (D) at (-0.000,-2.200);
+\draw[thick,accent] (C) -- (A); \draw[thick,accent] (C) -- (B); \draw (O) -- (A); \draw (O) -- (B); \draw[dashed] (C) -- (D);
+\pic[draw,angle radius=14pt] {angle=A--C--B}; \node[font=\small] at (-0.000,1.350) {$x$};
+\pic[draw,angle radius=10pt] {angle=A--O--B}; \node[font=\small] at (-0.000,-0.620) {$2x$};
+\node[right=3pt] at ($(O)+(0,0.15)$) {$O$}; \node[above] at (C) {$C$}; \node[below] at (D) {$D$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
 }
 
 \why
@@ -229,7 +281,15 @@ In a circle with centre $O$, $\angle AOB=130^\circ$, and $C$ is a point on the m
 
 \exfig{
 %FIG: circle centre O. Minor arc AB at the bottom (A about 205 deg, B about 335 deg), C at the top (about 100 deg). Segments CA, CB, OA, OB, AB. Angle "130°" at O (inside angle AOB, below O); angle mark at C (no number). Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw[thick,accent] (O) circle (2.2);
+\coordinate (A) at (-1.994,-0.930);
+\coordinate (B) at (1.994,-0.930);
+\coordinate (C) at (-0.382,2.167);
+\draw[thick,accent] (C) -- (A); \draw[thick,accent] (C) -- (B); \draw (O) -- (A); \draw (O) -- (B); \draw (A) -- (B);
+\pic[draw,angle radius=9pt] {angle=A--O--B}; \node[font=\scriptsize] at (0.000,-0.600) {$130^\circ$};
+\pic[draw,angle radius=12pt] {angle=A--C--B};
+\node[above=2pt] at (O) {$O$}; \node[above] at (C) {$C$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
 }
 
 \textbf{Given:} $\angle AOB=130^\circ$; $C$ is on the major arc.\\
@@ -270,7 +330,18 @@ The angle subtended by a diameter at any point on the circle is $90^\circ$.
 
 \exfig{
 %FIG: circle centre O, horizontal diameter AB. Three points C, D, E on the upper semicircle. Segments from each of C, D, E to A and to B (thin). Right-angle marks at C, D and E (use \ramark). Labels outside the circle; O below the centre dot, clear of the diameter.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw[thick,accent] (O) circle (2.2);
+\coordinate (A) at (-2.200,0.000);
+\coordinate (B) at (2.200,0.000);
+\coordinate (C) at (1.685,1.414);
+\coordinate (D) at (-0.192,2.192);
+\coordinate (E) at (-1.802,1.262);
+\draw[thick,accent] (A) -- (B);
+\draw (A) -- (C) -- (B); \ramark{C}{A}{B}
+\draw (A) -- (D) -- (B); \ramark{D}{A}{B}
+\draw (A) -- (E) -- (B); \ramark{E}{A}{B}
+\node[below=2pt] at (O) {$O$}; \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above right] at (C) {$C$}; \node[above] at (D) {$D$}; \node[above left] at (E) {$E$};
 }
 
 \why
@@ -300,7 +371,14 @@ $AB$ is a diameter of a circle with centre $O$, and $C$ is a point on the circle
 
 \exfig{
 %FIG: circle centre O, horizontal diameter AB. C on the upper arc, nearer B (about 70 deg). Triangle ABC. Angle mark "35°" at A (inside angle CAB), right-angle mark at C. Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw[thick,accent] (O) circle (2.2);
+\coordinate (A) at (-2.200,0.000);
+\coordinate (B) at (2.200,0.000);
+\coordinate (C) at (0.752,2.067);
+\draw[thick,accent] (A) -- (B) -- (C) -- cycle; \ramark{C}{A}{B}
+\pic[draw,angle radius=14pt] {angle=B--A--C}; \node[font=\scriptsize] at (-1.342,0.271) {$35^\circ$};
+\node[below=2pt] at (O) {$O$}; \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above right] at (C) {$C$};
 }
 
 \textbf{Given:} $AB$ is a diameter; $\angle CAB=35^\circ$.\\
@@ -323,7 +401,36 @@ Draw a rough figure for every question in Exercise 3A that has no figure.
 \Needspace{8\baselineskip}
 \exfig{
 %FIG: three small circles side by side, each about radius 1.3 units, labelled (a), (b), (c) below. (a) Points A (left), B (right) on the lower part; C and D on the upper arc. Segments AC, BC, AD, BD. Angle at C marked "30°", angle at D marked "x". (b) Centre O shown. Points A, B on the lower part, C at the top. Segments OA, OB, CA, CB. Angle at O marked "x", angle at C marked "48°". (c) Horizontal diameter PQ through O; R on the upper arc. Triangle PQR. Angle at P marked "28°", angle at Q marked "x". All labels clear of lines; angle labels small.
-\node{FIG};
+\begin{scope}[scale=1.0,every node/.style={font=\scriptsize}]
+\draw (0,0) circle (1.6);
+\coordinate (A) at (-1.504,-0.547);
+\coordinate (B) at (1.504,-0.547);
+\coordinate (C) at (-0.676,1.450);
+\coordinate (D) at (0.676,1.450);
+\draw (A) -- (C) -- (B); \draw (A) -- (D) -- (B); \draw (A) -- (B);
+\pic[draw,angle radius=7pt] {angle=A--C--B}; \node[font=\scriptsize] at (-0.542,0.845) {$30^\circ$};
+\pic[draw,angle radius=7pt] {angle=A--D--B}; \node[font=\scriptsize] at (0.542,0.845) {$x$};
+\node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above left] at (C) {$C$}; \node[above right] at (D) {$D$};
+\node at (0,-2.0) {(a)};
+\draw (4.0,0) circle (1.6); \coordinate (O2) at (4.0,0); \fill (O2) circle (1pt);
+\coordinate (A2) at (2.972,-1.226);
+\coordinate (B2) at (5.028,-1.226);
+\coordinate (C2) at (4.000,1.600);
+\draw (C2) -- (A2); \draw (C2) -- (B2); \draw (O2) -- (A2); \draw (O2) -- (B2);
+\pic[draw,angle radius=7pt] {angle=A2--C2--B2}; \node[font=\scriptsize] at (4.000,0.800) {$48^\circ$};
+\pic[draw,angle radius=6pt] {angle=A2--O2--B2}; \node[font=\scriptsize] at (4.000,-0.450) {$x$};
+\node[right=3pt] at ($(O2)+(0,0.25)$) {$O$}; \node[below left] at (A2) {$A$}; \node[below right] at (B2) {$B$}; \node[above] at (C2) {$C$};
+\node at (4.0,-2.0) {(b)};
+\draw (8.0,0) circle (1.6); \coordinate (O3) at (8.0,0); \fill (O3) circle (1pt);
+\coordinate (P) at (6.400,0.000);
+\coordinate (Q) at (9.600,0.000);
+\coordinate (R) at (8.895,1.326);
+\draw (P) -- (Q) -- (R) -- cycle;
+\pic[draw,angle radius=9pt] {angle=Q--P--R}; \node[font=\scriptsize] at (7.176,0.194) {$28^\circ$};
+\pic[draw,angle radius=7pt] {angle=R--Q--P}; \node[font=\scriptsize] at (9.171,0.258) {$x$};
+\node[below=1pt] at (O3) {$O$}; \node[left] at (P) {$P$}; \node[right] at (Q) {$Q$}; \node[above] at (R) {$R$};
+\node at (8.0,-2.0) {(c)};
+\end{scope}
 }
 \item A carpenter wants to check that a wooden piece has a true semicircular edge. She places the corner of a set square on the curved edge so that its two edges pass through the ends of the straight edge. She repeats this at several places. Explain the test.
 \item $MNOP$ is a quadrilateral inscribed in a circle, and $MN$ is a diameter. What can you say about $\angle MOP$ and $\angle MNP$? Explain.
@@ -350,7 +457,16 @@ $\dfrac{70^\circ}{2}=35^\circ$ (Theorem 9).
 \end{steps}
 \textbf{Answer:} $\angle AOB=80^\circ$, $\angle OAB=50^\circ$.}{%
 %FIG: circle centre O, chord AB at the bottom, C at the top. Segments CA, CB, OA, OB, AB. "40°" at C, "80°" at O (below O), "50°" at A (inside angle OAB). Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (A) at (-1.414,-1.685);
+\coordinate (B) at (1.414,-1.685);
+\coordinate (C) at (0.000,2.200);
+\draw (C) -- (A); \draw (C) -- (B); \draw (O) -- (A); \draw (O) -- (B); \draw (A) -- (B);
+\pic[draw,angle radius=12pt] {angle=A--C--B}; \node[font=\scriptsize] at (0.000,1.450) {$40^\circ$};
+\pic[draw,angle radius=8pt] {angle=A--O--B}; \node[font=\scriptsize] at (-0.000,-0.500) {$80^\circ$};
+\pic[draw,angle radius=10pt] {angle=B--A--O}; \node[font=\scriptsize] at (-0.852,-1.423) {$50^\circ$};
+\node[above=2pt] at (O) {$O$}; \node[above] at (C) {$C$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
 }
 \ans{3.}
 \anspair{%
@@ -360,14 +476,32 @@ $\dfrac{70^\circ}{2}=35^\circ$ (Theorem 9).
 \end{steps}
 \textbf{Answer:} $AB=12$ cm; $30^\circ$.}{%
 %FIG: circle centre O, equilateral triangle OAB with A and B on the lower right part of the circle. "60°" at O, "12" beside OA. Point C on the major arc (upper left) with segments CA and CB and "30°" at C. Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (A) at (1.100,-1.905);
+\coordinate (B) at (2.200,0.000);
+\coordinate (C) at (-1.905,1.100);
+\draw[thick] (O) -- (A) -- (B) -- cycle; \draw (C) -- (A); \draw (C) -- (B);
+\pic[draw,angle radius=8pt] {angle=A--O--B}; \node[font=\scriptsize] at (0.476,-0.275) {$60^\circ$};
+\pic[draw,angle radius=12pt] {angle=A--C--B}; \node[font=\scriptsize] at (-1.212,0.700) {$30^\circ$};
+\node[font=\scriptsize] at (0.25,-1.05) {$12$};
+\node[left=2pt] at (O) {$O$}; \node[below] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above left] at (C) {$C$};
 }
 \ans{4.}
 \anspair{%
 $D$ lies \emph{on} the minor arc, so it is outside the major arc. The major arc subtends the reflex angle $360^\circ-100^\circ=260^\circ$ at $O$. So $\angle ADB=\dfrac{260^\circ}{2}=130^\circ$ (Theorem 9).\par
 \textbf{Answer:} $130^\circ$. Ravi halved the angle of the wrong arc.}{%
 %FIG: circle centre O, chord AB in the lower half (A at 220 deg, B at 320 deg, so the minor arc is at the bottom and angle AOB = 100 deg). D on the minor arc at the bottom (270 deg). Segments DA, DB, OA, OB. Reflex angle at O shown with a dotted arc above O, labelled "260°" above O. Angle at D labelled "130°" above D inside angle ADB. Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (A) at (-1.685,-1.414);
+\coordinate (B) at (1.685,-1.414);
+\coordinate (D) at (-0.000,-2.200);
+\draw (D) -- (A); \draw (D) -- (B); \draw (O) -- (A); \draw (O) -- (B);
+\draw[dotted,thick] (-40:0.35) arc[start angle=-40,end angle=220,radius=0.35];
+\node[font=\scriptsize] at (90:0.6) {$260^\circ$};
+\pic[draw,angle radius=7pt] {angle=B--D--A}; \node[font=\scriptsize] at (-0.000,-1.650) {$130^\circ$};
+\node[right=3pt] at (O) {$O$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[below] at (D) {$D$};
 }
 \ans{5.}
 \anspair{%
@@ -378,7 +512,17 @@ $D$ lies \emph{on} the minor arc, so it is outside the major arc. The major arc 
 \end{steps}
 This is NCERT End-of-Chapter Question 24.}{%
 %FIG: circle centre O, horizontal diameter AB, C on the upper arc (about 60 deg). Triangle ABC and segment OC. Angle labels "a" at A and at C (on the A side of OC), "b" at B and at C (on the B side of OC). Labels small and clear.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (A) at (-2.200,0.000);
+\coordinate (B) at (2.200,0.000);
+\coordinate (C) at (1.100,1.905);
+\draw (A) -- (B) -- (C) -- cycle; \draw (O) -- (C);
+\pic[draw,angle radius=12pt] {angle=B--A--C}; \node[font=\scriptsize] at (-1.476,0.194) {$a$};
+\pic[draw,angle radius=12pt] {angle=A--C--O}; \node[font=\scriptsize] at (0.662,1.467) {$a$};
+\pic[draw,angle radius=9pt] {angle=O--C--B}; \node[font=\scriptsize] at (1.100,1.405) {$b$};
+\pic[draw,angle radius=10pt] {angle=C--B--A}; \node[font=\scriptsize] at (1.637,0.325) {$b$};
+\node[below=2pt] at (O) {$O$}; \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above right] at (C) {$C$};
 }
 \ans{6.}
 \anspair{%
@@ -388,7 +532,37 @@ This is NCERT End-of-Chapter Question 24.}{%
   \item[(c)] $\angle PRQ=90^\circ$ (angle in a semicircle), so $x=180^\circ-90^\circ-28^\circ=62^\circ$.
 \end{steps}}{%
 %FIG: copy of the three small exercise figures (a), (b), (c) with the answers written: x = 30°, x = 96°, x = 62°; in (c) also a right-angle mark at R. Labels clear.
-\node{FIG};
+\begin{scope}[scale=0.85,every node/.style={font=\scriptsize}]
+\draw (0,0) circle (1.6);
+\coordinate (A) at (-1.504,-0.547);
+\coordinate (B) at (1.504,-0.547);
+\coordinate (C) at (-0.676,1.450);
+\coordinate (D) at (0.676,1.450);
+\draw (A) -- (C) -- (B); \draw (A) -- (D) -- (B); \draw (A) -- (B);
+\pic[draw,angle radius=7pt] {angle=A--C--B}; \node[font=\scriptsize] at (-0.542,0.845) {$30^\circ$};
+\pic[draw,angle radius=7pt] {angle=A--D--B}; \node[font=\scriptsize] at (0.542,0.845) {$30^\circ$};
+\node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above left] at (C) {$C$}; \node[above right] at (D) {$D$};
+\node at (0,-2.0) {(a)};
+\draw (4.0,0) circle (1.6); \coordinate (O2) at (4.0,0); \fill (O2) circle (1pt);
+\coordinate (A2) at (2.972,-1.226);
+\coordinate (B2) at (5.028,-1.226);
+\coordinate (C2) at (4.000,1.600);
+\draw (C2) -- (A2); \draw (C2) -- (B2); \draw (O2) -- (A2); \draw (O2) -- (B2);
+\pic[draw,angle radius=7pt] {angle=A2--C2--B2}; \node[font=\scriptsize] at (4.000,0.800) {$48^\circ$};
+\pic[draw,angle radius=6pt] {angle=A2--O2--B2}; \node[font=\scriptsize] at (4.000,-0.450) {$96^\circ$};
+\node[right=3pt] at ($(O2)+(0,0.25)$) {$O$}; \node[below left] at (A2) {$A$}; \node[below right] at (B2) {$B$}; \node[above] at (C2) {$C$};
+\node at (4.0,-2.0) {(b)};
+\draw (8.0,0) circle (1.6); \coordinate (O3) at (8.0,0); \fill (O3) circle (1pt);
+\coordinate (P) at (6.400,0.000);
+\coordinate (Q) at (9.600,0.000);
+\coordinate (R) at (8.895,1.326);
+\draw (P) -- (Q) -- (R) -- cycle;
+\pic[draw,angle radius=9pt] {angle=Q--P--R}; \node[font=\scriptsize] at (7.176,0.194) {$28^\circ$};
+\pic[draw,angle radius=7pt] {angle=R--Q--P}; \node[font=\scriptsize] at (9.171,0.258) {$62^\circ$};
+\node[below=1pt] at (O3) {$O$}; \node[left] at (P) {$P$}; \node[right] at (Q) {$Q$}; \node[above] at (R) {$R$};
+\ramark{R}{P}{Q}
+\node at (8.0,-2.0) {(c)};
+\end{scope}
 }
 \ans{7.}
 The corner of the set square is a right angle. If the edge is a true semicircle, the angle in a semicircle is $90^\circ$ at \emph{every} point of the curve, so the corner touches the curve at every position. If the corner leaves a gap at some place, the edge is not a true semicircle there.
@@ -396,7 +570,15 @@ The corner of the set square is a right angle. If the edge is a true semicircle,
 \anspair{%
 $\angle MOP$ and $\angle MNP$ both stand on the arc $MP$ and lie in the same segment, so $\angle MOP=\angle MNP$. Also $\angle MON=\angle MPN=90^\circ$ (angles in a semicircle).}{%
 %FIG: circle with horizontal diameter MN (M left, N right). O and P on the upper arc (O nearer N, P nearer M). Quadrilateral MNOP drawn. Diagonals MO and NP drawn. Equal-angle marks at O (angle MOP) and at N (angle MNP). Right-angle marks at O (angle MON) and at P (angle MPN) are optional; skip if crowded. No centre label needed (O is a vertex here). Labels clear.
-\node{FIG};
+\coordinate (Z) at (0,0); \draw (Z) circle (2.2);
+\coordinate (M) at (-2.200,0.000);
+\coordinate (N) at (2.200,0.000);
+\coordinate (V) at (1.262,1.802);
+\coordinate (P) at (-1.262,1.802);
+\draw[thick] (M) -- (N) -- (V) -- (P) -- cycle; \draw (M) -- (V); \draw (N) -- (P);
+\pic[draw,angle radius=9pt] {angle=P--V--M};
+\pic[draw,angle radius=12pt] {angle=P--N--M};
+\node[left] at (M) {$M$}; \node[right] at (N) {$N$}; \node[above right] at (V) {$O$}; \node[above left] at (P) {$P$};
 }
 \ans{9.}
 \begin{steps}
@@ -412,7 +594,13 @@ $\angle MOP$ and $\angle MNP$ both stand on the arc $MP$ and lie in the same seg
   \item $OQ=OR$ (radii), so $O$ is the midpoint of the hypotenuse $QR$.
 \end{steps}}{%
 %FIG: circle with horizontal diameter QR, centre O at its midpoint (dot), P on the upper arc. Triangle PQR with right-angle mark at P. Tick marks on OQ and OR showing they are equal. Labels clear.
-\node{FIG};
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (Q) at (-2.200,0.000);
+\coordinate (R) at (2.200,0.000);
+\coordinate (P) at (-0.752,2.067);
+\draw[thick] (P) -- (Q) -- (R) -- cycle; \ramark{P}{Q}{R} \tick{Q}{O} \tick{O}{R}
+\node[below=2pt] at (O) {$O$}; \node[left] at (Q) {$Q$}; \node[right] at (R) {$R$}; \node[above] at (P) {$P$};
 }
 \ans{11.}
 The chord and the two radii form an equilateral triangle, so the chord subtends $60^\circ$ at the centre and $\dfrac{60^\circ}{2}=30^\circ$ at a point on the major arc.
