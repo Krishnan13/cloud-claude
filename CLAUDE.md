@@ -71,6 +71,8 @@ If this file, the handbook and Shashi disagree: what Shashi says now wins, then 
 - Names: `<name> N` (student) and `<name> N fc` (teacher), as .tex and .pdf. Example: `homework 3`, `homework 3 fc`. Do not change a name Shashi gives.
 - BLC MCQ series keeps its own names: `set N perimeter area`, `set N solution perimeter area`.
 - Google Drive: top folder "Tuition_grade9,10" (id `1qszlXOHCttHHiYTIHfJHLLzFXqzCBZwP`); Chapter 6 folder "Perimeter and area (g9, ch6)" (id `1GyNyZlcFLsVkoSPMUvU42g-hiF9uWJ48`).
+- Draft copies shared in chat may carry v1, v2; files saved to Drive never do (Shashi, 31 Oct 2026).
+- Drive "Circles" folder id `1m4Foi9sMUjC8nmvRxMvqPVESFN61xx4-`. PDFs reach Drive through the laptop folder `G:\My Drive\Tuition_grade9,10\<chapter>` (device_commit_files) when the laptop is on.
 - Share PDFs in the chat first. Save to Drive only after Shashi says OK. Keep the old version when replacing.
 - The Drive connector can save .tex files; it could not upload PDFs in the old project. Check before promising.
 
