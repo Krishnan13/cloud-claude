@@ -1,0 +1,420 @@
+\newif\ifteacher\teacherfalse
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{tgschola}
+\usepackage{fouriernc}
+\usepackage{microtype}
+\linespread{1.04}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc,arrows.meta}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{38,52,70}
+\definecolor{panel}{RGB}{236,238,241}
+\definecolor{muted}{RGB}{70,72,76}
+
+\newtheoremstyle{branddef}{9pt}{9pt}{}{}{\bfseries\color{accent}}{.}{ }{}
+\theoremstyle{branddef}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+% Theorems are the main pieces of the chapter: framed, numbered in teaching order,
+% with the NCERT number in brackets. #1 = NCERT theorem number.
+\newcounter{thm}
+\newenvironment{theorem}[1]
+  {\par\medskip\Needspace{5\baselineskip}\refstepcounter{thm}%
+   \begin{tcolorbox}[enhanced,sharp corners,colback=white,colframe=black,boxrule=0.9pt,
+     left=7pt,right=7pt,top=5pt,bottom=5pt]%
+   \textbf{Theorem \thethm}\ (NCERT Theorem #1).\ \itshape}
+  {\end{tcolorbox}\par\medskip}
+
+% corollary of the previous theorem: same frame, no new theorem number
+\newenvironment{corollary}
+  {\par\medskip\Needspace{4\baselineskip}%
+   \begin{tcolorbox}[enhanced,sharp corners,colback=white,colframe=black,boxrule=0.9pt,
+     left=7pt,right=7pt,top=5pt,bottom=5pt]%
+   \textbf{Corollary of Theorem \thethm}\ (NCERT Corollary).\ \itshape}
+  {\end{tcolorbox}\par\medskip}
+\newcommand{\tr}{\triangle}
+\newenvironment{exercise}[1]
+  {\par\medskip\Needspace{7\baselineskip}\noindent{\large\bfseries Exercise #1}
+   \par\smallskip
+   \begin{enumerate}[leftmargin=*,itemsep=4pt]}
+  {\end{enumerate}}
+% Solve-first problems: numbered P1, P2, ... through the whole document
+\newcounter{prob}
+\newenvironment{solvefirst}
+  {\par\smallskip\noindent\textbf{Solve first.}
+   \begin{enumerate}[label=\textbf{P\arabic*.},leftmargin=2.2em,itemsep=3pt,start=\numexpr\value{prob}+1\relax]}
+  {\setcounter{prob}{\value{enumi}}\end{enumerate}}
+\newcommand{\why}{\par\smallskip\noindent\textbf{Why it works.}\par}
+\ifteacher
+\newenvironment{answerblock}
+  {\par\smallskip\Needspace{10\baselineskip}\begingroup\small\linespread{1.15}\selectfont\color{muted}\noindent\textit{Answers.}\par}
+  {\par\endgroup\medskip}
+\newcommand{\ans}[1]{\par\smallskip\Needspace{9\baselineskip}\noindent\textbf{#1}\ }
+\else
+\usepackage{comment}
+\excludecomment{answerblock}
+\fi
+\newcommand{\figph}[1]{\begin{center}\fbox{\parbox{.85\linewidth}{\small FIGURE: #1}}\end{center}}
+% right-angle mark at vertex #1 between the directions to #2 and #3
+\newcommand{\ramark}[3]{\coordinate (ra1) at ($(#1)!2mm!(#2)$);\coordinate (ra2) at ($(#1)!2mm!(#3)$);\draw[thin] (ra1) -- ($(ra1)+(ra2)-(#1)$) -- (ra2);}
+% tick mark across the midpoint of segment #1--#2 (equal lengths)
+\newcommand{\tick}[2]{\draw[thin] ($($(#1)!0.5!(#2)$)!1.2mm!90:(#2)$) -- ($($(#1)!0.5!(#2)$)!1.2mm!-90:(#2)$);}
+\newcommand{\exfig}[1]{\begin{center}\begin{tikzpicture}[scale=.75, every node/.style={font=\small}]#1\end{tikzpicture}\end{center}}
+% rough answer diagram (teacher copy only; it sits inside answerblock)
+\newcommand{\ansfig}[1]{\begin{center}\begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#1\end{tikzpicture}\end{center}}
+% worked answer (teacher copy): solution text on the left, rough figure on the right
+\newcommand{\anspair}[2]{\par\smallskip\noindent
+  \begin{minipage}[t]{0.62\linewidth}\vspace{0pt}#1\end{minipage}\hfill
+  \begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+  \begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#2\end{tikzpicture}\end{minipage}\par\smallskip}
+\newenvironment{steps}{\begin{enumerate}[leftmargin=1.5em,itemsep=0pt,topsep=2pt]}{\end{enumerate}}
+\newcommand{\rememberbox}[1]{%
+  \par\medskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{4pt}
+  \noindent\textbf{Things to Remember}\par\smallskip #1\par\vspace{3pt}
+  \noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\medskip}
+\ifteacher
+\newcommand{\facilitatornote}[1]{%
+  \par\medskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{3pt}
+  \noindent{\small\textbf{Note for the teacher.}\ #1}\par\vspace{2pt}
+  \noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\medskip}
+\else
+\newcommand{\facilitatornote}[1]{}
+\fi
+
+\pagestyle{plain}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+% keep tall fractions in running text from touching the line above or below
+\setlength{\lineskiplimit}{2pt}
+\setlength{\lineskip}{3pt}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\newcommand{\sheethead}[1]{\noindent{\LARGE Circles}\hfill{\large #1}\par\vspace{3pt}
+  \noindent\rule{\linewidth}{0.6pt}\par\medskip}
+\begin{document}
+\setcounter{thm}{8}
+\sheethead{Class 3}
+
+\ifteacher
+\facilitatornote{%
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item \textbf{Aims.} Students name the minor and major arcs cut off by a chord and the angle each subtends at the centre. They discover, then explain, that the angle at the centre is double the angle at a point on the remaining part of the circle. They use this to show that angles in the same segment are equal and that the angle in a semicircle is $90^\circ$.
+  \item \textbf{NCERT links.} Theorem 9 and its corollary keep their NCERT numbers. The questions include NCERT Exercise Set 5.6 and End-of-Chapter Questions 2, 6, 20 and 24.
+  \item \textbf{Prior work.} Isosceles triangles (base angles equal), the angle sum of a triangle and the exterior angle property. Class 2: circumcircles.
+  \item \textbf{Materials.} Two A4 sheets and the geometry box (protractor, compass, set square) for each student.
+  \item \textbf{Method.} The \emph{Solve first} problems P2 to P4 compute the same relation three times, in the three positions of the centre. Let students state the pattern before Theorem 9 is shown.
+\end{itemize}}
+\fi
+
+\section{Arcs}
+
+Two points $A$ and $B$ on a circle cut it into two \textbf{arcs}. The smaller one is the \textbf{minor arc} and the larger one is the \textbf{major arc}. If $AB$ is a diameter, the two arcs are equal; each is a \textbf{semicircle}.
+
+\exfig{
+%FIG: circle centre O. Points A (lower left, about 210 deg) and B (lower right, about 330 deg). Minor arc AB (the lower arc) drawn thick; point X on the minor arc labelled below it. Major arc (the upper part) normal; point Y on it labelled above. Radii OA and OB thin, with a small angle arc for angle AOB on the minor-arc side. Labels A, B outside the circle; O above the centre dot, clear of lines.
+\node{FIG};
+}
+
+The angle that an arc \textbf{subtends at the centre} is the angle swept as the radius turns from $OA$ to $OB$ along that arc. The minor arc $AXB$ subtends $\angle AOB$. The major arc $AYB$ subtends the reflex angle $AOB$, which is $360^\circ-\angle AOB$.
+
+\begin{solvefirst}
+  \item In a circle with centre $O$, $\angle AOB=100^\circ$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Which arc subtends $100^\circ$ at the centre: the minor arc or the major arc?
+    \item What angle does the other arc subtend at the centre?
+    \item What angle does a semicircle subtend at the centre?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P1.}
+(a) The minor arc. (b) The major arc subtends the reflex angle $360^\circ-100^\circ=260^\circ$. (c) $180^\circ$: a straight angle.
+\end{answerblock}
+
+\section{The angle at the centre and the angle on the circle}
+
+The angle that arc $AB$ \textbf{subtends at a point} $C$ on the rest of the circle is $\angle ACB$. In P2 to P4, $O$ is the centre and $CD$ is a diameter. Draw a rough diagram for each and mark every angle you find.
+
+\begin{solvefirst}
+  \item $A$ is a point on the circle, and $\angle OCA=25^\circ$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Why is $\angle OAC=25^\circ$?
+    \item $\angle AOD$ is an exterior angle of $\tr OAC$. Find it.
+    \item Compare $\angle AOD$ with $\angle ACD$.
+  \end{enumerate}
+  \item $A$ and $B$ lie on opposite sides of the diameter $CD$, with $\angle OCA=20^\circ$ and $\angle OCB=30^\circ$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Use P2 to find $\angle AOD$ and $\angle BOD$.
+    \item Find $\angle AOB$ and $\angle ACB$.
+    \item Compare $\angle AOB$ with $\angle ACB$.
+  \end{enumerate}
+  \item $A$ and $B$ lie on the same side of the diameter $CD$, with $\angle OCA=40^\circ$ and $\angle OCB=15^\circ$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find $\angle AOD$ and $\angle BOD$.
+    \item Find $\angle AOB$ and $\angle ACB$.
+    \item Compare $\angle AOB$ with $\angle ACB$. What pattern do P2, P3 and P4 show?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P2.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $OA=OC$ (radii), so the angles opposite them are equal.
+  \item[(b)] $\angle AOD=\angle OAC+\angle OCA=25^\circ+25^\circ=50^\circ$ (exterior angle).
+  \item[(c)] $\angle AOD=50^\circ=2\times25^\circ=2\angle ACD$.
+\end{steps}}{%
+%FIG: circle centre O, vertical diameter CD with C at the top and D at the bottom. A on the circle at the lower left (about 230 deg). Segments CA and OA. Angle mark "25°" at C between CO and CA (inside the angle, small), angle mark "25°" at A between AC and AO, and angle mark "50°" at O between OA and OD. Labels C above, D below, A left, O to the right of the centre dot. Labels clear of lines.
+\node{FIG};
+}
+\ans{P3.}
+\anspair{%
+\begin{steps}
+  \item[(a)] As in P2: $\angle AOD=2\times20^\circ=40^\circ$ and $\angle BOD=2\times30^\circ=60^\circ$.
+  \item[(b)] $\angle AOB=40^\circ+60^\circ=100^\circ$ and $\angle ACB=20^\circ+30^\circ=50^\circ$.
+  \item[(c)] $\angle AOB=2\angle ACB$.
+\end{steps}}{%
+%FIG: circle centre O, vertical diameter CD (C top, D bottom). A on the lower left (about 220 deg), B on the lower right (about 300 deg). Segments CA, CB, OA, OB. Angle marks at C: "20°" between CO and CA and "30°" between CO and CB (small font, inside the angles). Angle marks at O for angle AOD ("40°") and BOD ("60°") below O. Labels clear.
+\node{FIG};
+}
+\ans{P4.}
+\anspair{%
+\begin{steps}
+  \item[(a)] As in P2: $\angle AOD=2\times40^\circ=80^\circ$ and $\angle BOD=2\times15^\circ=30^\circ$.
+  \item[(b)] $\angle AOB=80^\circ-30^\circ=50^\circ$ and $\angle ACB=40^\circ-15^\circ=25^\circ$.
+  \item[(c)] $\angle AOB=2\angle ACB$. In all three problems the angle at the centre is double the angle at $C$.
+\end{steps}}{%
+%FIG: circle centre O, vertical diameter CD (C top, D bottom). A on the left (about 190 deg) and B on the lower left (about 240 deg), both on the same side of CD. Segments CA, CB, OA, OB. Mark angle ACB small at C, and angle AOB at O. Labels "40°" and "15°" at C may be omitted if crowded; only letters A, B, C, D, O required. Labels clear.
+\node{FIG};
+}
+\end{answerblock}
+
+\facilitatornote{P2 is the key step: P3 adds two copies of it and P4 subtracts one from the other. These are the three positions of the centre: on one arm of the angle, inside the angle and outside it. NCERT treats the second and third cases.}
+
+\begin{theorem}{9}
+The angle subtended by an arc at the centre of the circle is double the angle subtended by the arc at any point on the circle outside the arc.
+\end{theorem}
+
+\exfig{
+%FIG: circle centre O. Minor arc AB at the bottom (A about 225 deg, B about 315 deg). Point C at the top of the circle. Segments CA, CB, OA, OB; dashed diameter from C through O to D on the arc AB. Angle marks: one arc at C labelled "x" (inside angle ACB, near C), one arc at O labelled "2x" (inside angle AOB, below O). Labels A, B, C, D outside the circle, O beside the centre dot, clear of the dashed line.
+\node{FIG};
+}
+
+\why
+\textbf{Given:} arc $AB$ of a circle with centre $O$; $C$ is a point on the circle outside the arc.\\
+\textbf{To show:} $\angle AOB=2\angle ACB$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item Draw the diameter $CD$. $OA=OC$ (radii), so $\angle OAC=\angle OCA$. The exterior angle of $\tr OAC$ is $\angle AOD=\angle OAC+\angle OCA=2\angle OCA$.
+  \item In the same way, $\angle BOD=2\angle OCB$.
+  \item If $O$ lies inside $\angle ACB$, add: $\angle AOB=\angle AOD+\angle BOD=2(\angle OCA+\angle OCB)=2\angle ACB$.
+  \item If $O$ lies outside $\angle ACB$, subtract: $\angle AOB=\angle AOD-\angle BOD=2(\angle OCA-\angle OCB)=2\angle ACB$.
+\end{enumerate}
+The same steps work when the arc is a major arc; then $\angle AOB$ is a reflex angle.
+
+\begin{example}
+In a circle with centre $O$, $\angle AOB=130^\circ$, and $C$ is a point on the major arc $AB$. Find $\angle ACB$ and $\angle OAB$.
+\end{example}
+
+\exfig{
+%FIG: circle centre O. Minor arc AB at the bottom (A about 205 deg, B about 335 deg), C at the top (about 100 deg). Segments CA, CB, OA, OB, AB. Angle "130°" at O (inside angle AOB, below O); angle mark at C (no number). Labels clear.
+\node{FIG};
+}
+
+\textbf{Given:} $\angle AOB=130^\circ$; $C$ is on the major arc.\\
+\textbf{To find:} $\angle ACB$ and $\angle OAB$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $C$ is outside the minor arc $AB$, which subtends $130^\circ$ at $O$. So $\angle ACB=\dfrac{130^\circ}{2}=65^\circ$ (Theorem 9).
+  \item $OA=OB$ (radii), so $\angle OAB=\angle OBA=\dfrac{180^\circ-130^\circ}{2}=25^\circ$.
+\end{enumerate}
+\textbf{Answer:} $\angle ACB=65^\circ$ and $\angle OAB=25^\circ$.
+
+\section{Two consequences}
+
+\begin{solvefirst}
+  \item In a circle with centre $O$, $\angle AOB=80^\circ$. $C$, $D$ and $E$ are three points on the major arc $AB$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find $\angle ACB$, $\angle ADB$ and $\angle AEB$.
+    \item Does the answer depend on where $C$ is on the major arc?
+  \end{enumerate}
+  \item $AB$ is a diameter of a circle with centre $O$, and $C$ is any other point on the circle.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item What angle does the semicircle not containing $C$ subtend at $O$?
+    \item Find $\angle ACB$.
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P5.}
+(a) Each is $\dfrac{80^\circ}{2}=40^\circ$ (Theorem 9). (b) No. Every point of the major arc gives the same angle.
+\ans{P6.}
+(a) $180^\circ$. (b) $\angle ACB=\dfrac{180^\circ}{2}=90^\circ$.
+\end{answerblock}
+
+The part of the circle on one side of a chord, together with the chord, is a \textbf{segment}. P5 shows that \emph{angles in the same segment are equal}: each is half the same angle at the centre.
+
+\begin{corollary}
+The angle subtended by a diameter at any point on the circle is $90^\circ$.
+\end{corollary}
+
+\exfig{
+%FIG: circle centre O, horizontal diameter AB. Three points C, D, E on the upper semicircle. Segments from each of C, D, E to A and to B (thin). Right-angle marks at C, D and E (use \ramark). Labels outside the circle; O below the centre dot, clear of the diameter.
+\node{FIG};
+}
+
+\why
+\textbf{Given:} $AB$ is a diameter of a circle with centre $O$; $C$ is any other point on the circle.\\
+\textbf{To show:} $\angle ACB=90^\circ$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item The semicircle not containing $C$ subtends a straight angle, $180^\circ$, at $O$.
+  \item By Theorem 9, $\angle ACB=\dfrac{180^\circ}{2}=90^\circ$.
+\end{enumerate}
+
+\rememberbox{The angle at the centre is double the angle on the circle, for the same arc.\\
+Angles in the same segment are equal.\\
+The angle in a semicircle is a right angle.}
+
+\begin{solvefirst}
+  \item Draw a circle and a chord $AB$. Mark a point $C$ on the major arc, a point $P$ inside the circle and a point $Q$ outside it, all on the same side of $AB$. Measure $\angle ACB$, $\angle APB$ and $\angle AQB$. Which is the largest? Which is the smallest?
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P7.}
+$\angle APB>\angle ACB>\angle AQB$: a point inside the circle gives a larger angle, and a point outside gives a smaller one. Only points on the arc give the angle $\angle ACB$. Class 4 uses this fact.
+\end{answerblock}
+
+\begin{example}
+$AB$ is a diameter of a circle with centre $O$, and $C$ is a point on the circle with $\angle CAB=35^\circ$. Find $\angle ABC$.
+\end{example}
+
+\exfig{
+%FIG: circle centre O, horizontal diameter AB. C on the upper arc, nearer B (about 70 deg). Triangle ABC. Angle mark "35°" at A (inside angle CAB), right-angle mark at C. Labels clear.
+\node{FIG};
+}
+
+\textbf{Given:} $AB$ is a diameter; $\angle CAB=35^\circ$.\\
+\textbf{To find:} $\angle ABC$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $\angle ACB=90^\circ$ (angle in a semicircle).
+  \item $\angle ABC=180^\circ-90^\circ-35^\circ=55^\circ$ (angle sum of a triangle).
+\end{enumerate}
+\textbf{Answer:} $\angle ABC=55^\circ$.
+
+Draw a rough figure for every question in Exercise 3A that has no figure.
+
+\begin{exercise}{3A}
+\item An arc of a circle subtends an angle of $70^\circ$ at the centre. Find the angle it subtends at a point on the rest of the circle.
+\item In a circle with centre $O$, $C$ is a point on the major arc $AB$ and $\angle ACB=40^\circ$. Find $\angle AOB$ and $\angle OAB$.
+\item In a circle with centre $O$ and radius $12$ cm, $\angle AOB=60^\circ$. Find the length of the chord $AB$, and the angle that $AB$ subtends at a point on the major arc.
+\item In a circle with centre $O$, $\angle AOB=100^\circ$, and $D$ is a point on the \emph{minor} arc $AB$. Ravi writes $\angle ADB=50^\circ$. Find his mistake, and find $\angle ADB$.
+\item $AB$ is a diameter of a circle and $C$ is any other point on the circle. Find $\angle ACB$ and explain your reasoning without using Theorem 9: join $OC$ and use two isosceles triangles.
+\item Find $x$ in each figure. $O$ is the centre.
+\Needspace{8\baselineskip}
+\exfig{
+%FIG: three small circles side by side, each about radius 1.3 units, labelled (a), (b), (c) below. (a) Points A (left), B (right) on the lower part; C and D on the upper arc. Segments AC, BC, AD, BD. Angle at C marked "30°", angle at D marked "x". (b) Centre O shown. Points A, B on the lower part, C at the top. Segments OA, OB, CA, CB. Angle at O marked "x", angle at C marked "48°". (c) Horizontal diameter PQ through O; R on the upper arc. Triangle PQR. Angle at P marked "28°", angle at Q marked "x". All labels clear of lines; angle labels small.
+\node{FIG};
+}
+\item A carpenter wants to check that a wooden piece has a true semicircular edge. She places the corner of a set square on the curved edge so that its two edges pass through the ends of the straight edge. She repeats this at several places. Explain the test.
+\item $MNOP$ is a quadrilateral inscribed in a circle, and $MN$ is a diameter. What can you say about $\angle MOP$ and $\angle MNP$? Explain.
+\item $A$ and $B$ are points on a circle.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Can there be points $X$ and $Y$ on the circle, on the same side of $AB$, with $\angle AXB\ne\angle AYB$?
+    \item If $X$ and $Y$ are on the circle and $\angle AXB=\angle AYB$, must $X$ and $Y$ be on the same side of $AB$?
+    \item If $\angle AXB=\angle AYB$, and $X$ and $Y$ are not on the circle, does the circle through $A$, $B$ and $X$ also pass through $Y$?
+  \end{enumerate}
+\item In Class 2 we saw by construction that the circumcentre of a right-angled triangle is the midpoint of its hypotenuse. Prove it. Let $\tr PQR$ have $\angle P=90^\circ$ and circumcentre $O$, and use Theorem 9 for the arc $QR$ that does not contain $P$.
+\item A chord of a circle is equal to the radius. Find the angle it subtends at a point on the major arc.
+\end{exercise}
+
+\facilitatornote{Question 4 must be discussed in class: students apply ``half'' without checking which arc the point lies on. Question 9 prepares Class 4. If time is short, set Questions 8, 10 and 11 as homework.}
+
+\begin{answerblock}
+\ans{1.}
+$\dfrac{70^\circ}{2}=35^\circ$ (Theorem 9).
+\ans{2.}
+\anspair{%
+\begin{steps}
+  \item $\angle AOB=2\angle ACB=80^\circ$ (Theorem 9).
+  \item $OA=OB$, so $\angle OAB=\dfrac{180^\circ-80^\circ}{2}=50^\circ$.
+\end{steps}
+\textbf{Answer:} $\angle AOB=80^\circ$, $\angle OAB=50^\circ$.}{%
+%FIG: circle centre O, chord AB at the bottom, C at the top. Segments CA, CB, OA, OB, AB. "40°" at C, "80°" at O (below O), "50°" at A (inside angle OAB). Labels clear.
+\node{FIG};
+}
+\ans{3.}
+\anspair{%
+\begin{steps}
+  \item $OA=OB=12$ cm and $\angle AOB=60^\circ$. The base angles are each $60^\circ$, so $\tr OAB$ is equilateral and $AB=12$ cm.
+  \item At a point on the major arc, $AB$ subtends $\dfrac{60^\circ}{2}=30^\circ$ (Theorem 9).
+\end{steps}
+\textbf{Answer:} $AB=12$ cm; $30^\circ$.}{%
+%FIG: circle centre O, equilateral triangle OAB with A and B on the lower right part of the circle. "60°" at O, "12" beside OA. Point C on the major arc (upper left) with segments CA and CB and "30°" at C. Labels clear.
+\node{FIG};
+}
+\ans{4.}
+\anspair{%
+$D$ lies \emph{on} the minor arc, so it is outside the major arc. The major arc subtends the reflex angle $360^\circ-100^\circ=260^\circ$ at $O$. So $\angle ADB=\dfrac{260^\circ}{2}=130^\circ$ (Theorem 9).\par
+\textbf{Answer:} $130^\circ$. Ravi halved the angle of the wrong arc.}{%
+%FIG: circle centre O, chord AB in the lower half (A at 220 deg, B at 320 deg, so the minor arc is at the bottom and angle AOB = 100 deg). D on the minor arc at the bottom (270 deg). Segments DA, DB, OA, OB. Reflex angle at O shown with a dotted arc above O, labelled "260°" above O. Angle at D labelled "130°" above D inside angle ADB. Labels clear.
+\node{FIG};
+}
+\ans{5.}
+\anspair{%
+\begin{steps}
+  \item $OA=OC=OB$ (radii). Let $\angle OAC=\angle OCA=a$ and $\angle OBC=\angle OCB=b$.
+  \item Angle sum of $\tr ABC$: $a+(a+b)+b=180^\circ$, so $2(a+b)=180^\circ$.
+  \item $\angle ACB=a+b=90^\circ$.
+\end{steps}
+This is NCERT End-of-Chapter Question 24.}{%
+%FIG: circle centre O, horizontal diameter AB, C on the upper arc (about 60 deg). Triangle ABC and segment OC. Angle labels "a" at A and at C (on the A side of OC), "b" at B and at C (on the B side of OC). Labels small and clear.
+\node{FIG};
+}
+\ans{6.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $\angle ADB$ and $\angle ACB$ are in the same segment: $x=30^\circ$.
+  \item[(b)] $x=2\times48^\circ=96^\circ$ (Theorem 9).
+  \item[(c)] $\angle PRQ=90^\circ$ (angle in a semicircle), so $x=180^\circ-90^\circ-28^\circ=62^\circ$.
+\end{steps}}{%
+%FIG: copy of the three small exercise figures (a), (b), (c) with the answers written: x = 30°, x = 96°, x = 62°; in (c) also a right-angle mark at R. Labels clear.
+\node{FIG};
+}
+\ans{7.}
+The corner of the set square is a right angle. If the edge is a true semicircle, the angle in a semicircle is $90^\circ$ at \emph{every} point of the curve, so the corner touches the curve at every position. If the corner leaves a gap at some place, the edge is not a true semicircle there.
+\ans{8.}
+\anspair{%
+$\angle MOP$ and $\angle MNP$ both stand on the arc $MP$ and lie in the same segment, so $\angle MOP=\angle MNP$. Also $\angle MON=\angle MPN=90^\circ$ (angles in a semicircle).}{%
+%FIG: circle with horizontal diameter MN (M left, N right). O and P on the upper arc (O nearer N, P nearer M). Quadrilateral MNOP drawn. Diagonals MO and NP drawn. Equal-angle marks at O (angle MOP) and at N (angle MNP). Right-angle marks at O (angle MON) and at P (angle MPN) are optional; skip if crowded. No centre label needed (O is a vertex here). Labels clear.
+\node{FIG};
+}
+\ans{9.}
+\begin{steps}
+  \item[(a)] No. Points on the same side of $AB$ lie in the same segment, so the angles are equal.
+  \item[(b)] No. If $AB$ is a diameter, every point of the circle on either side gives $90^\circ$ (angle in a semicircle).
+  \item[(c)] Yes, if $X$ and $Y$ are on the same side of $AB$. This is Theorem 10, proved in Class 4.
+\end{steps}
+\ans{10.}
+\anspair{%
+\begin{steps}
+  \item $\angle QPR=90^\circ$, and $P$ is outside the arc $QR$ that does not contain $P$. By Theorem 9, this arc subtends $2\times90^\circ=180^\circ$ at $O$.
+  \item So $\angle QOR=180^\circ$: $Q$, $O$ and $R$ lie on one straight line, and $QR$ is a diameter.
+  \item $OQ=OR$ (radii), so $O$ is the midpoint of the hypotenuse $QR$.
+\end{steps}}{%
+%FIG: circle with horizontal diameter QR, centre O at its midpoint (dot), P on the upper arc. Triangle PQR with right-angle mark at P. Tick marks on OQ and OR showing they are equal. Labels clear.
+\node{FIG};
+}
+\ans{11.}
+The chord and the two radii form an equilateral triangle, so the chord subtends $60^\circ$ at the centre and $\dfrac{60^\circ}{2}=30^\circ$ at a point on the major arc.
+\end{answerblock}
+\end{document}

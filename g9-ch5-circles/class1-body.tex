@@ -1,0 +1,822 @@
+\sheethead{Class 1}
+
+\ifteacher
+\facilitatornote{%
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item \textbf{Aims.} Students explain why equal chords subtend equal angles at the centre, and the converse. They explain why the line from the centre to the midpoint of a chord is perpendicular to it, and why the perpendicular from the centre bisects a chord. They use the right triangle formed by the radius, the half chord and the distance from the centre to find unknown lengths.
+  \item \textbf{NCERT links.} Theorems 1 to 4 are NCERT Theorems 2 to 5. The questions include NCERT Exercise Sets 5.2 and 5.3 and End-of-Chapter Questions 1, 3, 4, 5, 9 and 18.
+  \item \textbf{Prior work.} Students have met the parts of a circle and have solved P1 and P2. Revisit these two problems briefly; P3 is new.
+  \item \textbf{Materials.} One A4 sheet and the geometry box for each student.
+  \item \textbf{Method.} Students solve each set of \emph{Solve first} problems before the theorem is stated. The statement in the frame then names what they have found, and \emph{Why it works} records the general reasoning.
+\end{itemize}}
+\fi
+
+\section{Chords and the centre}
+
+A \textbf{chord} joins two points of a circle. A chord through the centre is a \textbf{diameter}. Join the ends $A$ and $B$ of a chord to the centre $O$. The chord $AB$ and the radii $OA$ and $OB$ form $\angle AOB$. We say that the chord $AB$ \textbf{subtends} $\angle AOB$ at the centre.
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (200:2.4); \coordinate (B) at (320:2.4);
+  \fill[panel] (O) -- (A) -- (B) -- cycle;
+  \draw[thick,accent] (O) circle (2.4);
+  \draw[thick,accent] (A) -- (B);
+  \draw (O) -- (A); \draw (O) -- (B);
+  \pic[draw,angle radius=10pt] {angle=A--O--B};
+  \fill (O) circle (1.5pt);
+  \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[below right] at (B) {$B$};
+  \node[right,font=\footnotesize,align=left] at (2.9,0.3) {chord $AB$ subtends\\ $\angle AOB$ at the centre};
+}
+
+Tie a thread tightly between two points on the rim of a bicycle wheel. The thread is a chord of the circle. Now turn the wheel. The thread moves to a new position, but its length does not change.
+
+\begin{center}\begin{tikzpicture}[scale=.75, every node/.style={font=\small}]
+  \coordinate (O) at (0,0); \coordinate (A) at (200:2); \coordinate (B) at (290:2);
+  \draw[thick,accent] (O) circle (2); \draw[very thick,accent] (A) -- (B);
+  \draw[dashed] (O) -- (A); \draw[dashed] (O) -- (B);
+  \pic[draw,angle radius=9pt] {angle=A--O--B};
+  \fill (O) circle (1.4pt); \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[below] at (B) {$B$};
+  \coordinate (P) at (6,0); \coordinate (A1) at ($(P)+(300:2)$); \coordinate (B1) at ($(P)+(30:2)$);
+  \draw[thick,accent] (P) circle (2); \draw[very thick,accent] (A1) -- (B1);
+  \draw[dashed] (P) -- (A1); \draw[dashed] (P) -- (B1);
+  \pic[draw,angle radius=9pt] {angle=A1--P--B1};
+  \fill (P) circle (1.4pt); \node[left] at (P) {$O$};
+  \node[below right] at (A1) {$A'$}; \node[above right] at (B1) {$B'$};
+  \draw[-{Stealth[length=2mm]},thin] (2.4,1.2) to[bend left=30] node[above] {turn} (3.6,1.2);
+\end{tikzpicture}\end{center}
+
+Does the angle that the thread subtends at the centre change? Solve the problems below before you decide.
+
+\section{Equal chords and equal angles at the centre}
+
+\begin{solvefirst}
+  \item A circle has centre $O$ and radius $5$ cm. Chords $AB$ and $CD$ are each $6$ cm long. Draw a rough diagram and join $OA$, $OB$, $OC$ and $OD$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Write the three pairs of equal sides in $\tr AOB$ and $\tr COD$.
+    \item Are the two triangles congruent? Name the congruence rule.
+    \item What can you say about $\angle AOB$ and $\angle COD$?
+  \end{enumerate}
+  \item In another circle with centre $O$ and radius $5$ cm, $\angle POQ=\angle ROS=60^\circ$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item What kind of triangle is $\tr POQ$? Give a reason.
+    \item Find the lengths of the chords $PQ$ and $RS$.
+    \item What do you notice about the two chords?
+  \end{enumerate}
+  \item In P2 the angle $60^\circ$ made the calculation easy. Now let $\angle POQ=\angle ROS=50^\circ$ instead.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item You cannot calculate $PQ$ yet. Write two pairs of equal sides and one pair of equal angles in $\tr POQ$ and $\tr ROS$.
+    \item Are the two triangles congruent? Name the rule.
+    \item What follows for the chords $PQ$ and $RS$?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P1.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $OA=OC=5$ cm and $OB=OD=5$ cm (radii); $AB=CD=6$ cm (given).
+  \item[(b)] The three sides of $\tr AOB$ equal the three sides of $\tr COD$, so $\tr AOB\cong\tr COD$ (SSS), with $A\leftrightarrow C$, $O\leftrightarrow O$, $B\leftrightarrow D$.
+  \item[(c)] $\angle AOB=\angle COD$ (corresponding parts of congruent triangles).
+\end{steps}
+Students should write the vertices in matching order. The angle at $O$ is the angle opposite the chord in each triangle.}{%
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (110:2.2); \coordinate (B) at (185:2.2); \coordinate (C) at (250:2.2); \coordinate (D) at (325:2.2);
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw[thick] (C) -- (D);
+  \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (C); \draw (O) -- (D);
+  \pic[draw,angle radius=7pt] {angle=A--O--B}; \pic[draw,angle radius=7pt] {angle=C--O--D};
+  \fill (O) circle (1.2pt); \node[above right=1pt] at (O) {$O$};
+  \node[above] at (A) {$A$}; \node[left] at (B) {$B$}; \node[below left] at (C) {$C$}; \node[below right] at (D) {$D$};
+  \node at (147.5:1.3) {$6$}; \node at (287.5:1.3) {$6$};
+}
+\ans{P2.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $OP=OQ=5$ cm (radii), so $\tr POQ$ is isosceles and $\angle OPQ=\angle OQP$. By the angle sum, $\angle OPQ+\angle OQP=180^\circ-60^\circ=120^\circ$, so each is $60^\circ$. All three angles are $60^\circ$: the triangle is equilateral.
+  \item[(b)] $PQ=OP=5$ cm. The same reasoning in $\tr ROS$ gives $RS=5$ cm.
+  \item[(c)] $PQ=RS$: equal angles at the centre gave equal chords.
+\end{steps}}{%
+  \coordinate (O) at (0,0); \coordinate (P) at (60:2.2); \coordinate (Q) at (120:2.2);
+  \draw (O) circle (2.2);
+  \draw[thick] (P) -- (Q); \draw (O) -- (P); \draw (O) -- (Q);
+  \pic[draw,angle radius=8pt,"$60^\circ$",angle eccentricity=2] {angle=P--O--Q};
+  \fill (O) circle (1.2pt); \node[below] at (O) {$O$};
+  \node[above right] at (P) {$P$}; \node[above left] at (Q) {$Q$};
+  \node[right] at ($(O)!0.5!(P)$) {$5$}; \node[left] at ($(O)!0.5!(Q)$) {$5$};
+}
+\ans{P3.}
+\begin{steps}
+  \item[(a)] $OP=OR$ and $OQ=OS$ (radii); $\angle POQ=\angle ROS=50^\circ$ (given).
+  \item[(b)] The equal angles lie between the equal sides, so $\tr POQ\cong\tr ROS$ (SAS).
+  \item[(c)] $PQ=RS$ (corresponding parts of congruent triangles).
+\end{steps}
+Check that students say why SAS applies: $\angle POQ$ is the angle \emph{included} between $OP$ and $OQ$.
+\end{answerblock}
+
+\facilitatornote{P3 shows that the special angle $60^\circ$ is not needed: congruence alone decides the matter. Ask students to state what P1 and P3 have shown before revealing Theorems 1 and 2.}
+
+\begin{theorem}{2}
+Equal chords of a circle subtend equal angles at the centre.
+\end{theorem}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (100:2.4); \coordinate (B) at (170:2.4);
+  \coordinate (C) at (240:2.4); \coordinate (D) at (310:2.4);
+  \draw[thick,accent] (O) circle (2.4);
+  \draw[thick,accent] (A) -- (B); \draw[thick,accent] (C) -- (D);
+  \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (C); \draw (O) -- (D);
+  \pic[draw,angle radius=9pt] {angle=A--O--B};
+  \pic[draw,angle radius=9pt] {angle=C--O--D};
+  \tick{A}{B} \tick{C}{D}
+  \fill (O) circle (1.4pt);
+  \node[right=2pt] at (O) {$O$};
+  \node[above] at (A) {$A$}; \node[left] at (B) {$B$};
+  \node[below left] at (C) {$C$}; \node[below right] at (D) {$D$};
+}
+
+\why
+\textbf{Given:} chords $AB$ and $CD$ of a circle with centre $O$, and $AB=CD$.\\
+\textbf{To show:} $\angle AOB=\angle COD$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item In $\tr AOB$ and $\tr COD$: $OA=OC$ and $OB=OD$ (radii), and $AB=CD$ (given).
+  \item So $\tr AOB\cong\tr COD$ (SSS).
+  \item Hence $\angle AOB=\angle COD$ (corresponding parts of congruent triangles).
+\end{enumerate}
+
+\begin{theorem}{3}
+Chords of a circle that subtend equal angles at the centre are equal.
+\end{theorem}
+
+\why
+\textbf{Given:} chords $AB$ and $CD$ of a circle with centre $O$, and $\angle AOB=\angle COD$ (same figure).\\
+\textbf{To show:} $AB=CD$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item In $\tr AOB$ and $\tr COD$: $OA=OC$ (radii), $\angle AOB=\angle COD$ (given) and $OB=OD$ (radii).
+  \item So $\tr AOB\cong\tr COD$ (SAS).
+  \item Hence $AB=CD$.
+\end{enumerate}
+
+Theorem 2 is the \textbf{converse} of Theorem 1: the given fact and the conclusion change places.
+
+\begin{example}
+In a circle with centre $O$, chords $PQ$ and $RS$ are equal and $\angle POQ=80^\circ$. Find $\angle ROS$ and $\angle ORS$.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (P) at (60:2.2); \coordinate (Q) at (140:2.2);
+  \coordinate (R) at (220:2.2); \coordinate (S) at (300:2.2);
+  \draw[thick,accent] (O) circle (2.2);
+  \draw[thick,accent] (P) -- (Q); \draw[thick,accent] (R) -- (S);
+  \draw (O) -- (P); \draw (O) -- (Q); \draw (O) -- (R); \draw (O) -- (S);
+  \pic[draw,angle radius=9pt,"$80^\circ$",angle eccentricity=2] {angle=P--O--Q};
+  \tick{P}{Q} \tick{R}{S}
+  \fill (O) circle (1.4pt);
+  \node[right=3pt] at (O) {$O$};
+  \node[above right] at (P) {$P$}; \node[above left] at (Q) {$Q$};
+  \node[below left] at (R) {$R$}; \node[below right] at (S) {$S$};
+}
+
+\textbf{Given:} $PQ=RS$ and $\angle POQ=80^\circ$.\\
+\textbf{To find:} $\angle ROS$ and $\angle ORS$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $\angle ROS=\angle POQ=80^\circ$ (equal chords subtend equal angles at the centre, Theorem 1).
+  \item $OR=OS$ (radii), so $\tr ORS$ is isosceles and $\angle ORS=\angle OSR$.
+  \item $\angle ORS+\angle OSR=180^\circ-80^\circ=100^\circ$ (angle sum of a triangle), so $\angle ORS=50^\circ$.
+\end{enumerate}
+\textbf{Answer:} $\angle ROS=80^\circ$ and $\angle ORS=50^\circ$.
+
+\begin{example}
+$A$, $B$ and $C$ are points on a circle with centre $O$ such that $\angle AOB=\angle BOC=120^\circ$. Show that $\tr ABC$ is equilateral.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (90:2.2); \coordinate (B) at (210:2.2); \coordinate (C) at (330:2.2);
+  \draw[thick,accent] (O) circle (2.2);
+  \draw[thick,accent] (A) -- (B) -- (C) -- cycle;
+  \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (C);
+  \pic[draw,angle radius=6pt] {angle=B--O--A};
+  \pic[draw,angle radius=6pt] {angle=C--O--B};
+  \pic[draw,angle radius=6pt] {angle=A--O--C};
+  \node[font=\scriptsize] at (150:1.4) {$120^\circ$};
+  \node[font=\scriptsize] at (270:1.4) {$120^\circ$};
+  \node[font=\scriptsize] at (30:1.4) {$120^\circ$};
+  \fill (O) circle (1.4pt); \node[font=\footnotesize] at (285:0.55) {$O$};
+  \node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
+}
+
+\textbf{Given:} $\angle AOB=\angle BOC=120^\circ$.\\
+\textbf{To show:} $AB=BC=CA$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item The three angles at $O$ make a complete angle, so $\angle COA=360^\circ-120^\circ-120^\circ=120^\circ$.
+  \item The chords $AB$, $BC$ and $CA$ subtend equal angles at the centre, so $AB=BC=CA$ (Theorem 2).
+\end{enumerate}
+\textbf{Answer:} $\tr ABC$ is equilateral.
+
+\begin{exercise}{1A}
+\item In a circle with centre $O$, chords $AB$ and $CD$ are equal and $\angle AOB=70^\circ$. Find $\angle COD$ and $\angle OCD$. Give a reason for each step.
+\item In a circle with centre $O$, chord $PQ=7$ cm and $\angle POQ=90^\circ$. Another chord $RS$ also subtends a right angle at $O$. Find $RS$ and $\angle ORS$.
+\item Show that the triangle formed by a chord and the centre of the circle is isosceles. Then show that two such triangles in the same circle with equal bases are congruent.
+\item Draw a circle of radius $3$ cm and a circle of radius $5$ cm. In each, draw a chord of length $4$ cm and join its ends to the centre. Measure the two angles at the centres. Rani says, ``Equal chords subtend equal angles at the centre, so these angles must be equal.'' Is she right? Explain.
+\item A regular hexagon $ABCDEF$ is drawn with all its vertices on a circle with centre $O$ and radius $4$ cm.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Why do the six sides subtend equal angles at $O$? Find each angle.
+    \item What kind of triangle is $\tr OAB$? Find the perimeter of the hexagon.
+  \end{enumerate}
+\item The tip of the minute hand of a wall clock is at $12$ at 10:00 and at $4$ at 10:20. Later it is at $3$ at 10:15 and at $7$ at 10:35. Explain why the straight-line distance between the first two positions of the tip equals the distance between the last two.
+\item $A$, $B$, $C$ and $D$ lie in this order on a circle with centre $O$, and $\angle AOB=\angle COD$. Show that $AC=BD$.
+\Needspace{8\baselineskip}
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (160:2.2); \coordinate (B) at (110:2.2); \coordinate (C) at (30:2.2); \coordinate (D) at (340:2.2);
+  \draw[thick,accent] (O) circle (2.2);
+  \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (C); \draw (O) -- (D);
+  \draw[thick,accent] (A) -- (C); \draw[thick,accent] (B) -- (D);
+  \pic[draw,angle radius=9pt] {angle=B--O--A};
+  \pic[draw,angle radius=9pt] {angle=D--O--C};
+  \fill (O) circle (1.4pt); \node[below] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[above] at (B) {$B$}; \node[above right] at (C) {$C$}; \node[right] at (D) {$D$};
+}
+\end{exercise}
+
+
+\begin{answerblock}
+\ans{1.}
+\anspair{%
+\textbf{Given:} $AB=CD$, $\angle AOB=70^\circ$.\quad \textbf{To find:} $\angle COD$, $\angle OCD$.
+\begin{steps}
+  \item $\angle COD=\angle AOB=70^\circ$ (equal chords subtend equal angles at the centre, Theorem 1).
+  \item $OC=OD$ (radii), so $\angle OCD=\angle ODC$ (angles opposite equal sides).
+  \item $\angle OCD+\angle ODC=180^\circ-70^\circ=110^\circ$ (angle sum), so $\angle OCD=55^\circ$.
+\end{steps}
+\textbf{Answer:} $\angle COD=70^\circ$, $\angle OCD=55^\circ$.}{%
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (100:2.2); \coordinate (B) at (170:2.2); \coordinate (C) at (235:2.2); \coordinate (D) at (305:2.2);
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw[thick] (C) -- (D);
+  \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (C); \draw (O) -- (D);
+  \pic[draw,angle radius=7pt] {angle=A--O--B};
+  \pic[draw,angle radius=9pt] {angle=C--O--D};
+  \pic[draw,angle radius=9pt] {angle=D--C--O};
+  \node at (0,-0.85) {$70^\circ$}; \node at (-0.25,-1.42) {$55^\circ$};
+  \fill (O) circle (1.2pt); \node[above right] at (O) {$O$};
+  \node[above] at (A) {$A$}; \node[left] at (B) {$B$}; \node[below left] at (C) {$C$}; \node[below right] at (D) {$D$};
+}
+\ans{2.}
+\anspair{%
+\begin{steps}
+  \item $\angle ROS=\angle POQ=90^\circ$, so $RS=PQ=7$ cm (equal angles at the centre give equal chords, Theorem 2).
+  \item $OR=OS$ (radii), so $\angle ORS=\angle OSR=\dfrac{180^\circ-90^\circ}{2}=45^\circ$.
+\end{steps}
+\textbf{Answer:} $RS=7$ cm, $\angle ORS=45^\circ$.}{%
+  \coordinate (O) at (0,0); \coordinate (R) at (200:2.2); \coordinate (S) at (290:2.2);
+  \draw (O) circle (2.2);
+  \draw[thick] (R) -- (S); \draw (O) -- (R); \draw (O) -- (S);
+  \ramark{O}{R}{S}
+  \pic[draw,angle radius=9pt,"$45^\circ$",angle eccentricity=2] {angle=S--R--O};
+  \fill (O) circle (1.2pt); \node[above right] at (O) {$O$};
+  \node[left] at (R) {$R$}; \node[below] at (S) {$S$};
+  \node[below left] at ($(R)!0.5!(S)$) {$7$};
+}
+\ans{3.}
+\anspair{%
+\textbf{Given:} chords $AB$ and $CD$ of a circle with centre $O$, and $AB=CD$.\\
+\textbf{To show:} $\tr OAB$ is isosceles, and $\tr OAB\cong\tr OCD$.
+\begin{steps}
+  \item $OA=OB$ (radii), so $\tr OAB$ has two equal sides: it is isosceles. The same holds for every chord.
+  \item In $\tr OAB$ and $\tr OCD$: $OA=OC$, $OB=OD$ (radii) and $AB=CD$ (given).
+  \item So $\tr OAB\cong\tr OCD$ (SSS).
+\end{steps}
+This is the reasoning behind Theorem 1.}{%
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (120:2.2); \coordinate (B) at (190:2.2); \coordinate (C) at (290:2.2); \coordinate (D) at (0:2.2);
+  \fill[black!10] (O) -- (A) -- (B) -- cycle; \fill[black!10] (O) -- (C) -- (D) -- cycle;
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw[thick] (C) -- (D);
+  \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (C); \draw (O) -- (D);
+  \tick{A}{B} \tick{C}{D}
+  \fill (O) circle (1.2pt); \node[above right] at (O) {$O$};
+  \node[above left] at (A) {$A$}; \node[left] at (B) {$B$}; \node[below] at (C) {$C$}; \node[right] at (D) {$D$};
+}
+\ans{4.}
+\anspair{%
+No. Measured angles: about $84^\circ$ in the circle of radius $3$ cm and about $47^\circ$ in the circle of radius $5$ cm.\par
+Theorem 1 is about equal chords of the \emph{same} circle. Its proof uses $OA=OC$: both are radii of one circle. In two circles of different radii this step fails, so SSS cannot be used.\par
+\textbf{Common misconception:} quoting a theorem without checking its condition. Ask: ``Which step of the proof breaks?''}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (-0.8,-0.894); \coordinate (B) at (0.8,-0.894);
+  \draw (O) circle (1.2); \draw[thick] (A) -- (B); \draw (O) -- (A); \draw (O) -- (B);
+  \pic[draw,angle radius=5pt] {angle=A--O--B};
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[below] at (0,-0.9) {$4$}; \node at (0,-1.75) {$r=3$};
+  \coordinate (P) at (3.4,0); \coordinate (C) at (2.6,-1.833); \coordinate (D) at (4.2,-1.833);
+  \draw (P) circle (2); \draw[thick] (C) -- (D); \draw (P) -- (C); \draw (P) -- (D);
+  \pic[draw,angle radius=7pt] {angle=C--P--D};
+  \fill (P) circle (1.2pt); \node[above] at (P) {$P$};
+  \node[above] at (3.4,-1.83) {$4$}; \node at (3.4,-2.45) {$r=5$};
+}
+\ans{5.}
+\anspair{%
+\begin{steps}
+  \item[(a)] The sides of a regular hexagon are equal, so they are six equal chords. Equal chords subtend equal angles at the centre (Theorem 1). The six angles together make $360^\circ$, so each is $\dfrac{360^\circ}{6}=60^\circ$.
+  \item[(b)] $OA=OB=4$ cm and $\angle AOB=60^\circ$. As in P2, $\tr OAB$ is equilateral, so $AB=4$ cm. Perimeter $=6\times4=24$ cm.
+\end{steps}
+\textbf{Answer:} $60^\circ$; equilateral; $24$ cm.\par
+Note: the side of a regular hexagon equals the radius of its circle.}{%
+  \coordinate (O) at (0,0);
+  \foreach \a/\n in {0/A,60/B,120/C,180/D,240/E,300/F} \coordinate (\n) at (\a:2.2);
+  \fill[black!10] (O) -- (A) -- (B) -- cycle;
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- cycle;
+  \foreach \n in {A,B,C,D,E,F} \draw (O) -- (\n);
+  \pic[draw,angle radius=6pt] {angle=A--O--B};
+  \fill (O) circle (1.2pt); \node at (270:0.6) {$O$};
+  \node[right] at (A) {$A$}; \node[above right] at (B) {$B$}; \node[above left] at (C) {$C$};
+  \node[left] at (D) {$D$}; \node[below left] at (E) {$E$}; \node[below right] at (F) {$F$};
+}
+\ans{6.}
+\anspair{%
+\begin{steps}
+  \item The tip moves on a circle whose centre $O$ is the centre of the clock.
+  \item Between two consecutive numbers the hand turns $\dfrac{360^\circ}{12}=30^\circ$.
+  \item From 12 to 4 the hand turns $4\times30^\circ=120^\circ$; from 3 to 7 it also turns $120^\circ$.
+  \item The two chords subtend equal angles ($120^\circ$) at the centre, so they are equal (Theorem 2).
+\end{steps}}{%
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2.2);
+  \foreach \k in {1,...,12} \draw ({90-30*\k}:2.05) -- ({90-30*\k}:2.2);
+  \coordinate (T) at (90:2.2); \coordinate (F) at (-30:2.2); \coordinate (H) at (0:2.2); \coordinate (S) at (-120:2.2);
+  \draw[thick] (T) -- (F); \draw[thick] (H) -- (S);
+  \draw[dashed] (O) -- (T); \draw[dashed] (O) -- (F); \draw[dashed] (O) -- (H); \draw[dashed] (O) -- (S);
+  \fill (O) circle (1.2pt);
+  \node[above] at (T) {$12$}; \node[below right] at (F) {$4$}; \node[right] at (H) {$3$}; \node[below left] at (S) {$7$};
+}
+\ans{7.}
+\textbf{Given:} $A$, $B$, $C$, $D$ in this order on the circle, $\angle AOB=\angle COD$.\quad \textbf{To show:} $AC=BD$.
+\begin{steps}
+  \item $\angle AOC=\angle AOB+\angle BOC$ and $\angle BOD=\angle BOC+\angle COD$.
+  \item $\angle AOB=\angle COD$ (given); adding $\angle BOC$ to both gives $\angle AOC=\angle BOD$.
+  \item The chords $AC$ and $BD$ subtend equal angles at the centre, so $AC=BD$ (Theorem 2).
+\end{steps}
+Students usually see the equal angles $\angle AOB$ and $\angle COD$ but not that $\angle BOC$ is common. Ask: ``Which angle does chord $AC$ subtend at $O$?''
+\end{answerblock}
+
+\section{The line from the centre to the midpoint of a chord}
+
+Draw a circle of radius about $6$ cm on an A4 sheet with your compass, and mark its centre $O$. Draw any chord $AB$ that is not a diameter. Hold the sheet against a window and fold it so that $A$ falls exactly on $B$. Open the sheet.
+
+\begin{center}\begin{tikzpicture}[scale=.55, every node/.style={font=\small}]
+  \draw[thin] (0,0) rectangle (6,8.5);
+  \coordinate (O) at (3,4.8); \coordinate (A) at (1.30,3.4); \coordinate (B) at (4.70,3.4); \coordinate (M) at (3,3.4);
+  \draw[thick,accent] (O) circle (2.2);
+  \draw[very thick,accent] (A) -- (B);
+  \draw[dashed] (3,0.3) -- (3,8.2) node[right,font=\footnotesize] {fold};
+  \ramark{M}{O}{B}
+  \fill (O) circle (1.5pt); \node[left] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at ($(M)+(0.45,-0.05)$) {$M$};
+\end{tikzpicture}\end{center}
+
+Does the crease pass through $O$? What angle does it make with $AB$? Where does it cut $AB$? Now explain what you saw.
+
+\begin{solvefirst}
+  \item A circle has centre $O$ and radius $5$ cm. Chord $AB$ is $8$ cm long and $M$ is the midpoint of $AB$. Join $OA$, $OB$ and $OM$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Show that $\tr OMA\cong\tr OMB$. Name the rule.
+    \item $\angle OMA+\angle OMB=\,?$ Use this to find $\angle OMA$.
+    \item Find the length $OM$.
+  \end{enumerate}
+  \item A circle has centre $O$ and radius $10$ cm. $PQ$ is a chord, and $ON\perp PQ$ with $ON=6$ cm. Join $OP$ and $OQ$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Name the two right triangles. Are they congruent? Name the rule.
+    \item Find $PN$ and $NQ$.
+    \item What do you notice about the point $N$?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P4.}
+\anspair{%
+\begin{steps}
+  \item[(a)] In $\tr OMA$ and $\tr OMB$: $AM=BM$ ($M$ is the midpoint), $OA=OB$ (radii), $OM$ is common. So $\tr OMA\cong\tr OMB$ (SSS).
+  \item[(b)] $\angle OMA+\angle OMB=180^\circ$ (linear pair). By (a) the two angles are equal, so $\angle OMA=90^\circ$.
+  \item[(c)] $AM=\dfrac{8}{2}=4$ cm. In right $\tr OMA$, $OM^2=5^2-4^2=25-16=9$, so $OM=3$ cm.
+\end{steps}}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (-1.76,-1.32); \coordinate (B) at (1.76,-1.32); \coordinate (M) at (0,-1.32);
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (M);
+  \ramark{M}{O}{B} \tick{A}{M} \tick{M}{B}
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below right=2pt] at (M) {$M$};
+  \node[above left] at ($(O)!0.5!(A)$) {$5$}; \node[below=5pt] at ($(A)!0.5!(M)$) {$4$};
+}
+\ans{P5.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $\tr ONP$ and $\tr ONQ$: $\angle ONP=\angle ONQ=90^\circ$, hypotenuses $OP=OQ$ (radii), $ON$ common. So they are congruent (RHS).
+  \item[(b)] $PN^2=10^2-6^2=100-36=64$, so $PN=8$ cm. By (a), $NQ=PN=8$ cm.
+  \item[(c)] $PN=NQ$: $N$ is the midpoint of $PQ$, and $PQ=16$ cm.
+\end{steps}}{%
+  \coordinate (O) at (0,0); \coordinate (P) at (-1.76,-1.32); \coordinate (Q) at (1.76,-1.32); \coordinate (N) at (0,-1.32);
+  \draw (O) circle (2.2);
+  \draw[thick] (P) -- (Q); \draw (O) -- (P); \draw (O) -- (Q); \draw (O) -- (N);
+  \ramark{N}{O}{Q}
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[left] at (P) {$P$}; \node[right] at (Q) {$Q$}; \node[below] at (N) {$N$};
+  \node[above left] at ($(O)!0.5!(P)$) {$10$}; \node[right] at ($(O)!0.5!(N)$) {$6$};
+}
+\end{answerblock}
+
+\facilitatornote{Students often assume the right angle in P4 instead of proving it. Insist that part (b) uses only the congruence and the linear pair.}
+
+\begin{theorem}{4}
+The line joining the centre of a circle and the midpoint of a chord of the circle is perpendicular to the chord.
+\end{theorem}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (215:2.4); \coordinate (B) at (325:2.4);
+  \coordinate (M) at ($(A)!0.5!(B)$);
+  \draw[thick,accent] (O) circle (2.4);
+  \draw[thick,accent] (A) -- (B);
+  \draw (O) -- (M); \draw (O) -- (A); \draw (O) -- (B);
+  \ramark{M}{O}{B}
+  \tick{A}{M} \tick{M}{B}
+  \fill (O) circle (1.4pt);
+  \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
+  \node[below] at (M) {$M$};
+}
+
+\why
+\textbf{Given:} chord $AB$ of a circle with centre $O$, and $M$ the midpoint of $AB$.\\
+\textbf{To show:} $OM\perp AB$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item In $\tr OMA$ and $\tr OMB$: $AM=BM$ (given), $OA=OB$ (radii) and $OM$ is common.
+  \item So $\tr OMA\cong\tr OMB$ (SSS), and $\angle OMA=\angle OMB$.
+  \item These angles form a linear pair, so their sum is $180^\circ$ and each is $90^\circ$.
+\end{enumerate}
+
+\begin{theorem}{5}
+The perpendicular from the centre of a circle to a chord of the circle bisects the chord.
+\end{theorem}
+
+\why
+\textbf{Given:} chord $AB$ of a circle with centre $O$, and $OM\perp AB$ with $M$ on $AB$ (same figure).\\
+\textbf{To show:} $AM=BM$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item In $\tr OMA$ and $\tr OMB$: $\angle OMA=\angle OMB=90^\circ$, $OA=OB$ (radii) and $OM$ is common.
+  \item So $\tr OMA\cong\tr OMB$ (RHS).
+  \item Hence $AM=BM$.
+\end{enumerate}
+
+Your fold showed one more fact. The crease is the \textbf{perpendicular bisector} of $AB$: it passes through the midpoint $M$ and is perpendicular to $AB$. By Theorem 3, the line $OM$ also passes through $M$ and is perpendicular to $AB$. Only one line through $M$ is perpendicular to $AB$, so the crease and the line $OM$ are the same line.
+
+\rememberbox{The perpendicular bisector of every chord of a circle passes through the centre.}
+
+\section{The half-chord right triangle}
+
+In P4 the radius, half of the chord and the distance $OM$ formed a right triangle. The \textbf{distance of a chord from the centre} is the length of the perpendicular from the centre to the chord.
+
+\begin{solvefirst}
+  \item A chord of a circle has length $c$ and is at distance $d$ from the centre. The radius is $r$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Draw the figure and mark the right triangle. Which side of this triangle is the radius? Which side has length $\dfrac{c}{2}$, and why?
+    \item Write one equation connecting $r$, $c$ and $d$.
+    \item Check your equation with the numbers in P4.
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P6.}
+\anspair{%
+\begin{steps}
+  \item[(a)] The right angle is at $M$, so the radius $OA$ is the hypotenuse. The perpendicular from the centre bisects the chord (Theorem 4), so $AM=\dfrac{c}{2}$.
+  \item[(b)] Pythagoras theorem in $\tr OMA$: $\left(\dfrac{c}{2}\right)^2+d^2=r^2$.
+  \item[(c)] $r=5$, $c=8$, $d=3$: $4^2+3^2=16+9=25=5^2$.
+\end{steps}}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (-1.8,-1.265); \coordinate (B) at (1.8,-1.265); \coordinate (M) at (0,-1.265);
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw (O) -- (A); \draw (O) -- (M);
+  \ramark{M}{O}{A}
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[above left] at ($(O)!0.5!(A)$) {$r$}; \node[right=3pt] at ($(O)!0.5!(M)$) {$d$};
+  \node at (-0.45,-1.70) {$\frac{c}{2}$};
+}
+\end{answerblock}
+
+\rememberbox{For a chord of length $c$ at distance $d$ from the centre of a circle of radius $r$,
+\[\left(\dfrac{c}{2}\right)^2+d^2=r^2.\]
+Use \emph{half} of the chord, never the whole chord.}
+
+\begin{example}
+A chord of a circle of radius $10$ cm is $6$ cm from the centre. Find the length of the chord.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-1.6,-1.2); \coordinate (B) at (1.6,-1.2); \coordinate (M) at (0,-1.2);
+  \draw[thick,accent] (O) circle (2);
+  \draw[thick,accent] (A) -- (B); \draw (O) -- (M); \draw (O) -- (A);
+  \ramark{M}{O}{B}
+  \fill (O) circle (1.4pt);
+  \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[right] at ($(O)!0.5!(M)$) {$6$};
+  \node[above left] at ($(O)!0.5!(A)$) {$10$};
+}
+
+\textbf{Given:} radius $OA=10$ cm, $OM\perp AB$, $OM=6$ cm.\\
+\textbf{To find:} the length of chord $AB$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $AM=MB$ (the perpendicular from the centre bisects the chord, Theorem 4).
+  \item In right $\tr OMA$, $AM^2=OA^2-OM^2=100-36=64$, so $AM=8$ cm.
+  \item $AB=2\times AM=16$ cm.
+\end{enumerate}
+\textbf{Answer:} the chord is $16$ cm long.
+
+\begin{example}
+A chord of length $24$ cm is $9$ cm from the centre of a circle. Find the radius of the circle.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-1.6,-1.2); \coordinate (B) at (1.6,-1.2); \coordinate (M) at (0,-1.2);
+  \draw[thick,accent] (O) circle (2);
+  \draw[thick,accent] (A) -- (B); \draw (O) -- (M); \draw (O) -- (A);
+  \ramark{M}{O}{B}
+  \fill (O) circle (1.4pt);
+  \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[right] at ($(O)!0.5!(M)$) {$9$};
+  \node[above left] at ($(O)!0.5!(A)$) {$r$};
+  \node[below] at ($(M)!0.5!(B)$) {$12$};
+}
+
+\textbf{Given:} $AB=24$ cm, $OM\perp AB$, $OM=9$ cm.\\
+\textbf{To find:} the radius $OA$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $AM=\dfrac{24}{2}=12$ cm (Theorem 4).
+  \item In right $\tr OMA$, $OA^2=AM^2+OM^2=144+81=225$, so $OA=15$ cm.
+\end{enumerate}
+\textbf{Answer:} the radius is $15$ cm.
+
+\begin{example}
+Two parallel chords of lengths $6$ cm and $8$ cm lie on opposite sides of the centre of a circle of radius $5$ cm. Find the distance between the midpoints of the chords.
+\end{example}
+
+\exfig{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-1.8,1.35); \coordinate (B) at (1.8,1.35); \coordinate (M) at (0,1.35);
+  \coordinate (C) at (-1.35,-1.8); \coordinate (D) at (1.35,-1.8); \coordinate (N) at (0,-1.8);
+  \draw[thick,accent] (O) circle (2.25);
+  \draw[thick,accent] (A) -- (B); \draw[thick,accent] (C) -- (D);
+  \draw (M) -- (N); \draw (O) -- (A); \draw (O) -- (C);
+  \ramark{M}{O}{B} \ramark{N}{O}{D}
+  \fill (O) circle (1.4pt); \node[right] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above] at (M) {$M$};
+  \node[below left=1pt] at (C) {$C$}; \node[right] at (D) {$D$}; \node at (0.3,-2.52) {$N$};
+  \node[right=3pt,font=\footnotesize] at (0,0.68) {$3$}; \node[right=3pt,font=\footnotesize] at (0,-0.9) {$4$};
+  \node[below=3pt,font=\footnotesize] at ($(O)!0.5!(A)$) {$5$}; \node[above left,font=\footnotesize] at ($(O)!0.55!(C)$) {$5$};
+}
+
+\textbf{Given:} $AB\parallel CD$, $AB=8$ cm, $CD=6$ cm, radius $5$ cm, $O$ between the chords; $M$, $N$ the midpoints of $AB$ and $CD$.\\
+\textbf{To find:} $MN$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $OM\perp AB$ (Theorem 3). A line perpendicular to $AB$ is also perpendicular to the parallel chord $CD$, and the line through $O$ perpendicular to $CD$ meets $CD$ at its midpoint $N$ (Theorem 4). So $M$, $O$ and $N$ lie on one straight line.
+  \item In right $\tr OMA$, $OM^2=5^2-4^2=9$, so $OM=3$ cm.
+  \item In right $\tr ONC$, $ON^2=5^2-3^2=16$, so $ON=4$ cm.
+  \item $MN=OM+ON=3+4=7$ cm.
+\end{enumerate}
+\textbf{Answer:} $7$ cm.
+
+\facilitatornote{Step 1 is the step students omit. Without it, adding $OM$ and $ON$ has no justification.}
+
+Draw a rough figure for every question in Exercise 1B and mark all the given measurements on it.
+\begin{exercise}{1B}
+\item The radius of a circle is $13$ cm and a chord is $5$ cm from the centre. Find the length of the chord.
+\item A chord of length $30$ cm is drawn in a circle of radius $17$ cm. Find the distance of the chord from the centre.
+\item The diameter of a circle is $26$ cm. A chord of length $24$ cm is drawn in it. Find the distance of the chord from the centre.
+\item Chord $AB$ of a circle with centre $O$ is $48$ cm long. $OM\perp AB$ and $OM=7$ cm. Ravi writes: radius $=\sqrt{48^2+7^2}$. Find his mistake, and find the correct radius.
+\item Draw a circle of radius $6.5$ cm and a chord of length $12$ cm in it. Use a set square to draw the perpendicular from the centre to the chord, and measure it. Then calculate its length and compare.
+\item A round dining-table top has radius $50$ cm. A carpenter fixes a straight wooden strip on the underside along a chord, $30$ cm from the centre. Find the length of the strip.
+\item A drainage pipe has an inner radius of $13$ cm. Water flows in it, and the water surface is $24$ cm wide. The water fills less than half of the pipe. Find the depth of the water.
+\item True or false? Give a reason for each.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Every line through the midpoint of a chord passes through the centre.
+    \item A line through the centre that bisects a chord is always perpendicular to the chord.
+  \end{enumerate}
+\item An isosceles triangle $ABC$, with $AB=AC$, has all its vertices on a circle with centre $O$. Show that the altitude from $A$ to $BC$ passes through $O$.
+\item Two parallel chords of lengths $6$ cm and $8$ cm lie on the same side of the centre of a circle of radius $5$ cm. Find the distance between them.
+\item Two parallel chords of lengths $10$ cm and $24$ cm lie on the same side of the centre of a circle, and the distance between them is $7$ cm. Find the radius of the circle.
+\end{exercise}
+
+\facilitatornote{If time is short, set Questions 5, 6 and 11 as homework. Questions 1 to 4 give the essential practice with $\left(\dfrac{c}{2}\right)^2+d^2=r^2$; Question 8 must be discussed in class.}
+
+\begin{answerblock}
+\ans{1.}
+\anspair{%
+\textbf{Given:} $r=13$ cm, $d=OM=5$ cm.\quad \textbf{To find:} $AB$.
+\begin{steps}
+  \item $OM\perp AB$, so $AM=MB$ (Theorem 4).
+  \item In right $\tr OMA$, $AM^2=13^2-5^2=169-25=144$, so $AM=12$ cm.
+  \item $AB=2\times12=24$ cm.
+\end{steps}
+\textbf{Answer:} $24$ cm.}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (-2.031,-0.846); \coordinate (B) at (2.031,-0.846); \coordinate (M) at (0,-0.846);
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw (O) -- (A); \draw (O) -- (M);
+  \ramark{M}{O}{A}
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[above left] at ($(O)!0.5!(A)$) {$13$}; \node[right] at ($(O)!0.5!(M)$) {$5$}; \node[below] at ($(A)!0.45!(M)$) {$12$};
+}
+\ans{2.}
+\anspair{%
+\textbf{Given:} $AB=30$ cm, $r=17$ cm.\quad \textbf{To find:} $OM$.
+\begin{steps}
+  \item $AM=\dfrac{30}{2}=15$ cm (Theorem 4).
+  \item $OM^2=17^2-15^2=289-225=64$, so $OM=8$ cm.
+\end{steps}
+\textbf{Answer:} $8$ cm.}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (-1.941,-1.035); \coordinate (B) at (1.941,-1.035); \coordinate (M) at (0,-1.035);
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw (O) -- (A); \draw (O) -- (M);
+  \ramark{M}{O}{A}
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[above left] at ($(O)!0.5!(A)$) {$17$}; \node[right] at ($(O)!0.5!(M)$) {$?$}; \node[below] at ($(A)!0.45!(M)$) {$15$};
+}
+\ans{3.}
+The radius is $\dfrac{26}{2}=13$ cm and half the chord is $12$ cm. $d^2=13^2-12^2=169-144=25$, so $d=5$ cm. \textbf{Answer:} $5$ cm. (Same figure as Question 1. Watch for students who use the diameter as the radius.)
+\ans{4.}
+\anspair{%
+Ravi used the whole chord ($48$) as a side of the right triangle. The right triangle $OMA$ has the \emph{half} chord $AM$ as a side.
+\begin{steps}
+  \item $AM=\dfrac{48}{2}=24$ cm (Theorem 4).
+  \item $OA^2=AM^2+OM^2=576+49=625$, so $OA=25$ cm.
+\end{steps}
+\textbf{Answer:} the radius is $25$ cm.}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (-2.112,-0.616); \coordinate (B) at (2.112,-0.616); \coordinate (M) at (0,-0.616);
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw (O) -- (A); \draw (O) -- (M);
+  \ramark{M}{O}{A}
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[above left] at ($(O)!0.5!(A)$) {$r$}; \node[right] at ($(O)!0.5!(M)$) {$7$}; \node[below] at ($(A)!0.45!(M)$) {$24$};
+}
+\ans{5.}
+Half the chord is $6$ cm, so $d^2=6.5^2-6^2=42.25-36=6.25$ and $d=2.5$ cm. The measured perpendicular should be close to $2.5$ cm; a difference of $1$ to $2$ mm comes from drawing. \textbf{Answer:} $2.5$ cm.
+\ans{6.}
+\anspair{%
+The strip is a chord at distance $30$ cm from the centre of a circle of radius $50$ cm.
+\begin{steps}
+  \item Half the strip $=\sqrt{50^2-30^2}=\sqrt{2500-900}=\sqrt{1600}=40$ cm.
+  \item Strip $=2\times40=80$ cm.
+\end{steps}
+\textbf{Answer:} $80$ cm.}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (-1.76,-1.32); \coordinate (B) at (1.76,-1.32); \coordinate (M) at (0,-1.32);
+  \draw (O) circle (2.2);
+  \draw[very thick] (A) -- (B); \draw (O) -- (A); \draw (O) -- (M);
+  \ramark{M}{O}{A}
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[above left] at ($(O)!0.5!(A)$) {$50$}; \node[right=3pt] at ($(O)!0.5!(M)$) {$30$}; \node[above=2pt] at ($(A)!0.5!(M)$) {$40$};
+}
+\ans{7.}
+\anspair{%
+\begin{steps}
+  \item The water surface $AB$ is a chord of length $24$ cm; half of it is $12$ cm.
+  \item Its distance from the centre is $OM=\sqrt{13^2-12^2}=\sqrt{25}=5$ cm.
+  \item The pipe is less than half full, so the surface lies below the centre. The lowest point of the pipe is $13$ cm below $O$.
+  \item Depth $=13-5=8$ cm.
+\end{steps}
+\textbf{Answer:} $8$ cm. (If the pipe were more than half full, the depth would be $13+5=18$ cm.)}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (-2.031,-0.846); \coordinate (B) at (2.031,-0.846); \coordinate (M) at (0,-0.846);
+  \fill[black!12] (A) arc (202.6:337.4:2.2) -- cycle;
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw (O) -- (B); \draw (O) -- (M); \draw[dashed] (M) -- (0,-2.2);
+  \ramark{M}{O}{B}
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$};
+  \node[left] at ($(O)!0.5!(M)$) {$5$}; \node[above right] at ($(O)!0.5!(B)$) {$13$}; \node[below=3pt] at ($(M)!0.55!(B)$) {$12$};
+  \node[right=3pt] at (0,-1.55) {$8$};
+}
+\ans{8.}
+\anspair{%
+\begin{steps}
+  \item[(a)] False. Through the midpoint $M$ there are many lines, but only one is perpendicular to $AB$, and only that one passes through $O$. Any slanted line through $M$ misses $O$ (left figure).
+  \item[(b)] False when the chord is a diameter: its midpoint is $O$ itself, and every line through $O$ bisects it, slanted or not (right figure). For a chord that is not a diameter the statement is true (Theorem 3).
+\end{steps}}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (-1.36,-0.8); \coordinate (B) at (1.36,-0.8); \coordinate (M) at (0,-0.8);
+  \draw (O) circle (1.6); \draw[thick] (A) -- (B);
+  \draw[dashed] ($(M)+(-0.7,1.2)$) -- ($(M)+(0.45,-0.77)$);
+  \fill (O) circle (1.2pt); \node[right] at (O) {$O$}; \node at ($(M)+(-0.4,-0.3)$) {$M$};
+  \node[left] at (A) {$A$}; \node[right] at (B) {$B$};
+  \coordinate (P) at (3.8,0);
+  \draw (P) circle (1.6); \draw[thick] ($(P)+(-1.6,0)$) -- ($(P)+(1.6,0)$);
+  \draw[dashed] ($(P)+(-0.7,1.2)$) -- ($(P)+(0.7,-1.2)$);
+  \fill (P) circle (1.2pt); \node[above right] at (P) {$O$};
+}
+\ans{9.}
+\anspair{%
+\textbf{Given:} $AB=AC$; $A$, $B$, $C$ on a circle with centre $O$; $AD\perp BC$.\quad \textbf{To show:} $O$ lies on $AD$.
+\begin{steps}
+  \item $OB=OC$ (radii), so $O$ is equidistant from $B$ and $C$: it lies on the perpendicular bisector of $BC$.
+  \item $AB=AC$, so $A$ also lies on the perpendicular bisector of $BC$.
+  \item The altitude from $A$ in an isosceles triangle bisects the base, so $AD$ is the perpendicular bisector of $BC$.
+  \item Hence $O$ lies on $AD$.
+\end{steps}
+(Equivalently: $BC$ is a chord, and by the boxed fact after Theorem 4 its perpendicular bisector passes through $O$.)}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (90:2.2); \coordinate (B) at (235:2.2); \coordinate (C) at (305:2.2); \coordinate (D) at (0,-1.802);
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B) -- (C) -- cycle; \draw (A) -- (D);
+  \ramark{D}{A}{C} \tick{A}{B} \tick{A}{C}
+  \fill (O) circle (1.2pt); \node at (0.35,-0.4) {$O$};
+  \node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$}; \node[below=3pt] at ($(D)+(0.25,0)$) {$D$};
+}
+\ans{10.}
+\anspair{%
+\begin{steps}
+  \item The $8$ cm chord: $d^2=5^2-4^2=9$, so it is $3$ cm from $O$.
+  \item The $6$ cm chord: $d^2=5^2-3^2=16$, so it is $4$ cm from $O$.
+  \item As in Example 5, both perpendiculars from $O$ lie on one line. The chords are on the same side, so the distance between them is $4-3=1$ cm.
+\end{steps}
+\textbf{Answer:} $1$ cm. Compare with Example 5, where the chords were on opposite sides ($3+4=7$ cm).}{%
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-2.08,1.56); \coordinate (B) at (2.08,1.56);
+  \coordinate (C) at (-1.56,2.08); \coordinate (D) at (1.56,2.08);
+  \draw (O) circle (2.6);
+  \draw[thick] (A) -- (B); \draw[thick] (C) -- (D); \draw[dashed] (O) -- (0,2.08);
+  \ramark{0,1.56}{O}{B} \ramark{0,2.08}{O}{D}
+  \fill (O) circle (1.2pt); \node[below=2pt] at (O) {$O$};
+  \node[right=2pt] at (0,0.78) {$3$}; \node[left=2pt,font=\scriptsize] at (0,1.82) {$1$};
+  \draw[thin,gray] (B) -- (3.1,1.3) node[right,font=\scriptsize,text=black] {$8$ cm};
+  \draw[thin,gray] (D) -- (3.1,2.4) node[right,font=\scriptsize,text=black] {$6$ cm};
+}
+\ans{11.}
+\anspair{%
+Let the $10$ cm chord be at distance $d_1$ and the $24$ cm chord at distance $d_2$ from the centre.
+\begin{steps}
+  \item $r^2=5^2+d_1^2$ and $r^2=12^2+d_2^2$, so $d_1^2-d_2^2=144-25=119$.
+  \item This is positive, so $d_1>d_2$. The chords are on the same side, so $d_1-d_2=7$.
+  \item $d_1^2-d_2^2=(d_1-d_2)(d_1+d_2)$, so $7(d_1+d_2)=119$ and $d_1+d_2=17$.
+  \item Hence $d_1=12$, $d_2=5$, and $r^2=25+144=169$.
+\end{steps}
+\textbf{Answer:} $r=13$ cm.}{%
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-2.4,1.0); \coordinate (B) at (2.4,1.0);
+  \coordinate (C) at (-1.0,2.4); \coordinate (D) at (1.0,2.4);
+  \draw (O) circle (2.6);
+  \draw[thick] (A) -- (B); \draw[thick] (C) -- (D);
+  \draw[dashed] (O) -- (0,2.4); \draw (O) -- (B); \draw (O) -- (D);
+  \fill (O) circle (1.2pt); \node[below=2pt] at (O) {$O$};
+  \node[left=2pt] at (0,0.5) {$5$}; \node[right=2pt] at (0,1.6) {$7$};
+  \node[below=1pt] at (-1.2,1.0) {$12$}; \node[below=1pt,font=\scriptsize] at (-0.5,2.4) {$5$};
+  \node[below right] at (1.2,0.5) {$r$}; \node[right=1pt] at (0.5,1.3) {$r$};
+}
+\ans{F1.}
+\anspair{%
+\begin{steps}
+  \item $OA=OB=10$ cm and $\angle AOB=90^\circ$, so $AB^2=10^2+10^2=200$ and $AB=\sqrt{200}=10\sqrt2\approx14.1$ cm.
+  \item Half the chord is $5\sqrt2$ cm, so $d^2=10^2-(5\sqrt2)^2=100-50=50$ and $d=5\sqrt2\approx7.1$ cm.
+\end{steps}
+(Also: $\tr OAB$ is an isosceles right triangle, so $OM$ equals half of $AB$.)}{%
+  \coordinate (O) at (0,0); \coordinate (A) at (225:2.2); \coordinate (B) at (315:2.2); \coordinate (M) at (0,-1.556);
+  \draw (O) circle (2.2);
+  \draw[thick] (A) -- (B); \draw (O) -- (A); \draw (O) -- (B); \draw (O) -- (M);
+  \ramark{O}{A}{B} \ramark{M}{O}{B}
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+  \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[below] at (M) {$M$};
+  \node[above left] at ($(O)!0.5!(A)$) {$10$};
+}
+\ans{F2.}
+\anspair{%
+\begin{steps}
+  \item $PA=PB$ (radii of the first circle), so $P$ lies on the perpendicular bisector of $AB$.
+  \item $QA=QB$ (radii of the second circle), so $Q$ also lies on it.
+  \item Two points fix a line, so the line $PQ$ is the perpendicular bisector of $AB$.
+\end{steps}}{%
+  \coordinate (P) at (0,0); \coordinate (Q) at (2.4,0); \coordinate (A) at (1.0,1.428); \coordinate (B) at (1.0,-1.428);
+  \draw (P) circle (1.744); \draw (Q) circle (2.0);
+  \draw[thick] (A) -- (B); \draw (P) -- (Q);
+  \draw[dashed] (P) -- (A); \draw[dashed] (P) -- (B); \draw[dashed] (Q) -- (A); \draw[dashed] (Q) -- (B);
+  \ramark{1.0,0}{Q}{A}
+  \fill (P) circle (1.2pt); \fill (Q) circle (1.2pt);
+  \node[below left=1pt] at (P) {$P$}; \node[below right=1pt] at (Q) {$Q$}; \node[above right=1pt] at (A) {$A$}; \node[below right=1pt] at (B) {$B$};
+}
+\ans{F3.}
+\anspair{%
+Let $M$ be the midpoint of any such chord. Then $OM\perp$ chord (Theorem 3) and $OM^2=5^2-3^2=16$, so $OM=4$ cm for every chord. \textbf{Answer:} the midpoints lie on the circle with centre $O$ and radius $4$ cm.}{%
+  \coordinate (O) at (0,0);
+  \draw (O) circle (2.2); \draw[dashed] (O) circle (1.76);
+  \foreach \a in {270,30,150} { \draw[thick] ($(\a:1.76)+(\a+90:1.32)$) -- ($(\a:1.76)+(\a-90:1.32)$); \fill (\a:1.76) circle (1pt); }
+  \fill (O) circle (1.2pt); \node[above] at (O) {$O$};
+}
+\ans{F4.}
+From $\left(\dfrac{c}{2}\right)^2=r^2-d^2$: the chord is longest when $d=0$, that is, when it passes through the centre. So the longest chord is a diameter, $10$ cm. As $d$ grows towards $5$, $\dfrac{c}{2}$ shrinks towards $0$; there is always a shorter chord, so there is no shortest chord.
+\end{answerblock}
+
+\facilitatornote{F4 leads into the next class, which compares chords at different distances from the centre and finds the centre of a given circle.}

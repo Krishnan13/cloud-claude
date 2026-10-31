@@ -1,0 +1,640 @@
+\newif\ifteacher\teacherfalse
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{tgschola}
+\usepackage{fouriernc}
+\usepackage{microtype}
+\linespread{1.04}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc,arrows.meta}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{38,52,70}
+\definecolor{panel}{RGB}{236,238,241}
+\definecolor{muted}{RGB}{70,72,76}
+
+\newtheoremstyle{branddef}{9pt}{9pt}{}{}{\bfseries\color{accent}}{.}{ }{}
+\theoremstyle{branddef}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+% Theorems are the main pieces of the chapter: framed, numbered in teaching order,
+% with the NCERT number in brackets. #1 = NCERT theorem number.
+\newcounter{thm}
+\newenvironment{theorem}[1]
+  {\par\medskip\Needspace{5\baselineskip}\refstepcounter{thm}%
+   \begin{tcolorbox}[enhanced,sharp corners,colback=white,colframe=black,boxrule=0.9pt,
+     left=7pt,right=7pt,top=5pt,bottom=5pt]%
+   \textbf{Theorem \thethm}\ (NCERT Theorem #1).\ \itshape}
+  {\end{tcolorbox}\par\medskip}
+
+\newcommand{\tr}{\triangle}
+\newenvironment{exercise}[1]
+  {\par\medskip\Needspace{7\baselineskip}\noindent{\large\bfseries Exercise #1}
+   \par\smallskip
+   \begin{enumerate}[leftmargin=*,itemsep=4pt]}
+  {\end{enumerate}}
+% Solve-first problems: numbered P1, P2, ... through the whole document
+\newcounter{prob}
+\newenvironment{solvefirst}
+  {\par\smallskip\noindent\textbf{Solve first.}
+   \begin{enumerate}[label=\textbf{P\arabic*.},leftmargin=2.2em,itemsep=3pt,start=\numexpr\value{prob}+1\relax]}
+  {\setcounter{prob}{\value{enumi}}\end{enumerate}}
+\newcommand{\why}{\par\smallskip\noindent\textbf{Why it works.}\par}
+\ifteacher
+\newenvironment{answerblock}
+  {\par\smallskip\Needspace{10\baselineskip}\begingroup\small\linespread{1.15}\selectfont\color{muted}\noindent\textit{Answers.}\par}
+  {\par\endgroup\medskip}
+\newcommand{\ans}[1]{\par\smallskip\Needspace{9\baselineskip}\noindent\textbf{#1}\ }
+\else
+\usepackage{comment}
+\excludecomment{answerblock}
+\fi
+\newcommand{\figph}[1]{\begin{center}\fbox{\parbox{.85\linewidth}{\small FIGURE: #1}}\end{center}}
+% right-angle mark at vertex #1 between the directions to #2 and #3
+\newcommand{\ramark}[3]{\coordinate (ra1) at ($(#1)!2mm!(#2)$);\coordinate (ra2) at ($(#1)!2mm!(#3)$);\draw[thin] (ra1) -- ($(ra1)+(ra2)-(#1)$) -- (ra2);}
+% tick mark across the midpoint of segment #1--#2 (equal lengths)
+\newcommand{\tick}[2]{\draw[thin] ($($(#1)!0.5!(#2)$)!1.2mm!90:(#2)$) -- ($($(#1)!0.5!(#2)$)!1.2mm!-90:(#2)$);}
+\newcommand{\exfig}[1]{\begin{center}\begin{tikzpicture}[scale=.75, every node/.style={font=\small}]#1\end{tikzpicture}\end{center}}
+% rough answer diagram (teacher copy only; it sits inside answerblock)
+\newcommand{\ansfig}[1]{\begin{center}\begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#1\end{tikzpicture}\end{center}}
+% worked answer (teacher copy): solution text on the left, rough figure on the right
+\newcommand{\anspair}[2]{\par\smallskip\noindent
+  \begin{minipage}[t]{0.62\linewidth}\vspace{0pt}#1\end{minipage}\hfill
+  \begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+  \begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#2\end{tikzpicture}\end{minipage}\par\smallskip}
+\newenvironment{steps}{\begin{enumerate}[leftmargin=1.5em,itemsep=0pt,topsep=2pt]}{\end{enumerate}}
+\newcommand{\rememberbox}[1]{%
+  \par\medskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{4pt}
+  \noindent\textbf{Things to Remember}\par\smallskip #1\par\vspace{3pt}
+  \noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\medskip}
+\ifteacher
+\newcommand{\facilitatornote}[1]{%
+  \par\medskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{3pt}
+  \noindent{\small\textbf{Note for the teacher.}\ #1}\par\vspace{2pt}
+  \noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\medskip}
+\else
+\newcommand{\facilitatornote}[1]{}
+\fi
+
+\pagestyle{plain}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+% keep tall fractions in running text from touching the line above or below
+\setlength{\lineskiplimit}{2pt}
+\setlength{\lineskip}{3pt}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\newcommand{\sheethead}[1]{\noindent{\LARGE Circles}\hfill{\large #1}\par\vspace{3pt}
+  \noindent\rule{\linewidth}{0.6pt}\par\medskip}
+\begin{document}
+\setcounter{thm}{4}
+\sheethead{Class 2}
+
+\ifteacher
+\facilitatornote{%
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item \textbf{Aims.} Students locate the centre of a circle from two chords. They explain why the centres of all circles through two points lie on the perpendicular bisector of the segment, and why exactly one circle passes through three non-collinear points. They construct circumcircles and predict where the circumcentre lies. They explain why equal chords are equidistant from the centre, and the converse, and why a longer chord is nearer the centre.
+  \item \textbf{NCERT links.} Theorem 5 is NCERT Theorem 1. Theorems 6, 7 and 8 keep their NCERT numbers. The questions include NCERT Exercise Sets 5.1, 5.4 and 5.5, the two \emph{Think, Draw and Infer} questions, and End-of-Chapter Questions 12, 13, 17 and 23.
+  \item \textbf{Prior work.} Class 1: Theorems 1 to 4, and the fact that the perpendicular bisector of every chord passes through the centre. Students use $\left(\dfrac{c}{2}\right)^2+d^2=r^2$ with confidence.
+  \item \textbf{Materials.} Two A4 sheets, a bangle (or any round lid) and the geometry box for each student.
+  \item \textbf{Method.} As in Class 1, students solve each \emph{Solve first} set before the theorem is stated.
+\end{itemize}}
+\fi
+
+\section{Finding the centre of a circle}
+
+Jamuna has drawn a circle by tracing around a bangle. She wants to find its centre. Her friend Amina says, ``Fold the paper twice.'' Solve P1 to see why this works.
+
+\begin{solvefirst}
+  \item Trace around a bangle on an A4 sheet. Draw any chord $AB$ that is not a diameter. Hold the sheet against a window and fold it so that $A$ falls exactly on $B$. Open the sheet.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item The crease is the perpendicular bisector of $AB$. Which special point of the circle must it pass through? Use a fact from Class 1.
+    \item Draw a second chord $CD$, not parallel to $AB$, and fold again so that $C$ falls on $D$. Where do the two creases meet?
+    \item Why is one crease not enough to find the centre?
+    \item What goes wrong if $CD$ is parallel to $AB$?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P1.}
+\anspair{%
+\begin{steps}
+  \item[(a)] The centre. The perpendicular bisector of every chord passes through the centre (Class 1).
+  \item[(b)] Both creases pass through the centre, and two lines that are not parallel meet in exactly one point. So the creases meet at the centre.
+  \item[(c)] One crease is a line. It contains the centre, but it contains infinitely many other points too.
+  \item[(d)] Both creases are perpendicular to the same direction and both pass through the centre. So they are the same line, and no single point is fixed.
+\end{steps}}{%
+%FIG: circle (no centre dot drawn heavily), chord AB lower-left and chord CD on the right, not parallel. Dashed crease through the midpoint of AB, perpendicular to AB, and dashed crease through the midpoint of CD, perpendicular to CD; both dashed lines extend a little beyond the circle and cross at the centre O (small dot, label O placed clear of both dashed lines). Labels A, B, C, D outside the circle.
+\node{FIG};
+}
+\end{answerblock}
+
+\facilitatornote{Students may cut the circle out if scissors are available; folding the full A4 sheet against a window works equally well. Each crease is a diameter, and every diameter is a line of reflection symmetry of the circle. A circle also looks the same after any rotation about its centre: it has complete rotational symmetry.}
+
+\rememberbox{To find the centre of a circle, draw two chords that are not parallel. Their perpendicular bisectors meet at the centre.}
+
+\section{Circles through two points}
+
+\begin{solvefirst}
+  \item Points $A$ and $B$ are $8$ cm apart, and $M$ is the midpoint of $AB$. Draw a rough diagram for each part.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find the centre and the radius of the smallest circle that passes through $A$ and $B$.
+    \item A circle of radius $5$ cm passes through $A$ and $B$, and its centre is $O$. Explain why $O$ lies on the perpendicular bisector of $AB$. Find $OM$.
+    \item How many circles of radius $5$ cm pass through $A$ and $B$?
+    \item Can a circle of radius $3$ cm pass through $A$ and $B$? Give a reason.
+  \end{enumerate}
+  \item Use P2 to answer these questions.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Where do the centres of all the circles through $A$ and $B$ lie?
+    \item As the centre moves away from $M$, does the radius increase or decrease?
+    \item Is there a largest circle through $A$ and $B$?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P2.}
+\anspair{%
+\begin{steps}
+  \item[(a)] The centre is $M$ and the radius is $4$ cm. Then $AB$ is a diameter. A smaller radius is impossible: $AB$ is a chord, and no chord is longer than the diameter.
+  \item[(b)] $OA=OB$ (radii), so $O$ is equidistant from $A$ and $B$. Such a point lies on the perpendicular bisector of $AB$. In right $\tr OMA$, $OM^2=5^2-4^2=9$, so $OM=3$ cm.
+  \item[(c)] Two: one centre $3$ cm on each side of $AB$, on the perpendicular bisector.
+  \item[(d)] No. The diameter would be $6$ cm, but the chord $AB$ would be $8$ cm.
+\end{steps}}{%
+%FIG: horizontal segment AB (length 8 units scaled), midpoint M with small tick marks showing AM = MB. Dashed vertical perpendicular bisector through M. Two centres O1 above and O2 below, each 3 units from M (scaled). Draw the circle with centre O1 radius 5 (scaled) solid, and the circle with centre O2 radius 5 dashed or lighter. Mark 4 on AM (below the segment), 3 on MO1 (right of the bisector), 5 on O1A. Also the small circle with centre M radius 4 drawn thin grey. Labels must not touch lines.
+\node{FIG};
+}
+\ans{P3.}
+\begin{steps}
+  \item[(a)] On the perpendicular bisector of $AB$. Every point on it is equidistant from $A$ and $B$, so every such point is the centre of a circle through $A$ and $B$.
+  \item[(b)] The radius increases: $r^2=OM^2+4^2$ grows as $OM$ grows.
+  \item[(c)] No. The centre can move as far as we like, so the radius has no largest value. The circles become flatter near $AB$.
+\end{steps}
+\end{answerblock}
+
+\rememberbox{Infinitely many circles pass through two points $A$ and $B$. Their centres lie on the perpendicular bisector of $AB$. The smallest has $AB$ as a diameter.}
+
+\section{Circles through three points}
+
+\begin{solvefirst}
+  \item $A$, $B$ and $C$ lie on a straight line, with $AB=4$ cm and $BC=6$ cm.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Draw the perpendicular bisectors of $AB$ and $BC$.
+    \item Do they meet? Give a reason.
+    \item Can a circle pass through $A$, $B$ and $C$?
+  \end{enumerate}
+  \item Draw any triangle $ABC$ on an A4 sheet.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Construct the perpendicular bisectors of $AB$ and $BC$. Mark their meeting point $O$.
+    \item Measure $OA$, $OB$ and $OC$.
+    \item Explain, without measuring, why $OA=OB=OC$.
+    \item Does the perpendicular bisector of $CA$ also pass through $O$? Why?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P4.}
+\anspair{%
+\begin{steps}
+  \item[(b)] No. Both bisectors are perpendicular to the same line $ABC$, so they are parallel.
+  \item[(c)] No. A centre would have to lie on both bisectors, and parallel lines have no common point.
+\end{steps}}{%
+%FIG: horizontal line with points A, B, C (AB = 4, BC = 6, scaled small). Two dashed vertical lines: one through the midpoint of AB, one through the midpoint of BC, each with a small right-angle mark at the line. Labels A, B, C below the line; "4" and "6" above the line between the points, clear of the dashed lines.
+\node{FIG};
+}
+\ans{P5.}
+\begin{steps}
+  \item[(b)] The three lengths are equal (within about $1$ mm).
+  \item[(c)] $O$ is on the perpendicular bisector of $AB$, so $OA=OB$. $O$ is on the perpendicular bisector of $BC$, so $OB=OC$. Hence $OA=OB=OC$.
+  \item[(d)] Yes. $OA=OC$, so $O$ is equidistant from $C$ and $A$ and lies on the perpendicular bisector of $CA$.
+\end{steps}
+\end{answerblock}
+
+\facilitatornote{P5(d) shows that the three perpendicular bisectors of a triangle always meet at one point. Students often draw all three and treat the third as a check of accuracy only.}
+
+\begin{theorem}{1}
+There is a unique circle passing through three non-collinear points.
+\end{theorem}
+
+\exfig{
+%FIG: acute triangle ABC (A top, B lower left, C lower right) inside its circumcircle. Dashed perpendicular bisectors of AB and BC (short segments, with small right-angle marks at the midpoints) meeting at O inside the triangle. Label O clear of the dashed lines. Labels A, B, C outside the circle.
+\node{FIG};
+}
+
+\why
+\textbf{Given:} three points $A$, $B$ and $C$ that are not on one line.\\
+\textbf{To show:} exactly one circle passes through $A$, $B$ and $C$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item The centre of any circle through $A$ and $B$ lies on the perpendicular bisector of $AB$ (P3). The centre of any circle through $B$ and $C$ lies on the perpendicular bisector of $BC$.
+  \item $AB$ and $BC$ are not on one line, so their perpendicular bisectors are not parallel. They meet in exactly one point $O$.
+  \item $OA=OB=OC$, so the circle with centre $O$ and radius $OA$ passes through all three points.
+  \item Any circle through the three points must have its centre at this point $O$ and radius $OA$. So there is only one such circle.
+\end{enumerate}
+
+This circle is the \textbf{circumcircle} of $\tr ABC$. Its centre $O$ is the \textbf{circumcentre}, and its radius is the \textbf{circumradius}.
+
+\begin{solvefirst}
+  \item Construct each triangle and its circumcircle. Say whether the circumcentre lies inside the triangle, on a side, or outside the triangle.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item $AB=5$ cm, $\angle A=70^\circ$, $\angle B=60^\circ$.
+    \item $PQ=6$ cm, $\angle P=90^\circ$, $PR=8$ cm.
+    \item $XY=5$ cm, $\angle X=100^\circ$, $XZ=4$ cm.
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P6.}
+\anspair{%
+\begin{steps}
+  \item[(a)] Acute-angled triangle ($\angle C=50^\circ$): the circumcentre is inside. Circumradius about $3.3$ cm.
+  \item[(b)] Right-angled triangle: the circumcentre is the midpoint of the hypotenuse $QR$. $QR=10$ cm, so the circumradius is $5$ cm.
+  \item[(c)] Obtuse-angled triangle: the circumcentre is outside, beyond the longest side $YZ$. Circumradius about $3.5$ cm.
+\end{steps}}{%
+%FIG: three small figures side by side (or stacked), each a triangle with its circumcircle and centre dot: (a) acute triangle, centre inside; (b) right triangle P (right angle mark at P), Q, R with the centre on QR at its midpoint; (c) obtuse triangle X (obtuse angle at X), Y, Z with the centre outside, beyond side YZ. Label each "(a)", "(b)", "(c)" below it. Only the vertex labels and O are needed; keep labels clear of lines.
+\node{FIG};
+}
+\end{answerblock}
+
+\facilitatornote{Give one triangle to each group and let the groups compare. Part (b) needs one more fact before it can be proved: the angle in a semicircle is $90^\circ$. That is done in Class 3.}
+
+\rememberbox{The circumcentre of a triangle lies inside an acute-angled triangle, at the midpoint of the hypotenuse of a right-angled triangle, and outside an obtuse-angled triangle.}
+
+\begin{example}
+A potter finds a broken piece of a round clay plate. Explain how to find the centre and the radius of the full plate.
+\end{example}
+
+\exfig{
+%FIG: an arc of a circle (about 120 degrees, thick) with no circle drawn. Three points A, B, C marked on the arc. Chords AB and BC drawn. Dashed perpendicular bisectors of AB and BC meeting at O below the arc. Dotted radius O to A. Labels clear of all lines.
+\node{FIG};
+}
+
+\textbf{Given:} a piece of the rim of a circle.\\
+\textbf{To find:} the centre and the radius of the circle.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item Place the piece on paper and trace its curved edge. Mark three points $A$, $B$ and $C$ on the traced arc.
+  \item Draw the chords $AB$ and $BC$, and construct their perpendicular bisectors. They meet at $O$.
+  \item $O$ is the centre: the perpendicular bisector of every chord passes through the centre, and only one circle passes through $A$, $B$ and $C$ (Theorem 5).
+  \item Measure $OA$. This is the radius.
+\end{enumerate}
+\textbf{Answer:} the centre is the point where the two perpendicular bisectors meet, and the radius is $OA$.
+
+\begin{exercise}{2A}
+\item Construct $\tr ABC$ with $AB=6$ cm, $BC=7$ cm and $CA=7$ cm. Construct its circumcircle, and let the circumcentre be $O$. Measure $OA$, $OB$ and $OC$.
+\item Points $A$ and $B$ are $10$ cm apart. What is the least possible radius of a circle through $A$ and $B$? Is there a greatest possible radius? Explain.
+\item Points $P$ and $Q$ are $6$ cm apart. A circle of radius $5$ cm passes through $P$ and $Q$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find the distance of its centre from the line $PQ$.
+    \item How many such circles are there?
+    \item Explain why no circle of radius $2$ cm passes through $P$ and $Q$.
+  \end{enumerate}
+\item $A$, $B$ and $C$ lie on a straight line. Is there a point $P$ with $PA=PB=PC$? Explain using the perpendicular bisectors of $AB$ and $BC$. Can a straight line meet a circle in three points?
+\item Three villages lie at the corners of a triangle. The panchayat wants to build a water tank at the same distance from all three. Explain how to find the place on a map. What happens if the three villages lie on one straight road?
+\item Kiran wants to find the centre of a circular plate drawn on paper. He draws two parallel chords and folds the sheet so that the ends of each chord meet. Find his mistake, and correct the method.
+\item The circumcircle of $\tr ABC$ is drawn. Can another triangle, congruent to $\tr ABC$, have the same circumcircle? Explain.
+\item The sides of a right-angled triangle are $5$ cm, $12$ cm and $13$ cm. Where is its circumcentre? Find the circumradius.
+\item The circumcentre of $\tr ABC$ lies on the side $BC$. What kind of triangle is $\tr ABC$? Draw a rough figure to support your answer.
+\end{exercise}
+
+\begin{answerblock}
+\ans{1.}
+\anspair{%
+$\tr ABC$ is isosceles and acute-angled, so $O$ lies inside it, on the axis of symmetry through $C$ (the perpendicular bisector of $AB$).\par
+\textbf{Answer:} $OA=OB=OC\approx3.9$ cm.}{%
+%FIG: isosceles triangle with AB = 6 at the bottom (A left, B right), C at the top (CA = CB = 7), circumcircle, centre O inside on the vertical axis through C (O a little below the middle of the triangle). Dashed perpendicular bisector of AB. Labels clear.
+\node{FIG};
+}
+\ans{2.}
+The least radius is $5$ cm, with $AB$ as a diameter. There is no greatest radius: the centre can be anywhere on the perpendicular bisector of $AB$, as far away as we like (P3).
+\ans{3.}
+\anspair{%
+\begin{steps}
+  \item[(a)] The centre $O$ is on the perpendicular bisector of $PQ$, which meets $PQ$ at its midpoint $M$. $PM=3$ cm. In right $\tr OMP$, $OM^2=5^2-3^2=16$, so $OM=4$ cm.
+  \item[(b)] Two: one centre on each side of $PQ$.
+  \item[(c)] Its diameter would be $4$ cm, but $PQ=6$ cm would be a chord, and no chord is longer than the diameter.
+\end{steps}
+\textbf{Answer:} (a) $4$ cm; (b) two.}{%
+%FIG: horizontal segment PQ with midpoint M. Two centres O1 (above) and O2 (below) on the dashed perpendicular bisector, each 4 units (scaled) from M. One solid circle centred at O1 through P and Q; the other dashed. Mark 3 on PM (below), 4 on MO1 (right of bisector), 5 on O1P (left of segment). Labels clear.
+\node{FIG};
+}
+\ans{4.}
+No. $P$ would lie on the perpendicular bisectors of $AB$ and of $BC$. Both are perpendicular to the line $ABC$, so they are parallel and never meet. So no circle passes through three collinear points, and a line meets a circle in at most two points.
+\ans{5.}
+Join the villages to form a triangle and construct the perpendicular bisectors of two sides. The tank goes at the point where they meet, the circumcentre. If the villages lie on one straight road, the bisectors are parallel, and no such place exists (Question 4).
+\ans{6.}
+\anspair{%
+Both creases are perpendicular to the parallel chords and both pass through the centre. So they are the \emph{same} line, and they do not fix a point. Kiran must draw two chords that are \emph{not} parallel.}{%
+%FIG: circle with two parallel horizontal chords (one above, one below the centre, different lengths). One dashed vertical line through the centre, perpendicular to both chords, extended beyond the circle. Small right-angle marks where the dashed line meets each chord. No other labels needed except O near the centre, clear of the dashed line.
+\node{FIG};
+}
+\ans{7.}
+Yes, infinitely many. Turn $\tr ABC$ about the circumcentre $O$ through any angle. The image is congruent to $\tr ABC$, and its vertices stay on the same circle. Reflecting in a diameter also works.
+\ans{8.}
+\anspair{%
+$5^2+12^2=169=13^2$, so the triangle is right-angled, and $13$ cm is the hypotenuse. The circumcentre is the midpoint of the hypotenuse (P6).\par
+\textbf{Answer:} circumradius $=\dfrac{13}{2}=6.5$ cm.}{%
+%FIG: right triangle with legs 5 (vertical) and 12 (horizontal), right-angle mark, hypotenuse 13. Its circumcircle with centre O at the midpoint of the hypotenuse (dot, label O placed off the hypotenuse). Label the sides 5, 12, 13 outside the triangle, clear of the circle.
+\node{FIG};
+}
+\ans{9.}
+A right-angled triangle, with the right angle at $A$. In P6 the circumcentre was on a side only for the right-angled triangle, and then $BC$ is the hypotenuse.
+\end{answerblock}
+
+\facilitatornote{Question 9 is checked by construction here. Students prove it in Class 3, using the angle in a semicircle.}
+
+\section{Chords and their distance from the centre}
+
+Recall from Class 1: the distance of a chord from the centre is the length of the perpendicular from the centre to the chord.
+
+\begin{solvefirst}
+  \item A circle has centre $O$ and radius $5$ cm. Chords $AB$ and $CD$ are each $8$ cm long. $OM\perp AB$ and $ON\perp CD$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find $OM$ and $ON$.
+    \item What do you notice?
+    \item Would the answer to (b) change for two other equal chords of this circle? Why?
+  \end{enumerate}
+  \item In the same circle, chords $PQ$ and $RS$ are each $4$ cm from $O$. Find $PQ$ and $RS$.
+  \item In the same circle, copy and complete the table.
+  \begin{center}
+  \begin{tabular}{|l|c|c|c|c|}\hline
+  Distance from $O$ (cm) & $0$ & $3$ & $4$ & $5$\\ \hline
+  Length of chord (cm) & & & & \\ \hline
+  \end{tabular}
+  \end{center}
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item As the chord moves away from the centre, what happens to its length?
+    \item Which chord is the longest? Where does it lie?
+    \item Of two unequal chords, which one is nearer the centre?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P7.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $AM=4$ cm (the perpendicular from the centre bisects the chord, Theorem 4). In right $\tr OMA$, $OM^2=5^2-4^2=9$, so $OM=3$ cm. In the same way, $ON=3$ cm.
+  \item[(b)] The equal chords are at equal distances from $O$.
+  \item[(c)] No. For any chord of length $8$ cm the calculation uses the same radius and the same half chord, so the distance is always $3$ cm.
+\end{steps}}{%
+%FIG: circle radius 5 (scaled), centre O. Chord AB (length 8) in the upper part, chord CD (length 8) in the lower right, NOT parallel to AB. Perpendiculars OM to AB and ON to CD with right-angle marks. Mark "3" beside OM and beside ON, "4" beside AM, and "5" beside OA. Labels clear of lines.
+\node{FIG};
+}
+\ans{P8.}
+In right $\tr OMP$, $PM^2=5^2-4^2=9$, so $PM=3$ cm and $PQ=6$ cm. In the same way, $RS=6$ cm. Chords at equal distances from the centre are equal.
+\ans{P9.}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}\hline
+Distance from $O$ (cm) & $0$ & $3$ & $4$ & $5$\\ \hline
+Length of chord (cm) & $10$ & $8$ & $6$ & $0$\\ \hline
+\end{tabular}
+\end{center}
+\begin{steps}
+  \item[(a)] It becomes shorter. At distance $5$ cm the ``chord'' is a single point.
+  \item[(b)] The diameter, $10$ cm. It passes through the centre (distance $0$).
+  \item[(c)] The longer chord.
+\end{steps}
+\end{answerblock}
+
+\begin{theorem}{6}
+Chords of a circle having the same length are all at the same distance from the centre of the circle.
+\end{theorem}
+
+\exfig{
+%FIG: circle centre O. Chord AB in the upper left and chord CD in the lower right, equal length, not parallel. Perpendiculars OM to AB and ON to CD with right-angle marks. Tick marks on AB and CD showing they are equal. Radii OA and OC drawn thin. Labels A, B, C, D outside the circle, M and N beside the feet of the perpendiculars, clear of lines.
+\node{FIG};
+}
+
+\why
+\textbf{Given:} chords $AB$ and $CD$ of a circle with centre $O$, $AB=CD$, $OM\perp AB$ and $ON\perp CD$.\\
+\textbf{To show:} $OM=ON$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $M$ and $N$ are the midpoints of $AB$ and $CD$ (Theorem 4). Since $AB=CD$, $AM=CN$.
+  \item In $\tr OMA$ and $\tr ONC$: $\angle OMA=\angle ONC=90^\circ$, $OA=OC$ (radii) and $AM=CN$.
+  \item So $\tr OMA\cong\tr ONC$ (RHS), and $OM=ON$.
+\end{enumerate}
+
+\begin{theorem}{7}
+Chords of a circle that are equidistant from the centre have equal length.
+\end{theorem}
+
+\why
+\textbf{Given:} chords $AB$ and $CD$ of a circle with centre $O$, $OM\perp AB$, $ON\perp CD$ and $OM=ON$ (same figure).\\
+\textbf{To show:} $AB=CD$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item In $\tr OMA$ and $\tr ONC$: $\angle OMA=\angle ONC=90^\circ$, $OA=OC$ (radii) and $OM=ON$ (given).
+  \item So $\tr OMA\cong\tr ONC$ (RHS), and $AM=CN$.
+  \item $AB=2AM$ and $CD=2CN$ (Theorem 4), so $AB=CD$.
+\end{enumerate}
+
+\begin{theorem}{8}
+Let $AB$ and $CD$ be two chords of a circle with centre $O$, with $AB>CD$. Then the distance of $AB$ from $O$ is less than the distance of $CD$ from $O$.
+\end{theorem}
+
+\why
+\textbf{Given:} $AB>CD$, $OM\perp AB$ and $ON\perp CD$ (same figure, with $AB$ longer).\\
+\textbf{To show:} $OM<ON$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item By Pythagoras theorem, $OM^2+AM^2=OA^2$ and $ON^2+CN^2=OC^2$. Since $OA=OC$, $OM^2+AM^2=ON^2+CN^2$.
+  \item $AM=\dfrac{AB}{2}$ and $CN=\dfrac{CD}{2}$. Since $AB>CD$, $AM>CN$, so $AM^2>CN^2$.
+  \item The two sums are equal, so $OM^2<ON^2$, and $OM<ON$.
+\end{enumerate}
+
+\rememberbox{For a chord at distance $d$ from the centre of a circle of radius $r$, the length of the chord is $2\sqrt{r^2-d^2}$.\\
+Equal chords are at equal distances from the centre, and the longer of two chords is nearer the centre. The diameter is the longest chord.}
+
+\begin{example}
+A circle has centre $O$ and radius $17$ cm. Chord $AB$ is $30$ cm long and chord $CD$ is $16$ cm long. Which chord is nearer the centre? Find the distance of each chord from $O$.
+\end{example}
+
+\exfig{
+%FIG: circle radius 17 (scaled to about 2.2 units), centre O. Chord AB (30) above O at distance 8, chord CD (16) below O at distance 15, both horizontal. Perpendiculars OM (to AB) and ON (to CD) on the vertical line through O, right-angle marks. Mark 8 beside OM, 15 beside ON, 15 on half of AB, 8 on half of CD, and 17 on radius OA. Labels must not touch the circle or lines.
+\node{FIG};
+}
+
+\textbf{Given:} $r=17$ cm, $AB=30$ cm, $CD=16$ cm; $OM\perp AB$, $ON\perp CD$.\\
+\textbf{To find:} which chord is nearer $O$; $OM$ and $ON$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $AB>CD$, so $AB$ is nearer the centre (Theorem 8).
+  \item $AM=15$ cm (Theorem 4). In right $\tr OMA$, $OM^2=17^2-15^2=289-225=64$, so $OM=8$ cm.
+  \item $CN=8$ cm. In right $\tr ONC$, $ON^2=17^2-8^2=289-64=225$, so $ON=15$ cm.
+\end{enumerate}
+\textbf{Answer:} $AB$ is nearer the centre; it is $8$ cm from $O$, and $CD$ is $15$ cm from $O$.
+
+\begin{example}
+Chords $AB$ and $CD$ of a circle with centre $O$ are each $6$ cm from $O$, and $AB=16$ cm. Find $CD$ and the radius of the circle.
+\end{example}
+
+\exfig{
+%FIG: circle centre O (radius 10 scaled to about 2.2). Chord AB horizontal above O at distance 6; chord CD below O, slanted (not parallel to AB), also at distance 6. Perpendiculars OM and ON with right-angle marks, "6" beside each. "8" on AM. Label OA with "?" (radius unknown). Labels clear.
+\node{FIG};
+}
+
+\textbf{Given:} $OM\perp AB$, $ON\perp CD$, $OM=ON=6$ cm, $AB=16$ cm.\\
+\textbf{To find:} $CD$ and the radius $OA$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item The chords are equidistant from the centre, so $CD=AB=16$ cm (Theorem 7).
+  \item $AM=8$ cm (Theorem 4). In right $\tr OMA$, $OA^2=6^2+8^2=100$, so $OA=10$ cm.
+\end{enumerate}
+\textbf{Answer:} $CD=16$ cm and the radius is $10$ cm.
+
+Draw a rough figure for every question in Exercise 2B and mark all the given measurements on it.
+
+\begin{exercise}{2B}
+\item A circle has centre $O$ and radius $10$ cm. Chords $AB$ and $CD$ are each $12$ cm long. Find the distance of $AB$ from $O$. Which theorem gives the distance of $CD$ without a second calculation?
+\item Chords $PQ$ and $RS$ of a circle with centre $O$ are each $5$ cm from $O$, and $PQ=24$ cm. Find $RS$ and the radius.
+\item Use Pythagoras theorem to explain why Theorem 6 is true. Then use it to explain why Theorem 7 is true.
+\item A circle has radius $13$ cm. It has chords of lengths $10$ cm, $24$ cm and $26$ cm. Without calculating, arrange them from the nearest to the farthest from the centre. Then find each distance to check.
+\item In a circle of radius $5$ cm, a chord of length $8$ cm is $3$ cm from the centre. Priya says, ``A chord half as long, $4$ cm, must be twice as far from the centre, $6$ cm.'' Find her mistake.
+\item A chord of a circle of radius $r$ is at distance $d$ from the centre. Explain why the length of the chord is $2\sqrt{r^2-d^2}$.
+\item A circular park has radius $17$ m and a fountain at its centre. Two straight footpaths cross the park, each $30$ m long from edge to edge.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item How far is each footpath from the fountain?
+    \item The two paths are parallel and on opposite sides of the fountain. Find the distance between them.
+  \end{enumerate}
+\item Draw a circle in which a chord of length $6$ cm is at a distance of $3$ cm from the centre. Write your steps, and measure the radius.
+\item True or false? Give a reason for each.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Two chords at the same distance from the centres of two different circles are equal.
+    \item Of two chords of a circle, the longer one is nearer the centre.
+    \item The chord farthest from the centre is the diameter.
+  \end{enumerate}
+\item In a circle with centre $O$, chords $AB$ and $AC$ are equal. Explain why the centre $O$ lies on the bisector of $\angle BAC$.
+\end{exercise}
+
+\facilitatornote{Questions 1 to 4 give the essential practice with Theorems 6 to 8. Question 5 must be discussed in class. If time is short, set Questions 7, 8 and 10 as homework.}
+
+\begin{answerblock}
+\ans{1.}
+\anspair{%
+\textbf{Given:} $r=10$ cm, $AB=CD=12$ cm.\quad \textbf{To find:} the distances of $AB$ and $CD$ from $O$.
+\begin{steps}
+  \item $OM\perp AB$, so $AM=6$ cm (Theorem 4).
+  \item In right $\tr OMA$, $OM^2=10^2-6^2=64$, so $OM=8$ cm.
+  \item $CD=AB$, so $CD$ is also $8$ cm from $O$ (Theorem 6).
+\end{steps}
+\textbf{Answer:} $8$ cm each; Theorem 6.}{%
+%FIG: circle centre O, two equal chords AB (upper) and CD (lower right), not parallel. Perpendicular OM to AB with right-angle mark; mark 10 on OA, 6 on AM, 8 on OM. Perpendicular ON to CD with right-angle mark and "8" beside it. Labels clear.
+\node{FIG};
+}
+\ans{2.}
+\anspair{%
+\begin{steps}
+  \item $RS=PQ=24$ cm: the chords are equidistant from the centre (Theorem 7).
+  \item $PM=12$ cm. In right $\tr OMP$, $OP^2=5^2+12^2=169$, so $OP=13$ cm.
+\end{steps}
+\textbf{Answer:} $RS=24$ cm, radius $13$ cm.}{%
+%FIG: circle centre O, chord PQ above O (horizontal) and chord RS below O, each at distance 5 from O. Perpendiculars OM and ON with right-angle marks, "5" beside each. "12" on PM, and "r" beside OP (the radius is the unknown). Labels clear.
+\node{FIG};
+}
+\ans{3.}
+Use the figure of Theorem 6, with $OM\perp AB$ and $ON\perp CD$.
+\begin{steps}
+  \item In right $\tr OMA$, $OM^2=OA^2-AM^2$. In right $\tr ONC$, $ON^2=OC^2-CN^2$.
+  \item Theorem 6: if $AB=CD$, then $AM=CN$. Also $OA=OC$. So $OM^2=ON^2$, and $OM=ON$.
+  \item Theorem 7: if $OM=ON$, then $AM^2=OA^2-OM^2=OC^2-ON^2=CN^2$. So $AM=CN$, and $AB=2AM=2CN=CD$.
+\end{steps}
+\ans{4.}
+\anspair{%
+The longest chord is nearest the centre (Theorem 8). Order: $26$ cm, $24$ cm, $10$ cm.
+\begin{steps}
+  \item $26$ cm is the diameter: distance $0$.
+  \item $24$ cm: $d^2=13^2-12^2=25$, so $d=5$ cm.
+  \item $10$ cm: $d^2=13^2-5^2=144$, so $d=12$ cm.
+\end{steps}
+\textbf{Answer:} $0$ cm, $5$ cm, $12$ cm.}{%
+%FIG: circle radius 13 (scaled to about 2.2), centre O. Horizontal diameter (label 26 above it, near the right end). Chord of length 24 above O at distance 5 (label 24 above the chord). Chord of length 10 below O at distance 12 (label 10 below the chord, inside the circle). Vertical dashed line from O to both chords, labels 5 and 12 to the right of it. Labels must not touch lines or the circle.
+\node{FIG};
+}
+\ans{5.}
+\anspair{%
+For the $4$ cm chord, half the chord is $2$ cm, so $d^2=5^2-2^2=21$ and $d=\sqrt{21}\approx4.6$ cm, not $6$ cm. In fact, no chord can be $6$ cm from the centre: $6$ cm is more than the radius.\par
+Distance and length are not in proportion. They are linked by $\left(\dfrac{c}{2}\right)^2+d^2=r^2$.}{%
+%FIG: circle radius 5 (scaled), centre O. Chord of length 8 at distance 3 above O. Chord of length 4 at distance about 4.58 below O. Dashed vertical line from O; mark 3 and "4.6" beside the two distances. Keep it simple and labels clear.
+\node{FIG};
+}
+\ans{6.}
+Let $M$ be the foot of the perpendicular from the centre $O$ to the chord $AB$. Then $M$ is the midpoint of $AB$ (Theorem 4), and $\tr OMA$ is right-angled at $M$. So $AM^2=OA^2-OM^2=r^2-d^2$, and $AM=\sqrt{r^2-d^2}$. The chord is $AB=2AM=2\sqrt{r^2-d^2}$.
+\ans{7.}
+\anspair{%
+\begin{steps}
+  \item[(a)] Each path is a chord of length $30$ m, so half of it is $15$ m. $d^2=17^2-15^2=64$, so $d=8$ m. Both paths are equal, so both are $8$ m from the fountain (Theorem 6).
+  \item[(b)] The perpendiculars from the centre to the two parallel paths lie on one line. The paths are on opposite sides, so the distance is $8+8=16$ m.
+\end{steps}
+\textbf{Answer:} (a) $8$ m each; (b) $16$ m.}{%
+%FIG: circle radius 17 (scaled), centre O (fountain, small dot). Two horizontal parallel chords, one 8 above O, one 8 below O. Vertical dashed line through O with right-angle marks at both chords; "8" beside each half of the dashed line; "15" on the right half of the upper chord; "17" on a radius from O to the right end of the upper chord. Labels clear.
+\node{FIG};
+}
+\ans{8.}
+\anspair{%
+\begin{steps}
+  \item Draw $AB=6$ cm and its perpendicular bisector, meeting $AB$ at $M$.
+  \item Mark $O$ on the bisector with $OM=3$ cm.
+  \item Draw the circle with centre $O$ and radius $OA$.
+\end{steps}
+$OA^2=3^2+3^2=18$, so the radius is about $4.2$ cm.}{%
+%FIG: segment AB (6) horizontal, midpoint M, dashed perpendicular bisector, O 3 units above M (scaled), circle centre O through A and B. Mark 3 on AM (below), 3 on MO (right of bisector), right-angle mark at M. Labels clear.
+\node{FIG};
+}
+\ans{9.}
+\begin{steps}
+  \item[(a)] False. Theorems 6 and 7 are about one circle. Two chords $8$ cm from the centres of circles of radii $10$ cm and $17$ cm have lengths $12$ cm and $30$ cm.
+  \item[(b)] True (Theorem 8).
+  \item[(c)] False. The diameter passes through the centre, so it is the \emph{nearest} chord, at distance $0$.
+\end{steps}
+\ans{10.}
+\anspair{%
+\textbf{Given:} $AB=AC$, chords of a circle with centre $O$.\quad \textbf{To show:} $\angle OAB=\angle OAC$.
+\begin{steps}
+  \item In $\tr OAB$ and $\tr OAC$: $OB=OC$ (radii), $AB=AC$ (given) and $OA$ is common.
+  \item So $\tr OAB\cong\tr OAC$ (SSS), and $\angle OAB=\angle OAC$.
+  \item So $AO$ bisects $\angle BAC$, and $O$ lies on the bisector.
+\end{steps}
+(Another way: $AB=AC$, so the chords are equidistant from $O$ (Theorem 6). A point equidistant from the two arms of an angle lies on its bisector.)}{%
+%FIG: circle centre O. Point A at the top of the circle, chords AB (to the lower left) and AC (to the lower right) of equal length, with tick marks. Segments OB, OC (thin) and AO extended a little as a dashed bisector. Small equal-angle arcs at A on both sides of AO. Labels clear.
+\node{FIG};
+}
+\end{answerblock}
+
+\section{Further questions}
+
+\begin{enumerate}[label=\textbf{F\arabic*.},leftmargin=2.2em,itemsep=4pt]
+  \item Find the length of a chord of a circle of radius $7$ cm that is $6$ cm from the centre. Leave the answer in square-root form.
+  \item Two equal chords $AB$ and $CD$ of a circle intersect at $P$. Show that $AP=CP$ and $PB=PD$.
+  \item $P$ is a point inside a circle with centre $O$ ($P$ is not $O$). Show that, of all the chords through $P$, the shortest one is perpendicular to $OP$.
+\end{enumerate}
+
+\begin{answerblock}
+\ans{F1.}
+Half the chord is $\sqrt{7^2-6^2}=\sqrt{13}$ cm, so the chord is $2\sqrt{13}$ cm (about $7.2$ cm).
+\ans{F2.}
+\anspair{%
+\begin{steps}
+  \item Draw $OM\perp AB$ and $ON\perp CD$. $AB=CD$, so $OM=ON$ (Theorem 6), and $M$, $N$ are the midpoints (Theorem 4).
+  \item In $\tr OMP$ and $\tr ONP$: right angles at $M$ and $N$, $OP$ common, $OM=ON$. So $\tr OMP\cong\tr ONP$ (RHS), and $MP=NP$.
+  \item $AM=CN$ (halves of equal chords). With $P$ placed as in the figure, $AP=AM+MP=CN+NP=CP$.
+  \item $PB=AB-AP=CD-CP=PD$.
+\end{steps}}{%
+%FIG: circle centre O. Two equal chords AB and CD crossing at P inside the circle (an X shape, roughly symmetric about the line OP). Perpendiculars OM to AB and ON to CD with right-angle marks; segment OP dashed. Labels A, B, C, D outside the circle; M, N, P, O clear of lines.
+\node{FIG};
+}
+\ans{F3.}
+\anspair{%
+\begin{steps}
+  \item Let $AB$ be any chord through $P$, and let $OM\perp AB$. In right $\tr OMP$, $OM\le OP$, with equality only when $M=P$, that is, when $AB\perp OP$.
+  \item A chord farther from the centre is shorter (Theorem 8). So the chord through $P$ that is farthest from $O$, at distance $OP$, is the shortest. It is the chord perpendicular to $OP$.
+\end{steps}}{%
+%FIG: circle centre O, point P inside to the right of O. Chord through P perpendicular to OP (thick). Another chord through P, slanted (thin), with the perpendicular OM from O to it (right-angle mark). Segment OP. Labels O, P, M clear.
+\node{FIG};
+}
+\end{answerblock}
+
+\facilitatornote{F3 leads into Class 3, which turns from chords to the angles that arcs subtend at the centre and on the circle.}
+\end{document}

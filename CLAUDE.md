@@ -77,5 +77,6 @@ If this file, the handbook and Shashi disagree: what Shashi says now wins, then 
 ## 8. Where the classes are (handbook 7; check with Shashi before planning)
 
 - Grade 9, Chapter 6 (Ganita Manjari): perimeter, arc and sector perimeter, parallelogram and triangle area, median theorem, Heron's formula: taught. Area of circle (Ex 6.3A) probably started 22 Oct, not confirmed. Sector and segment area: not confirmed.
+- Grade 9, Chapter 5 Circles (31 Oct 2026, moved from laptop to cloud): Classes 1 to 4 in `g9-ch5-circles/` (`bash build.sh N`). Shashi's rules: theorems in black frames with "(NCERT Theorem n)"; riders and problems plain, few labels; no exit checks; fc solutions fuller but compact with small figures; small numbers students can draw; no overlapping labels.
 - Grade 10: nothing recorded yet.
 - Prerana (30 Oct 2026): waiting for Shashi to pick one of four activities (handbook 3.9).

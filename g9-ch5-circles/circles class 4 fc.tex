@@ -1,0 +1,462 @@
+\newif\ifteacher\teachertrue
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{tgschola}
+\usepackage{fouriernc}
+\usepackage{microtype}
+\linespread{1.04}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc,arrows.meta}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{38,52,70}
+\definecolor{panel}{RGB}{236,238,241}
+\definecolor{muted}{RGB}{70,72,76}
+
+\newtheoremstyle{branddef}{9pt}{9pt}{}{}{\bfseries\color{accent}}{.}{ }{}
+\theoremstyle{branddef}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+% Theorems are the main pieces of the chapter: framed, numbered in teaching order,
+% with the NCERT number in brackets. #1 = NCERT theorem number.
+\newcounter{thm}
+\newenvironment{theorem}[1]
+  {\par\medskip\Needspace{5\baselineskip}\refstepcounter{thm}%
+   \begin{tcolorbox}[enhanced,sharp corners,colback=white,colframe=black,boxrule=0.9pt,
+     left=7pt,right=7pt,top=5pt,bottom=5pt]%
+   \textbf{Theorem \thethm}\ (NCERT Theorem #1).\ \itshape}
+  {\end{tcolorbox}\par\medskip}
+
+% corollary of the previous theorem: same frame, no new theorem number
+\newenvironment{corollary}
+  {\par\medskip\Needspace{4\baselineskip}%
+   \begin{tcolorbox}[enhanced,sharp corners,colback=white,colframe=black,boxrule=0.9pt,
+     left=7pt,right=7pt,top=5pt,bottom=5pt]%
+   \textbf{Corollary of Theorem \thethm}\ (NCERT Corollary).\ \itshape}
+  {\end{tcolorbox}\par\medskip}
+\newcommand{\tr}{\triangle}
+\newenvironment{exercise}[1]
+  {\par\medskip\Needspace{7\baselineskip}\noindent{\large\bfseries Exercise #1}
+   \par\smallskip
+   \begin{enumerate}[leftmargin=*,itemsep=4pt]}
+  {\end{enumerate}}
+% Solve-first problems: numbered P1, P2, ... through the whole document
+\newcounter{prob}
+\newenvironment{solvefirst}
+  {\par\smallskip\noindent\textbf{Solve first.}
+   \begin{enumerate}[label=\textbf{P\arabic*.},leftmargin=2.2em,itemsep=3pt,start=\numexpr\value{prob}+1\relax]}
+  {\setcounter{prob}{\value{enumi}}\end{enumerate}}
+\newcommand{\why}{\par\smallskip\noindent\textbf{Why it works.}\par}
+\ifteacher
+\newenvironment{answerblock}
+  {\par\smallskip\Needspace{10\baselineskip}\begingroup\small\linespread{1.15}\selectfont\color{muted}\noindent\textit{Answers.}\par}
+  {\par\endgroup\medskip}
+\newcommand{\ans}[1]{\par\smallskip\Needspace{9\baselineskip}\noindent\textbf{#1}\ }
+\else
+\usepackage{comment}
+\excludecomment{answerblock}
+\fi
+\newcommand{\figph}[1]{\begin{center}\fbox{\parbox{.85\linewidth}{\small FIGURE: #1}}\end{center}}
+% right-angle mark at vertex #1 between the directions to #2 and #3
+\newcommand{\ramark}[3]{\coordinate (ra1) at ($(#1)!2mm!(#2)$);\coordinate (ra2) at ($(#1)!2mm!(#3)$);\draw[thin] (ra1) -- ($(ra1)+(ra2)-(#1)$) -- (ra2);}
+% tick mark across the midpoint of segment #1--#2 (equal lengths)
+\newcommand{\tick}[2]{\draw[thin] ($($(#1)!0.5!(#2)$)!1.2mm!90:(#2)$) -- ($($(#1)!0.5!(#2)$)!1.2mm!-90:(#2)$);}
+\newcommand{\exfig}[1]{\begin{center}\begin{tikzpicture}[scale=.75, every node/.style={font=\small}]#1\end{tikzpicture}\end{center}}
+% rough answer diagram (teacher copy only; it sits inside answerblock)
+\newcommand{\ansfig}[1]{\begin{center}\begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#1\end{tikzpicture}\end{center}}
+% worked answer (teacher copy): solution text on the left, rough figure on the right
+\newcommand{\anspair}[2]{\par\smallskip\noindent
+  \begin{minipage}[t]{0.62\linewidth}\vspace{0pt}#1\end{minipage}\hfill
+  \begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+  \begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#2\end{tikzpicture}\end{minipage}\par\smallskip}
+\newenvironment{steps}{\begin{enumerate}[leftmargin=1.5em,itemsep=0pt,topsep=2pt]}{\end{enumerate}}
+\newcommand{\rememberbox}[1]{%
+  \par\medskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{4pt}
+  \noindent\textbf{Things to Remember}\par\smallskip #1\par\vspace{3pt}
+  \noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\medskip}
+\ifteacher
+\newcommand{\facilitatornote}[1]{%
+  \par\medskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{3pt}
+  \noindent{\small\textbf{Note for the teacher.}\ #1}\par\vspace{2pt}
+  \noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\medskip}
+\else
+\newcommand{\facilitatornote}[1]{}
+\fi
+
+\pagestyle{plain}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+% keep tall fractions in running text from touching the line above or below
+\setlength{\lineskiplimit}{2pt}
+\setlength{\lineskip}{3pt}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\newcommand{\sheethead}[1]{\noindent{\LARGE Circles}\hfill{\large #1}\par\vspace{3pt}
+  \noindent\rule{\linewidth}{0.6pt}\par\medskip}
+\begin{document}
+\setcounter{thm}{9}
+\sheethead{Class 4}
+
+\ifteacher
+\facilitatornote{%
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item \textbf{Aims.} Students decide when four points lie on one circle. They explain why a segment that subtends equal angles at two points on the same side gives four concyclic points, why opposite angles of a cyclic quadrilateral add up to $180^\circ$, and the converse. They use these results to find angles and to recognise cyclic quadrilaterals.
+  \item \textbf{NCERT links.} Theorems 10, 11 and 12 keep their NCERT numbers. The questions include the NCERT in-text exercise in Section 5.8 and End-of-Chapter Questions 7, 8, 10, 14, 15 and 21.
+  \item \textbf{Prior work.} Class 3: Theorem 9, angles in the same segment, the angle in a semicircle, and P7 (a point inside the circle gives a larger angle, a point outside a smaller one).
+  \item \textbf{Materials.} One A4 sheet and the geometry box for each student.
+  \item \textbf{Method.} Theorems 10 and 12 are proved by contradiction. P3 and P6 lead students through each argument one step at a time; let them write each step before it is discussed.
+\end{itemize}}
+\fi
+
+\section{When do four points lie on a circle?}
+
+Points that lie on one circle are called \textbf{concyclic}. Any three points that are not on one line are concyclic (Theorem 5). What about four points?
+
+\begin{solvefirst}
+  \item Draw a rough figure for each part.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item $ABCD$ is a rectangle with diagonals meeting at $O$. Explain why $OA=OB=OC=OD$. Are $A$, $B$, $C$ and $D$ concyclic?
+    \item Draw a rhombus $PQRS$ with side $4$ cm and $\angle P=60^\circ$. Draw the circle through $P$, $Q$ and $S$. Does it pass through $R$?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P1.}
+\anspair{%
+\begin{steps}
+  \item[(a)] The diagonals of a rectangle are equal and bisect each other, so $OA=OB=OC=OD$. The circle with centre $O$ and radius $OA$ passes through all four vertices: they are concyclic.
+  \item[(b)] No. $\tr PQS$ is equilateral, and its circumcircle has radius about $2.3$ cm. $R$ lies outside this circle. So four points need not be concyclic.
+\end{steps}}{%
+%FIG: two small figures side by side. Left: rectangle ABCD with both diagonals meeting at O, and the circle through A, B, C, D (centre O). Right: rhombus PQRS with angle P = 60 deg at the left (P left, Q bottom-right... use P at left, Q lower middle, R right, S upper middle so that PQRS is a rhombus with side 4 scaled), the circle through P, Q, S, and R clearly outside that circle. Labels clear of lines.
+\node{FIG};
+}
+\end{answerblock}
+
+\section{Equal angles on the same side}
+
+\begin{solvefirst}
+  \item $A$, $B$, $C$ are points on a circle. $D$ is a point on the same side of $AB$ as $C$, and $\angle ADB=\angle ACB$. Suppose $D$ is \emph{outside} the circle. Then $AD$ cuts the circle at a point $E$ between $A$ and $D$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Why is $\angle AEB=\angle ACB$?
+    \item $\angle AEB$ is an exterior angle of $\tr BED$. Which is larger, $\angle AEB$ or $\angle ADB$?
+    \item Use (a), (b) and $\angle ADB=\angle ACB$. What goes wrong?
+    \item What goes wrong if $D$ is \emph{inside} the circle? (Extend $AD$ to meet the circle at $E$.)
+    \item So where must $D$ be?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P2.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $C$ and $E$ are in the same segment of chord $AB$, so the angles are equal (Class 3).
+  \item[(b)] An exterior angle is greater than each interior opposite angle, so $\angle AEB>\angle ADB$.
+  \item[(c)] Then $\angle ACB=\angle AEB>\angle ADB=\angle ACB$: an angle greater than itself. This is impossible.
+  \item[(d)] Now $\angle ADB$ is the exterior angle of $\tr BDE$, so $\angle ADB>\angle AEB=\angle ACB$. This is also impossible.
+  \item[(e)] On the circle through $A$, $B$ and $C$.
+\end{steps}}{%
+%FIG: circle with chord AB near the bottom (A lower left, B lower right). C on the upper arc. D outside the circle above the upper arc, to the right of C. Segment AD crossing the circle at E (E on the arc between A side and D). Segments CA, CB, EB, DB. Small equal-angle marks at C and D. Labels clear.
+\node{FIG};
+}
+\end{answerblock}
+
+\begin{theorem}{10}
+If a line segment $AB$ joining two points $A$, $B$ subtends equal angles at two other points $C$, $D$ that lie on the same side of $AB$, then the four points lie on a circle.
+\end{theorem}
+
+\exfig{
+%FIG: segment AB horizontal at the bottom. Points C and D above AB (same side), with segments CA, CB, DA, DB. Equal-angle marks (single arc) at C and at D. Dashed circle through A, B, C, D. Labels outside the circle, clear.
+\node{FIG};
+}
+
+\why
+\textbf{Given:} $C$ and $D$ lie on the same side of $AB$, and $\angle ACB=\angle ADB$.\\
+\textbf{To show:} $A$, $B$, $C$ and $D$ lie on one circle.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $A$, $B$ and $C$ are not on one line, so one circle passes through them (Theorem 5).
+  \item If $D$ were outside this circle, P2(c) shows that $\angle ACB>\angle ACB$. If $D$ were inside, P2(d) gives the same kind of contradiction.
+  \item So $D$ lies on the circle.
+\end{enumerate}
+Theorem 10 is the converse of ``angles in the same segment are equal''.
+
+\begin{example}
+$C$ and $D$ lie on the same side of $AB$, with $\angle ACB=\angle ADB=40^\circ$ and $\angle CAD=25^\circ$. Find $\angle CBD$.
+\end{example}
+
+\exfig{
+%FIG: segment AB horizontal. C and D above it (C left of D). Segments AC, BC, AD, BD and CD. Angle marks "40°" at C and at D (inside angles ACB and ADB), "25°" at A between AC and AD. Dashed circle through all four points. Labels clear.
+\node{FIG};
+}
+
+\textbf{Given:} $\angle ACB=\angle ADB=40^\circ$, $C$ and $D$ on the same side of $AB$, $\angle CAD=25^\circ$.\\
+\textbf{To find:} $\angle CBD$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $A$, $B$, $C$ and $D$ are concyclic (Theorem 10).
+  \item $\angle CBD$ and $\angle CAD$ stand on the chord $CD$, in the same segment. So $\angle CBD=\angle CAD=25^\circ$.
+\end{enumerate}
+\textbf{Answer:} $\angle CBD=25^\circ$.
+
+\section{Cyclic quadrilaterals}
+
+A quadrilateral whose four vertices lie on a circle is a \textbf{cyclic quadrilateral}.
+
+\begin{solvefirst}
+  \item $ABCD$ is a cyclic quadrilateral in a circle with centre $O$. The arc $BCD$ subtends $\angle BOD=140^\circ$ at $O$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item $A$ is outside the arc $BCD$. Find $\angle BAD$.
+    \item What angle does the arc $BAD$ subtend at $O$? Find $\angle BCD$.
+    \item Find $\angle BAD+\angle BCD$.
+  \end{enumerate}
+  \item Repeat P3 with $\angle BOD=100^\circ$. What do you notice?
+  \item In P3, find $\angle ABC+\angle ADC$ without any more information.
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P3.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $\angle BAD=\dfrac{140^\circ}{2}=70^\circ$ (Theorem 9).
+  \item[(b)] The reflex angle $360^\circ-140^\circ=220^\circ$. $C$ is outside the arc $BAD$, so $\angle BCD=\dfrac{220^\circ}{2}=110^\circ$.
+  \item[(c)] $70^\circ+110^\circ=180^\circ$.
+\end{steps}}{%
+%FIG: circle centre O. A at the top-left (about 130 deg), B at the left (about 200 deg), C at the bottom-right (about 300 deg), D at the right (about 20 deg). Quadrilateral ABCD. Radii OB and OD. Angle BOD on the side of C marked "140°" (arc on the lower right of O); reflex angle on the side of A shown with a dotted arc, labelled "220°". Angle marks at A ("70°") and C ("110°"). Labels clear.
+\node{FIG};
+}
+\ans{P4.}
+$\angle BAD=50^\circ$ and $\angle BCD=\dfrac{260^\circ}{2}=130^\circ$. The sum is again $180^\circ$: the two arcs together make the whole circle, $360^\circ$, and each angle is half of its arc's angle.
+\ans{P5.}
+The angles of a quadrilateral add up to $360^\circ$. So $\angle ABC+\angle ADC=360^\circ-180^\circ=180^\circ$.
+\end{answerblock}
+
+\begin{theorem}{11}
+The sum of two opposite angles of a cyclic quadrilateral is $180^\circ$.
+\end{theorem}
+
+\exfig{
+%FIG: circle centre O, cyclic quadrilateral ABCD (A top-left, B left, C bottom-right, D right as in P3). Radii OB and OD. Label the angle BOD on the side of C as "p" (solid arc) and the reflex angle BOD on the side of A as "q" (dotted arc). Angle marks (no numbers) at A and at C. Labels clear.
+\node{FIG};
+}
+
+\why
+\textbf{Given:} $ABCD$ is a cyclic quadrilateral in a circle with centre $O$.\\
+\textbf{To show:} $\angle BAD+\angle BCD=180^\circ$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item The arc $BCD$ subtends an angle $p$ at $O$, and the arc $BAD$ subtends the rest of the complete angle, $q=360^\circ-p$.
+  \item $A$ is outside the arc $BCD$, so $\angle BAD=\dfrac{p}{2}$. $C$ is outside the arc $BAD$, so $\angle BCD=\dfrac{q}{2}$ (Theorem 9).
+  \item $\angle BAD+\angle BCD=\dfrac{p+q}{2}=\dfrac{360^\circ}{2}=180^\circ$.
+\end{enumerate}
+The other pair also adds up to $180^\circ$, because the four angles add up to $360^\circ$ (P5).
+
+\begin{solvefirst}
+  \item $ABCD$ is a quadrilateral with $\angle BAD+\angle BCD=180^\circ$. Draw the circle through $A$, $B$ and $D$. Suppose $C$ is \emph{outside} this circle, and $CD$ cuts the circle at $E$, between $D$ and $C$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item $ABED$ is a cyclic quadrilateral. Find $\angle BAD+\angle BED$.
+    \item Compare $\angle BED$ with $\angle BCD$.
+    \item $\angle BED$ is an exterior angle of $\tr BEC$. What goes wrong?
+    \item So where must $C$ be?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P6.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $180^\circ$ (Theorem 11).
+  \item[(b)] Both $\angle BED$ and $\angle BCD$ make $180^\circ$ with $\angle BAD$, so $\angle BED=\angle BCD$.
+  \item[(c)] An exterior angle is greater than each interior opposite angle, so $\angle BED>\angle BCE=\angle BCD$. This contradicts (b).
+  \item[(d)] $C$ cannot be outside the circle. Exercise 4A Question 10 shows that it cannot be inside either. So $C$ is on the circle.
+\end{steps}}{%
+%FIG: circle through A (top-left), B (top-right) and D (left). C outside the circle at the lower right. Quadrilateral ABCD drawn. Segment DC crosses the circle at E. Segment BE drawn dashed. Labels clear of lines.
+\node{FIG};
+}
+\end{answerblock}
+
+\begin{theorem}{12}
+If two opposite angles of a quadrilateral add up to $180^\circ$, then the vertices of the quadrilateral lie on a circle, that is, they are concyclic.
+\end{theorem}
+
+\why
+\textbf{Given:} quadrilateral $ABCD$ with $\angle BAD+\angle BCD=180^\circ$.\\
+\textbf{To show:} $ABCD$ is cyclic.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item Draw the circle through $A$, $B$ and $D$ (Theorem 5).
+  \item If $C$ were outside it, P6 gives $\angle BED=\angle BCD$ and $\angle BED>\angle BCD$ together, which is impossible. The case of $C$ inside is similar.
+  \item So $C$ lies on the circle, and $ABCD$ is cyclic.
+\end{enumerate}
+
+\rememberbox{Opposite angles of a cyclic quadrilateral add up to $180^\circ$. If opposite angles of a quadrilateral add up to $180^\circ$, it is cyclic.\\
+If a segment subtends equal angles at two points on the same side of it, the four points are concyclic.}
+
+\begin{example}
+$ABCD$ is a cyclic quadrilateral. $AB$ is a diameter of the circle, and $\angle ADC=120^\circ$. Find $\angle BAC$.
+\end{example}
+
+\exfig{
+%FIG: circle centre O, horizontal diameter AB (A left, B right). D on the upper arc near A, C on the upper arc near B. Quadrilateral ABCD, diagonal AC. Angle "120°" at D (inside angle ADC), right-angle mark at C for angle ACB. Labels clear.
+\node{FIG};
+}
+
+\textbf{Given:} $ABCD$ cyclic, $AB$ a diameter, $\angle ADC=120^\circ$.\\
+\textbf{To find:} $\angle BAC$.
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+  \item $\angle ABC=180^\circ-120^\circ=60^\circ$ (opposite angles of a cyclic quadrilateral, Theorem 11).
+  \item $\angle ACB=90^\circ$ (angle in a semicircle).
+  \item In $\tr ABC$, $\angle BAC=180^\circ-90^\circ-60^\circ=30^\circ$.
+\end{enumerate}
+\textbf{Answer:} $\angle BAC=30^\circ$.
+
+Draw a rough figure for every question in Exercise 4A.
+
+\begin{exercise}{4A}
+\item $ABCD$ is a cyclic quadrilateral. If $\angle A=75^\circ$, find $\angle C$. If $\angle B=110^\circ$, find $\angle D$.
+\item $PQRS$ is a cyclic quadrilateral with $\angle P=(2x+10)^\circ$ and $\angle R=(3x-20)^\circ$. Find $x$, $\angle P$ and $\angle R$.
+\item A quadrilateral $ABCD$ has $\angle A=80^\circ$, $\angle B=110^\circ$, $\angle C=100^\circ$ and $\angle D=70^\circ$. Can it be cyclic? Explain.
+\item Shreya says, ``Quadrilateral $ABCD$ has $\angle A=100^\circ$, $\angle B=80^\circ$, $\angle C=100^\circ$ and $\angle D=80^\circ$. Its angles $100^\circ$ and $80^\circ$ add up to $180^\circ$, so it is cyclic.'' Find her mistake.
+\item Four trees $P$, $Q$, $R$ and $S$ stand at the corners of a quadrilateral plot, with $\angle P=75^\circ$, $\angle Q=95^\circ$ and $\angle R=105^\circ$. A gardener wants to lay a circular path through all four trees. Is it possible? Explain.
+\item Show that a rectangle is the only parallelogram that can be cyclic.
+\item A rectangle is inscribed in a circle. Show that its diagonals meet at the centre of the circle.
+\item $ABCD$ is a cyclic quadrilateral, and $E$ is a point on $CD$ extended beyond $D$. Explain why $\angle ADE=\angle ABC$.
+\item $ABCD$ is a trapezium with $AB\parallel DC$ and $AD=BC$. Show that $ABCD$ is cyclic.
+\item In P6, suppose $C$ is \emph{inside} the circle through $A$, $B$ and $D$. Extend $DC$ to meet the circle at $E$. Show that this is also impossible.
+\item A cyclic quadrilateral has sides $5$, $5$, $12$ and $12$ units. Find its area.
+\item Draw a circle of radius $4$ cm and mark four points on it to form a quadrilateral. Measure its four angles and check Theorem 11. Then draw a quadrilateral whose vertices are \emph{not} all on one circle, and check whether its opposite angles add up to $180^\circ$.
+\end{exercise}
+
+\facilitatornote{Question 4 must be discussed in class: Shreya added two adjacent angles, not opposite ones. Questions 6, 7 and 9 together show which special quadrilaterals are cyclic. If time is short, set Questions 10, 11 and 12 as homework.}
+
+\begin{answerblock}
+\ans{1.}
+$\angle C=180^\circ-75^\circ=105^\circ$ and $\angle D=180^\circ-110^\circ=70^\circ$ (Theorem 11).
+\ans{2.}
+$P$ and $R$ are opposite angles, so $(2x+10)+(3x-20)=180$. Then $5x-10=180$, so $x=38$. $\angle P=86^\circ$ and $\angle R=94^\circ$.
+\ans{3.}
+Yes. $\angle A+\angle C=80^\circ+100^\circ=180^\circ$ (and $\angle B+\angle D=180^\circ$), so it is cyclic by Theorem 12.
+\ans{4.}
+\anspair{%
+$100^\circ$ and $80^\circ$ are \emph{adjacent} angles ($\angle A$ and $\angle B$). The opposite angles are $\angle A$ and $\angle C$: $100^\circ+100^\circ=200^\circ\ne180^\circ$. So $ABCD$ is not cyclic. (It is a parallelogram that is not a rectangle.)}{%
+%FIG: parallelogram ABCD with A top-left (100°), B top-right (80°), C bottom-right (100°), D bottom-left (80°). Angle labels inside each corner. Labels clear.
+\node{FIG};
+}
+\ans{5.}
+$\angle S=360^\circ-75^\circ-95^\circ-105^\circ=85^\circ$. $\angle P+\angle R=75^\circ+105^\circ=180^\circ$, so the plot is cyclic (Theorem 12). Yes, one circular path passes through all four trees.
+\ans{6.}
+\anspair{%
+\begin{steps}
+  \item Opposite angles of a parallelogram are equal: $\angle A=\angle C$.
+  \item If it is cyclic, $\angle A+\angle C=180^\circ$ (Theorem 11), so $\angle A=\angle C=90^\circ$.
+  \item A parallelogram with a right angle is a rectangle.
+\end{steps}
+So the only cyclic parallelograms are rectangles. (This also settles P1(b): a rhombus that is not a square is not cyclic.)}{%
+%FIG: parallelogram ABCD drawn slanted with a dashed circle through A, B, D only, showing C off the circle. Small, labels clear.
+\node{FIG};
+}
+\ans{7.}
+\anspair{%
+\begin{steps}
+  \item $\angle ABC=90^\circ$. $B$ is outside the arc $AC$ that does not contain $B$, so this arc subtends $2\times90^\circ=180^\circ$ at the centre $O$ (Theorem 9).
+  \item So $A$, $O$ and $C$ are on one line: $AC$ is a diameter, and $O$ is its midpoint. In the same way, $BD$ is a diameter with midpoint $O$.
+  \item So the diagonals meet at $O$.
+\end{steps}}{%
+%FIG: circle centre O with an inscribed rectangle ABCD; both diagonals drawn, crossing at O (dot). Right-angle mark at B. Labels clear.
+\node{FIG};
+}
+\ans{8.}
+\anspair{%
+$\angle ADE+\angle ADC=180^\circ$ (linear pair) and $\angle ABC+\angle ADC=180^\circ$ (Theorem 11). So $\angle ADE=\angle ABC$: the exterior angle equals the interior opposite angle.}{%
+%FIG: circle with cyclic quadrilateral ABCD (A top-left, B top-right, C bottom-right, D bottom-left). Side CD extended beyond D to E (outside the circle, to the left). Equal-angle marks at the exterior angle ADE and at angle ABC. Labels clear.
+\node{FIG};
+}
+\ans{9.}
+\anspair{%
+\begin{steps}
+  \item Draw $DP\perp AB$ and $CQ\perp AB$. $\tr APD\cong\tr BQC$ (RHS: $AD=BC$, $DP=CQ$), so $\angle A=\angle B$.
+  \item $AB\parallel DC$, so $\angle A+\angle D=180^\circ$ (co-interior angles).
+  \item So $\angle B+\angle D=180^\circ$, and $ABCD$ is cyclic (Theorem 12).
+\end{steps}}{%
+%FIG: isosceles trapezium ABCD with AB the longer base at the bottom (A left, B right), DC the shorter top base. Perpendiculars DP and CQ to AB (dashed) with right-angle marks. Tick marks on AD and BC. Labels clear.
+\node{FIG};
+}
+\ans{10.}
+\anspair{%
+\begin{steps}
+  \item $ABED$ is cyclic, so $\angle BAD+\angle BED=180^\circ$. Also $\angle BAD+\angle BCD=180^\circ$. So $\angle BED=\angle BCD$.
+  \item $C$ is between $D$ and $E$, so $\angle BCD$ is an exterior angle of $\tr BCE$. Then $\angle BCD>\angle BEC=\angle BED$.
+  \item The two statements contradict each other. So $C$ cannot be inside the circle.
+\end{steps}}{%
+%FIG: circle through A (top-left), B (top-right), D (left). C inside the circle near the lower right. Quadrilateral ABCD. DC extended beyond C to meet the circle at E. Segment BE dashed. Labels clear.
+\node{FIG};
+}
+\ans{11.}
+\anspair{%
+\begin{steps}
+  \item If the sides are in the order $5$, $12$, $5$, $12$, opposite sides are equal, so it is a parallelogram. A cyclic parallelogram is a rectangle (Question 6). Area $=5\times12=60$ square units.
+  \item If the order is $5$, $5$, $12$, $12$, it is a kite $ABCD$ with $AB=AD=5$ and $CB=CD=12$. $\tr ABC\cong\tr ADC$ (SSS), so $\angle B=\angle D$. By Theorem 11, $\angle B+\angle D=180^\circ$, so each is $90^\circ$. Area $=2\times\dfrac{1}{2}\times5\times12=60$ square units.
+\end{steps}
+\textbf{Answer:} $60$ square units in both cases.}{%
+%FIG: kite ABCD inscribed in a circle: A at the top, C at the bottom (AC a vertical diameter), B on the right, D on the left, with AB = AD = 5 and CB = CD = 12 (scaled; AC = 13). Right-angle marks at B and D. Side labels 5, 5, 12, 12 outside the kite but inside or beside the circle, clear of lines.
+\node{FIG};
+}
+\ans{12.}
+For the cyclic quadrilateral, each pair of opposite angles adds up to about $180^\circ$ (within $2^\circ$ for measuring). For the other quadrilateral, the sums differ from $180^\circ$.
+\end{answerblock}
+
+\section{Further questions}
+
+\begin{enumerate}[label=\textbf{F\arabic*.},leftmargin=2.2em,itemsep=4pt]
+  \item $ABCD$ is a cyclic quadrilateral whose diagonals meet at $P$. $\angle DBC=35^\circ$ and $\angle BAC=50^\circ$. Find $\angle BAD$ and $\angle BCD$.
+  \item $ABC$ is a triangle, and $BE$ and $CF$ are its altitudes. Show that $B$, $C$, $E$ and $F$ are concyclic.
+\end{enumerate}
+
+\begin{answerblock}
+\ans{F1.}
+\anspair{%
+\begin{steps}
+  \item $\angle DAC=\angle DBC=35^\circ$ (same segment, chord $DC$).
+  \item $\angle BAD=\angle BAC+\angle CAD=50^\circ+35^\circ=85^\circ$.
+  \item $\angle BCD=180^\circ-85^\circ=95^\circ$ (Theorem 11).
+\end{steps}
+\textbf{Answer:} $\angle BAD=85^\circ$, $\angle BCD=95^\circ$.}{%
+%FIG: circle with cyclic quadrilateral ABCD (A top-left, B bottom-left, C bottom-right, D top-right). Both diagonals AC and BD meeting at P. Angle "35°" at B between BD and BC, angle "50°" at A between AB and AC, angle "35°" at A between AC and AD (smaller arc). Labels clear.
+\node{FIG};
+}
+\ans{F2.}
+\anspair{%
+$\angle BEC=\angle BFC=90^\circ$, and $E$ and $F$ lie on the same side of $BC$. So $BC$ subtends equal angles at $E$ and $F$, and $B$, $C$, $E$, $F$ are concyclic (Theorem 10). The circle has $BC$ as a diameter.}{%
+%FIG: acute triangle ABC (A top, B bottom-left, C bottom-right). Altitude BE to side AC (E on AC) and altitude CF to side AB (F on AB), with right-angle marks at E and F. Dashed circle with diameter BC passing through E and F. Labels clear.
+\node{FIG};
+}
+\end{answerblock}
+
+\newpage
+\section{The twelve theorems of the chapter}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|c|c|c|p{0.62\linewidth}|}\hline
+\textbf{Class} & \textbf{Our no.} & \textbf{NCERT no.} & \textbf{Statement}\\ \hline
+1 & 1 & 2 & Equal chords subtend equal angles at the centre.\\ \hline
+1 & 2 & 3 & Chords that subtend equal angles at the centre are equal.\\ \hline
+1 & 3 & 4 & The line from the centre to the midpoint of a chord is perpendicular to the chord.\\ \hline
+1 & 4 & 5 & The perpendicular from the centre to a chord bisects the chord.\\ \hline
+2 & 5 & 1 & There is a unique circle through three non-collinear points.\\ \hline
+2 & 6 & 6 & Equal chords are equidistant from the centre.\\ \hline
+2 & 7 & 7 & Chords equidistant from the centre are equal.\\ \hline
+2 & 8 & 8 & Of two chords, the longer one is nearer the centre.\\ \hline
+3 & 9 & 9 & The angle at the centre is double the angle at a point on the rest of the circle.\\
+ & & & \emph{Corollary:} the angle in a semicircle is $90^\circ$.\\ \hline
+4 & 10 & 10 & If $AB$ subtends equal angles at $C$ and $D$ on the same side, then $A$, $B$, $C$, $D$ are concyclic.\\ \hline
+4 & 11 & 11 & Opposite angles of a cyclic quadrilateral add up to $180^\circ$.\\ \hline
+4 & 12 & 12 & If opposite angles of a quadrilateral add up to $180^\circ$, it is cyclic.\\ \hline
+\end{tabular}
+\end{center}
+\end{document}

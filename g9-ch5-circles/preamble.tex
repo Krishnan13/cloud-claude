@@ -1,0 +1,104 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{tgschola}
+\usepackage{fouriernc}
+\usepackage{microtype}
+\linespread{1.04}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc,arrows.meta}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{38,52,70}
+\definecolor{panel}{RGB}{236,238,241}
+\definecolor{muted}{RGB}{70,72,76}
+
+\newtheoremstyle{branddef}{9pt}{9pt}{}{}{\bfseries\color{accent}}{.}{ }{}
+\theoremstyle{branddef}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+% Theorems are the main pieces of the chapter: framed, numbered in teaching order,
+% with the NCERT number in brackets. #1 = NCERT theorem number.
+\newcounter{thm}
+\newenvironment{theorem}[1]
+  {\par\medskip\Needspace{5\baselineskip}\refstepcounter{thm}%
+   \begin{tcolorbox}[enhanced,sharp corners,colback=white,colframe=black,boxrule=0.9pt,
+     left=7pt,right=7pt,top=5pt,bottom=5pt]%
+   \textbf{Theorem \thethm}\ (NCERT Theorem #1).\ \itshape}
+  {\end{tcolorbox}\par\medskip}
+
+% corollary of the previous theorem: same frame, no new theorem number
+\newenvironment{corollary}
+  {\par\medskip\Needspace{4\baselineskip}%
+   \begin{tcolorbox}[enhanced,sharp corners,colback=white,colframe=black,boxrule=0.9pt,
+     left=7pt,right=7pt,top=5pt,bottom=5pt]%
+   \textbf{Corollary of Theorem \thethm}\ (NCERT Corollary).\ \itshape}
+  {\end{tcolorbox}\par\medskip}
+\newcommand{\tr}{\triangle}
+\newenvironment{exercise}[1]
+  {\par\medskip\Needspace{7\baselineskip}\noindent{\large\bfseries Exercise #1}
+   \par\smallskip
+   \begin{enumerate}[leftmargin=*,itemsep=4pt]}
+  {\end{enumerate}}
+% Solve-first problems: numbered P1, P2, ... through the whole document
+\newcounter{prob}
+\newenvironment{solvefirst}
+  {\par\smallskip\noindent\textbf{Solve first.}
+   \begin{enumerate}[label=\textbf{P\arabic*.},leftmargin=2.2em,itemsep=3pt,start=\numexpr\value{prob}+1\relax]}
+  {\setcounter{prob}{\value{enumi}}\end{enumerate}}
+\newcommand{\why}{\par\smallskip\noindent\textbf{Why it works.}\par}
+\ifteacher
+\newenvironment{answerblock}
+  {\par\smallskip\Needspace{10\baselineskip}\begingroup\small\linespread{1.15}\selectfont\color{muted}\noindent\textit{Answers.}\par}
+  {\par\endgroup\medskip}
+\newcommand{\ans}[1]{\par\smallskip\Needspace{9\baselineskip}\noindent\textbf{#1}\ }
+\else
+\usepackage{comment}
+\excludecomment{answerblock}
+\fi
+\newcommand{\figph}[1]{\begin{center}\fbox{\parbox{.85\linewidth}{\small FIGURE: #1}}\end{center}}
+% right-angle mark at vertex #1 between the directions to #2 and #3
+\newcommand{\ramark}[3]{\coordinate (ra1) at ($(#1)!2mm!(#2)$);\coordinate (ra2) at ($(#1)!2mm!(#3)$);\draw[thin] (ra1) -- ($(ra1)+(ra2)-(#1)$) -- (ra2);}
+% tick mark across the midpoint of segment #1--#2 (equal lengths)
+\newcommand{\tick}[2]{\draw[thin] ($($(#1)!0.5!(#2)$)!1.2mm!90:(#2)$) -- ($($(#1)!0.5!(#2)$)!1.2mm!-90:(#2)$);}
+\newcommand{\exfig}[1]{\begin{center}\begin{tikzpicture}[scale=.75, every node/.style={font=\small}]#1\end{tikzpicture}\end{center}}
+% rough answer diagram (teacher copy only; it sits inside answerblock)
+\newcommand{\ansfig}[1]{\begin{center}\begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#1\end{tikzpicture}\end{center}}
+% worked answer (teacher copy): solution text on the left, rough figure on the right
+\newcommand{\anspair}[2]{\par\smallskip\noindent
+  \begin{minipage}[t]{0.62\linewidth}\vspace{0pt}#1\end{minipage}\hfill
+  \begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+  \begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#2\end{tikzpicture}\end{minipage}\par\smallskip}
+\newenvironment{steps}{\begin{enumerate}[leftmargin=1.5em,itemsep=0pt,topsep=2pt]}{\end{enumerate}}
+\newcommand{\rememberbox}[1]{%
+  \par\medskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{4pt}
+  \noindent\textbf{Things to Remember}\par\smallskip #1\par\vspace{3pt}
+  \noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\medskip}
+\ifteacher
+\newcommand{\facilitatornote}[1]{%
+  \par\medskip\noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\nointerlineskip\vspace{3pt}
+  \noindent{\small\textbf{Note for the teacher.}\ #1}\par\vspace{2pt}
+  \noindent\textcolor{black!35}{\rule{\linewidth}{0.4pt}}\par\medskip}
+\else
+\newcommand{\facilitatornote}[1]{}
+\fi
+
+\pagestyle{plain}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+% keep tall fractions in running text from touching the line above or below
+\setlength{\lineskiplimit}{2pt}
+\setlength{\lineskip}{3pt}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\newcommand{\sheethead}[1]{\noindent{\LARGE Circles}\hfill{\large #1}\par\vspace{3pt}
+  \noindent\rule{\linewidth}{0.6pt}\par\medskip}
