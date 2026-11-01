@@ -360,31 +360,35 @@ Draw a rough figure for every question in Exercise 4A.
 
 \begin{exercise}{4A}
 \item $ABCD$ is a cyclic quadrilateral. If $\angle A=75^\circ$, find $\angle C$. If $\angle B=110^\circ$, find $\angle D$.
+\begin{solution}
+\textbf{Given:} $ABCD$ is a cyclic quadrilateral, $\angle A=75^\circ$ and $\angle B=110^\circ$.\\
+\textbf{To find:} $\angle C$ and $\angle D$.
+\begin{steps}
+  \item $\angle C=180^\circ-75^\circ=105^\circ$ (opposite angles of a cyclic quadrilateral, Theorem 11).
+  \item $\angle D=180^\circ-110^\circ=70^\circ$ (opposite angles of a cyclic quadrilateral, Theorem 11).
+\end{steps}
+\textbf{Answer:} $\angle C=105^\circ$, $\angle D=70^\circ$.
+\end{solution}
 \item $PQRS$ is a cyclic quadrilateral with $\angle P=(2x+10)^\circ$ and $\angle R=(3x-20)^\circ$. Find $x$, $\angle P$ and $\angle R$.
+\begin{solution}
+\textbf{Given:} $PQRS$ is a cyclic quadrilateral, $\angle P=(2x+10)^\circ$ and $\angle R=(3x-20)^\circ$.\\
+\textbf{To find:} $x$, $\angle P$ and $\angle R$.
+\begin{steps}
+  \item $P$ and $R$ are opposite angles, so $(2x+10)+(3x-20)=180$ (Theorem 11).
+  \item $5x-10=180$, so $x=38$ (solving the equation).
+  \item $\angle P=2(38)+10=86^\circ$ (substituting $x=38$).
+  \item $\angle R=3(38)-20=94^\circ$ (substituting $x=38$).
+\end{steps}
+\textbf{Answer:} $x=38$, $\angle P=86^\circ$, $\angle R=94^\circ$.
+\end{solution}
 \item A quadrilateral $ABCD$ has $\angle A=80^\circ$, $\angle B=110^\circ$, $\angle C=100^\circ$ and $\angle D=70^\circ$. Can it be cyclic? Explain.
+\begin{solution}
+Yes. $\angle A+\angle C=80^\circ+100^\circ=180^\circ$ and $\angle B+\angle D=110^\circ+70^\circ=180^\circ$, so $ABCD$ is cyclic (Theorem 12).
+\end{solution}
 \item Shreya says, ``Quadrilateral $ABCD$ has $\angle A=100^\circ$, $\angle B=80^\circ$, $\angle C=100^\circ$ and $\angle D=80^\circ$. Its angles $100^\circ$ and $80^\circ$ add up to $180^\circ$, so it is cyclic.'' Find her mistake.
-\item Four trees $P$, $Q$, $R$ and $S$ stand at the corners of a quadrilateral plot, with $\angle P=75^\circ$, $\angle Q=95^\circ$ and $\angle R=105^\circ$. A gardener wants to lay a circular path through all four trees. Is it possible? Explain.
-\item Show that a rectangle is the only parallelogram that can be cyclic.
-\item A rectangle is inscribed in a circle. Show that its diagonals meet at the centre of the circle.
-\item $ABCD$ is a cyclic quadrilateral, and $E$ is a point on $CD$ extended beyond $D$. Explain why $\angle ADE=\angle ABC$.
-\item $ABCD$ is a trapezium with $AB\parallel DC$ and $AD=BC$. Show that $ABCD$ is cyclic.
-\item In P6, suppose $C$ is \emph{inside} the circle through $A$, $B$ and $D$. Extend $DC$ to meet the circle at $E$. Show that this is also impossible.
-\item A cyclic quadrilateral has sides $5$, $5$, $12$ and $12$ units. Find its area.
-\item Draw a circle of radius $4$ cm and mark four points on it to form a quadrilateral. Measure its four angles and check Theorem 11. Then draw a quadrilateral whose vertices are \emph{not} all on one circle, and check whether its opposite angles add up to $180^\circ$.
-\end{exercise}
-
-\facilitatornote{Question 4 must be discussed in class: Shreya added two adjacent angles, not opposite ones. Questions 6, 7 and 9 together show which special quadrilaterals are cyclic. If time is short, set Questions 10, 11 and 12 as homework.}
-
-\begin{answerblock}
-\ans{1.}
-$\angle C=180^\circ-75^\circ=105^\circ$ and $\angle D=180^\circ-110^\circ=70^\circ$ (Theorem 11).
-\ans{2.}
-$P$ and $R$ are opposite angles, so $(2x+10)+(3x-20)=180$. Then $5x-10=180$, so $x=38$. $\angle P=86^\circ$ and $\angle R=94^\circ$.
-\ans{3.}
-Yes. $\angle A+\angle C=80^\circ+100^\circ=180^\circ$ (and $\angle B+\angle D=180^\circ$), so it is cyclic by Theorem 12.
-\ans{4.}
+\begin{solution}
 \anspair{%
-$100^\circ$ and $80^\circ$ are \emph{adjacent} angles ($\angle A$ and $\angle B$). The opposite angles are $\angle A$ and $\angle C$: $100^\circ+100^\circ=200^\circ\ne180^\circ$. So $ABCD$ is not cyclic. (It is a parallelogram that is not a rectangle.)}{%
+Shreya is wrong. $100^\circ$ and $80^\circ$ are \emph{adjacent} angles ($\angle A$ and $\angle B$), not opposite angles. The opposite angles are $\angle A$ and $\angle C$: $100^\circ+100^\circ=200^\circ\ne180^\circ$, so $ABCD$ is not cyclic (Theorem 12); it is a parallelogram that is not a rectangle.}{%
 %FIG: parallelogram ABCD with A top-left (100°), B top-right (80°), C bottom-right (100°), D bottom-left (80°). Angle labels inside each corner. Labels clear.
 \coordinate (A) at (0.6,2);
 \coordinate (B) at (3.6,2);
@@ -400,16 +404,25 @@ $100^\circ$ and $80^\circ$ are \emph{adjacent} angles ($\angle A$ and $\angle B$
 \node[below right] at (C) {$C$};
 \node[below left] at (D) {$D$};
 }
-\ans{5.}
-$\angle S=360^\circ-75^\circ-95^\circ-105^\circ=85^\circ$. $\angle P+\angle R=75^\circ+105^\circ=180^\circ$, so the plot is cyclic (Theorem 12). Yes, one circular path passes through all four trees.
-\ans{6.}
+\end{solution}
+\item Four trees $P$, $Q$, $R$ and $S$ stand at the corners of a quadrilateral plot, with $\angle P=75^\circ$, $\angle Q=95^\circ$ and $\angle R=105^\circ$. A gardener wants to lay a circular path through all four trees. Is it possible? Explain.
+\begin{solution}
+Yes. $\angle S=360^\circ-75^\circ-95^\circ-105^\circ=85^\circ$ and $\angle P+\angle R=75^\circ+105^\circ=180^\circ$, so the plot is cyclic (Theorem 12): one circular path passes through all four trees.
+\end{solution}
+\item Show that a rectangle is the only parallelogram that can be cyclic.
+\begin{solution}
 \anspair{%
+\textbf{Given:} $ABCD$ is a parallelogram and it is cyclic.\\
+\textbf{To prove:} $ABCD$ is a rectangle.\\
+\textbf{Proof:}
 \begin{steps}
-  \item Opposite angles of a parallelogram are equal: $\angle A=\angle C$.
-  \item If it is cyclic, $\angle A+\angle C=180^\circ$ (Theorem 11), so $\angle A=\angle C=90^\circ$.
-  \item A parallelogram with a right angle is a rectangle.
-\end{steps}
-So the only cyclic parallelograms are rectangles. (This also settles P1(b): a rhombus that is not a square is not cyclic.)}{%
+  \item Opposite angles of a parallelogram are equal: $\angle A=\angle C$ (opposite angles of a parallelogram).
+  \item $\angle A+\angle C=180^\circ$ (Theorem 11).
+  \item So $2\angle A=180^\circ$, that is, $\angle A=\angle C=90^\circ$ (from the two steps above).
+  \item A parallelogram with a right angle is a rectangle (definition of a rectangle).
+  \item So the only cyclic parallelograms are rectangles, and a rhombus that is not a square is not cyclic (from the steps above).
+  \item Hence proved.
+\end{steps}}{%
 %FIG: parallelogram ABCD drawn slanted with a dashed circle through A, B, D only, showing C off the circle. Small, labels clear.
 \coordinate (A) at (0,0);
 \coordinate (B) at (3,0);
@@ -422,12 +435,20 @@ So the only cyclic parallelograms are rectangles. (This also settles P1(b): a rh
 \node[above left] at (D) {$D$};
 \node[above right] at (C) {$C$};
 }
-\ans{7.}
+\end{solution}
+\item A rectangle is inscribed in a circle. Show that its diagonals meet at the centre of the circle.
+\begin{solution}
 \anspair{%
+\textbf{Given:} rectangle $ABCD$ is inscribed in a circle with centre $O$.\\
+\textbf{To prove:} the diagonals of $ABCD$ meet at $O$.\\
+\textbf{Proof:}
 \begin{steps}
-  \item $\angle ABC=90^\circ$. $B$ is outside the arc $AC$ that does not contain $B$, so this arc subtends $2\times90^\circ=180^\circ$ at the centre $O$ (Theorem 9).
-  \item So $A$, $O$ and $C$ are on one line: $AC$ is a diameter, and $O$ is its midpoint. In the same way, $BD$ is a diameter with midpoint $O$.
-  \item So the diagonals meet at $O$.
+  \item $\angle ABC=90^\circ$ (angle of a rectangle).
+  \item The arc $AC$ not containing $B$ subtends $\angle ABC=90^\circ$ at $B$, so it subtends $2\times90^\circ=180^\circ$ at the centre $O$ (Theorem 9).
+  \item So $A$, $O$ and $C$ are on one line: $AC$ is a diameter, and $O$ is its midpoint (straight angle at $O$).
+  \item In the same way, $BD$ is a diameter with midpoint $O$ (same reasoning).
+  \item So the diagonals meet at $O$ (both pass through $O$).
+  \item Hence proved.
 \end{steps}}{%
 %FIG: circle centre O with an inscribed rectangle ABCD; both diagonals drawn, crossing at O (dot). Right-angle mark at B. Labels clear.
 \coordinate (O) at (0,0);
@@ -447,9 +468,19 @@ So the only cyclic parallelograms are rectangles. (This also settles P1(b): a rh
 \node[below left] at (D) {$D$};
 \node[below=1pt] at (O) {$O$};
 }
-\ans{8.}
+\end{solution}
+\item $ABCD$ is a cyclic quadrilateral, and $E$ is a point on $CD$ extended beyond $D$. Explain why $\angle ADE=\angle ABC$.
+\begin{solution}
 \anspair{%
-$\angle ADE+\angle ADC=180^\circ$ (linear pair) and $\angle ABC+\angle ADC=180^\circ$ (Theorem 11). So $\angle ADE=\angle ABC$: the exterior angle equals the interior opposite angle.}{%
+\textbf{Given:} $ABCD$ is a cyclic quadrilateral and $E$ is a point on $CD$ extended beyond $D$.\\
+\textbf{To prove:} $\angle ADE=\angle ABC$.\\
+\textbf{Proof:}
+\begin{steps}
+  \item $\angle ADE+\angle ADC=180^\circ$ (linear pair).
+  \item $\angle ABC+\angle ADC=180^\circ$ (Theorem 11).
+  \item So the exterior angle equals the interior opposite angle, $\angle ADE=\angle ABC$ (subtracting $\angle ADC$ from the equal sums).
+  \item Hence proved.
+\end{steps}}{%
 %FIG: circle with cyclic quadrilateral ABCD (A top-left, B top-right, C bottom-right, D bottom-left). Side CD extended beyond D to E (outside the circle, to the left). Equal-angle marks at the exterior angle ADE and at angle ABC. Labels clear.
 \coordinate (A) at (140:2.2);
 \coordinate (B) at (45:2.2);
@@ -467,12 +498,20 @@ $\angle ADE+\angle ADC=180^\circ$ (linear pair) and $\angle ABC+\angle ADC=180^\
 \node[below] at (D) {$D$};
 \node[below left] at (E) {$E$};
 }
-\ans{9.}
+\end{solution}
+\item $ABCD$ is a trapezium with $AB\parallel DC$ and $AD=BC$. Show that $ABCD$ is cyclic.
+\begin{solution}
 \anspair{%
+\textbf{Given:} $ABCD$ is a trapezium with $AB\parallel DC$ and $AD=BC$.\\
+\textbf{To prove:} $ABCD$ is cyclic.\\
+\textbf{Construction:} Draw $DP\perp AB$ and $CQ\perp AB$.\\
+\textbf{Proof:}
 \begin{steps}
-  \item Draw $DP\perp AB$ and $CQ\perp AB$. $\tr APD\cong\tr BQC$ (RHS: $AD=BC$, $DP=CQ$), so $\angle A=\angle B$.
+  \item In $\tr APD$ and $\tr BQC$, $AD=BC$ (given) and $DP=CQ$ (distance between the parallel lines), so $\tr APD\cong\tr BQC$ (RHS).
+  \item So $\angle A=\angle B$ (CPCT).
   \item $AB\parallel DC$, so $\angle A+\angle D=180^\circ$ (co-interior angles).
   \item So $\angle B+\angle D=180^\circ$, and $ABCD$ is cyclic (Theorem 12).
+  \item Hence proved.
 \end{steps}}{%
 %FIG: isosceles trapezium ABCD with AB the longer base at the bottom (A left, B right), DC the shorter top base. Perpendiculars DP and CQ to AB (dashed) with right-angle marks. Tick marks on AD and BC. Labels clear.
 \coordinate (A) at (0,0);
@@ -495,12 +534,20 @@ $\angle ADE+\angle ADC=180^\circ$ (linear pair) and $\angle ABC+\angle ADC=180^\
 \node[below] at (P) {$P$};
 \node[below] at (Q) {$Q$};
 }
-\ans{10.}
+\end{solution}
+\item In P6, suppose $C$ is \emph{inside} the circle through $A$, $B$ and $D$. Extend $DC$ to meet the circle at $E$. Show that this is also impossible.
+\begin{solution}
 \anspair{%
+\textbf{Given:} $ABCD$ is a quadrilateral with $\angle BAD+\angle BCD=180^\circ$, and $C$ lies inside the circle through $A$, $B$ and $D$.\\
+\textbf{To prove:} this is impossible.\\
+\textbf{Construction:} Extend $DC$ to meet the circle at $E$. Join $BE$.\\
+\textbf{Proof:}
 \begin{steps}
-  \item $ABED$ is cyclic, so $\angle BAD+\angle BED=180^\circ$. Also $\angle BAD+\angle BCD=180^\circ$. So $\angle BED=\angle BCD$.
-  \item $C$ is between $D$ and $E$, so $\angle BCD$ is an exterior angle of $\tr BCE$. Then $\angle BCD>\angle BEC=\angle BED$.
-  \item The two statements contradict each other. So $C$ cannot be inside the circle.
+  \item $ABED$ is cyclic, so $\angle BAD+\angle BED=180^\circ$ (Theorem 11).
+  \item $\angle BAD+\angle BCD=180^\circ$ (given), so $\angle BED=\angle BCD$ (both make $180^\circ$ with $\angle BAD$).
+  \item $C$ is between $D$ and $E$, so $\angle BCD$ is an exterior angle of $\tr BCE$; hence $\angle BCD>\angle BEC=\angle BED$ (exterior angle of a triangle).
+  \item The two statements contradict each other, so $C$ cannot be inside the circle (contradiction).
+  \item Hence proved.
 \end{steps}}{%
 %FIG: circle through A (top-left), B (top-right), D (left). C inside the circle near the lower right. Quadrilateral ABCD. DC extended beyond C to meet the circle at E. Segment BE dashed. Labels clear.
 \coordinate (A) at (135:2.2);
@@ -519,11 +566,20 @@ $\angle ADE+\angle ADC=180^\circ$ (linear pair) and $\angle ABC+\angle ADC=180^\
 \node[below left] at (C) {$C$};
 \node[below right] at (E) {$E$};
 }
-\ans{11.}
+\end{solution}
+\item A cyclic quadrilateral has sides $5$, $5$, $12$ and $12$ units. Find its area.
+\begin{solution}
 \anspair{%
+\textbf{Given:} a cyclic quadrilateral has sides $5$, $5$, $12$ and $12$ units.\\
+\textbf{To find:} its area.
 \begin{steps}
-  \item If the sides are in the order $5$, $12$, $5$, $12$, opposite sides are equal, so it is a parallelogram. A cyclic parallelogram is a rectangle (Question 6). Area $=5\times12=60$ square units.
-  \item If the order is $5$, $5$, $12$, $12$, it is a kite $ABCD$ with $AB=AD=5$ and $CB=CD=12$. $\tr ABC\cong\tr ADC$ (SSS), so $\angle B=\angle D$. By Theorem 11, $\angle B+\angle D=180^\circ$, so each is $90^\circ$. Area $=2\times\dfrac{1}{2}\times5\times12=60$ square units.
+  \item If the sides are in the order $5$, $12$, $5$, $12$, opposite sides are equal, so it is a parallelogram (opposite sides equal).
+  \item A cyclic parallelogram is a rectangle (Question 6).
+  \item Area $=5\times12=60$ square units (area of a rectangle).
+  \item If the order is $5$, $5$, $12$, $12$, it is a kite $ABCD$ with $AB=AD=5$ and $CB=CD=12$ (two pairs of adjacent equal sides).
+  \item $\tr ABC\cong\tr ADC$ (SSS), so $\angle B=\angle D$ (CPCT).
+  \item $\angle B+\angle D=180^\circ$ (Theorem 11), and $\angle B=\angle D$, so each is $90^\circ$ (halves of $180^\circ$).
+  \item Area $=2\times\dfrac{1}{2}\times5\times12=60$ square units (sum of the areas of the two right triangles).
 \end{steps}
 \textbf{Answer:} $60$ square units in both cases.}{%
 %FIG: kite ABCD inscribed in a circle: A at the top, C at the bottom (AC a vertical diameter), B on the right, D on the left, with AB = AD = 5 and CB = CD = 12 (scaled; AC = 13). Right-angle marks at B and D. Side labels 5, 5, 12, 12 outside the kite but inside or beside the circle, clear of lines.
@@ -544,23 +600,34 @@ $\angle ADE+\angle ADC=180^\circ$ (linear pair) and $\angle ABC+\angle ADC=180^\
 \node[right] at (B) {$B$};
 \node[left] at (D) {$D$};
 }
-\ans{12.}
-For the cyclic quadrilateral, each pair of opposite angles adds up to about $180^\circ$ (within $2^\circ$ for measuring). For the other quadrilateral, the sums differ from $180^\circ$.
-\end{answerblock}
+\end{solution}
+\item Draw a circle of radius $4$ cm and mark four points on it to form a quadrilateral. Measure its four angles and check Theorem 11. Then draw a quadrilateral whose vertices are \emph{not} all on one circle, and check whether its opposite angles add up to $180^\circ$.
+\begin{solution}
+\textbf{Steps of construction:}
+\begin{steps}
+  \item Draw a circle of radius $4$ cm with centre $O$ (using a compass).
+  \item Mark four points $A$, $B$, $C$, $D$ on the circle.
+  \item Join $AB$, $BC$, $CD$ and $DA$ to get quadrilateral $ABCD$.
+  \item Measure $\angle A$, $\angle B$, $\angle C$ and $\angle D$ with a protractor.
+  \item Draw a quadrilateral $PQRS$ whose vertices are not all on one circle.
+  \item Measure its four angles with a protractor.
+\end{steps}
+\textbf{Answer:} For the cyclic quadrilateral, each pair of opposite angles adds up to about $180^\circ$ (within $2^\circ$ for measuring); for the other quadrilateral, the sums differ from $180^\circ$.
+\end{solution}
+\end{exercise}
 
+\facilitatornote{Question 4 must be discussed in class: Shreya added two adjacent angles, not opposite ones. Questions 6, 7 and 9 together show which special quadrilaterals are cyclic. If time is short, set Questions 10, 11 and 12 as homework.}
 \section{Further questions}
 
 \begin{enumerate}[label=\textbf{F\arabic*.},leftmargin=2.2em,itemsep=4pt]
   \item $ABCD$ is a cyclic quadrilateral whose diagonals meet at $P$. $\angle DBC=35^\circ$ and $\angle BAC=50^\circ$. Find $\angle BAD$ and $\angle BCD$.
-  \item $ABC$ is a triangle, and $BE$ and $CF$ are its altitudes. Show that $B$, $C$, $E$ and $F$ are concyclic.
-\end{enumerate}
-
-\begin{answerblock}
-\ans{F1.}
+\begin{solution}
 \anspair{%
+\textbf{Given:} $ABCD$ is a cyclic quadrilateral whose diagonals meet at $P$, $\angle DBC=35^\circ$ and $\angle BAC=50^\circ$.\\
+\textbf{To find:} $\angle BAD$ and $\angle BCD$.
 \begin{steps}
-  \item $\angle DAC=\angle DBC=35^\circ$ (same segment, chord $DC$).
-  \item $\angle BAD=\angle BAC+\angle CAD=50^\circ+35^\circ=85^\circ$.
+  \item $\angle DAC=\angle DBC=35^\circ$ (angles in the same segment, chord $DC$).
+  \item $\angle BAD=\angle BAC+\angle CAD=50^\circ+35^\circ=85^\circ$ (the whole angle is the sum of its parts).
   \item $\angle BCD=180^\circ-85^\circ=95^\circ$ (Theorem 11).
 \end{steps}
 \textbf{Answer:} $\angle BAD=85^\circ$, $\angle BCD=95^\circ$.}{%
@@ -587,9 +654,21 @@ For the cyclic quadrilateral, each pair of opposite angles adds up to about $180
 \node[above right] at (D) {$D$};
 \node at ($(P)+(273.75:0.22)$) {$P$};
 }
-\ans{F2.}
+\end{solution}
+\item $ABC$ is a triangle, and $BE$ and $CF$ are its altitudes. Show that $B$, $C$, $E$ and $F$ are concyclic.
+\begin{solution}
 \anspair{%
-$\angle BEC=\angle BFC=90^\circ$, and $E$ and $F$ lie on the same side of $BC$. So $BC$ subtends equal angles at $E$ and $F$, and $B$, $C$, $E$, $F$ are concyclic (Theorem 10). The circle has $BC$ as a diameter.}{%
+\textbf{Given:} $ABC$ is a triangle, and $BE$ and $CF$ are its altitudes.\\
+\textbf{To prove:} $B$, $C$, $E$ and $F$ are concyclic.\\
+\textbf{Proof:}
+\begin{steps}
+  \item $BE\perp AC$, so $\angle BEC=90^\circ$ (altitude).
+  \item $CF\perp AB$, so $\angle BFC=90^\circ$ (altitude).
+  \item So $\angle BEC=\angle BFC$ (both are $90^\circ$).
+  \item $E$ and $F$ lie on the same side of $BC$, so $BC$ subtends equal angles at $E$ and $F$, and $B$, $C$, $E$, $F$ are concyclic (Theorem 10).
+  \item The circle has $BC$ as a diameter (converse of the angle in a semicircle).
+  \item Hence proved.
+\end{steps}}{%
 %FIG: acute triangle ABC (A top, B bottom-left, C bottom-right). Altitude BE to side AC (E on AC) and altitude CF to side AB (F on AB), with right-angle marks at E and F. Dashed circle with diameter BC passing through E and F. Labels clear.
 \coordinate (A) at (2,3.4);
 \coordinate (B) at (0,0);
@@ -608,8 +687,8 @@ $\angle BEC=\angle BFC=90^\circ$, and $E$ and $F$ lie on the same side of $BC$. 
 \node[above right] at (E) {$E$};
 \node[above left] at (F) {$F$};
 }
-\end{answerblock}
-
+\end{solution}
+\end{enumerate}
 \newpage
 \section{The twelve theorems of the chapter}
 

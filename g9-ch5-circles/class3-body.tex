@@ -287,10 +287,110 @@ Draw a rough figure for every question in Exercise 3A that has no figure.
 
 \begin{exercise}{3A}
 \item An arc of a circle subtends an angle of $70^\circ$ at the centre. Find the angle it subtends at a point on the rest of the circle.
+\begin{solution}
+\textbf{Given:} an arc subtends $70^\circ$ at the centre.\\
+\textbf{To find:} the angle it subtends at a point on the rest of the circle.
+\begin{steps}
+  \item Angle at the centre $=70^\circ=2\times$ (angle at the point) (Theorem 9).
+  \item So angle at the point $=\dfrac{70^\circ}{2}=35^\circ$ (Theorem 9).
+\end{steps}
+\textbf{Answer:} $35^\circ$.
+\end{solution}
 \item In a circle with centre $O$, $C$ is a point on the major arc $AB$ and $\angle ACB=40^\circ$. Find $\angle AOB$ and $\angle OAB$.
+\begin{solution}
+\anspair{%
+\textbf{Given:} $C$ is a point on the major arc $AB$ of a circle with centre $O$, and $\angle ACB=40^\circ$.\\
+\textbf{To find:} $\angle AOB$ and $\angle OAB$.
+\begin{steps}
+  \item $\angle AOB=2\angle ACB=2\times40^\circ=80^\circ$ (Theorem 9).
+  \item $OA=OB$ (radii), so $\angle OAB=\angle OBA$ (angles opposite equal sides).
+  \item $\angle OAB=\dfrac{180^\circ-80^\circ}{2}=50^\circ$ (angle sum of a triangle).
+\end{steps}
+\textbf{Answer:} $\angle AOB=80^\circ$ and $\angle OAB=50^\circ$.}{%
+%FIG: circle centre O, chord AB at the bottom, C at the top. Segments CA, CB, OA, OB, AB. "40°" at C, "80°" at O (below O), "50°" at A (inside angle OAB). Labels clear.
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (A) at (-1.414,-1.685);
+\coordinate (B) at (1.414,-1.685);
+\coordinate (C) at (0.000,2.200);
+\draw (C) -- (A); \draw (C) -- (B); \draw (O) -- (A); \draw (O) -- (B); \draw (A) -- (B);
+\pic[draw,angle radius=12pt] {angle=A--C--B}; \node[font=\scriptsize] at (0.000,1.450) {$40^\circ$};
+\pic[draw,angle radius=8pt] {angle=A--O--B}; \node[font=\scriptsize] at (-0.000,-0.500) {$80^\circ$};
+\pic[draw,angle radius=10pt] {angle=B--A--O}; \node[font=\scriptsize] at (-0.852,-1.423) {$50^\circ$};
+\node[above=2pt] at (O) {$O$}; \node[above] at (C) {$C$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
+}
+\end{solution}
 \item In a circle with centre $O$ and radius $12$ cm, $\angle AOB=60^\circ$. Find the length of the chord $AB$, and the angle that $AB$ subtends at a point on the major arc.
+\begin{solution}
+\anspair{%
+\textbf{Given:} a circle with centre $O$ and radius $12$ cm, and $\angle AOB=60^\circ$.\\
+\textbf{To find:} the length of the chord $AB$ and the angle it subtends at a point on the major arc.
+\begin{steps}
+  \item $OA=OB=12$ cm (radii), so $\angle OAB=\angle OBA$ (angles opposite equal sides).
+  \item $\angle OAB=\angle OBA=\dfrac{180^\circ-60^\circ}{2}=60^\circ$ (angle sum of a triangle).
+  \item All three angles are $60^\circ$, so $\tr OAB$ is equilateral and $AB=12$ cm (equilateral triangle).
+  \item At a point on the major arc, $AB$ subtends $\dfrac{60^\circ}{2}=30^\circ$ (Theorem 9).
+\end{steps}
+\textbf{Answer:} $AB=12$ cm and the angle is $30^\circ$.}{%
+%FIG: circle centre O, equilateral triangle OAB with A and B on the lower right part of the circle. "60°" at O, "12" beside OA. Point C on the major arc (upper left) with segments CA and CB and "30°" at C. Labels clear.
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (A) at (1.100,-1.905);
+\coordinate (B) at (2.200,0.000);
+\coordinate (C) at (-1.905,1.100);
+\draw[thick] (O) -- (A) -- (B) -- cycle; \draw (C) -- (A); \draw (C) -- (B);
+\pic[draw,angle radius=8pt] {angle=A--O--B}; \node[font=\scriptsize] at (0.476,-0.275) {$60^\circ$};
+\pic[draw,angle radius=12pt] {angle=A--C--B}; \node[font=\scriptsize] at (-1.212,0.700) {$30^\circ$};
+\node[font=\scriptsize] at (0.25,-1.05) {$12$};
+\node[left=2pt] at (O) {$O$}; \node[below] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above left] at (C) {$C$};
+}
+\end{solution}
 \item In a circle with centre $O$, $\angle AOB=100^\circ$, and $D$ is a point on the \emph{minor} arc $AB$. Ravi writes $\angle ADB=50^\circ$. Find his mistake, and find $\angle ADB$.
+\begin{solution}
+\anspair{%
+Ravi is wrong. $D$ lies \emph{on} the minor arc, so it is outside the major arc, and the major arc subtends the reflex angle $360^\circ-100^\circ=260^\circ$ at $O$. So $\angle ADB=\dfrac{260^\circ}{2}=130^\circ$ (Theorem 9).\par
+\textbf{Answer:} $\angle ADB=130^\circ$; Ravi halved the angle of the wrong arc.}{%
+%FIG: circle centre O, chord AB in the lower half (A at 220 deg, B at 320 deg, so the minor arc is at the bottom and angle AOB = 100 deg). D on the minor arc at the bottom (270 deg). Segments DA, DB, OA, OB. Reflex angle at O shown with a dotted arc above O, labelled "260°" above O. Angle at D labelled "130°" above D inside angle ADB. Labels clear.
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (A) at (-1.685,-1.414);
+\coordinate (B) at (1.685,-1.414);
+\coordinate (D) at (-0.000,-2.200);
+\draw (D) -- (A); \draw (D) -- (B); \draw (O) -- (A); \draw (O) -- (B);
+\draw[dotted,thick] (-40:0.35) arc[start angle=-40,end angle=220,radius=0.35];
+\node[font=\scriptsize] at (90:0.6) {$260^\circ$};
+\pic[draw,angle radius=7pt] {angle=B--D--A}; \node[font=\scriptsize] at (-0.000,-1.650) {$130^\circ$};
+\node[right=3pt] at (O) {$O$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[below] at (D) {$D$};
+}
+\end{solution}
 \item $AB$ is a diameter of a circle and $C$ is any other point on the circle. Find $\angle ACB$ and explain your reasoning without using Theorem 9: join $OC$ and use two isosceles triangles.
+\begin{solution}
+\anspair{%
+\textbf{Given:} $AB$ is a diameter of a circle with centre $O$, and $C$ is any other point on the circle.\\
+\textbf{To prove:} $\angle ACB=90^\circ$.\\
+\textbf{Construction:} join $OC$.\\
+\textbf{Proof:}
+\begin{steps}
+  \item $OA=OC=OB$ (radii), so $\angle OAC=\angle OCA$ and $\angle OBC=\angle OCB$ (angles opposite equal sides).
+  \item Let $\angle OAC=\angle OCA=a$ and $\angle OBC=\angle OCB=b$.
+  \item In $\tr ABC$, $a+(a+b)+b=180^\circ$ (angle sum of a triangle), so $2(a+b)=180^\circ$ and $a+b=90^\circ$.
+  \item $\angle ACB=a+b=90^\circ$ (from the angle sum of $\tr ABC$).
+  \item Hence proved.
+\end{steps}}{%
+%FIG: circle centre O, horizontal diameter AB, C on the upper arc (about 60 deg). Triangle ABC and segment OC. Angle labels "a" at A and at C (on the A side of OC), "b" at B and at C (on the B side of OC). Labels small and clear.
+\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
+\draw (O) circle (2.2);
+\coordinate (A) at (-2.200,0.000);
+\coordinate (B) at (2.200,0.000);
+\coordinate (C) at (1.100,1.905);
+\draw (A) -- (B) -- (C) -- cycle; \draw (O) -- (C);
+\pic[draw,angle radius=12pt] {angle=B--A--C}; \node[font=\scriptsize] at (-1.476,0.194) {$a$};
+\pic[draw,angle radius=12pt] {angle=A--C--O}; \node[font=\scriptsize] at (0.662,1.467) {$a$};
+\pic[draw,angle radius=9pt] {angle=O--C--B}; \node[font=\scriptsize] at (1.100,1.405) {$b$};
+\pic[draw,angle radius=10pt] {angle=C--B--A}; \node[font=\scriptsize] at (1.637,0.325) {$b$};
+\node[below=2pt] at (O) {$O$}; \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above right] at (C) {$C$};
+}
+\end{solution}
 \item Find $x$ in each figure. $O$ is the centre.
 \Needspace{8\baselineskip}
 \exfig{
@@ -326,105 +426,16 @@ Draw a rough figure for every question in Exercise 3A that has no figure.
 \node at (8.0,-2.0) {(c)};
 \end{scope}
 }
-\item A carpenter wants to check that a wooden piece has a true semicircular edge. She places the corner of a set square on the curved edge so that its two edges pass through the ends of the straight edge. She repeats this at several places. Explain the test.
-\item $MNOP$ is a quadrilateral inscribed in a circle, and $MN$ is a diameter. What can you say about $\angle MOP$ and $\angle MNP$? Explain.
-\item $A$ and $B$ are points on a circle.
-  \begin{enumerate}[label=(\alph*),itemsep=1pt]
-    \item Can there be points $X$ and $Y$ on the circle, on the same side of $AB$, with $\angle AXB\ne\angle AYB$?
-    \item If $X$ and $Y$ are on the circle and $\angle AXB=\angle AYB$, must $X$ and $Y$ be on the same side of $AB$?
-    \item If $\angle AXB=\angle AYB$, and $X$ and $Y$ are not on the circle, does the circle through $A$, $B$ and $X$ also pass through $Y$?
-  \end{enumerate}
-\item In Class 2 we saw by construction that the circumcentre of a right-angled triangle is the midpoint of its hypotenuse. Prove it. Let $\tr PQR$ have $\angle P=90^\circ$ and circumcentre $O$, and use Theorem 9 for the arc $QR$ that does not contain $P$.
-\item A chord of a circle is equal to the radius. Find the angle it subtends at a point on the major arc.
-\end{exercise}
-
-\facilitatornote{Question 4 must be discussed in class: students apply ``half'' without checking which arc the point lies on. Question 9 prepares Class 4. If time is short, set Questions 8, 10 and 11 as homework.}
-
-\begin{answerblock}
-\ans{1.}
-$\dfrac{70^\circ}{2}=35^\circ$ (Theorem 9).
-\ans{2.}
+\begin{solution}
 \anspair{%
+\textbf{Given:} $O$ is the centre in each figure.\\
+\textbf{To find:} $x$ in each figure.
 \begin{steps}
-  \item $\angle AOB=2\angle ACB=80^\circ$ (Theorem 9).
-  \item $OA=OB$, so $\angle OAB=\dfrac{180^\circ-80^\circ}{2}=50^\circ$.
-\end{steps}
-\textbf{Answer:} $\angle AOB=80^\circ$, $\angle OAB=50^\circ$.}{%
-%FIG: circle centre O, chord AB at the bottom, C at the top. Segments CA, CB, OA, OB, AB. "40°" at C, "80°" at O (below O), "50°" at A (inside angle OAB). Labels clear.
-\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
-\draw (O) circle (2.2);
-\coordinate (A) at (-1.414,-1.685);
-\coordinate (B) at (1.414,-1.685);
-\coordinate (C) at (0.000,2.200);
-\draw (C) -- (A); \draw (C) -- (B); \draw (O) -- (A); \draw (O) -- (B); \draw (A) -- (B);
-\pic[draw,angle radius=12pt] {angle=A--C--B}; \node[font=\scriptsize] at (0.000,1.450) {$40^\circ$};
-\pic[draw,angle radius=8pt] {angle=A--O--B}; \node[font=\scriptsize] at (-0.000,-0.500) {$80^\circ$};
-\pic[draw,angle radius=10pt] {angle=B--A--O}; \node[font=\scriptsize] at (-0.852,-1.423) {$50^\circ$};
-\node[above=2pt] at (O) {$O$}; \node[above] at (C) {$C$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
-}
-\ans{3.}
-\anspair{%
-\begin{steps}
-  \item $OA=OB=12$ cm and $\angle AOB=60^\circ$. The base angles are each $60^\circ$, so $\tr OAB$ is equilateral and $AB=12$ cm.
-  \item At a point on the major arc, $AB$ subtends $\dfrac{60^\circ}{2}=30^\circ$ (Theorem 9).
-\end{steps}
-\textbf{Answer:} $AB=12$ cm; $30^\circ$.}{%
-%FIG: circle centre O, equilateral triangle OAB with A and B on the lower right part of the circle. "60°" at O, "12" beside OA. Point C on the major arc (upper left) with segments CA and CB and "30°" at C. Labels clear.
-\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
-\draw (O) circle (2.2);
-\coordinate (A) at (1.100,-1.905);
-\coordinate (B) at (2.200,0.000);
-\coordinate (C) at (-1.905,1.100);
-\draw[thick] (O) -- (A) -- (B) -- cycle; \draw (C) -- (A); \draw (C) -- (B);
-\pic[draw,angle radius=8pt] {angle=A--O--B}; \node[font=\scriptsize] at (0.476,-0.275) {$60^\circ$};
-\pic[draw,angle radius=12pt] {angle=A--C--B}; \node[font=\scriptsize] at (-1.212,0.700) {$30^\circ$};
-\node[font=\scriptsize] at (0.25,-1.05) {$12$};
-\node[left=2pt] at (O) {$O$}; \node[below] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above left] at (C) {$C$};
-}
-\ans{4.}
-\anspair{%
-$D$ lies \emph{on} the minor arc, so it is outside the major arc. The major arc subtends the reflex angle $360^\circ-100^\circ=260^\circ$ at $O$. So $\angle ADB=\dfrac{260^\circ}{2}=130^\circ$ (Theorem 9).\par
-\textbf{Answer:} $130^\circ$. Ravi halved the angle of the wrong arc.}{%
-%FIG: circle centre O, chord AB in the lower half (A at 220 deg, B at 320 deg, so the minor arc is at the bottom and angle AOB = 100 deg). D on the minor arc at the bottom (270 deg). Segments DA, DB, OA, OB. Reflex angle at O shown with a dotted arc above O, labelled "260°" above O. Angle at D labelled "130°" above D inside angle ADB. Labels clear.
-\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
-\draw (O) circle (2.2);
-\coordinate (A) at (-1.685,-1.414);
-\coordinate (B) at (1.685,-1.414);
-\coordinate (D) at (-0.000,-2.200);
-\draw (D) -- (A); \draw (D) -- (B); \draw (O) -- (A); \draw (O) -- (B);
-\draw[dotted,thick] (-40:0.35) arc[start angle=-40,end angle=220,radius=0.35];
-\node[font=\scriptsize] at (90:0.6) {$260^\circ$};
-\pic[draw,angle radius=7pt] {angle=B--D--A}; \node[font=\scriptsize] at (-0.000,-1.650) {$130^\circ$};
-\node[right=3pt] at (O) {$O$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[below] at (D) {$D$};
-}
-\ans{5.}
-\anspair{%
-\begin{steps}
-  \item $OA=OC=OB$ (radii). Let $\angle OAC=\angle OCA=a$ and $\angle OBC=\angle OCB=b$.
-  \item Angle sum of $\tr ABC$: $a+(a+b)+b=180^\circ$, so $2(a+b)=180^\circ$.
-  \item $\angle ACB=a+b=90^\circ$.
-\end{steps}
-This is NCERT End-of-Chapter Question 24.}{%
-%FIG: circle centre O, horizontal diameter AB, C on the upper arc (about 60 deg). Triangle ABC and segment OC. Angle labels "a" at A and at C (on the A side of OC), "b" at B and at C (on the B side of OC). Labels small and clear.
-\coordinate (O) at (0,0); \fill (O) circle (1.2pt);
-\draw (O) circle (2.2);
-\coordinate (A) at (-2.200,0.000);
-\coordinate (B) at (2.200,0.000);
-\coordinate (C) at (1.100,1.905);
-\draw (A) -- (B) -- (C) -- cycle; \draw (O) -- (C);
-\pic[draw,angle radius=12pt] {angle=B--A--C}; \node[font=\scriptsize] at (-1.476,0.194) {$a$};
-\pic[draw,angle radius=12pt] {angle=A--C--O}; \node[font=\scriptsize] at (0.662,1.467) {$a$};
-\pic[draw,angle radius=9pt] {angle=O--C--B}; \node[font=\scriptsize] at (1.100,1.405) {$b$};
-\pic[draw,angle radius=10pt] {angle=C--B--A}; \node[font=\scriptsize] at (1.637,0.325) {$b$};
-\node[below=2pt] at (O) {$O$}; \node[left] at (A) {$A$}; \node[right] at (B) {$B$}; \node[above right] at (C) {$C$};
-}
-\ans{6.}
-\anspair{%
-\begin{steps}
-  \item[(a)] $\angle ADB$ and $\angle ACB$ are in the same segment: $x=30^\circ$.
+  \item[(a)] $\angle ADB=\angle ACB$ (angles in the same segment), so $x=30^\circ$.
   \item[(b)] $x=2\times48^\circ=96^\circ$ (Theorem 9).
-  \item[(c)] $\angle PRQ=90^\circ$ (angle in a semicircle), so $x=180^\circ-90^\circ-28^\circ=62^\circ$.
-\end{steps}}{%
+  \item[(c)] $\angle PRQ=90^\circ$ (angle in a semicircle), so $x=180^\circ-90^\circ-28^\circ=62^\circ$ (angle sum of a triangle).
+\end{steps}
+\textbf{Answer:} (a) $x=30^\circ$, (b) $x=96^\circ$, (c) $x=62^\circ$.}{%
 %FIG: copy of the three small exercise figures (a), (b), (c) with the answers written: x = 30°, x = 96°, x = 62°; in (c) also a right-angle mark at R. Labels clear.
 \begin{scope}[scale=0.85,every node/.style={font=\scriptsize}]
 \draw (0,0) circle (1.6);
@@ -458,11 +469,15 @@ This is NCERT End-of-Chapter Question 24.}{%
 \node at (8.0,-2.0) {(c)};
 \end{scope}
 }
-\ans{7.}
-The corner of the set square is a right angle. If the edge is a true semicircle, the angle in a semicircle is $90^\circ$ at \emph{every} point of the curve, so the corner touches the curve at every position. If the corner leaves a gap at some place, the edge is not a true semicircle there.
-\ans{8.}
+\end{solution}
+\item A carpenter wants to check that a wooden piece has a true semicircular edge. She places the corner of a set square on the curved edge so that its two edges pass through the ends of the straight edge. She repeats this at several places. Explain the test.
+\begin{solution}
+The test is correct. The corner of the set square is a right angle, and the angle in a semicircle is $90^\circ$ at \emph{every} point of the curve, so the corner touches the curve at every position. If the corner leaves a gap at some place, the edge is not a true semicircle there.
+\end{solution}
+\item $MNOP$ is a quadrilateral inscribed in a circle, and $MN$ is a diameter. What can you say about $\angle MOP$ and $\angle MNP$? Explain.
+\begin{solution}
 \anspair{%
-$\angle MOP$ and $\angle MNP$ both stand on the arc $MP$ and lie in the same segment, so $\angle MOP=\angle MNP$. Also $\angle MON=\angle MPN=90^\circ$ (angles in a semicircle).}{%
+$\angle MOP=\angle MNP$. Both stand on the arc $MP$ and lie in the same segment, so they are equal (angles in the same segment). Also $\angle MON=\angle MPN=90^\circ$ (angles in a semicircle), since $MN$ is a diameter.}{%
 %FIG: circle with horizontal diameter MN (M left, N right). O and P on the upper arc (O nearer N, P nearer M). Quadrilateral MNOP drawn. Diagonals MO and NP drawn. Equal-angle marks at O (angle MOP) and at N (angle MNP). Right-angle marks at O (angle MON) and at P (angle MPN) are optional; skip if crowded. No centre label needed (O is a vertex here). Labels clear.
 \coordinate (Z) at (0,0); \draw (Z) circle (2.2);
 \coordinate (M) at (-2.200,0.000);
@@ -474,18 +489,32 @@ $\angle MOP$ and $\angle MNP$ both stand on the arc $MP$ and lie in the same seg
 \pic[draw,angle radius=12pt] {angle=P--N--M};
 \node[left] at (M) {$M$}; \node[right] at (N) {$N$}; \node[above right] at (V) {$O$}; \node[above left] at (P) {$P$};
 }
-\ans{9.}
+\end{solution}
+\item $A$ and $B$ are points on a circle.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Can there be points $X$ and $Y$ on the circle, on the same side of $AB$, with $\angle AXB\ne\angle AYB$?
+    \item If $X$ and $Y$ are on the circle and $\angle AXB=\angle AYB$, must $X$ and $Y$ be on the same side of $AB$?
+    \item If $\angle AXB=\angle AYB$, and $X$ and $Y$ are not on the circle, does the circle through $A$, $B$ and $X$ also pass through $Y$?
+  \end{enumerate}
+\begin{solution}
 \begin{steps}
-  \item[(a)] No. Points on the same side of $AB$ lie in the same segment, so the angles are equal.
+  \item[(a)] No. Points $X$ and $Y$ on the same side of $AB$ lie on the same arc, so they are in the same segment and $\angle AXB=\angle AYB$ (angles in the same segment).
   \item[(b)] No. If $AB$ is a diameter, every point of the circle on either side gives $90^\circ$ (angle in a semicircle).
-  \item[(c)] Yes, if $X$ and $Y$ are on the same side of $AB$. This is Theorem 10, proved in Class 4.
+  \item[(c)] Yes, if $X$ and $Y$ are on the same side of $AB$: the circle through $A$, $B$ and $X$ also passes through $Y$. (This is Theorem 10, proved in Class 4.)
 \end{steps}
-\ans{10.}
+\end{solution}
+\item In Class 2 we saw by construction that the circumcentre of a right-angled triangle is the midpoint of its hypotenuse. Prove it. Let $\tr PQR$ have $\angle P=90^\circ$ and circumcentre $O$, and use Theorem 9 for the arc $QR$ that does not contain $P$.
+\begin{solution}
 \anspair{%
+\textbf{Given:} $\tr PQR$ has $\angle P=90^\circ$ and circumcentre $O$.\\
+\textbf{To prove:} $O$ is the midpoint of the hypotenuse $QR$.\\
+\textbf{Proof:}
 \begin{steps}
-  \item $\angle QPR=90^\circ$, and $P$ is outside the arc $QR$ that does not contain $P$. By Theorem 9, this arc subtends $2\times90^\circ=180^\circ$ at $O$.
-  \item So $\angle QOR=180^\circ$: $Q$, $O$ and $R$ lie on one straight line, and $QR$ is a diameter.
+  \item The arc $QR$ not containing $P$ subtends $\angle QPR=90^\circ$ at $P$ (given).
+  \item This arc subtends $2\times90^\circ=180^\circ$ at the centre $O$ (Theorem 9).
+  \item So $\angle QOR=180^\circ$ (straight angle): $Q$, $O$ and $R$ lie on one straight line, and $QR$ is a diameter.
   \item $OQ=OR$ (radii), so $O$ is the midpoint of the hypotenuse $QR$.
+  \item Hence proved.
 \end{steps}}{%
 %FIG: circle with horizontal diameter QR, centre O at its midpoint (dot), P on the upper arc. Triangle PQR with right-angle mark at P. Tick marks on OQ and OR showing they are equal. Labels clear.
 \coordinate (O) at (0,0); \fill (O) circle (1.2pt);
@@ -496,6 +525,18 @@ $\angle MOP$ and $\angle MNP$ both stand on the arc $MP$ and lie in the same seg
 \draw[thick] (P) -- (Q) -- (R) -- cycle; \ramark{P}{Q}{R} \tick{Q}{O} \tick{O}{R}
 \node[below=2pt] at (O) {$O$}; \node[left] at (Q) {$Q$}; \node[right] at (R) {$R$}; \node[above] at (P) {$P$};
 }
-\ans{11.}
-The chord and the two radii form an equilateral triangle, so the chord subtends $60^\circ$ at the centre and $\dfrac{60^\circ}{2}=30^\circ$ at a point on the major arc.
-\end{answerblock}
+\end{solution}
+\item A chord of a circle is equal to the radius. Find the angle it subtends at a point on the major arc.
+\begin{solution}
+\textbf{Given:} a chord $AB$ of a circle with centre $O$ is equal to the radius.\\
+\textbf{To find:} the angle it subtends at a point on the major arc.
+\begin{steps}
+  \item $OA=OB$ (radii) and $AB$ equals the radius (given), so $OA=OB=AB$ and $\tr OAB$ is equilateral (equilateral triangle).
+  \item $\angle AOB=60^\circ$ (angle of an equilateral triangle).
+  \item At a point on the major arc, $AB$ subtends $\dfrac{60^\circ}{2}=30^\circ$ (Theorem 9).
+\end{steps}
+\textbf{Answer:} $30^\circ$.
+\end{solution}
+\end{exercise}
+
+\facilitatornote{Question 4 must be discussed in class: students apply ``half'' without checking which arc the point lies on. Question 9 prepares Class 4. If time is short, set Questions 8, 10 and 11 as homework.}

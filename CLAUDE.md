@@ -56,6 +56,7 @@ If this file, the handbook and Shashi disagree: what Shashi says now wins, then 
 - Some questions: tell students to draw a rough diagram; sometimes make drawing a marked part.
 - Stay within what has been taught. Do not repeat earlier questions.
 - Student sheet: no difficulty labels, no question titles. Assignment heading: "Assignment" left, date right, one thin rule.
+- fc exercise solutions sit directly under each question (not at the end), written in the exact form students should write them: Given / To find / steps with reasons / Answer; proofs with To prove and "Hence proved"; short reasoned sentences for true/false and explain questions (Shashi, 1 Nov 2026).
 - fc copy: for other teachers. Formal academic register ("Concepts assessed"), short sentences, active voice, no tool talk (TikZ, trap). A rough answer diagram for every question. "Common mistake" notes only when truly needed. Answers in smaller grey text.
 
 ## 6. House design and LaTeX (handbook 5, preambles in Appendix E)
