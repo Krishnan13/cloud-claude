@@ -50,6 +50,7 @@ If this file, the handbook and Shashi disagree: what Shashi says now wins, then 
 
 - CBSE competency-based, easy to hard, only a few easy ones. Test the objective from every angle (work backwards, explain, find the mistake, draw, compare/what-if, real life). At most one plain-substitution question per set.
 - Every question and example says exactly what to find.
+- Every drawing/construction instruction says exactly what to draw: which figure, which centre, which radius, which lengths, in which order. Never just "draw a rough diagram" when a specific figure is meant (Shashi, 1 Nov 2026).
 - Worked examples show: rough diagram with measurements, **Given:**, **To find:**, steps with reasons, **Answer:** with units.
 - Indian and South Indian settings in plain English. No regional words (visiri, pookalam). No pizza.
 - Whole-number answers (including steps) unless decimals are the point. Data must be possible.
