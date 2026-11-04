@@ -1,0 +1,303 @@
+\sect{Section A (1 mark each)}
+{\small\itshape Questions 1, 2, 3 and 5 are multiple choice. Question 4 is fill in the blank. Question 6 is assertion--reason.\par}
+
+\Needspace{8\baselineskip}
+\ques In a circle with centre $O$, chords $AB$ and $CD$ are equal and $\angle OAB=55^\circ$. What is $\angle COD$? \mks{1}
+\mcqtwo{$55^\circ$}{$70^\circ$}{$110^\circ$}{$125^\circ$}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\Ans (b) $70^\circ$.
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+\item $OA=OB$ (radii), so $\angle OBA=\angle OAB=55^\circ$.
+\item $\angle AOB=180^\circ-55^\circ-55^\circ=70^\circ$ (angle sum of a triangle).
+\item $\angle COD=\angle AOB=70^\circ$ (equal chords subtend equal angles at the centre, Theorem 1).
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw (0,0) circle (1);
+\coordinate (O) at (0,0);
+\coordinate (A) at (-0.5736,0.8192);
+\coordinate (B) at (0.5736,0.8192);
+\coordinate (C) at (0.5736,-0.8192);
+\coordinate (D) at (-0.5736,-0.8192);
+\draw (A)--(B);
+\draw (C)--(D);
+\draw (O)--(A);
+\draw (O)--(B);
+\draw (O)--(C);
+\draw (O)--(D);
+\draw (A) ++(0:0.26) arc[start angle=0,end angle=-55,radius=0.26];
+\node at (-0.05,0.55) {$55^\circ$};
+\draw (0,0.775)--(0,0.865);
+\draw (0,-0.865)--(0,-0.775);
+\fill[figline] (O) circle (0.035);
+\node[above left] at (A) {$A$};
+\node[above right] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[right] at (0.1,0) {$O$};
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques A chord of length $20$~cm is drawn in a circle of radius $26$~cm. What is the distance of the chord from the centre? \mks{1}
+\mcqtwo{$6$~cm}{$16$~cm}{$24$~cm}{$28$~cm}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\Ans (c) $24$~cm.
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+\item $OM\perp AB$, so $AM=10$~cm (the perpendicular from the centre bisects the chord, Theorem 4).
+\item $OM^2=26^2-10^2=676-100=576$, so $OM=24$~cm (Pythagoras theorem).
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\coordinate (O) at (0,0); \coordinate (A) at (-0.805,-0.75); \coordinate (B) at (0.805,-0.75); \coordinate (M) at (0,-0.75);
+\draw (O) circle (1.1); \draw (A)--(B); \draw (O)--(A); \draw (O)--(M);
+\draw (M) ++(-0.1,0) -- ++(0,0.1) -- ++(0.1,0);
+\fill[figline] (O) circle (0.035);
+\node[above] at (O) {$O$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[below] at (M) {$M$};
+\node[above left] at ($(O)!0.5!(A)$) {$26$}; \node[below] at ($(A)!0.5!(M)$) {$10$};
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques Which statement about a circle with centre $O$ is \textbf{false}? \mks{1}
+\pc{a}{The line joining $O$ to the midpoint of a chord (not a diameter) is perpendicular to the chord.}
+\pc{b}{The perpendicular from $O$ to a chord bisects the chord.}
+\pc{c}{The perpendicular bisector of every chord passes through $O$.}
+\pc{d}{Every line through $O$ bisects every chord of the circle.}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\Ans (d). A line through $O$ that is slanted to a chord (not a diameter) meets the chord away from its midpoint. Statements (a), (b) and (c) are Theorems 3 and 4 and their consequence.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\coordinate (O) at (0,0); \coordinate (A) at (-0.953,-0.55); \coordinate (B) at (0.953,-0.55); \coordinate (M) at (0,-0.55); \coordinate (P) at (0.5,-0.55);
+\draw (O) circle (1.1); \draw (A)--(B); \draw (O)--(M);
+\draw (M) ++(-0.1,0) -- ++(0,0.1) -- ++(0.1,0);
+\draw[dashed] ($(O)!-0.7!(P)$) -- (P);
+\fill[figline] (O) circle (0.035);
+\node[above] at (O) {$O$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[below] at (M) {$M$}; \node[below] at (P) {$P$};
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques Fill in the blank: The number of circles that pass through three points lying on one straight line is \rule{1.5cm}{0.4pt}. \mks{1}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\Ans $0$ (none). The perpendicular bisectors of $AB$ and $BC$ are parallel, so they never meet. No point is at the same distance from all three points. (Theorem 5 needs three non-collinear points.)
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw (-0.4,0) -- (2.4,0);
+\foreach \x/\l in {0/A,0.8/B,2.0/C} {\fill[figline] (\x,0) circle (0.035); \node[below] at (\x,-0.05) {$\l$};}
+\draw[dashed] (0.4,-0.55) -- (0.4,0.7); \draw[dashed] (1.4,-0.55) -- (1.4,0.7);
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques A circle has radius $10$~cm. It has two chords of lengths $12$~cm and $18$~cm. Which chord is nearer the centre? \mks{1}
+\mcqtwo{The $12$~cm chord}{The $18$~cm chord}{Both are at the same distance}{It cannot be decided without more information}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\Ans (b). Of two chords of a circle, the longer chord is nearer the centre (Theorem 8).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\coordinate (O) at (0,0);
+\draw (O) circle (1.1);
+\draw (-0.99,0.48) -- (0.99,0.48); \draw (-0.66,-0.88) -- (0.66,-0.88);
+\draw (O) -- (0,0.48); \draw (O) -- (0,-0.88);
+\draw (0,0.48) ++(0.1,0) -- ++(0,-0.1) -- ++(-0.1,0);
+\draw (0,-0.88) ++(0.1,0) -- ++(0,0.1) -- ++(-0.1,0);
+\fill[figline] (O) circle (0.035);
+\node[right] at (O) {$O$};
+\node[below] at (-0.5,0.48) {$18$}; \node[above] at (-0.33,-0.88) {$12$};
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques Assertion--reason. {\small\itshape Choose: (a) Both A and R are true, and R is the correct explanation of A. (b) Both A and R are true, but R is not the correct explanation of A. (c) A is true, but R is false. (d) A is false, but R is true.\par}
+\aritem{Assertion (A)}{In a circle with centre $O$, $OM\perp AB$, where $AB$ is a chord and $M$ lies on $AB$. If $AM=5$~cm, then $AB=10$~cm.}
+\aritem{Reason (R)}{The perpendicular from the centre of a circle to a chord bisects the chord. \mks{1}}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\Ans (a). $OM\perp AB$, so $M$ is the midpoint of $AB$ (Theorem 4). So $AB=2\times5=10$~cm. R is the reason for A.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\coordinate (O) at (0,0); \coordinate (A) at (-0.922,-0.6); \coordinate (B) at (0.922,-0.6); \coordinate (M) at (0,-0.6);
+\draw (O) circle (1.1); \draw (A)--(B); \draw (O)--(M);
+\draw (M) ++(0.1,0) -- ++(0,0.1) -- ++(-0.1,0);
+\draw (-0.46,-0.53) -- (-0.46,-0.67); \draw (0.46,-0.53) -- (0.46,-0.67);
+\fill[figline] (O) circle (0.035);
+\node[above] at (O) {$O$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[below] at (M) {$M$};
+\node[above] at (-0.46,-0.6) {$5$};
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
+
+\sect{Section B (2 marks each)}
+
+\Needspace{8\baselineskip}
+\ques In a circle with centre $O$, chord $AB=10$~cm. $P$ is a point on $AB$ with $AP=4$~cm. Meena writes: ``$OP$ is perpendicular to $AB$, because the line joining the centre to a point of a chord is perpendicular to the chord.''
+\pc{a}{What is wrong in Meena's reasoning?\mks{1}}
+\pc{b}{Which point $Q$ of $AB$ must be joined to $O$ so that $OQ\perp AB$? How far is $Q$ from $A$?\mks{1}}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\textbf{(a)} Theorem 3 is true only for the line from the centre to the \emph{midpoint} of the chord. $P$ is not the midpoint: $AP=4$~cm but $PB=6$~cm. So $OP$ is not perpendicular to $AB$.
+
+\textbf{(b)} $Q$ is the midpoint of $AB$ (Theorem 3), so $AQ=\dfrac{10}{2}=5$~cm.
+
+\Ans $Q$ is the midpoint of $AB$; $AQ=5$~cm.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\coordinate (O) at (0,0); \coordinate (A) at (-1.126,-0.65); \coordinate (B) at (1.126,-0.65); \coordinate (Q) at (0,-0.65); \coordinate (P) at (-0.226,-0.65);
+\draw (O) circle (1.3); \draw (A)--(B); \draw (O)--(Q); \draw[dashed] (O)--(P);
+\draw (Q) ++(0.1,0) -- ++(0,0.1) -- ++(-0.1,0);
+\fill[figline] (O) circle (0.035);
+\node[above] at (O) {$O$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
+\node[below left] at (P) {$P$}; \node[below right] at (Q) {$Q$};
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques Divya draws a circle with centre $O$ for a rangoli. She marks $10$ dots on the circle at equal distances and numbers them $1$ to $10$ in order. She joins dot $1$ to dot $4$, and dot $6$ to dot $9$ with straight lines.
+\begin{center}
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\draw (0,0) circle (1.6);
+\fill[figline] (0,0) circle (0.035);
+\node[below right] at (0,0) {$O$};
+\fill[figline] (0,1.6) circle (0.045);
+\fill[figline] (0.9405,1.2944) circle (0.045);
+\fill[figline] (1.5217,0.4944) circle (0.045);
+\fill[figline] (1.5217,-0.4944) circle (0.045);
+\fill[figline] (0.9405,-1.2944) circle (0.045);
+\fill[figline] (0,-1.6) circle (0.045);
+\fill[figline] (-0.9405,-1.2944) circle (0.045);
+\fill[figline] (-1.5217,-0.4944) circle (0.045);
+\fill[figline] (-1.5217,0.4944) circle (0.045);
+\fill[figline] (-0.9405,1.2944) circle (0.045);
+\draw[thick] (0,1.6)--(1.5217,-0.4944);
+\draw[thick] (0,-1.6)--(-1.5217,0.4944);
+\node at (0,1.9) {$1$};
+\node at (1.1168,1.5371) {$2$};
+\node at (1.8070,0.5871) {$3$};
+\node at (1.8070,-0.5871) {$4$};
+\node at (1.1168,-1.5371) {$5$};
+\node at (0,-1.9) {$6$};
+\node at (-1.1168,-1.5371) {$7$};
+\node at (-1.8070,-0.5871) {$8$};
+\node at (-1.8070,0.5871) {$9$};
+\node at (-1.1168,1.5371) {$10$};
+\end{tikzpicture}
+\end{center}
+\pc{a}{Find the angle that the line from dot $1$ to dot $4$ subtends at $O$.\mks{1}}
+\pc{b}{Show that the two lines are equal in length.\mks{1}}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\Given $10$ equally spaced dots on a circle with centre $O$; chords from dot $1$ to dot $4$ and from dot $6$ to dot $9$.
+
+\Tofind (a) the angle at $O$; (b) show the chords are equal.
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+\item The $10$ dots divide the full angle $360^\circ$ at $O$ into $10$ equal angles of $\dfrac{360^\circ}{10}=36^\circ$.
+\item From dot $1$ to dot $4$ there are $3$ gaps, so the angle is $3\times36^\circ=108^\circ$.
+\item From dot $6$ to dot $9$ there are also $3$ gaps, so that angle is also $108^\circ$.
+\item The two chords subtend equal angles at the centre, so they are equal (Theorem 2).
+\end{enumerate}
+\Ans (a) $108^\circ$; (b) the chords are equal.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\coordinate (O) at (0,0);
+\draw (O) circle (1);
+\foreach \k in {1,...,10} {\fill[figline] ({90-36*(\k-1)}:1) circle (0.03); \node at ({90-36*(\k-1)}:1.22) {\k};}
+\draw[thick] (90:1) -- (-18:1); \draw[thick] (-90:1) -- (162:1);
+\draw[dashed] (O) -- (90:1); \draw[dashed] (O) -- (-18:1); \draw[dashed] (O) -- (-90:1); \draw[dashed] (O) -- (162:1);
+\fill[figline] (O) circle (0.035);
+\node[anchor=south west] at (0.1,0.0) {$O$};
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques Chords $PQ$ and $RS$ of a circle with centre $O$ are each $16$~cm from $O$, and $PQ=24$~cm.
+\pc{a}{Find $RS$. Give the reason.\mks{1}}
+\pc{b}{Find the radius of the circle.\mks{1}}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\Given $OM\perp PQ$, $ON\perp RS$, $OM=ON=16$~cm, $PQ=24$~cm.
+
+\Tofind $RS$ and the radius.
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+\item $PQ$ and $RS$ are equidistant from $O$, so $RS=PQ=24$~cm (Theorem 7).
+\item $PM=\dfrac{24}{2}=12$~cm (Theorem 4).
+\item $OP^2=OM^2+PM^2=256+144=400$, so $OP=20$~cm (Pythagoras theorem).
+\end{enumerate}
+\Ans $RS=24$~cm; radius $20$~cm.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\coordinate (O) at (0,0); \coordinate (M) at (0,0.88); \coordinate (N) at (0,-0.88);
+\draw (O) circle (1.1);
+\draw (-0.66,0.88) -- (0.66,0.88); \draw (-0.66,-0.88) -- (0.66,-0.88);
+\draw (O)--(M); \draw (O)--(N); \draw[dashed] (O) -- (-0.66,0.88);
+\draw (M) ++(0.1,0) -- ++(0,-0.1) -- ++(-0.1,0);
+\draw (N) ++(0.1,0) -- ++(0,0.1) -- ++(-0.1,0);
+\fill[figline] (O) circle (0.035);
+\node[right] at (O) {$O$};
+\node[above left] at (-0.66,0.88) {$P$}; \node[above right] at (0.66,0.88) {$Q$};
+\node[below left] at (-0.66,-0.88) {$R$}; \node[below right] at (0.66,-0.88) {$S$};
+\node[below] at (0.3,0.88) {$M$}; \node[above] at (0.3,-0.88) {$N$};
+\node[right] at (0,0.38) {$16$}; \node[right] at (0,-0.38) {$16$};
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
+
+\Needspace{8\baselineskip}
+\ques A chord of a circle is $18$~cm long and is $12$~cm from the centre. Find the diameter of the circle. Draw a rough diagram that shows the circle, its centre $O$, the chord $AB$ and the perpendicular $OM$ from $O$ to $AB$. Mark the given lengths on it. \mks{2}
+\begin{answerblock}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+\Given chord $AB=18$~cm, $OM\perp AB$, $OM=12$~cm.
+
+\Tofind the diameter.
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+\item $AM=\dfrac{18}{2}=9$~cm (Theorem 4).
+\item $OA^2=OM^2+AM^2=144+81=225$, so $OA=15$~cm (Pythagoras theorem).
+\item Diameter $=2\times15=30$~cm.
+\end{enumerate}
+\Ans $30$~cm.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[fig,every node/.style={font=\scriptsize}]
+\coordinate (O) at (0,0); \coordinate (A) at (-0.926,-0.6); \coordinate (B) at (0.926,-0.6); \coordinate (M) at (0,-0.6);
+\draw (O) circle (1.1); \draw (A)--(B); \draw (O)--(M); \draw (O)--(A);
+\draw (M) ++(0.1,0) -- ++(0,0.1) -- ++(-0.1,0);
+\fill[figline] (O) circle (0.035);
+\node[above] at (O) {$O$}; \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[below] at (M) {$M$};
+\node[right] at (0,-0.33) {$12$}; \node[below] at (0.5,-0.6) {$18$};
+\end{tikzpicture}
+\end{minipage}
+\end{answerblock}
