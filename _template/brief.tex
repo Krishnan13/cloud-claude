@@ -1,0 +1,47 @@
+% Brief template — copy into entries/NN <slug>/brief.tex and fill in.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{1F4E79}
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.4em}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\hypersetup{pdftitle={TITLE},pdfauthor={Krishnan}}
+
+\newtheorem*{theorem}{Theorem}
+
+\begin{document}
+
+{\LARGE\bfseries\color{accent} TITLE}\par
+\vspace{2pt}
+{\small Kind: Topic / Problem / Theorem \quad Date: DD-MM-YYYY}
+\vspace{6pt}\hrule\vspace{6pt}
+
+\section{The idea in one line}
+ONE SENTENCE.
+
+\section{Key parts}
+\begin{enumerate}
+  \item PART.
+\end{enumerate}
+
+\section{Worked example}
+EXAMPLE.
+
+% Theorems only:
+% \section{How to teach it}
+
+\section{Questions colleagues may ask}
+\begin{enumerate}
+  \item \textbf{Q.} ANSWER.
+\end{enumerate}
+
+\end{document}
