@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{1F4E79}
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.4em}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\hypersetup{pdftitle={Fibonacci odd terms},pdfauthor={Krishnan}}
+
+\newtheorem*{theorem}{Theorem}
+
+\begin{document}
+
+{\LARGE\bfseries\color{accent} Fibonacci odd terms}\par
+\vspace{2pt}
+{\small Kind: Problem \quad Date: 12-11-2026}
+\vspace{6pt}\hrule\vspace{6pt}
+
+\section{The problem}
+In the Fibonacci sequence, $1, 1, 2, 3, 5, \dots$, each term after the second is the sum of
+the previous two terms. How many of the first 100 terms of the Fibonacci sequence are odd?
+
+\textbf{What it asks:} not the terms themselves, only a count of how many of terms 1 to 100
+are odd. The 100th term has 21 digits, so listing them all is not practical.
+
+\section{The idea in one line}
+Odd or even depends only on the two terms before, so the sequence of odd/even is periodic
+with period 3: O,\,O,\,E repeating.
+
+\section{Key parts}
+\begin{enumerate}
+  \item \textbf{Only odd/even matters.} odd $+$ odd $=$ even, odd $+$ even $=$ odd,
+        even $+$ odd $=$ odd.
+  \item \textbf{Find the pattern.}\par\smallskip
+        \begin{tabular}{l|ccccccccc}
+          Term  & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline
+          Value & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 \\
+          Odd/even & O & O & E & O & O & E & O & O & E
+        \end{tabular}
+  \item \textbf{Why it must repeat.} Terms 4 and 5 are O,\,O, the same as terms 1 and 2.
+        Each term's odd/even depends only on the two terms before it, so everything after
+        term 5 repeats what came after term 2. The block O,\,O,\,E repeats for ever.
+  \item \textbf{Count.} Each block of 3 terms has 2 odd terms.
+\end{enumerate}
+
+\section{Worked solution}
+$100 = 3 \times 33 + 1$.
+\begin{itemize}
+  \item Terms 1 to 99 are 33 full blocks, each with 2 odd terms: $33 \times 2 = 66$ odd terms.
+  \item Term 100 is the 1st term of a new block, so it is odd: 1 more.
+\end{itemize}
+Number of odd terms $= 66 + 1 = \boxed{67}$.
+
+\section{Questions colleagues may ask}
+\begin{enumerate}
+  \item \textbf{Q. Is seeing O,\,O,\,E a few times enough?}
+        No. A pattern seen a few times could break. The proof is that terms 4 and 5 repeat
+        the odd/even of terms 1 and 2, and each term depends only on the two before it.
+  \item \textbf{Q. How many of the first 100 terms are even?} $100 - 67 = 33$, one in each
+        full block.
+  \item \textbf{Q. Would the answer change if the sequence started differently?}
+        Yes, it can. The pattern comes from the odd/even of the first two terms. For
+        example, starting $2, 1$ gives E,\,O,\,O repeating, so term 100 would be even and
+        the count would be 66.
+\end{enumerate}
+
+\end{document}
