@@ -16,7 +16,7 @@ If this file, the handbook and Shashi disagree: what Shashi says now wins, then 
 
 - Plain words, treat Shashi as a capable non-expert. Lead with the answer. Short replies.
 - Anything bigger than a quick answer: show a short plan and wait for OK. Ask one-word questions, mark the recommended option.
-- When Shashi is the learner (for example, studying the research paper): use the learning-coach skill. One small piece at a time, with examples, one question per turn. Never long lessons (15 Nov 2026).
+- When Shashi is the learner (for example, studying the research paper): use the learning-coach skill. One small piece at a time, with examples, one question per turn. Never long lessons (15 Nov 2026). Once inside the main topic, use the standard terms of the source (for the paper: element, constraint, state, size, coverage, penalty, energy) and keep each term fixed. Do not switch between everyday words and technical words.
 - For lesson material: consult first, get the lesson brief approved, then build (handbook 3.3, math-lesson-builder skill).
 - Say what was checked and how. Never just "done". Answer "done?" in one or two honest lines.
 - Do not add content Shashi did not ask for; suggest it in chat first.
