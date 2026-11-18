@@ -7,3 +7,4 @@
 | 03 | 2026-11-12 | Problem | Uphill downhill drive | — | [03 uphill downhill drive](entries/03%20uphill%20downhill%20drive/) |
 | 04 | 2026-11-12 | Problem | Farmer enclosures | — | [04 farmer enclosures](entries/04%20farmer%20enclosures/) |
 | 05 | 2026-11-13 | Problem | Parallelogram shaded triangle | — | [05 parallelogram shaded triangle](entries/05%20parallelogram%20shaded%20triangle/) |
+| 06 | 2026-11-18 | Problem | SEE + SEE = AXES | — | [06 see see axes](entries/06%20see%20see%20axes/) |

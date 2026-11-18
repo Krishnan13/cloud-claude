@@ -1,0 +1,61 @@
+% Krishnan's default LaTeX document style. Copy this file, then replace the title and body.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage[pdfauthor={Krishnan},pdftitle={SEE + SEE = AXES}]{hyperref}
+
+\newcommand{\colsum}[3]{%
+\begin{center}\large
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c@{\hspace{1.2em}}c@{\hspace{1.2em}}c@{\hspace{1.2em}}c@{\hspace{1.2em}}c}
+#1\\
+#2\\ \midrule
+#3
+\end{tabular}
+\end{center}}
+
+\begin{document}
+
+\begin{center}{\Large\bfseries SEE + SEE = AXES}\end{center}
+
+\section*{Problem}
+
+In the addition sum below, each letter stands for a different non-zero digit. What digit does $X$ stand for?
+
+\colsum{ & & $S$ & $E$ & $E$}{$+$ & & $S$ & $E$ & $E$}{ & $A$ & $X$ & $E$ & $S$}
+
+\section*{Solution}
+
+Work through the columns from right to left, as in ordinary addition. When a column adds up to 10 or more, write its last digit (the \emph{units digit}) and pass 1 to the next column on the left. That 1 is the \emph{carry}. Adding two numbers, the carry is always 0 or 1.
+
+\textbf{\boldmath Step 1: the digit $A$.} Both rows are the same number, so the sum is $2 \times SEE$. Since $SEE \le 999$, we get $2 \times SEE \le 1998$, which is less than 2000.
+
+\textbf{\boldmath The 4-digit answer starts with 1, so $A = 1$.}
+
+\textbf{\boldmath Step 2: the digit $E$ (tens column).} In the tens column, $E + E + \text{carry}$ has units digit $E$. Take one $E$ away: $E + \text{carry}$ has units digit 0. But $E + \text{carry}$ lies between 1 and 10, so it must equal 10. With carry 0 we would need $E = 10$, which is not a digit. So the carry is 1 and $E = 9$.
+
+\textbf{\boldmath $E = 9$, and the units column must send a carry of 1.}
+
+\textbf{\boldmath Step 3: the digit $S$ (units column).} $E + E = 9 + 9 = 18$. Write 8, carry 1 --- exactly the carry Step 2 needed.
+
+\textbf{\boldmath $S = 8$.}
+
+\textbf{\boldmath Step 4: the digit $X$ (hundreds column).} The tens column is $9 + 9 + 1 = 19$: write 9, carry 1. The hundreds column is $S + S + 1 = 8 + 8 + 1 = 17$: write 7, carry 1. That last carry is the leading 1, which is $A$.
+
+\textbf{\boldmath $X = 7$.}
+
+\section*{Check}
+
+\colsum{ & & 8 & 9 & 9}{$+$ & & 8 & 9 & 9}{ & 1 & 7 & 9 & 8}
+
+$899 + 899 = 1798$. The digits $S = 8$, $E = 9$, $A = 1$, $X = 7$ are all different and non-zero.
+
+\begin{center}\textbf{\boldmath Answer: $X = 7$}\end{center}
+
+\end{document}
