@@ -1,0 +1,342 @@
+\section{Proportional sides: the SSS criterion}
+
+Equal angles are enough to make two triangles similar. Are proportional sides also enough?
+
+\begin{solvefirst}
+  \item On an A4 sheet, construct $\tr ABC$ with $AB=3$ cm, $BC=5$ cm and $CA=6$ cm. Below it, construct $\tr DEF$ with $DE=6$ cm, $EF=10$ cm and $FD=12$ cm. Use a ruler and compass.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find $\dfrac{AB}{DE}$, $\dfrac{BC}{EF}$ and $\dfrac{CA}{FD}$.
+    \item Measure all six angles with a protractor. Which angles are equal?
+    \item Are the two triangles similar? Write the similarity statement.
+  \end{enumerate}
+  \item A square has sides of $4$ cm. A rhombus has sides of $4$ cm and one angle of $60^\circ$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Are the sides of the square proportional to the sides of the rhombus?
+    \item Are the square and the rhombus similar? Give a reason.
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P5.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $\dfrac36=\dfrac{5}{10}=\dfrac{6}{12}=\dfrac12$. The sides are proportional.
+  \item[(b)] $\angle A=\angle D\approx56^\circ$, $\angle B=\angle E\approx94^\circ$, $\angle C=\angle F\approx30^\circ$ (accept $\pm1^\circ$).
+  \item[(c)] Yes. $\tr ABC\sim\tr DEF$.
+\end{steps}}{%
+%FIG: triangle ABC with AB = 3, BC = 5, CA = 6 to scale (B bottom-left, C bottom-right, A above, angle B obtuse, about 94 degrees) and beside it triangle DEF twice as big (DE = 6, EF = 10, FD = 12), same orientation. Side lengths written outside the sides.
+\node {[fig]};
+}
+\ans{P6.}
+\begin{steps}
+  \item[(a)] Yes. Every ratio is $\dfrac44=1$.
+  \item[(b)] No. The square has angles of $90^\circ$; the rhombus has angles of $60^\circ$ and $120^\circ$. In figures with four sides, proportional sides do not make the angles equal.
+\end{steps}
+\end{answerblock}
+
+\begin{theorem}{6.4}{SSS similarity criterion}
+If in two triangles the sides of one triangle are proportional to the sides of the other triangle, then their corresponding angles are equal, and so the two triangles are similar.
+\end{theorem}
+
+\textbf{Given:} $\tr ABC$ and $\tr DEF$ with $\dfrac{AB}{DE}=\dfrac{BC}{EF}=\dfrac{CA}{FD}$, each ratio less than $1$.\\
+\textbf{To prove:} $\angle A=\angle D$, $\angle B=\angle E$ and $\angle C=\angle F$.\\
+\textbf{Construction:} Mark $P$ on $DE$ such that $DP=AB$, and $Q$ on $DF$ such that $DQ=AC$. Join $PQ$ (the same figure as for Theorem 6.3).\\
+\textbf{Proof:}
+\begin{steps}
+  \item $\dfrac{DP}{DE}=\dfrac{AB}{DE}$ and $\dfrac{DQ}{DF}=\dfrac{AC}{DF}$. These are equal (given). So $\dfrac{DP}{DE}=\dfrac{DQ}{DF}$.
+  \item Turn both sides upside down and subtract $1$: $\dfrac{DE}{DP}-1=\dfrac{DF}{DQ}-1$, that is, $\dfrac{PE}{DP}=\dfrac{QF}{DQ}$. So $\dfrac{DP}{PE}=\dfrac{DQ}{QF}$.
+  \item So $PQ\parallel EF$ (converse of BPT).
+  \item So $\angle DPQ=\angle E$ and $\angle DQP=\angle F$ (corresponding angles). So $\tr DPQ\sim\tr DEF$ (AA similarity criterion).
+  \item So $\dfrac{DP}{DE}=\dfrac{PQ}{EF}$. As $DP=AB$, this gives $\dfrac{AB}{DE}=\dfrac{PQ}{EF}$.
+  \item But $\dfrac{AB}{DE}=\dfrac{BC}{EF}$ (given). So $\dfrac{PQ}{EF}=\dfrac{BC}{EF}$, and $PQ=BC$.
+  \item In $\tr ABC$ and $\tr DPQ$: $AB=DP$, $AC=DQ$ and $BC=PQ$. So $\tr ABC\cong\tr DPQ$ (SSS congruence).
+  \item So $\angle A=\angle D$, $\angle B=\angle DPQ=\angle E$ and $\angle C=\angle DQP=\angle F$ (CPCT and step 4).
+\end{steps}
+So $\tr ABC\sim\tr DEF$. \hfill Hence proved.
+
+\rememberbox{For triangles, one condition gives the other. Equal angles make the sides proportional (Theorem 6.3), and proportional sides make the angles equal (Theorem 6.4). This is not true for figures with four or more sides (P4 and P6).}
+
+To match the vertices when only sides are given, match the shortest side with the shortest side, the middle side with the middle side, and the longest side with the longest side. The vertex shared by two sides matches the vertex shared by the corresponding two sides.
+
+\begin{example}[based on NCERT Example 5]
+In $\tr ABC$, $AB=5$ cm, $BC=8$ cm, $CA=7$ cm, $\angle A=82^\circ$ and $\angle B=60^\circ$. In $\tr PQR$, $RQ=10$ cm, $QP=16$ cm and $PR=14$ cm. Find $\angle P$.
+%FIG: two rough triangles. Left: triangle ABC with AB = 5, BC = 8, CA = 7 marked, 82 at A and 60 at B. Right: triangle PQR (oriented differently) with RQ = 10, QP = 16, PR = 14 marked, angle P marked "?".
+\figph{Rough figures: triangle ABC (5, 8, 7; 82 at A, 60 at B) and triangle PQR (10, 16, 14; angle P = ?).}
+\textbf{Given:} $AB=5$ cm, $BC=8$ cm, $CA=7$ cm, $\angle A=82^\circ$, $\angle B=60^\circ$; $RQ=10$ cm, $QP=16$ cm, $PR=14$ cm.\\
+\textbf{To find:} $\angle P$.\\
+\textbf{Solution:}
+\begin{steps}
+  \item Shortest with shortest, and so on: $\dfrac{AB}{RQ}=\dfrac{5}{10}=\dfrac12$, $\dfrac{BC}{QP}=\dfrac{8}{16}=\dfrac12$, $\dfrac{CA}{PR}=\dfrac{7}{14}=\dfrac12$.
+  \item $AB$ matches $RQ$ and $BC$ matches $QP$, so the shared vertex $B$ matches $Q$. Then $A$ matches $R$ and $C$ matches $P$. So $\tr ABC\sim\tr RQP$ (SSS similarity criterion).
+  \item So $\angle P=\angle C$ (corresponding angles of similar triangles).
+  \item $\angle C=180^\circ-82^\circ-60^\circ=38^\circ$ (angle sum property).
+\end{steps}
+\textbf{Answer:} $\angle P=38^\circ$.
+\end{example}
+
+\begin{exercise}{3B}
+\item A triangle has sides of $3$ cm, $4$ cm and $6$ cm. Which of these triangles are similar to it? Give a reason for each.\\
+(a)~$6$ cm, $8$ cm, $12$ cm \quad (b)~$9$ cm, $12$ cm, $16$ cm \quad (c)~$12$ cm, $6$ cm, $8$ cm
+\begin{solution}
+\textbf{To find:} which triangles have sides proportional to $3$, $4$, $6$.
+\begin{steps}
+  \item[(a)] $\dfrac36=\dfrac48=\dfrac{6}{12}=\dfrac12$. Similar (SSS).
+  \item[(b)] $\dfrac39=\dfrac{4}{12}=\dfrac13$ but $\dfrac{6}{16}=\dfrac38$. Not similar.
+  \item[(c)] In order, the sides are $6$, $8$, $12$: the same as (a). Similar (SSS).
+\end{steps}
+\textbf{Answer:} (a) and (c).
+\end{solution}
+
+\item In $\tr ABC$, $AB=4$ cm, $BC=6$ cm and $CA=8$ cm. In $\tr DEF$, $DE=6$ cm and $FD=12$ cm. Find the length of $EF$ for which $\tr ABC\sim\tr DEF$.
+\begin{solution}
+\textbf{Given:} $AB=4$, $BC=6$, $CA=8$; $DE=6$, $FD=12$ (in cm).\\
+\textbf{To find:} $EF$.
+\begin{steps}
+  \item $\dfrac{AB}{DE}=\dfrac46=\dfrac23$ and $\dfrac{CA}{FD}=\dfrac{8}{12}=\dfrac23$.
+  \item For SSS we need $\dfrac{BC}{EF}=\dfrac23$, that is, $\dfrac{6}{EF}=\dfrac23$. So $EF=9$.
+\end{steps}
+\textbf{Answer:} $EF=9$ cm.
+\end{solution}
+
+\item Two triangles have sides of $5$ cm, $6$ cm, $7$ cm and $10$ cm, $12$ cm, $13$ cm. Ravi says, ``Two pairs of sides are in the ratio $1:2$, so the triangles are similar.'' Is Ravi correct? Explain.
+\begin{solution}
+\begin{steps}
+  \item $\dfrac{5}{10}=\dfrac{6}{12}=\dfrac12$, but $\dfrac{7}{13}\neq\dfrac12$.
+  \item SSS needs all three pairs of sides in the same ratio.
+\end{steps}
+\textbf{Answer:} No. The third pair is not in the ratio $1:2$, so the triangles are not similar.
+\end{solution}
+
+\item In $\tr ABC$, $AB=2$ cm, $BC=3$ cm and $CA=4$ cm. In $\tr PQR$, $PQ=6$ cm, $QR=8$ cm and $RP=4$ cm.
+\begin{enumerate}[label=(\alph*),itemsep=1pt]
+  \item Show that the triangles are similar and write the similarity statement.
+  \item Which angle of $\tr PQR$ is equal to $\angle B$?
+\end{enumerate}
+\begin{solution}
+\textbf{Given:} $AB=2$, $BC=3$, $CA=4$; $PQ=6$, $QR=8$, $RP=4$ (in cm).\\
+\textbf{To find:} (a) the similarity statement; (b) the angle equal to $\angle B$.
+\begin{steps}
+  \item Shortest with shortest: $\dfrac{AB}{RP}=\dfrac24$, $\dfrac{BC}{PQ}=\dfrac36$, $\dfrac{CA}{QR}=\dfrac48$. Each is $\dfrac12$. So the triangles are similar (SSS).
+  \item $AB$ matches $RP$ and $BC$ matches $PQ$, so $B$ matches $P$. Then $A$ matches $R$ and $C$ matches $Q$.
+\end{steps}
+\textbf{Answer:} (a) $\tr ABC\sim\tr RPQ$; (b) $\angle P$.
+\end{solution}
+
+\item A triangular park has sides of $30$ m, $40$ m and $50$ m. An architect makes a model of the park with sides of $6$ cm, $8$ cm and $10$ cm.
+\begin{enumerate}[label=(\alph*),itemsep=1pt]
+  \item Show that the model has the same shape as the park.
+  \item In the park, the angle between the $30$ m side and the $40$ m side is $90^\circ$. Which angle of the model is $90^\circ$? Give a reason.
+\end{enumerate}
+\begin{solution}
+\begin{steps}
+  \item[(a)] $30\text{ m}=3000$ cm. $\dfrac{3000}{6}=\dfrac{4000}{8}=\dfrac{5000}{10}=500$. The sides are proportional, so the triangles are similar (SSS).
+  \item[(b)] The $6$ cm and $8$ cm sides of the model match the $30$ m and $40$ m sides. Corresponding angles of similar triangles are equal.
+\end{steps}
+\textbf{Answer:} (a) the ratio of every pair of sides is $1:500$; (b) the angle between the $6$ cm and $8$ cm sides.
+\end{solution}
+\end{exercise}
+
+\section{An angle between proportional sides: the SAS criterion}
+
+For congruence, two sides and the angle between them are enough (SAS). Is there a similar rule for similarity?
+
+\begin{solvefirst}
+  \item On an A4 sheet, draw $\tr ABC$ with $AB=3$ cm, $\angle A=50^\circ$ and $AC=4$ cm. Draw $\tr DEF$ with $DE=6$ cm, $\angle D=50^\circ$ and $DF=8$ cm.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find $\dfrac{AB}{DE}$ and $\dfrac{AC}{DF}$. Where is the $50^\circ$ angle in each triangle?
+    \item Measure $\angle B$, $\angle C$, $\angle E$ and $\angle F$. What do you notice?
+    \item Are the two triangles similar? Which criterion tells you so after (b)?
+  \end{enumerate}
+  \item On an A4 sheet, draw a ray $AX$ and a ray $AY$ with $\angle XAY=30^\circ$. Mark $B$ on $AX$ with $AB=6$ cm. With centre $B$ and radius $4$ cm, draw an arc that cuts $AY$ at two points $C_1$ and $C_2$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item In $\tr ABC_1$ and $\tr ABC_2$, which two sides are equal, and which angle is equal?
+    \item Is the equal angle between the two equal sides?
+    \item Measure $AC_1$ and $AC_2$. Are the two triangles similar?
+    \item What does this tell you about the position of the angle in a rule like SAS?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P7.}
+\begin{steps}
+  \item[(a)] $\dfrac36=\dfrac48=\dfrac12$. In each triangle the $50^\circ$ angle is between the two given sides.
+  \item[(b)] $\angle B=\angle E\approx82^\circ$ and $\angle C=\angle F\approx48^\circ$.
+  \item[(c)] Yes, by the AA (or AAA) criterion: $\tr ABC\sim\tr DEF$.
+\end{steps}
+\ans{P8.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $AB$ is common, $BC_1=BC_2=4$ cm, and $\angle A=30^\circ$ is common.
+  \item[(b)] No. The angle $A$ is not between $AB$ and $BC$.
+  \item[(c)] $AC_1\approx2.6$ cm and $AC_2\approx7.8$ cm. The triangles have different shapes ($\angle AC_2B$ is acute and $\angle AC_1B$ is obtuse), so they are not similar.
+  \item[(d)] The equal angle must be the angle between the two pairs of proportional sides.
+\end{steps}}{%
+%FIG: ray AY horizontal from A to the right, ray AX at 30 degrees above it. B on AX with AB = 6. Dashed arc of the circle with centre B radius 4 cutting AY at C1 (nearer A, about 2.6 from A) and C2 (farther, about 7.8 from A). Segments BC1 and BC2. Mark 30 at A.
+\node {[fig]};
+}
+\end{answerblock}
+
+\begin{theorem}{6.5}{SAS similarity criterion}
+If one angle of a triangle is equal to one angle of another triangle, and the sides including these angles are proportional, then the two triangles are similar.
+\end{theorem}
+
+\textbf{Given:} $\tr ABC$ and $\tr DEF$ with $\angle A=\angle D$ and $\dfrac{AB}{DE}=\dfrac{AC}{DF}$, each ratio less than $1$.\\
+\textbf{To prove:} $\tr ABC\sim\tr DEF$.\\
+\textbf{Construction:} Mark $P$ on $DE$ such that $DP=AB$, and $Q$ on $DF$ such that $DQ=AC$. Join $PQ$ (the same figure as for Theorem 6.3).\\
+\textbf{Proof:}
+\begin{steps}
+  \item $\dfrac{DP}{DE}=\dfrac{DQ}{DF}$ (given, since $DP=AB$ and $DQ=AC$). As in the proof of Theorem 6.4, this gives $\dfrac{DP}{PE}=\dfrac{DQ}{QF}$, and so $PQ\parallel EF$ (converse of BPT).
+  \item So $\angle DPQ=\angle E$ and $\angle DQP=\angle F$ (corresponding angles).
+  \item In $\tr ABC$ and $\tr DPQ$: $AB=DP$, $\angle A=\angle D$ and $AC=DQ$. So $\tr ABC\cong\tr DPQ$ (SAS congruence).
+  \item So $\angle B=\angle DPQ=\angle E$ and $\angle C=\angle DQP=\angle F$ (CPCT and step 2).
+  \item With $\angle A=\angle D$, all three pairs of angles are equal.
+\end{steps}
+So $\tr ABC\sim\tr DEF$ (AAA similarity criterion). \hfill Hence proved.
+
+\rememberbox{SAS similarity: one pair of equal angles, and the two pairs of sides that \emph{make} these angles in the same ratio. An equal angle that is not between the two sides is not enough (P8).}
+
+\begin{example}[NCERT Example 6]
+In the figure, the segments $AB$ and $CD$ meet at $O$, and $OA\cdot OB=OC\cdot OD$. Show that $\angle A=\angle C$ and $\angle B=\angle D$.
+%FIG: segments AB and CD crossing at O. A top-left, B bottom-right, D bottom-left, C top-right. Join AD (left side) and CB (right side), so the triangles AOD and COB are on the left and the right of O. OA a little shorter than OC.
+\figph{Segments AB and CD crossing at O; A top-left, B bottom-right, C top-right, D bottom-left; AD and CB joined.}
+\textbf{Given:} $AB$ and $CD$ meet at $O$; $OA\cdot OB=OC\cdot OD$.\\
+\textbf{To prove:} $\angle A=\angle C$ and $\angle B=\angle D$.\\
+\textbf{Proof:}
+\begin{steps}
+  \item $OA\cdot OB=OC\cdot OD$. Divide both sides by $OC\cdot OB$: $\dfrac{OA}{OC}=\dfrac{OD}{OB}$.
+  \item $\angle AOD=\angle COB$ (vertically opposite angles).
+  \item In $\tr AOD$ and $\tr COB$, the angles at $O$ are equal, and the sides including them are proportional. So $\tr AOD\sim\tr COB$ (SAS similarity criterion).
+  \item So $\angle A=\angle C$ and $\angle D=\angle B$ (corresponding angles of similar triangles).
+\end{steps}
+Hence proved.
+\end{example}
+
+\begin{example}
+In $\tr ABC$, $D$ is a point on $AB$ and $E$ is a point on $AC$, with $AD=3$ cm, $AE=4$ cm, $AB=12$ cm, $AC=9$ cm and $DE=5$ cm.
+\begin{enumerate}[label=(\alph*),itemsep=1pt]
+  \item Show that $\tr ADE\sim\tr ACB$.
+  \item Find $BC$.
+\end{enumerate}
+%FIG: triangle ABC with A at the bottom-left (right angle at A, but do not mark it), AB = 12 along the bottom to the right, AC = 9 going up. D on AB with AD = 3, E on AC with AE = 4. Segment DE (it slopes the other way from BC; it is NOT parallel to BC). Mark AD = 3, AB = 12, AE = 4, AC = 9, DE = 5, BC = "?".
+\figph{Triangle ABC with D on AB (AD = 3, AB = 12) and E on AC (AE = 4, AC = 9); DE = 5 joined, not parallel to BC; BC = ?}
+\textbf{Given:} $AD=3$, $AE=4$, $AB=12$, $AC=9$, $DE=5$ (in cm).\\
+\textbf{To find:} (a) proof that $\tr ADE\sim\tr ACB$; (b) $BC$.\\
+\textbf{Solution:}
+\begin{steps}
+  \item $\dfrac{AD}{AC}=\dfrac39=\dfrac13$ and $\dfrac{AE}{AB}=\dfrac{4}{12}=\dfrac13$.
+  \item $\angle DAE=\angle CAB$ (common angle). This angle is between the two pairs of sides.
+  \item So $\tr ADE\sim\tr ACB$ (SAS similarity criterion), with $D$ matching $C$ and $E$ matching $B$.
+  \item $\dfrac{DE}{CB}=\dfrac13$, so $\dfrac{5}{BC}=\dfrac13$ and $BC=15$ cm.
+\end{steps}
+\textbf{Answer:} (b) $BC=15$ cm.
+\end{example}
+
+\facilitatornote{Students often write $\tr ADE\sim\tr ABC$ here. Then they use $\dfrac{AD}{AB}=\dfrac{3}{12}$ and $\dfrac{AE}{AC}=\dfrac49$, which are not equal. $DE$ is not parallel to $BC$ in this figure, so BPT does not apply. Ask: ``Which side is the shorter side next to the common angle in each triangle?''}
+
+\begin{exercise}{3C}
+\item In the figure, $\dfrac{QR}{QS}=\dfrac{QT}{PR}$ and $\angle1=\angle2$. Show that $\tr PQS\sim\tr TQR$.
+%FIG: NCERT Fig 6.36 style. Q at the left on a horizontal line QR, S on QR near R, R at the right end. P above, near S (a little left of S). T above P, a little to the right (T further from Q than P, on QP produced). Segments QP and PT on one line (Q, P, T collinear), PS, PR, TR. Angle 1 at Q (angle PQR), angle 2 at R (angle PRQ), marked with labels 1 and 2.
+\figph{NCERT Fig. 6.36: Q, P, T on one line; S and R on the base; PS, PR and TR joined; angle 1 at Q and angle 2 at R.}
+\begin{solution}
+\textbf{Given:} $\dfrac{QR}{QS}=\dfrac{QT}{PR}$; $\angle1=\angle2$.\\
+\textbf{To prove:} $\tr PQS\sim\tr TQR$.\\
+\textbf{Proof:}
+\begin{steps}
+  \item In $\tr PQR$, $\angle PQR=\angle PRQ$ ($\angle1=\angle2$). So $PR=PQ$ (sides opposite equal angles).
+  \item So $\dfrac{QR}{QS}=\dfrac{QT}{PQ}$, that is, $\dfrac{QS}{QR}=\dfrac{PQ}{QT}$.
+  \item In $\tr PQS$ and $\tr TQR$: $\angle PQS=\angle TQR$ (common angle $\angle1$), and $\dfrac{PQ}{TQ}=\dfrac{QS}{QR}$.
+  \item So $\tr PQS\sim\tr TQR$ (SAS similarity criterion).
+\end{steps}
+Hence proved.
+\end{solution}
+
+\item In the figure, $D$ is on $AB$, $E$ is on $AC$, and $\tr ABE\cong\tr ACD$. Show that $\tr ADE\sim\tr ABC$.
+%FIG: NCERT Fig 6.37 style. Isosceles-looking triangle ABC, A top, B bottom-left, C bottom-right. D on AB and E on AC at the same height; DE joined. BE and CD joined (crossing).
+\figph{NCERT Fig. 6.37: triangle ABC with D on AB and E on AC; DE, BE and CD joined.}
+\begin{solution}
+\textbf{Given:} $\tr ABE\cong\tr ACD$.\\
+\textbf{To prove:} $\tr ADE\sim\tr ABC$.\\
+\textbf{Proof:}
+\begin{steps}
+  \item $AB=AC$ and $AE=AD$ (CPCT).
+  \item So $\dfrac{AD}{AB}=\dfrac{AE}{AC}$.
+  \item $\angle DAE=\angle BAC$ (common angle).
+  \item So $\tr ADE\sim\tr ABC$ (SAS similarity criterion).
+\end{steps}
+Hence proved.
+\end{solution}
+
+\item In $\tr ABC$ and $\tr PQR$, $\angle B=\angle Q$, $AB=6$ cm, $BC=9$ cm, $PQ=4$ cm and $QR=6$ cm. If $AC=9$ cm, find $PR$.
+\begin{solution}
+\anspair{%
+\textbf{Given:} $\angle B=\angle Q$; $AB=6$, $BC=9$, $PQ=4$, $QR=6$, $AC=9$ (in cm).\\
+\textbf{To find:} $PR$.
+\begin{steps}
+  \item $\dfrac{AB}{PQ}=\dfrac64=\dfrac32$ and $\dfrac{BC}{QR}=\dfrac96=\dfrac32$.
+  \item The equal angles $B$ and $Q$ are between these sides. So $\tr ABC\sim\tr PQR$ (SAS).
+  \item $\dfrac{AC}{PR}=\dfrac32$, so $\dfrac{9}{PR}=\dfrac32$ and $PR=6$ cm.
+\end{steps}
+\textbf{Answer:} $PR=6$ cm.}{%
+%FIG: two rough triangles: ABC with AB = 6, BC = 9, AC = 9, angle B marked with an arc; PQR with PQ = 4, QR = 6, angle Q marked with an arc, PR = "?".
+\node {[fig]};
+}
+\end{solution}
+
+\item In $\tr ABC$ and $\tr PQR$, $\dfrac{AB}{PQ}=\dfrac{AC}{PR}$ and $\angle B=\angle Q$. Asha says that the triangles are similar by SAS. Is she correct? Explain, and refer to P8.
+\begin{solution}
+\begin{steps}
+  \item The sides $AB$ and $AC$ meet at $A$, not at $B$. So $\angle B$ is not the angle between them.
+  \item P8 shows two triangles with two equal sides and an equal angle that is not between them. They are not similar.
+\end{steps}
+\textbf{Answer:} No. SAS needs the equal angle to be between the proportional sides, that is, $\angle A=\angle P$.
+\end{solution}
+
+\item Two straight roads start from a junction $J$. Village $A$ is on one road, $3$ km from $J$, and village $B$ is on the other road, $5$ km from $J$. On a map, $J'A'=6$ cm, $J'B'=10$ cm, the angle between the roads is the same as on the ground, and $A'B'=8$ cm.
+\begin{enumerate}[label=(\alph*),itemsep=1pt]
+  \item Explain why $\tr JAB\sim\tr J'A'B'$.
+  \item Find the distance $AB$ on the ground.
+\end{enumerate}
+\begin{solution}
+\anspair{%
+\textbf{Given:} $JA=3$ km, $JB=5$ km; $J'A'=6$ cm, $J'B'=10$ cm, $A'B'=8$ cm; $\angle J=\angle J'$.\\
+\textbf{To find:} (a) the reason for similarity; (b) $AB$.
+\begin{steps}
+  \item[(a)] $\dfrac{JA}{J'A'}=\dfrac{3\text{ km}}{6\text{ cm}}$ and $\dfrac{JB}{J'B'}=\dfrac{5\text{ km}}{10\text{ cm}}$: each is $\dfrac12$ km per cm. The angles at $J$ and $J'$ are equal and lie between these sides. So the triangles are similar (SAS).
+  \item[(b)] $AB=\dfrac12\times8=4$ km.
+\end{steps}
+\textbf{Answer:} (b) $AB=4$ km.}{%
+%FIG: rough triangle JAB with J at the left, A on the upper road (JA = 3 km), B on the lower road (JB = 5 km), AB = "?" joined.
+\node {[fig]};
+}
+\end{solution}
+
+\item Construct $\tr ABC$ with $AB=4$ cm, $\angle B=60^\circ$ and $BC=3$ cm. Construct $\tr PQR$ with $PQ=8$ cm, $\angle Q=60^\circ$ and $QR=6$ cm. Without measuring, explain why $\angle A=\angle P$. Then measure both angles to check.
+\begin{solution}
+\textbf{Steps of construction:} draw $BC=3$ cm; construct $\angle B=60^\circ$; mark $A$ on the arm with $BA=4$ cm; join $AC$. Draw $\tr PQR$ in the same way.
+\begin{steps}
+  \item $\dfrac{AB}{PQ}=\dfrac48=\dfrac12$ and $\dfrac{BC}{QR}=\dfrac36=\dfrac12$, and the $60^\circ$ angles lie between these sides.
+  \item So $\tr ABC\sim\tr PQR$ (SAS), and $\angle A=\angle P$ (corresponding angles).
+\end{steps}
+\textbf{Answer:} $\angle A=\angle P\approx46^\circ$ (measured).
+\end{solution}
+
+\item State which pairs of triangles in the figure are similar. Write the similarity criterion that you used, and write each pair of similar triangles in symbolic form.
+%FIG: NCERT Fig 6.34, six pairs (i)-(vi), in a 3 x 2 grid, each pair labelled (i)...(vi) below it.
+% (i) triangle ABC: angle A = 60, angle B = 80, angle C = 40; triangle PQR: angle P = 60, angle Q = 80, angle R = 40.
+% (ii) triangle ABC: AB = 2, BC = 2.5, CA = 3; triangle PQR: PQ = 6, QR = 4, RP = 5 (P at the top, Q bottom-left, R bottom-right).
+% (iii) triangle LMP: LM = 2.7, LP = 3, MP = 2; triangle DEF: DE = 4, DF = 6, EF = 5.
+% (iv) triangle MNL: MN = 2.5, ML = 5, angle M = 70 (between MN and ML); triangle PQR: PQ = 5, QR = 10, angle Q = 70 (between QP and QR).
+% (v) triangle ABC: AB = 2.5, BC = 3, angle A = 80; triangle DEF: DF = 5, EF = 6, angle F = 80.
+% (vi) triangle DEF: angle D = 70, angle E = 80; triangle PQR: angle Q = 80, angle R = 30.
+\figph{NCERT Fig. 6.34: six pairs of triangles (i) to (vi).}
+\begin{solution}
+\begin{steps}
+  \item[(i)] All three pairs of angles are equal. $\tr ABC\sim\tr PQR$ (AAA).
+  \item[(ii)] $\dfrac{AB}{QR}=\dfrac24$, $\dfrac{BC}{RP}=\dfrac{2.5}{5}$, $\dfrac{CA}{PQ}=\dfrac36$; each is $\dfrac12$. $\tr ABC\sim\tr QRP$ (SSS).
+  \item[(iii)] $\dfrac{MP}{EF}=\dfrac25$ but $\dfrac{LP}{DF}=\dfrac36=\dfrac12$. Not similar.
+  \item[(iv)] $\angle M=\angle Q=70^\circ$, and $\dfrac{MN}{QP}=\dfrac{2.5}{5}=\dfrac{ML}{QR}=\dfrac{5}{10}=\dfrac12$. $\tr MNL\sim\tr QPR$ (SAS).
+  \item[(v)] The $80^\circ$ angle $A$ is not between $AB$ and $BC$. Not enough information; the triangles are not shown to be similar.
+  \item[(vi)] $\angle F=180^\circ-70^\circ-80^\circ=30^\circ$ and $\angle P=180^\circ-80^\circ-30^\circ=70^\circ$. $\tr DEF\sim\tr PQR$ (AA).
+\end{steps}
+\end{solution}
+\end{exercise}

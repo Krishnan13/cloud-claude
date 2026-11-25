@@ -1,0 +1,298 @@
+\sheethead{Class 3}
+
+\ifteacher
+\facilitatornote{%
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item \textbf{Aims.} Students write a similarity statement with the vertices in the correct order. They find, by drawing and measuring, that one set of conditions is enough to make two triangles similar: two pairs of equal angles (AA), three pairs of proportional sides (SSS), or one equal angle between two pairs of proportional sides (SAS). They prove the three criteria from the Basic Proportionality Theorem and use them to find unknown angles and lengths, to prove results, and to measure heights from shadows.
+  \item \textbf{NCERT links.} NCERT Section 6.4 and Section 6.5. Theorems 6.3, 6.4 and 6.5 keep their NCERT numbers. Examples 1 to 7 of this class are NCERT Examples 4 to 8, together with two examples of our own. The exercises contain all 16 questions of NCERT Exercise 6.3, marked (NCERT 6.3, Q$n$) in this copy only.
+  \item \textbf{Prior work.} The meaning of similar figures, the Basic Proportionality Theorem (BPT) and its converse, and the congruence criteria SAS, ASA, SSS and RHS from Class IX.
+  \item \textbf{Materials.} A4 sheets, a ruler, a compass and a protractor for each student.
+  \item \textbf{Method.} Students solve each \emph{Solve first} set before the theorem is stated. The proofs follow the measurements.
+  \item \textbf{Break points.} The material is longer than one class. Natural break points are the end of Exercise 3A (AA criterion), the end of Exercise 3B (SSS criterion) and the end of Exercise 3C (SAS criterion).
+\end{itemize}}
+\fi
+
+\section{Writing a similarity statement}
+
+Two triangles are \textbf{similar} if (i) their corresponding angles are equal and (ii) their corresponding sides are in the same ratio. We write $\tr ABC\sim\tr DEF$ and read it as ``triangle $ABC$ is similar to triangle $DEF$''. The order of the letters tells us which vertices match: the first letters match, the second letters match and the third letters match.
+
+\begin{solvefirst}
+  \item It is given that $\tr ABC\sim\tr PQR$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Write the three pairs of equal angles.
+    \item Write the three equal ratios of sides.
+    \item Raju writes $\tr ABC\sim\tr QPR$ for the same two triangles. Is he correct? Give a reason.
+    \item Is it correct to write $\tr BCA\sim\tr QRP$? Give a reason.
+  \end{enumerate}
+  \item In the figure, $\tr ABC$ has $AB=4$ cm, $BC=6$ cm and $CA=5$ cm. $\tr XYZ$ has $XY=12$ cm, $YZ=8$ cm and $ZX=10$ cm. Also $\angle A=\angle Z$, $\angle B=\angle Y$ and $\angle C=\angle X$.
+  %FIG: two triangles side by side. Left: triangle ABC, B bottom-left, C bottom-right, A top (sides AB=4, BC=6, CA=5 drawn to scale, label the three lengths outside the sides). Right: triangle XYZ, drawn turned so that the matching is not obvious: Y at the bottom-right, Z at the bottom-left... use YZ=8, XY=12, ZX=10 to scale (twice the left triangle), X at the top. Label the three lengths outside the sides. Mark angle B and angle Y with one arc each, angle A and angle Z with two arcs each, angle C and angle X with three arcs each.
+  \figph{Triangle ABC (sides 4, 6, 5) and triangle XYZ (sides 12, 8, 10, turned); matching angles marked with 1, 2 and 3 arcs.}
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Complete the statement $\tr ABC\sim\tr\ \underline{\hspace{1.5cm}}$\,.
+    \item Which side of $\tr XYZ$ corresponds to $BC$? Which side corresponds to $CA$?
+    \item Find the three ratios $\dfrac{AB}{ZY}$, $\dfrac{BC}{YX}$ and $\dfrac{CA}{XZ}$. What do you notice?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P1.}
+\begin{steps}
+  \item[(a)] $\angle A=\angle P$, $\angle B=\angle Q$, $\angle C=\angle R$.
+  \item[(b)] $\dfrac{AB}{PQ}=\dfrac{BC}{QR}=\dfrac{CA}{RP}$.
+  \item[(c)] No. $\tr ABC\sim\tr QPR$ says that $A$ matches $Q$ and $B$ matches $P$. This is not the matching that is given.
+  \item[(d)] Yes. $B$ still matches $Q$, $C$ matches $R$ and $A$ matches $P$. Only the starting vertex changed.
+\end{steps}
+\ans{P2.}
+\begin{steps}
+  \item[(a)] $\tr ABC\sim\tr ZYX$ ($A$ matches $Z$, $B$ matches $Y$, $C$ matches $X$).
+  \item[(b)] $BC$ corresponds to $YX$. $CA$ corresponds to $XZ$.
+  \item[(c)] $\dfrac{AB}{ZY}=\dfrac{4}{8}=\dfrac12$, $\dfrac{BC}{YX}=\dfrac{6}{12}=\dfrac12$, $\dfrac{CA}{XZ}=\dfrac{5}{10}=\dfrac12$. All three ratios are equal.
+\end{steps}
+\end{answerblock}
+
+\facilitatornote{Students often write the letters in alphabetical order. Ask them to start from one pair of equal angles and match the other two pairs before they write the statement.}
+
+\rememberbox{In a similarity statement, write the vertices of the second triangle in the order that matches the first triangle. Then the sides and angles can be read off directly: $\tr ABC\sim\tr ZYX$ gives $\dfrac{AB}{ZY}=\dfrac{BC}{YX}=\dfrac{CA}{XZ}$.}
+
+\section{Equal angles: the AAA and AA criteria}
+
+To show that two triangles are similar, must we check all three pairs of angles \emph{and} all three ratios of sides? Solve P3 and P4 to find out.
+
+\begin{solvefirst}
+  \item On an A4 sheet, draw $BC=3$ cm. At $B$, draw a ray that makes an angle of $60^\circ$ with $BC$. At $C$, draw a ray on the same side of $BC$ that makes an angle of $40^\circ$ with $CB$. Let the two rays meet at $A$.
+  Next, draw $EF=6$ cm. At $E$, draw a ray that makes an angle of $60^\circ$ with $EF$. At $F$, draw a ray on the same side that makes an angle of $40^\circ$ with $FE$. Let the two rays meet at $D$.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Find $\angle A$ and $\angle D$ without measuring. Give a reason.
+    \item Measure $AB$, $CA$, $DE$ and $FD$ to the nearest millimetre.
+    \item Find $\dfrac{AB}{DE}$, $\dfrac{BC}{EF}$ and $\dfrac{CA}{FD}$. What do you notice?
+    \item Are the two triangles similar? Write the similarity statement.
+  \end{enumerate}
+  \item A square has sides of $4$ cm. A rectangle has sides of $4$ cm and $8$ cm.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Are the angles of the square equal to the angles of the rectangle?
+    \item Are the sides of the square proportional to the sides of the rectangle? Give a reason.
+    \item Are the square and the rectangle similar? What does this tell you about equal angles in figures with four sides?
+  \end{enumerate}
+\end{solvefirst}
+
+\begin{answerblock}
+\ans{P3.}
+\anspair{%
+\begin{steps}
+  \item[(a)] $\angle A=180^\circ-60^\circ-40^\circ=80^\circ$ and $\angle D=80^\circ$ (angle sum property of a triangle).
+  \item[(b)] $AB\approx2.0$ cm, $CA\approx2.6$ cm, $DE\approx3.9$ cm, $FD\approx5.3$ cm (accept values within $1$ mm).
+  \item[(c)] Each ratio is about $\dfrac12$, since $\dfrac{BC}{EF}=\dfrac36=\dfrac12$. The three ratios are equal.
+  \item[(d)] Yes. $\tr ABC\sim\tr DEF$.
+\end{steps}}{%
+%FIG: small triangle ABC (BC = 3 at the bottom, angle B = 60, angle C = 40, A at the top) and next to it the larger triangle DEF (EF = 6, angle E = 60, angle F = 40, D at the top), same orientation. Mark 60 and 40 at the base angles of both. Label BC = 3 and EF = 6 below the bases.
+\node {[fig]};
+}
+\ans{P4.}
+\begin{steps}
+  \item[(a)] Yes. Every angle is $90^\circ$.
+  \item[(b)] No. $\dfrac44=1$ but $\dfrac48=\dfrac12$.
+  \item[(c)] No. In figures with four sides, equal angles do not make the sides proportional. P3 suggests that triangles behave differently.
+\end{steps}
+\end{answerblock}
+
+P3 suggests that equal angles are enough for triangles. The next theorem says that this is always true.
+
+\begin{theorem}{6.3}{AAA similarity criterion}
+If in two triangles the corresponding angles are equal, then their corresponding sides are in the same ratio, and so the two triangles are similar.
+\end{theorem}
+
+%FIG: proof figure. Left: small triangle ABC (B bottom-left, C bottom-right, A top). Right: larger triangle DEF (E bottom-left, F bottom-right, D top), same shape and orientation, about 1.6 times bigger. On DE mark P with DP = AB; on DF mark Q with DQ = AC; join PQ (PQ is parallel to EF). Mark equal angles: one arc at B, E and at P (angle DPQ); two arcs at C, F and at Q (angle DQP).
+\figph{Proof figure: triangle ABC and triangle DEF; P on DE with DP = AB, Q on DF with DQ = AC; PQ joined.}
+
+\textbf{Given:} $\tr ABC$ and $\tr DEF$ with $\angle A=\angle D$, $\angle B=\angle E$ and $\angle C=\angle F$.\\
+\textbf{To prove:} $\dfrac{AB}{DE}=\dfrac{BC}{EF}=\dfrac{CA}{FD}$.\\
+\textbf{Construction:} Mark $P$ on $DE$ such that $DP=AB$, and $Q$ on $DF$ such that $DQ=AC$. Join $PQ$.\\
+\textbf{Proof:}
+\begin{steps}
+  \item In $\tr ABC$ and $\tr DPQ$: $AB=DP$, $\angle A=\angle D$ and $AC=DQ$. So $\tr ABC\cong\tr DPQ$ (SAS congruence).
+  \item So $\angle B=\angle DPQ$ (CPCT). But $\angle B=\angle E$ (given). So $\angle DPQ=\angle E$.
+  \item $\angle DPQ$ and $\angle E$ are corresponding angles made by the lines $PQ$ and $EF$ with the transversal $DE$. So $PQ\parallel EF$.
+  \item In $\tr DEF$, $PQ\parallel EF$. So $\dfrac{DP}{PE}=\dfrac{DQ}{QF}$ (BPT).
+  \item Turn both sides upside down and add $1$: $\dfrac{PE}{DP}+1=\dfrac{QF}{DQ}+1$, that is, $\dfrac{DE}{DP}=\dfrac{DF}{DQ}$. So $\dfrac{DP}{DE}=\dfrac{DQ}{DF}$.
+  \item $DP=AB$ and $DQ=AC$. So $\dfrac{AB}{DE}=\dfrac{AC}{DF}$.
+  \item In the same way, mark points on $ED$ and $EF$ with lengths $BA$ and $BC$ from $E$. The same steps give $\dfrac{AB}{DE}=\dfrac{BC}{EF}$.
+\end{steps}
+So $\dfrac{AB}{DE}=\dfrac{BC}{EF}=\dfrac{CA}{FD}$, and $\tr ABC\sim\tr DEF$. \hfill Hence proved.
+
+\facilitatornote{Step 5 is the step that students find hardest. Show it with numbers first: if $\dfrac{DP}{PE}=\dfrac23$, then $\dfrac{PE}{DP}=\dfrac32$ and $\dfrac{DE}{DP}=\dfrac52$. The proof assumes $AB<DE$. If $AB=DE$, the triangles are congruent. If $AB>DE$, exchange the two triangles.}
+
+If two angles of one triangle are equal to two angles of another triangle, the third angles are also equal, by the angle sum property. So two pairs of angles are enough.
+
+\begin{corollary}{AA similarity criterion}
+If two angles of one triangle are equal to two angles of another triangle, then the two triangles are similar.
+\end{corollary}
+
+\rememberbox{To prove two triangles similar by angles, find two pairs of equal angles. Useful reasons are: a common angle, vertically opposite angles, alternate or corresponding angles for parallel lines, and right angles.}
+
+\begin{example}[NCERT Example 4]
+In the figure, the segments $PS$ and $QR$ meet at $O$, and $PQ\parallel RS$. Prove that $\tr POQ\sim\tr SOR$.
+%FIG: two segments PS and QR crossing at O, forming a "bow-tie". P top-left, Q top-right (PQ short, horizontal), R bottom-left, S bottom-right (RS longer, horizontal, parallel to PQ). O between. Arrow marks on PQ and RS to show they are parallel.
+\figph{Bow-tie: PS and QR cross at O; PQ (top) parallel to RS (bottom).}
+\textbf{Given:} $PS$ and $QR$ meet at $O$; $PQ\parallel RS$.\\
+\textbf{To prove:} $\tr POQ\sim\tr SOR$.\\
+\textbf{Proof:} In $\tr POQ$ and $\tr SOR$:
+\begin{steps}
+  \item $\angle P=\angle S$ (alternate angles, $PQ\parallel RS$, transversal $PS$).
+  \item $\angle Q=\angle R$ (alternate angles, $PQ\parallel RS$, transversal $QR$).
+  \item $\angle POQ=\angle SOR$ (vertically opposite angles).
+\end{steps}
+So $\tr POQ\sim\tr SOR$ (AAA similarity criterion). \hfill Hence proved.
+\end{example}
+
+\begin{example}
+In $\tr ABC$, $\angle A=50^\circ$ and $\angle B=70^\circ$. In $\tr PQR$, $\angle P=70^\circ$ and $\angle R=60^\circ$. Also $AB=6$ cm, $BC=8$ cm and $PQ=9$ cm.
+\begin{enumerate}[label=(\alph*),itemsep=1pt]
+  \item Show that the two triangles are similar, and write the similarity statement.
+  \item Find the length of $PR$.
+\end{enumerate}
+%FIG: two rough triangles side by side. Left: triangle ABC with angle A = 50, angle B = 70 marked, AB = 6 and BC = 8 marked. Right: triangle PQR with angle P = 70, angle R = 60 marked, PQ = 9 marked, PR marked "?".
+\figph{Rough figures: triangle ABC (50 and 70 marked, AB = 6, BC = 8) and triangle PQR (70 and 60 marked, PQ = 9, PR = ?).}
+\textbf{Given:} $\angle A=50^\circ$, $\angle B=70^\circ$, $\angle P=70^\circ$, $\angle R=60^\circ$; $AB=6$ cm, $BC=8$ cm, $PQ=9$ cm.\\
+\textbf{To find:} (a) the similarity statement; (b) $PR$.\\
+\textbf{Solution:}
+\begin{steps}
+  \item $\angle C=180^\circ-50^\circ-70^\circ=60^\circ$ and $\angle Q=180^\circ-70^\circ-60^\circ=50^\circ$ (angle sum property).
+  \item $\angle A=\angle Q=50^\circ$, $\angle B=\angle P=70^\circ$, $\angle C=\angle R=60^\circ$. So $\tr ABC\sim\tr QPR$ (AA similarity criterion).
+  \item Corresponding sides are in the same ratio: $\dfrac{AB}{QP}=\dfrac{BC}{PR}$.
+  \item $\dfrac{6}{9}=\dfrac{8}{PR}$, so $PR=\dfrac{8\times9}{6}=12$ cm.
+\end{steps}
+\textbf{Answer:} (a) $\tr ABC\sim\tr QPR$; (b) $PR=12$ cm.
+\end{example}
+
+\begin{exercise}{3A}
+\item In $\tr DEF$, $\angle D=45^\circ$ and $\angle E=75^\circ$. In $\tr LMN$, $\angle M=45^\circ$ and $\angle N=60^\circ$. Are the triangles similar? If they are, write the similarity statement with the vertices in the correct order.
+\begin{solution}
+\textbf{Given:} $\angle D=45^\circ$, $\angle E=75^\circ$, $\angle M=45^\circ$, $\angle N=60^\circ$.\\
+\textbf{To find:} whether the triangles are similar, and the similarity statement.
+\begin{steps}
+  \item $\angle F=180^\circ-45^\circ-75^\circ=60^\circ$ and $\angle L=180^\circ-45^\circ-60^\circ=75^\circ$ (angle sum property).
+  \item $\angle D=\angle M$, $\angle E=\angle L$ and $\angle F=\angle N$.
+\end{steps}
+\textbf{Answer:} Yes; $\tr DEF\sim\tr MLN$ (AA similarity criterion).
+\end{solution}
+
+\item In the figure, $\tr ODC\sim\tr OBA$, $\angle BOC=125^\circ$ and $\angle CDO=70^\circ$. Find $\angle DOC$, $\angle DCO$ and $\angle OAB$.
+%FIG: NCERT Fig 6.35 style. Two horizontal parallel lines. Upper line: D (left) and C (right), close together. Lower line: A (left) and B (right). Segment DB and segment CA cross at O (O nearer the top). Mark angle CDO = 70 at D (inside triangle ODC) and angle BOC = 125 at O (the angle between OB and OC, on the right side of O).
+\figph{Segments DB and CA crossing at O; D, C on the top line, A, B on the bottom line; 70 at D, 125 at O between OB and OC.}
+\begin{solution}
+\textbf{Given:} $\tr ODC\sim\tr OBA$, $\angle BOC=125^\circ$, $\angle CDO=70^\circ$.\\
+\textbf{To find:} $\angle DOC$, $\angle DCO$, $\angle OAB$.
+\begin{steps}
+  \item $DOB$ is a straight line. So $\angle DOC=180^\circ-125^\circ=55^\circ$ (linear pair).
+  \item In $\tr ODC$: $\angle DCO=180^\circ-70^\circ-55^\circ=55^\circ$ (angle sum property).
+  \item $\tr ODC\sim\tr OBA$, so $C$ matches $A$. So $\angle OAB=\angle OCD=55^\circ$ (corresponding angles of similar triangles).
+\end{steps}
+\textbf{Answer:} $\angle DOC=55^\circ$, $\angle DCO=55^\circ$, $\angle OAB=55^\circ$.
+\end{solution}
+
+\item The diagonals $AC$ and $BD$ of a trapezium $ABCD$, with $AB\parallel DC$, meet at $O$. Draw a rough figure. Using a similarity criterion, show that $\dfrac{OA}{OC}=\dfrac{OB}{OD}$.
+\begin{solution}
+\anspair{%
+\textbf{Given:} trapezium $ABCD$, $AB\parallel DC$; diagonals $AC$ and $BD$ meet at $O$.\\
+\textbf{To prove:} $\dfrac{OA}{OC}=\dfrac{OB}{OD}$.\\
+\textbf{Proof:} In $\tr OAB$ and $\tr OCD$:
+\begin{steps}
+  \item $\angle OAB=\angle OCD$ (alternate angles, $AB\parallel DC$, transversal $AC$).
+  \item $\angle OBA=\angle ODC$ (alternate angles, transversal $BD$).
+  \item So $\tr OAB\sim\tr OCD$ (AA similarity criterion).
+  \item So $\dfrac{OA}{OC}=\dfrac{OB}{OD}$ (corresponding sides of similar triangles).
+\end{steps}
+Hence proved.}{%
+%FIG: trapezium ABCD, AB the longer bottom side (A left, B right), DC the shorter top side (D left, C right). Diagonals AC and BD meeting at O. Arrow marks on AB and DC.
+\node {[fig]};
+}
+\end{solution}
+
+\item $S$ and $T$ are points on the sides $PR$ and $QR$ of $\tr PQR$ such that $\angle P=\angle RTS$. Draw a rough figure. Show that $\tr RPQ\sim\tr RTS$.
+\begin{solution}
+\anspair{%
+\textbf{Given:} $S$ on $PR$, $T$ on $QR$, $\angle P=\angle RTS$.\\
+\textbf{To prove:} $\tr RPQ\sim\tr RTS$.\\
+\textbf{Proof:} In $\tr RPQ$ and $\tr RTS$:
+\begin{steps}
+  \item $\angle RPQ=\angle RTS$ (given).
+  \item $\angle PRQ=\angle TRS$ (common angle).
+  \item So $\tr RPQ\sim\tr RTS$ (AA similarity criterion).
+\end{steps}
+Hence proved.}{%
+%FIG: triangle PQR with P top, Q bottom-left, R bottom-right. S on PR (nearer R), T on QR (nearer R), segment ST joined; ST is NOT parallel to PQ (it slants the other way). One arc at P and one arc at angle RTS (at T, inside triangle RTS).
+\node {[fig]};
+}
+\end{solution}
+
+\item In the figure, the altitudes $AD$ and $CE$ of $\tr ABC$ meet at $P$. Show that:
+(i)~$\tr AEP\sim\tr CDP$;\quad (ii)~$\tr ABD\sim\tr CBE$;\quad (iii)~$\tr AEP\sim\tr ADB$;\quad (iv)~$\tr PDC\sim\tr BEC$.
+%FIG: NCERT Fig 6.38 style. Triangle ABC with A bottom-left, B bottom-right, C top (C above a point a little right of A... C near the left). E on AB with CE perpendicular to AB (right-angle mark at E). D on BC with AD perpendicular to BC (right-angle mark at D). AD and CE meet at P.
+\figph{Triangle ABC (A bottom-left, B bottom-right, C top-left); altitude CE to AB, altitude AD to BC, meeting at P; right-angle marks at D and E.}
+\begin{solution}
+\textbf{Given:} $AD\perp BC$, $CE\perp AB$; $AD$ and $CE$ meet at $P$.\\
+\textbf{To prove:} the four similarities.
+\begin{steps}
+  \item[(i)] In $\tr AEP$ and $\tr CDP$: $\angle AEP=\angle CDP=90^\circ$, and $\angle APE=\angle CPD$ (vertically opposite angles). So $\tr AEP\sim\tr CDP$ (AA).
+  \item[(ii)] In $\tr ABD$ and $\tr CBE$: $\angle ADB=\angle CEB=90^\circ$, and $\angle ABD=\angle CBE$ (common angle). So $\tr ABD\sim\tr CBE$ (AA).
+  \item[(iii)] In $\tr AEP$ and $\tr ADB$: $\angle AEP=\angle ADB=90^\circ$, and $\angle PAE=\angle BAD$ (common angle). So $\tr AEP\sim\tr ADB$ (AA).
+  \item[(iv)] In $\tr PDC$ and $\tr BEC$: $\angle PDC=\angle BEC=90^\circ$, and $\angle PCD=\angle BCE$ (common angle). So $\tr PDC\sim\tr BEC$ (AA).
+\end{steps}
+Hence proved.
+\end{solution}
+
+\item $E$ is a point on the side $AD$ produced of a parallelogram $ABCD$, and $BE$ meets $CD$ at $F$. Draw a rough figure. Show that $\tr ABE\sim\tr CFB$.
+\begin{solution}
+\anspair{%
+\textbf{Given:} parallelogram $ABCD$; $E$ on $AD$ produced; $BE$ meets $CD$ at $F$.\\
+\textbf{To prove:} $\tr ABE\sim\tr CFB$.\\
+\textbf{Proof:} In $\tr ABE$ and $\tr CFB$:
+\begin{steps}
+  \item $\angle A=\angle C$ (opposite angles of a parallelogram).
+  \item $\angle AEB=\angle CBF$ (alternate angles, $AE\parallel BC$, transversal $BE$).
+  \item So $\tr ABE\sim\tr CFB$ (AA similarity criterion).
+\end{steps}
+Hence proved.}{%
+%FIG: parallelogram ABCD with A bottom-left, B bottom-right, C top-right, D top-left (slanted). AD extended upward beyond D to E. Segment BE crosses DC at F.
+\node {[fig]};
+}
+\end{solution}
+
+\item In the figure, $ABC$ and $AMP$ are two right triangles, right-angled at $B$ and $M$. Prove that:
+(i)~$\tr ABC\sim\tr AMP$;\quad (ii)~$\dfrac{CA}{PA}=\dfrac{BC}{MP}$.
+%FIG: NCERT Fig 6.39 style. A bottom-left, P bottom-right, B on AP between them (nearer P). C above B with CB perpendicular to AP (right-angle mark at B). Segment AC. M on AC with PM perpendicular to AC (right-angle mark at M); segment PM.
+\figph{A, B, P on a horizontal line; CB vertical at B; M on AC with PM perpendicular to AC; right-angle marks at B and M.}
+\begin{solution}
+\textbf{Given:} $\angle ABC=90^\circ$, $\angle AMP=90^\circ$.\\
+\textbf{To prove:} (i) $\tr ABC\sim\tr AMP$; (ii) $\dfrac{CA}{PA}=\dfrac{BC}{MP}$.
+\begin{steps}
+  \item[(i)] In $\tr ABC$ and $\tr AMP$: $\angle ABC=\angle AMP=90^\circ$, and $\angle BAC=\angle MAP$ (common angle). So $\tr ABC\sim\tr AMP$ (AA).
+  \item[(ii)] Corresponding sides of similar triangles are in the same ratio: $\dfrac{CA}{PA}=\dfrac{BC}{MP}$.
+\end{steps}
+Hence proved.
+\end{solution}
+
+\item In the figure, $E$ is a point on the side $CB$ produced of an isosceles triangle $ABC$ with $AB=AC$. If $AD\perp BC$ and $EF\perp AC$, prove that $\tr ABD\sim\tr ECF$.
+%FIG: NCERT Fig 6.40 style. Isosceles triangle ABC, A top, B bottom-left, C bottom-right. D the foot of the perpendicular from A on BC (right-angle mark). CB extended to the left beyond B to E (dashed extension). F on AC with EF perpendicular to AC (right-angle mark at F); segment EF.
+\figph{Isosceles triangle ABC with AD perpendicular to BC; CB produced to E; EF perpendicular to AC.}
+\begin{solution}
+\textbf{Given:} $AB=AC$; $E$ on $CB$ produced; $AD\perp BC$; $EF\perp AC$.\\
+\textbf{To prove:} $\tr ABD\sim\tr ECF$.\\
+\textbf{Proof:} In $\tr ABD$ and $\tr ECF$:
+\begin{steps}
+  \item $\angle ABD=\angle ACB$ (angles opposite equal sides $AC$ and $AB$), and $\angle ACB=\angle ECF$ (same angle). So $\angle ABD=\angle ECF$.
+  \item $\angle ADB=\angle EFC=90^\circ$ (given).
+  \item So $\tr ABD\sim\tr ECF$ (AA similarity criterion).
+\end{steps}
+Hence proved.
+\end{solution}
+
+\item Find the mistake. Meena is told that $\angle B=\angle Q$ and $\angle C=\angle P$ in $\tr ABC$ and $\tr PQR$. She writes, ``$\tr ABC\sim\tr PQR$, so $\dfrac{AB}{PQ}=\dfrac{BC}{QR}$.'' Explain her mistake and write the correct statement and the correct ratio.
+\begin{solution}
+\begin{steps}
+  \item $B$ matches $Q$ and $C$ matches $P$, so $A$ matches $R$.
+  \item Meena matched $A$ with $P$ and $C$ with $R$ because she wrote the letters in the same order.
+\end{steps}
+\textbf{Answer:} $\tr ABC\sim\tr RQP$, so $\dfrac{AB}{RQ}=\dfrac{BC}{QP}=\dfrac{CA}{PR}$.
+\end{solution}
+\end{exercise}

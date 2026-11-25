@@ -1,0 +1,232 @@
+\section{Heights and distances from shadows}
+
+At the same time of day, the sun's rays fall on the ground at the same angle everywhere nearby. A vertical object and its shadow make a right angle. So an object, its shadow and the sun's ray form a right triangle, and the triangles for different objects are similar (AA). A street lamp works in the same way for a person walking past it.
+
+\begin{example}[NCERT Example 7]
+A girl of height $90$ cm walks away from the base of a lamp-post at a speed of $120$ cm per second. The lamp is $360$ cm above the ground. Find the length of her shadow after $4$ seconds.
+%FIG: lamp-post AB vertical at the left (A the lamp at the top, B the base on the ground). Girl CD vertical further right (C her head, D her feet), shorter. The ground line from B through D to E, where E is the tip of the shadow. A dashed ray from A through C to E. Right-angle marks at B and D. Mark AB = 360, CD = 90, BD = 480, DE = x.
+\figph{Lamp-post AB (360 cm) and girl CD (90 cm) on the ground BE; ray from the lamp A through her head C to the shadow tip E; BD = 480 cm, DE = x.}
+\textbf{Given:} lamp height $AB=360$ cm; girl's height $CD=90$ cm; speed $120$ cm/s; time $4$ s.\\
+\textbf{To find:} the length of the shadow $DE$.\\
+\textbf{Solution:} Let $DE=x$ cm.
+\begin{steps}
+  \item Distance walked: $BD=120\times4=480$ cm.
+  \item In $\tr ABE$ and $\tr CDE$: $\angle B=\angle D=90^\circ$ (the lamp-post and the girl are vertical), and $\angle E$ is common. So $\tr ABE\sim\tr CDE$ (AA).
+  \item $\dfrac{BE}{DE}=\dfrac{AB}{CD}$, so $\dfrac{480+x}{x}=\dfrac{360}{90}=4$.
+  \item $480+x=4x$, so $3x=480$ and $x=160$.
+\end{steps}
+\textbf{Answer:} The shadow is $160$ cm $=1.6$ m long.
+\end{example}
+
+\section{Lengths inside similar triangles}
+
+In similar triangles, every pair of corresponding lengths is in the same ratio as the sides. This includes medians, altitudes and angle bisectors.
+
+\begin{example}[NCERT Example 8]
+$CM$ and $RN$ are the medians of $\tr ABC$ and $\tr PQR$, and $\tr ABC\sim\tr PQR$. Prove that:
+(i)~$\tr AMC\sim\tr PNR$;\quad (ii)~$\dfrac{CM}{RN}=\dfrac{AB}{PQ}$;\quad (iii)~$\tr CMB\sim\tr RNQ$.
+%FIG: triangle ABC (A bottom-left, B bottom-right, C top) with M the midpoint of AB and median CM; and a larger triangle PQR (P bottom-left, Q bottom-right, R top) with N the midpoint of PQ and median RN. Tick marks: AM = MB (one tick each), PN = NQ (two ticks each).
+\figph{Triangle ABC with median CM (M the midpoint of AB) and triangle PQR with median RN (N the midpoint of PQ).}
+\textbf{Given:} $\tr ABC\sim\tr PQR$; $M$ is the midpoint of $AB$; $N$ is the midpoint of $PQ$.\\
+\textbf{To prove:} (i), (ii) and (iii) above.\\
+\textbf{Proof:}
+\begin{steps}
+  \item $\tr ABC\sim\tr PQR$, so $\dfrac{AB}{PQ}=\dfrac{BC}{QR}=\dfrac{CA}{RP}$ and $\angle A=\angle P$, $\angle B=\angle Q$.
+  \item $AB=2AM$ and $PQ=2PN$ (medians). So $\dfrac{2AM}{2PN}=\dfrac{CA}{RP}$, that is, $\dfrac{AM}{PN}=\dfrac{CA}{RP}$.
+  \item[(i)] In $\tr AMC$ and $\tr PNR$: $\angle A=\angle P$, and the sides including these angles are proportional (step 2). So $\tr AMC\sim\tr PNR$ (SAS).
+  \item[(ii)] From (i), $\dfrac{CM}{RN}=\dfrac{CA}{RP}$. From step 1, $\dfrac{CA}{RP}=\dfrac{AB}{PQ}$. So $\dfrac{CM}{RN}=\dfrac{AB}{PQ}$.
+  \item[(iii)] $\dfrac{BM}{QN}=\dfrac{AB}{PQ}=\dfrac{BC}{QR}$ (halves of $AB$ and $PQ$), and $\angle B=\angle Q$. So $\tr CMB\sim\tr RNQ$ (SAS).
+\end{steps}
+Hence proved.
+\end{example}
+
+\begin{exercise}{3D}
+\item A vertical pole $6$ m long casts a shadow $4$ m long on the ground. At the same time, a tower casts a shadow $28$ m long. Draw a rough figure and find the height of the tower.
+\begin{solution}
+\anspair{%
+\textbf{Given:} pole $=6$ m, its shadow $=4$ m; tower's shadow $=28$ m.\\
+\textbf{To find:} the height $h$ of the tower.
+\begin{steps}
+  \item The pole and its shadow, and the tower and its shadow, form two right triangles. The sun's rays make the same angle with the ground. So the triangles are similar (AA).
+  \item $\dfrac{h}{6}=\dfrac{28}{4}$, so $h=6\times7=42$.
+\end{steps}
+\textbf{Answer:} The tower is $42$ m high.}{%
+%FIG: two right triangles side by side: small one with vertical side 6 (pole) and base 4 (shadow); large one with vertical side h (tower) and base 28. Dashed sun's ray as the hypotenuse of each. Right-angle marks at the bases.
+\node {[fig]};
+}
+\end{solution}
+
+\item A boy $150$ cm tall stands $9$ m from the base of a lamp-post. The lamp is $6$ m above the ground.
+\begin{enumerate}[label=(\alph*),itemsep=1pt]
+  \item Draw a rough figure and find the length of his shadow.
+  \item He walks $3$ m further away from the lamp-post. Find the new length of his shadow. How much longer is it?
+\end{enumerate}
+\begin{solution}
+\anspair{%
+\textbf{Given:} lamp $=600$ cm; boy $=150$ cm; distance from the lamp-post $=900$ cm, then $1200$ cm.\\
+\textbf{To find:} the shadow $x$ in each case.
+\begin{steps}
+  \item The two right triangles are similar (AA), as in Example 6. So $\dfrac{\text{distance}+x}{x}=\dfrac{600}{150}=4$.
+  \item[(a)] $900+x=4x$, so $x=300$ cm $=3$ m.
+  \item[(b)] $1200+x=4x$, so $x=400$ cm $=4$ m. It is $1$ m longer.
+\end{steps}
+\textbf{Answer:} (a) $3$ m; (b) $4$ m, $1$ m longer.}{%
+%FIG: lamp-post 600 on the left, boy 150 at distance 900 from it, shadow x beyond the boy; dashed ray from the lamp over the boy's head to the shadow tip; right-angle marks.
+\node {[fig]};
+}
+\end{solution}
+
+\item Priya wants to find the height of a tree. She places a small mirror flat on the ground, $8$ m from the foot of the tree. She stands $2$ m from the mirror, on the other side, and sees the top of the tree in the mirror. Her eyes are $150$ cm above the ground. At the mirror, the ray from the top of the tree and the ray to her eyes make equal angles with the ground.
+\begin{enumerate}[label=(\alph*),itemsep=1pt]
+  \item Draw a rough figure. Name the two similar triangles and give the reason.
+  \item Find the height of the tree.
+\end{enumerate}
+\begin{solution}
+\anspair{%
+\textbf{Given:} $TF=$ tree; mirror at $M$; $FM=8$ m; $MP=2$ m; Priya's eye height $EP=150$ cm; $\angle TMF=\angle EMP$.\\
+\textbf{To find:} the height $TF$.
+\begin{steps}
+  \item[(a)] In $\tr TFM$ and $\tr EPM$: $\angle F=\angle P=90^\circ$ and $\angle TMF=\angle EMP$ (given). So $\tr TFM\sim\tr EPM$ (AA).
+  \item[(b)] $\dfrac{TF}{EP}=\dfrac{FM}{PM}$, so $\dfrac{TF}{150}=\dfrac{800}{200}=4$ and $TF=600$ cm.
+\end{steps}
+\textbf{Answer:} (b) The tree is $6$ m high.}{%
+%FIG: ground line with F (foot of tree) at the left, M (mirror) in the middle, P (Priya's feet) at the right; FM = 8, MP = 2. Tree TF vertical at F (tall), Priya EP vertical at P (short, E her eyes). Rays T to M and M to E (a V shape at M). Right-angle marks at F and P; equal angle marks at M on both sides.
+\node {[fig]};
+}
+\end{solution}
+
+\item $AD$ and $PM$ are medians of $\tr ABC$ and $\tr PQR$, and $\tr ABC\sim\tr PQR$. Prove that $\dfrac{AB}{PQ}=\dfrac{AD}{PM}$.
+\begin{solution}
+\anspair{%
+\textbf{Given:} $\tr ABC\sim\tr PQR$; $D$ and $M$ are the midpoints of $BC$ and $QR$.\\
+\textbf{To prove:} $\dfrac{AB}{PQ}=\dfrac{AD}{PM}$.\\
+\textbf{Proof:}
+\begin{steps}
+  \item $\dfrac{AB}{PQ}=\dfrac{BC}{QR}=\dfrac{2BD}{2QM}=\dfrac{BD}{QM}$, and $\angle B=\angle Q$ (similar triangles).
+  \item So $\tr ABD\sim\tr PQM$ (SAS).
+  \item So $\dfrac{AB}{PQ}=\dfrac{AD}{PM}$ (corresponding sides).
+\end{steps}
+Hence proved.}{%
+%FIG: triangle ABC (A top, B bottom-left, C bottom-right) with median AD to the midpoint D of BC; larger triangle PQR (P top, Q bottom-left, R bottom-right) with median PM.
+\node {[fig]};
+}
+\end{solution}
+
+\item $CD$ and $GH$ are the bisectors of $\angle ACB$ and $\angle EGF$, with $D$ on $AB$ and $H$ on $FE$. If $\tr ABC\sim\tr FEG$, show that:
+(i)~$\dfrac{CD}{GH}=\dfrac{AC}{FG}$;\quad (ii)~$\tr DCB\sim\tr HGE$;\quad (iii)~$\tr DCA\sim\tr HGF$.
+\begin{solution}
+\anspair{%
+\textbf{Given:} $\tr ABC\sim\tr FEG$; $CD$ bisects $\angle ACB$; $GH$ bisects $\angle EGF$.\\
+\textbf{To prove:} (i), (ii) and (iii).\\
+\textbf{Proof:} From $\tr ABC\sim\tr FEG$: $\angle A=\angle F$, $\angle B=\angle E$ and $\angle ACB=\angle FGE$. So $\angle ACD=\angle FGH$ and $\angle DCB=\angle HGE$ (halves of equal angles).
+\begin{steps}
+  \item[(iii)] In $\tr DCA$ and $\tr HGF$: $\angle A=\angle F$ and $\angle ACD=\angle FGH$. So $\tr DCA\sim\tr HGF$ (AA).
+  \item[(i)] From (iii), $\dfrac{CD}{GH}=\dfrac{AC}{FG}$.
+  \item[(ii)] In $\tr DCB$ and $\tr HGE$: $\angle B=\angle E$ and $\angle DCB=\angle HGE$. So $\tr DCB\sim\tr HGE$ (AA).
+\end{steps}
+Hence proved.}{%
+%FIG: triangle ABC (A bottom-left, B bottom-right, C top) with the angle bisector CD meeting AB at D; larger triangle FEG (F bottom-left, E bottom-right, G top) with the bisector GH meeting FE at H. Equal half-angle marks at C and at G.
+\node {[fig]};
+}
+\end{solution}
+
+\item $\tr ABC\sim\tr PQR$, with $AB=6$ cm and $PQ=9$ cm. $AD$ is the altitude from $A$ to $BC$, and $PS$ is the altitude from $P$ to $QR$. $AD=4$ cm.
+\begin{enumerate}[label=(\alph*),itemsep=1pt]
+  \item Prove that $\tr ABD\sim\tr PQS$.
+  \item Find $PS$.
+\end{enumerate}
+\begin{solution}
+\textbf{Given:} $\tr ABC\sim\tr PQR$; $AB=6$ cm, $PQ=9$ cm; $AD\perp BC$, $PS\perp QR$; $AD=4$ cm.\\
+\textbf{To find:} (a) proof; (b) $PS$.
+\begin{steps}
+  \item[(a)] $\angle B=\angle Q$ (similar triangles) and $\angle ADB=\angle PSQ=90^\circ$. So $\tr ABD\sim\tr PQS$ (AA).
+  \item[(b)] $\dfrac{AD}{PS}=\dfrac{AB}{PQ}$, so $\dfrac{4}{PS}=\dfrac69$ and $PS=6$ cm.
+\end{steps}
+\textbf{Answer:} (b) $PS=6$ cm.
+\end{solution}
+
+\item $D$ is a point on the side $BC$ of $\tr ABC$ such that $\angle ADC=\angle BAC$. Draw a rough figure. Show that $CA^2=CB\cdot CD$.
+\begin{solution}
+\anspair{%
+\textbf{Given:} $D$ on $BC$; $\angle ADC=\angle BAC$.\\
+\textbf{To prove:} $CA^2=CB\cdot CD$.\\
+\textbf{Proof:} In $\tr ADC$ and $\tr BAC$:
+\begin{steps}
+  \item $\angle ADC=\angle BAC$ (given), and $\angle ACD=\angle BCA$ (common angle).
+  \item So $\tr ADC\sim\tr BAC$ (AA), with $A$ matching $B$, $D$ matching $A$ and $C$ matching $C$.
+  \item So $\dfrac{CA}{CB}=\dfrac{CD}{CA}$, and $CA^2=CB\cdot CD$.
+\end{steps}
+Hence proved.}{%
+%FIG: triangle ABC with B bottom-left, C bottom-right, A top. D on BC nearer C; segment AD. Mark angle ADC (at D, inside triangle ADC) and angle BAC (at A) with one arc each.
+\node {[fig]};
+}
+\end{solution}
+
+\item In the figure, the sides $AB$ and $BC$ and the median $AD$ of $\tr ABC$ are proportional to the sides $PQ$ and $QR$ and the median $PM$ of $\tr PQR$. Show that $\tr ABC\sim\tr PQR$.
+%FIG: NCERT Fig 6.41 style. Triangle ABC (A top, B bottom-left, C bottom-right) with median AD (D midpoint of BC); larger triangle PQR (P top, Q bottom-left, R bottom-right) with median PM (M midpoint of QR).
+\figph{Triangle ABC with median AD and triangle PQR with median PM.}
+\begin{solution}
+\textbf{Given:} $\dfrac{AB}{PQ}=\dfrac{BC}{QR}=\dfrac{AD}{PM}$; $D$ and $M$ are the midpoints of $BC$ and $QR$.\\
+\textbf{To prove:} $\tr ABC\sim\tr PQR$.\\
+\textbf{Proof:}
+\begin{steps}
+  \item $\dfrac{BC}{QR}=\dfrac{2BD}{2QM}=\dfrac{BD}{QM}$. So $\dfrac{AB}{PQ}=\dfrac{BD}{QM}=\dfrac{AD}{PM}$.
+  \item So $\tr ABD\sim\tr PQM$ (SSS), and $\angle B=\angle Q$.
+  \item In $\tr ABC$ and $\tr PQR$: $\angle B=\angle Q$ and $\dfrac{AB}{PQ}=\dfrac{BC}{QR}$. So $\tr ABC\sim\tr PQR$ (SAS).
+\end{steps}
+Hence proved.
+\end{solution}
+
+\item The sides $AB$ and $AC$ and the median $AD$ of $\tr ABC$ are proportional to the sides $PQ$ and $PR$ and the median $PM$ of $\tr PQR$. Show that $\tr ABC\sim\tr PQR$.\\
+(Hint: produce $AD$ to $E$ so that $DE=AD$, and produce $PM$ to $N$ so that $MN=PM$. Join $BE$ and $QN$.)
+\begin{solution}
+\anspair{%
+\textbf{Given:} $\dfrac{AB}{PQ}=\dfrac{AC}{PR}=\dfrac{AD}{PM}$; $AD$ and $PM$ are medians.\\
+\textbf{To prove:} $\tr ABC\sim\tr PQR$.\\
+\textbf{Construction:} Produce $AD$ to $E$ with $DE=AD$, and $PM$ to $N$ with $MN=PM$. Join $BE$, $CE$, $QN$, $RN$.\\
+\textbf{Proof:}
+\begin{steps}
+  \item The diagonals of $ABEC$ bisect each other at $D$. So $ABEC$ is a parallelogram, and $BE=AC$. In the same way, $QN=PR$.
+  \item $\dfrac{AB}{PQ}=\dfrac{BE}{QN}=\dfrac{AE}{PN}$, because $BE=AC$, $QN=PR$, $AE=2AD$ and $PN=2PM$.
+  \item So $\tr ABE\sim\tr PQN$ (SSS), and $\angle BAE=\angle QPN$.
+  \item In the same way, $\tr ACE\sim\tr PRN$ (SSS), and $\angle CAE=\angle RPN$.
+  \item Adding: $\angle BAC=\angle QPR$.
+  \item In $\tr ABC$ and $\tr PQR$: $\angle A=\angle P$ and $\dfrac{AB}{PQ}=\dfrac{AC}{PR}$. So $\tr ABC\sim\tr PQR$ (SAS).
+\end{steps}
+Hence proved.}{%
+%FIG: triangle ABC (A top, B bottom-left, C bottom-right), D the midpoint of BC, AD produced below BC to E with DE = AD (dashed), BE and CE dashed (ABEC a parallelogram).
+\node {[fig]};
+}
+\end{solution}
+\end{exercise}
+
+\ifteacher
+\facilitatornote{Exercise 3D, Questions 8 and 9 are the hardest questions of the class. Question 9 needs a construction. Give the hint orally to students who are stuck, and work it on the board if time is short.}
+\fi
+
+\section{Right triangles: the RHS similarity criterion}
+
+If the hypotenuse and one side of one right triangle are proportional to the hypotenuse and one side of another right triangle, then the two triangles are similar. This is the \textbf{RHS similarity criterion}. It is useful for right triangles, but it is not one of the main theorems of this chapter.
+
+\section{Summary}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}p{0.2\linewidth}p{0.48\linewidth}p{0.24\linewidth}@{}}
+\hline
+\textbf{Criterion} & \textbf{What to check} & \textbf{Gives} \\
+\hline
+AA (AAA) & Two pairs of equal angles. & $\tr ABC\sim\tr DEF$ \\
+SSS & $\dfrac{AB}{DE}=\dfrac{BC}{EF}=\dfrac{CA}{FD}$ & $\tr ABC\sim\tr DEF$ \\
+SAS & $\angle A=\angle D$ and $\dfrac{AB}{DE}=\dfrac{AC}{DF}$ (the angle is between the sides) & $\tr ABC\sim\tr DEF$ \\
+RHS & Right angles; hypotenuses and one pair of sides proportional. & $\tr ABC\sim\tr DEF$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{steps}
+  \item Write the vertices in matching order. Match the shortest side with the shortest side, and use the shared vertex of two sides.
+  \item For triangles, equal angles and proportional sides always come together. For figures with four or more sides, one does not give the other.
+  \item In similar triangles, corresponding medians, altitudes and angle bisectors are in the same ratio as the sides.
+  \item Heights can be found from shadows: an object and its shadow form a right triangle, and such triangles are similar at the same time of day.
+\end{steps}
