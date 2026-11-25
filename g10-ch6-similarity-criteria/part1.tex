@@ -26,7 +26,32 @@ Two triangles are \textbf{similar} if (i) their corresponding angles are equal a
   \end{enumerate}
   \item In the figure, $\tr ABC$ has $AB=4$ cm, $BC=6$ cm and $CA=5$ cm. $\tr XYZ$ has $XY=12$ cm, $YZ=8$ cm and $ZX=10$ cm. Also $\angle A=\angle Z$, $\angle B=\angle Y$ and $\angle C=\angle X$.
   %FIG: two triangles side by side. Left: triangle ABC, B bottom-left, C bottom-right, A top (sides AB=4, BC=6, CA=5 drawn to scale, label the three lengths outside the sides). Right: triangle XYZ, drawn turned so that the matching is not obvious: Y at the bottom-right, Z at the bottom-left... use YZ=8, XY=12, ZX=10 to scale (twice the left triangle), X at the top. Label the three lengths outside the sides. Mark angle B and angle Y with one arc each, angle A and angle Z with two arcs each, angle C and angle X with three arcs each.
-  \figph{Triangle ABC (sides 4, 6, 5) and triangle XYZ (sides 12, 8, 10, turned); matching angles marked with 1, 2 and 3 arcs.}
+  \exfig{%
+  \coordinate (A) at (1.575,2.315); \coordinate (B) at (0,0); \coordinate (C) at (4.2,0);
+  \coordinate (X) at (6.575,6.945); \coordinate (Y) at (11.3,0); \coordinate (Z) at (5.7,0);
+  \draw (A)--(B)--(C)--cycle;
+  \draw (X)--(Y)--(Z)--cycle;
+  \pic[draw,angle radius=5mm] {angle=C--B--A};
+  \pic[draw,angle radius=5mm] {angle=B--A--C};
+  \pic[draw,angle radius=6mm] {angle=B--A--C};
+  \pic[draw,angle radius=5mm] {angle=A--C--B};
+  \pic[draw,angle radius=6mm] {angle=A--C--B};
+  \pic[draw,angle radius=7mm] {angle=A--C--B};
+  \pic[draw,angle radius=5mm] {angle=X--Y--Z};
+  \pic[draw,angle radius=5mm] {angle=Y--Z--X};
+  \pic[draw,angle radius=6mm] {angle=Y--Z--X};
+  \pic[draw,angle radius=5mm] {angle=Z--X--Y};
+  \pic[draw,angle radius=6mm] {angle=Z--X--Y};
+  \pic[draw,angle radius=7mm] {angle=Z--X--Y};
+  \node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
+  \node[above] at (X) {$X$}; \node[below right] at (Y) {$Y$}; \node[below left] at (Z) {$Z$};
+  \node at (0.35,1.45) {$4$};
+  \node[below] at (2.1,-0.1) {$6$};
+  \node at (3.25,1.55) {$5$};
+  \node[below] at (8.5,-0.1) {$8$};
+  \node at (9.45,3.85) {$12$};
+  \node at (5.5,3.5) {$10$};
+}
   \begin{enumerate}[label=(\alph*),itemsep=1pt]
     \item Complete the statement $\tr ABC\sim\tr\ \underline{\hspace{1.5cm}}$\,.
     \item Which side of $\tr XYZ$ corresponds to $BC$? Which side corresponds to $CA$?
@@ -84,8 +109,22 @@ To show that two triangles are similar, must we check all three pairs of angles 
   \item[(c)] Each ratio is about $\dfrac12$, since $\dfrac{BC}{EF}=\dfrac36=\dfrac12$. The three ratios are equal.
   \item[(d)] Yes. $\tr ABC\sim\tr DEF$.
 \end{steps}}{%
-%FIG: small triangle ABC (BC = 3 at the bottom, angle B = 60, angle C = 40, A at the top) and next to it the larger triangle DEF (EF = 6, angle E = 60, angle F = 40, D at the top), same orientation. Mark 60 and 40 at the base angles of both. Label BC = 3 and EF = 6 below the bases.
-\node {[fig]};
+%FIG: small triangle ABC (BC = 3 at the bottom, angle B = 60, angle C = 40, A at the top) and next to it the larger triangle DEF (EF = 6, angle E = 60, angle F = 40, D at the top), same orientation. Mark the 60 degree angles with one arc and the 40 degree angles with two arcs. Label BC = 3 and EF = 6 below the bases.
+\coordinate (A) at (0.568,0.984); \coordinate (B) at (0,0); \coordinate (C) at (1.74,0);
+\coordinate (D) at (4.326,1.967); \coordinate (E) at (3.19,0); \coordinate (F) at (6.67,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (D)--(E)--(F)--cycle;
+\pic[draw,angle radius=4mm] {angle=C--B--A};
+\pic[draw,angle radius=4mm] {angle=A--C--B};
+\pic[draw,angle radius=4mm] {angle=F--E--D};
+\pic[draw,angle radius=4mm] {angle=D--F--E};
+\node[above] at (A) {$A$}; \node[left] at (B) {$B$}; \node[right] at (C) {$C$};
+\node[above] at (D) {$D$}; \node[left] at (E) {$E$}; \node[right] at (F) {$F$};
+\pic[draw,angle radius=5mm] {angle=A--C--B};
+\pic[draw,angle radius=5mm] {angle=D--F--E};
+\node[below] at ($(B)!0.5!(C)$) {$3$};
+\node[below] at ($(E)!0.5!(F)$) {$6$};
+
 }
 \ans{P4.}
 \begin{steps}
@@ -102,7 +141,29 @@ If in two triangles the corresponding angles are equal, then their corresponding
 \end{theorem}
 
 %FIG: proof figure. Left: small triangle ABC (B bottom-left, C bottom-right, A top). Right: larger triangle DEF (E bottom-left, F bottom-right, D top), same shape and orientation, about 1.6 times bigger. On DE mark P with DP = AB; on DF mark Q with DQ = AC; join PQ (PQ is parallel to EF). Mark equal angles: one arc at B, E and at P (angle DPQ); two arcs at C, F and at Q (angle DQP).
-\figph{Proof figure: triangle ABC and triangle DEF; P on DE with DP = AB, Q on DF with DQ = AC; PQ joined.}
+\exfig{%
+  \coordinate (A) at (1.8,2.7); \coordinate (B) at (0,0); \coordinate (C) at (4.5,0);
+  \coordinate (D) at (8.88,4.32); \coordinate (E) at (6,0); \coordinate (F) at (13.2,0);
+  \coordinate (P) at (7.08,1.62); \coordinate (Q) at (11.58,1.62);
+  \draw (A)--(B)--(C)--cycle;
+  \draw (D)--(E)--(F)--cycle;
+  \draw (P)--(Q);
+  \pic[draw,angle radius=5mm] {angle=C--B--A};
+  \pic[draw,angle radius=5mm] {angle=F--E--D};
+  \pic[draw,angle radius=5mm] {angle=Q--P--D};
+  \pic[draw,angle radius=5mm] {angle=A--C--B};
+  \pic[draw,angle radius=6mm] {angle=A--C--B};
+  \pic[draw,angle radius=5mm] {angle=D--F--E};
+  \pic[draw,angle radius=6mm] {angle=D--F--E};
+  \pic[draw,angle radius=5mm] {angle=D--Q--P};
+  \pic[draw,angle radius=6mm] {angle=D--Q--P};
+  \draw[-{Stealth[length=2mm]}] ($(E)!0.45!(F)$) -- ($(E)!0.55!(F)$);
+  \draw[-{Stealth[length=2mm]}] ($(P)!0.45!(Q)$) -- ($(P)!0.55!(Q)$);
+  \node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
+  \node[above] at (D) {$D$}; \node[below left] at (E) {$E$}; \node[below right] at (F) {$F$};
+  \node[left] at (6.75,1.84) {$P$};
+  \node[right] at (11.86,1.90) {$Q$};
+}
 
 \textbf{Given:} $\tr ABC$ and $\tr DEF$ with $\angle A=\angle D$, $\angle B=\angle E$ and $\angle C=\angle F$.\\
 \textbf{To prove:} $\dfrac{AB}{DE}=\dfrac{BC}{EF}=\dfrac{CA}{FD}$.\\
@@ -132,7 +193,18 @@ If two angles of one triangle are equal to two angles of another triangle, then 
 \begin{example}[NCERT Example 4]
 In the figure, the segments $PS$ and $QR$ meet at $O$, and $PQ\parallel RS$. Prove that $\tr POQ\sim\tr SOR$.
 %FIG: two segments PS and QR crossing at O, forming a "bow-tie". P top-left, Q top-right (PQ short, horizontal), R bottom-left, S bottom-right (RS longer, horizontal, parallel to PQ). O between. Arrow marks on PQ and RS to show they are parallel.
-\figph{Bow-tie: PS and QR cross at O; PQ (top) parallel to RS (bottom).}
+\exfig{%
+  \coordinate (P) at (0,3); \coordinate (Q) at (4,3);
+  \coordinate (R) at (-2,0); \coordinate (S) at (6,0);
+  \coordinate (O) at (2,2);
+  \draw (P)--(Q); \draw (R)--(S);
+  \draw (P)--(S); \draw (Q)--(R);
+  \draw[-{Stealth[length=2mm]}] ($(P)!0.45!(Q)$) -- ($(P)!0.55!(Q)$);
+  \draw[-{Stealth[length=2mm]}] ($(R)!0.45!(S)$) -- ($(R)!0.55!(S)$);
+  \node[above left] at (P) {$P$}; \node[above right] at (Q) {$Q$};
+  \node[below left] at (R) {$R$}; \node[below right] at (S) {$S$};
+  \node[left] at ($(O)+(-0.5,0)$) {$O$};
+}
 \textbf{Given:} $PS$ and $QR$ meet at $O$; $PQ\parallel RS$.\\
 \textbf{To prove:} $\tr POQ\sim\tr SOR$.\\
 \textbf{Proof:} In $\tr POQ$ and $\tr SOR$:
@@ -151,7 +223,22 @@ In $\tr ABC$, $\angle A=50^\circ$ and $\angle B=70^\circ$. In $\tr PQR$, $\angle
   \item Find the length of $PR$.
 \end{enumerate}
 %FIG: two rough triangles side by side. Left: triangle ABC with angle A = 50, angle B = 70 marked, AB = 6 and BC = 8 marked. Right: triangle PQR with angle P = 70, angle R = 60 marked, PQ = 9 marked, PR marked "?".
-\figph{Rough figures: triangle ABC (50 and 70 marked, AB = 6, BC = 8) and triangle PQR (70 and 60 marked, PQ = 9, PR = ?).}
+\exfig{%
+  \coordinate (A) at (1.436,3.947); \coordinate (B) at (0,0); \coordinate (C) at (5.6,0);
+  \coordinate (P) at (6.9,0); \coordinate (Q) at (13.2,0); \coordinate (R) at (8.806,5.237);
+  \draw (A)--(B)--(C)--cycle;
+  \draw (P)--(Q)--(R)--cycle;
+  \pic[draw,"$50^\circ$",angle radius=5mm,angle eccentricity=1.9] {angle=B--A--C};
+  \pic[draw,"$70^\circ$",angle radius=5mm,angle eccentricity=1.9] {angle=C--B--A};
+  \pic[draw,"$70^\circ$",angle radius=5mm,angle eccentricity=1.9] {angle=Q--P--R};
+  \pic[draw,"$60^\circ$",angle radius=6mm,angle eccentricity=2] {angle=P--R--Q};
+  \node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
+  \node[below left] at (P) {$P$}; \node[below right] at (Q) {$Q$}; \node[above] at (R) {$R$};
+  \node[left] at (0.15,2.15) {$6$};
+  \node[below] at (2.8,-0.1) {$8$};
+  \node[below] at (10.05,-0.1) {$9$};
+  \node[left] at (7.4,2.85) {$?$};
+}
 \textbf{Given:} $\angle A=50^\circ$, $\angle B=70^\circ$, $\angle P=70^\circ$, $\angle R=60^\circ$; $AB=6$ cm, $BC=8$ cm, $PQ=9$ cm.\\
 \textbf{To find:} (a) the similarity statement; (b) $PR$.\\
 \textbf{Solution:}
@@ -178,7 +265,18 @@ In $\tr ABC$, $\angle A=50^\circ$ and $\angle B=70^\circ$. In $\tr PQR$, $\angle
 
 \item In the figure, $\tr ODC\sim\tr OBA$, $\angle BOC=125^\circ$ and $\angle CDO=70^\circ$. Find $\angle DOC$, $\angle DCO$ and $\angle OAB$.
 %FIG: NCERT Fig 6.35 style. Two horizontal parallel lines. Upper line: D (left) and C (right), close together. Lower line: A (left) and B (right). Segment DB and segment CA cross at O (O nearer the top). Mark angle CDO = 70 at D (inside triangle ODC) and angle BOC = 125 at O (the angle between OB and OC, on the right side of O).
-\figph{Segments DB and CA crossing at O; D, C on the top line, A, B on the bottom line; 70 at D, 125 at O between OB and OC.}
+\exfig{%
+  \coordinate (D) at (0,6); \coordinate (C) at (2.6,6);
+  \coordinate (A) at (-1.602,0); \coordinate (B) at (2.184,0);
+  \coordinate (O) at (0.889,3.557);
+  \draw (D)--(C); \draw (A)--(B);
+  \draw (D)--(B); \draw (C)--(A);
+  \pic[draw,"$70^\circ$",angle radius=5mm,angle eccentricity=1.9] {angle=O--D--C};
+  \pic[draw,"$125^\circ$",angle radius=5mm,angle eccentricity=1.9] {angle=B--O--C};
+  \node[above left] at (D) {$D$}; \node[above right] at (C) {$C$};
+  \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
+  \node[left] at ($(O)+(-0.5,0)$) {$O$};
+}
 \begin{solution}
 \textbf{Given:} $\tr ODC\sim\tr OBA$, $\angle BOC=125^\circ$, $\angle CDO=70^\circ$.\\
 \textbf{To find:} $\angle DOC$, $\angle DCO$, $\angle OAB$.
@@ -204,7 +302,16 @@ In $\tr ABC$, $\angle A=50^\circ$ and $\angle B=70^\circ$. In $\tr PQR$, $\angle
 \end{steps}
 Hence proved.}{%
 %FIG: trapezium ABCD, AB the longer bottom side (A left, B right), DC the shorter top side (D left, C right). Diagonals AC and BD meeting at O. Arrow marks on AB and DC.
-\node {[fig]};
+\coordinate (A) at (0,0); \coordinate (B) at (4,0);
+\coordinate (D) at (0.8,2.6); \coordinate (C) at (3.2,2.6);
+\coordinate (O) at (2,1.625);
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (A)--(C); \draw (B)--(D);
+\draw[-{Stealth[length=2mm]}] ($(A)!0.45!(B)$) -- ($(A)!0.55!(B)$);
+\draw[-{Stealth[length=2mm]}] ($(D)!0.45!(C)$) -- ($(D)!0.55!(C)$);
+\node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
+\node[above left] at (D) {$D$}; \node[above right] at (C) {$C$};
+\node[right] at ($(O)+(0.15,0)$) {$O$};
 }
 \end{solution}
 
@@ -221,14 +328,33 @@ Hence proved.}{%
 \end{steps}
 Hence proved.}{%
 %FIG: triangle PQR with P top, Q bottom-left, R bottom-right. S on PR (nearer R), T on QR (nearer R), segment ST joined; ST is NOT parallel to PQ (it slants the other way). One arc at P and one arc at angle RTS (at T, inside triangle RTS).
-\node {[fig]};
+\coordinate (P) at (1.5,3.6); \coordinate (Q) at (0,0); \coordinate (R) at (3.6,0);
+\coordinate (S) at (2.874,1.244); \coordinate (T) at (1.933,0);
+\draw (P)--(Q)--(R)--cycle;
+\draw (S)--(T);
+\pic[draw,angle radius=5mm] {angle=Q--P--R};
+\pic[draw,angle radius=5mm] {angle=R--T--S};
+\node[above] at (P) {$P$}; \node[below left] at (Q) {$Q$}; \node[below right] at (R) {$R$};
+\node[right] at (S) {$S$};
+\node[below] at (T) {$T$};
 }
 \end{solution}
 
 \item In the figure, the altitudes $AD$ and $CE$ of $\tr ABC$ meet at $P$. Show that:
 (i)~$\tr AEP\sim\tr CDP$;\quad (ii)~$\tr ABD\sim\tr CBE$;\quad (iii)~$\tr AEP\sim\tr ADB$;\quad (iv)~$\tr PDC\sim\tr BEC$.
 %FIG: NCERT Fig 6.38 style. Triangle ABC with A bottom-left, B bottom-right, C top (C above a point a little right of A... C near the left). E on AB with CE perpendicular to AB (right-angle mark at E). D on BC with AD perpendicular to BC (right-angle mark at D). AD and CE meet at P.
-\figph{Triangle ABC (A bottom-left, B bottom-right, C top-left); altitude CE to AB, altitude AD to BC, meeting at P; right-angle marks at D and E.}
+\exfig{%
+  \coordinate (A) at (0,0); \coordinate (B) at (7.2,0); \coordinate (C) at (2.2,5.4);
+  \coordinate (D) at (3.876,3.590); \coordinate (E) at (2.2,0); \coordinate (P) at (2.2,2.038);
+  \draw (A)--(B)--(C)--cycle;
+  \draw (C)--(E); \draw (A)--(D);
+  \ramark{E}{A}{C}
+  \ramark{D}{C}{A}
+  \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[above] at (C) {$C$};
+  \node[right] at (4.23,3.91) {$D$};
+  \node[below] at (E) {$E$};
+  \node[below right] at ($(P)+(0.08,-0.08)$) {$P$};
+}
 \begin{solution}
 \textbf{Given:} $AD\perp BC$, $CE\perp AB$; $AD$ and $CE$ meet at $P$.\\
 \textbf{To prove:} the four similarities.
@@ -254,14 +380,34 @@ Hence proved.
 \end{steps}
 Hence proved.}{%
 %FIG: parallelogram ABCD with A bottom-left, B bottom-right, C top-right, D top-left (slanted). AD extended upward beyond D to E. Segment BE crosses DC at F.
-\node {[fig]};
+\coordinate (A) at (0,0); \coordinate (B) at (3.4,0);
+\coordinate (C) at (4.3,2); \coordinate (D) at (0.9,2);
+\coordinate (E) at (1.8,4); \coordinate (F) at (2.6,2);
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (D)--(E);
+\draw (B)--(E);
+\node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
+\node[above right] at (C) {$C$}; \node[left] at ($(D)+(-0.1,0)$) {$D$};
+\node[above] at (E) {$E$};
+\node[above right] at ($(F)+(0.05,0.05)$) {$F$};
 }
 \end{solution}
 
 \item In the figure, $ABC$ and $AMP$ are two right triangles, right-angled at $B$ and $M$. Prove that:
 (i)~$\tr ABC\sim\tr AMP$;\quad (ii)~$\dfrac{CA}{PA}=\dfrac{BC}{MP}$.
 %FIG: NCERT Fig 6.39 style. A bottom-left, P bottom-right, B on AP between them (nearer P). C above B with CB perpendicular to AP (right-angle mark at B). Segment AC. M on AC with PM perpendicular to AC (right-angle mark at M); segment PM.
-\figph{A, B, P on a horizontal line; CB vertical at B; M on AC with PM perpendicular to AC; right-angle marks at B and M.}
+\exfig{%
+  \coordinate (A) at (0,0); \coordinate (P) at (7,0); \coordinate (B) at (4.5,0);
+  \coordinate (C) at (4.5,5.5); \coordinate (M) at (2.807,3.431);
+  \draw (A)--(P); \draw (B)--(C);
+  \draw (A)--(C);
+  \draw (P)--(M);
+  \ramark{B}{A}{C}
+  \ramark{M}{A}{P}
+  \node[below left] at (A) {$A$}; \node[below right] at (P) {$P$};
+  \node[below] at (B) {$B$}; \node[above] at (C) {$C$};
+  \node[above left] at (M) {$M$};
+}
 \begin{solution}
 \textbf{Given:} $\angle ABC=90^\circ$, $\angle AMP=90^\circ$.\\
 \textbf{To prove:} (i) $\tr ABC\sim\tr AMP$; (ii) $\dfrac{CA}{PA}=\dfrac{BC}{MP}$.
@@ -274,7 +420,19 @@ Hence proved.
 
 \item In the figure, $E$ is a point on the side $CB$ produced of an isosceles triangle $ABC$ with $AB=AC$. If $AD\perp BC$ and $EF\perp AC$, prove that $\tr ABD\sim\tr ECF$.
 %FIG: NCERT Fig 6.40 style. Isosceles triangle ABC, A top, B bottom-left, C bottom-right. D the foot of the perpendicular from A on BC (right-angle mark). CB extended to the left beyond B to E (dashed extension). F on AC with EF perpendicular to AC (right-angle mark at F); segment EF.
-\figph{Isosceles triangle ABC with AD perpendicular to BC; CB produced to E; EF perpendicular to AC.}
+\exfig{%
+  \coordinate (A) at (3,5); \coordinate (B) at (0,0); \coordinate (C) at (6,0);
+  \coordinate (D) at (3,0); \coordinate (E) at (-2.2,0); \coordinate (F) at (3.829,3.618);
+  \draw (A)--(B)--(C)--cycle;
+  \draw[dashed] (B)--(E);
+  \draw (A)--(D);
+  \draw (E)--(F);
+  \ramark{D}{A}{C}
+  \ramark{F}{E}{C}
+  \node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
+  \node[below] at (D) {$D$}; \node[below left] at (E) {$E$};
+  \node[right] at (4.13,3.80) {$F$};
+}
 \begin{solution}
 \textbf{Given:} $AB=AC$; $E$ on $CB$ produced; $AD\perp BC$; $EF\perp AC$.\\
 \textbf{To prove:} $\tr ABD\sim\tr ECF$.\\

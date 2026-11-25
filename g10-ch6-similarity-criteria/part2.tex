@@ -25,7 +25,18 @@ Equal angles are enough to make two triangles similar. Are proportional sides al
   \item[(c)] Yes. $\tr ABC\sim\tr DEF$.
 \end{steps}}{%
 %FIG: triangle ABC with AB = 3, BC = 5, CA = 6 to scale (B bottom-left, C bottom-right, A above, angle B obtuse, about 94 degrees) and beside it triangle DEF twice as big (DE = 6, EF = 10, FD = 12), same orientation. Side lengths written outside the sides.
-\node {[fig]};
+\coordinate (B) at (0,0); \coordinate (C) at (1.75,0); \coordinate (A) at (-0.07,1.05);
+\coordinate (E) at (3.4,0); \coordinate (F) at (6.9,0); \coordinate (D) at (3.26,2.1);
+\draw (A)--(B)--(C)--cycle;
+\draw (D)--(E)--(F)--cycle;
+\node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
+\node[above] at (D) {$D$}; \node[below left] at (E) {$E$}; \node[below right] at (F) {$F$};
+\node[left] at ($(A)!0.5!(B)$) {$3$};
+\node[below] at ($(B)!0.5!(C)$) {$5$};
+\node[above right] at ($(C)!0.5!(A)$) {$6$};
+\node[left] at ($(D)!0.5!(E)$) {$6$};
+\node[below] at ($(E)!0.5!(F)$) {$10$};
+\node[above right] at ($(F)!0.5!(D)$) {$12$};
 }
 \ans{P6.}
 \begin{steps}
@@ -61,7 +72,31 @@ To match the vertices when only sides are given, match the shortest side with th
 \begin{example}[based on NCERT Example 5]
 In $\tr ABC$, $AB=5$ cm, $BC=8$ cm, $CA=7$ cm, $\angle A=82^\circ$ and $\angle B=60^\circ$. In $\tr PQR$, $RQ=10$ cm, $QP=16$ cm and $PR=14$ cm. Find $\angle P$.
 %FIG: two rough triangles. Left: triangle ABC with AB = 5, BC = 8, CA = 7 marked, 82 at A and 60 at B. Right: triangle PQR (oriented differently) with RQ = 10, QP = 16, PR = 14 marked, angle P marked "?".
-\figph{Rough figures: triangle ABC (5, 8, 7; 82 at A, 60 at B) and triangle PQR (10, 16, 14; angle P = ?).}
+\exfig{%
+\coordinate (A) at (1.45,2.511);
+\coordinate (B) at (0,0);
+\coordinate (C) at (4.64,0);
+\coordinate (R) at (6.6,0);
+\coordinate (P) at (14.72,0);
+\coordinate (Q) at (7.429,5.741);
+\draw (A)--(B)--(C)--cycle;
+\draw (P)--(Q)--(R)--cycle;
+\pic[draw,"$82^\circ$",angle radius=5mm,angle eccentricity=1.9]{angle=B--A--C};
+\pic[draw,"$60^\circ$",angle radius=5mm,angle eccentricity=1.9]{angle=C--B--A};
+\pic[draw,"$?$",angle radius=5mm,angle eccentricity=1.9]{angle=Q--P--R};
+\node[above=1pt] at (A) {$A$};
+\node[below left=1pt] at (B) {$B$};
+\node[below right=1pt] at (C) {$C$};
+\node[below right=1pt] at (P) {$P$};
+\node[above=1pt] at (Q) {$Q$};
+\node[below left=1pt] at (R) {$R$};
+\node[left=2pt] at ($(A)!0.5!(B)$) {$5$};
+\node[below=2pt] at ($(B)!0.5!(C)$) {$8$};
+\node[above right=2pt] at ($(C)!0.5!(A)$) {$7$};
+\node[below=2pt] at ($(R)!0.5!(P)$) {$14$};
+\node[left=2pt] at ($(R)!0.5!(Q)$) {$10$};
+\node[above right=2pt] at ($(Q)!0.5!(P)$) {$16$};
+}
 \textbf{Given:} $AB=5$ cm, $BC=8$ cm, $CA=7$ cm, $\angle A=82^\circ$, $\angle B=60^\circ$; $RQ=10$ cm, $QP=16$ cm, $PR=14$ cm.\\
 \textbf{To find:} $\angle P$.\\
 \textbf{Solution:}
@@ -172,7 +207,25 @@ For congruence, two sides and the angle between them are enough (SAS). Is there 
   \item[(d)] The equal angle must be the angle between the two pairs of proportional sides.
 \end{steps}}{%
 %FIG: ray AY horizontal from A to the right, ray AX at 30 degrees above it. B on AX with AB = 6. Dashed arc of the circle with centre B radius 4 cutting AY at C1 (nearer A, about 2.6 from A) and C2 (farther, about 7.8 from A). Segments BC1 and BC2. Mark 30 at A.
-\node {[fig]};
+\coordinate (A) at (0,0);
+\coordinate (B) at (3.118,1.8);
+\coordinate (X) at (4.32,2.494);
+\coordinate (Y) at (5.4,0);
+\coordinate (C1) at (1.53,0);
+\coordinate (C2) at (4.705,0);
+\draw (A)--(Y);
+\draw (A)--(X);
+\draw (B)--(C1);
+\draw (B)--(C2);
+\draw[dashed] (C1) arc[start angle=-131.41,end angle=-48.59,radius=2.4];
+\pic[draw,angle radius=7mm]{angle=Y--A--X};
+\node[font=\tiny] at (14:0.78) {$30^\circ$};
+\node[below left=1pt] at (A) {$A$};
+\node[above left=1pt] at (B) {$B$};
+\node[above right=1pt] at (X) {$X$};
+\node[above right=1pt] at (Y) {$Y$};
+\node[below left=2pt] at (C1) {$C_1$};
+\node[below right=2pt] at (C2) {$C_2$};
 }
 \end{answerblock}
 
@@ -198,7 +251,22 @@ So $\tr ABC\sim\tr DEF$ (AAA similarity criterion). \hfill Hence proved.
 \begin{example}[NCERT Example 6]
 In the figure, the segments $AB$ and $CD$ meet at $O$, and $OA\cdot OB=OC\cdot OD$. Show that $\angle A=\angle C$ and $\angle B=\angle D$.
 %FIG: segments AB and CD crossing at O. A top-left, B bottom-right, D bottom-left, C top-right. Join AD (left side) and CB (right side), so the triangles AOD and COB are on the left and the right of O. OA a little shorter than OC.
-\figph{Segments AB and CD crossing at O; A top-left, B bottom-right, C top-right, D bottom-left; AD and CB joined.}
+\exfig{%
+\coordinate (O) at (0,0);
+\coordinate (A) at (-3.464,2);
+\coordinate (B) at (5.196,-3);
+\coordinate (C) at (4.33,2.5);
+\coordinate (D) at (-4.157,-2.4);
+\draw (A)--(B);
+\draw (C)--(D);
+\draw (A)--(D);
+\draw (C)--(B);
+\node[above left=1pt] at (A) {$A$};
+\node[below right=1pt] at (B) {$B$};
+\node[above right=1pt] at (C) {$C$};
+\node[below left=1pt] at (D) {$D$};
+\node[right=1pt] at (0.62,0) {$O$};
+}
 \textbf{Given:} $AB$ and $CD$ meet at $O$; $OA\cdot OB=OC\cdot OD$.\\
 \textbf{To prove:} $\angle A=\angle C$ and $\angle B=\angle D$.\\
 \textbf{Proof:}
@@ -218,7 +286,21 @@ In $\tr ABC$, $D$ is a point on $AB$ and $E$ is a point on $AC$, with $AD=3$ cm,
   \item Find $BC$.
 \end{enumerate}
 %FIG: triangle ABC with A at the bottom-left (right angle at A, but do not mark it), AB = 12 along the bottom to the right, AC = 9 going up. D on AB with AD = 3, E on AC with AE = 4. Segment DE (it slopes the other way from BC; it is NOT parallel to BC). Mark AD = 3, AB = 12, AE = 4, AC = 9, DE = 5, BC = "?".
-\figph{Triangle ABC with D on AB (AD = 3, AB = 12) and E on AC (AE = 4, AC = 9); DE = 5 joined, not parallel to BC; BC = ?}
+\exfig{%
+\coordinate (A) at (0,0); \coordinate (B) at (8,0); \coordinate (C) at (0,6);
+\coordinate (D) at (2,0); \coordinate (E) at (0,2.667);
+\draw (A)--(B)--(C)--cycle;
+\draw (D)--(E);
+\node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[above left] at (C) {$C$};
+\node[below] at (D) {$D$}; \node[left] at (E) {$E$};
+\node[below] at ($(A)!0.5!(D)$) {$3$};
+\node[right] at ($(A)!0.5!(E)$) {$4$};
+\node[above right] at ($(D)!0.5!(E)$) {$5$};
+\node[above right] at ($(B)!0.5!(C)$) {$?$};
+% whole lengths AB = 12 and AC = 9 shown with dimension lines
+\draw[{Stealth[length=1.6mm]}-{Stealth[length=1.6mm]},thin] (0,-0.9) -- (8,-0.9) node[midway,fill=white,inner sep=1pt] {$12$};
+\draw[{Stealth[length=1.6mm]}-{Stealth[length=1.6mm]},thin] (-1.1,0) -- (-1.1,6) node[midway,fill=white,inner sep=1pt] {$9$};
+}
 \textbf{Given:} $AD=3$, $AE=4$, $AB=12$, $AC=9$, $DE=5$ (in cm).\\
 \textbf{To find:} (a) proof that $\tr ADE\sim\tr ACB$; (b) $BC$.\\
 \textbf{Solution:}
@@ -236,7 +318,25 @@ In $\tr ABC$, $D$ is a point on $AB$ and $E$ is a point on $AC$, with $AD=3$ cm,
 \begin{exercise}{3C}
 \item In the figure, $\dfrac{QR}{QS}=\dfrac{QT}{PR}$ and $\angle1=\angle2$. Show that $\tr PQS\sim\tr TQR$.
 %FIG: NCERT Fig 6.36 style. Q at the left on a horizontal line QR, S on QR near R, R at the right end. P above, near S (a little left of S). T above P, a little to the right (T further from Q than P, on QP produced). Segments QP and PT on one line (Q, P, T collinear), PS, PR, TR. Angle 1 at Q (angle PQR), angle 2 at R (angle PRQ), marked with labels 1 and 2.
-\figph{NCERT Fig. 6.36: Q, P, T on one line; S and R on the base; PS, PR and TR joined; angle 1 at Q and angle 2 at R.}
+\exfigs{.5}{%
+\coordinate (Q) at (0,0);
+\coordinate (R) at (10,0);
+\coordinate (S) at (7,0);
+\coordinate (P) at (5,7);
+\coordinate (T) at (6.5,9.1);
+\draw (Q)--(R);
+\draw (Q)--(T);
+\draw (P)--(S);
+\draw (P)--(R);
+\draw (T)--(R);
+\node[left=2pt] at (Q) {$Q$};
+\node[right=2pt] at (R) {$R$};
+\node[below=2pt] at (S) {$S$};
+\node[right=1pt] at (5.65,6.8) {$P$};
+\node[right=2pt] at (T) {$T$};
+\pic[draw,"$1$",angle radius=5mm,angle eccentricity=1.8]{angle=R--Q--P};
+\pic[draw,"$2$",angle radius=5mm,angle eccentricity=1.8]{angle=P--R--Q};
+}
 \begin{solution}
 \textbf{Given:} $\dfrac{QR}{QS}=\dfrac{QT}{PR}$; $\angle1=\angle2$.\\
 \textbf{To prove:} $\tr PQS\sim\tr TQR$.\\
@@ -252,7 +352,22 @@ Hence proved.
 
 \item In the figure, $D$ is on $AB$, $E$ is on $AC$, and $\tr ABE\cong\tr ACD$. Show that $\tr ADE\sim\tr ABC$.
 %FIG: NCERT Fig 6.37 style. Isosceles-looking triangle ABC, A top, B bottom-left, C bottom-right. D on AB and E on AC at the same height; DE joined. BE and CD joined (crossing).
-\figph{NCERT Fig. 6.37: triangle ABC with D on AB and E on AC; DE, BE and CD joined.}
+\exfigs{.5}{%
+\coordinate (A) at (0,7);
+\coordinate (B) at (-4,0);
+\coordinate (C) at (4,0);
+\coordinate (D) at (-2.4,2.8);
+\coordinate (E) at (2.4,2.8);
+\draw (A)--(B)--(C)--cycle;
+\draw (D)--(E);
+\draw (B)--(E);
+\draw (C)--(D);
+\node[above=2pt] at (A) {$A$};
+\node[below left=1pt] at (B) {$B$};
+\node[below right=1pt] at (C) {$C$};
+\node[left=1pt] at (-2.4,3.15) {$D$};
+\node[right=1pt] at (2.4,3.15) {$E$};
+}
 \begin{solution}
 \textbf{Given:} $\tr ABE\cong\tr ACD$.\\
 \textbf{To prove:} $\tr ADE\sim\tr ABC$.\\
@@ -278,7 +393,28 @@ Hence proved.
 \end{steps}
 \textbf{Answer:} $PR=6$ cm.}{%
 %FIG: two rough triangles: ABC with AB = 6, BC = 9, AC = 9, angle B marked with an arc; PQR with PQ = 4, QR = 6, angle Q marked with an arc, PR = "?".
-\node {[fig]};
+\coordinate (B) at (0,0);
+\coordinate (C) at (2.97,0);
+\coordinate (A) at (0.66,1.867);
+\coordinate (Q) at (4.76,0);
+\coordinate (R) at (6.74,0);
+\coordinate (P) at (5.2,1.245);
+\draw (A)--(B)--(C)--cycle;
+\draw (P)--(Q)--(R)--cycle;
+\pic[draw,angle radius=3mm]{angle=C--B--A};
+\pic[draw,angle radius=3mm]{angle=R--Q--P};
+\node[above=1pt] at (A) {$A$};
+\node[below left=1pt] at (B) {$B$};
+\node[below right=1pt] at (C) {$C$};
+\node[above=1pt] at (P) {$P$};
+\node[below left=1pt] at (Q) {$Q$};
+\node[below right=1pt] at (R) {$R$};
+\node[left=2pt] at ($(A)!0.5!(B)$) {$6$};
+\node[below=2pt] at ($(B)!0.5!(C)$) {$9$};
+\node[above right=2pt] at ($(C)!0.5!(A)$) {$9$};
+\node[left=2pt] at ($(P)!0.5!(Q)$) {$4$};
+\node[below=2pt] at ($(Q)!0.5!(R)$) {$6$};
+\node[above right=2pt] at ($(R)!0.5!(P)$) {$?$};
 }
 \end{solution}
 
@@ -306,7 +442,16 @@ Hence proved.
 \end{steps}
 \textbf{Answer:} (b) $AB=4$ km.}{%
 %FIG: rough triangle JAB with J at the left, A on the upper road (JA = 3 km), B on the lower road (JB = 5 km), AB = "?" joined.
-\node {[fig]};
+\coordinate (J) at (0,0);
+\coordinate (B) at (5,0);
+\coordinate (A) at (1.8,2.4);
+\draw (J)--(B)--(A)--cycle;
+\node[left=2pt] at (J) {$J$};
+\node[below right=1pt] at (B) {$B$};
+\node[above left=1pt] at (A) {$A$};
+\node[left=2pt] at ($(J)!0.5!(A)$) {$3$};
+\node[below=2pt] at ($(J)!0.5!(B)$) {$5$};
+\node[above right=2pt] at ($(A)!0.5!(B)$) {$?$};
 }
 \end{solution}
 
@@ -328,7 +473,79 @@ Hence proved.
 % (iv) triangle MNL: MN = 2.5, ML = 5, angle M = 70 (between MN and ML); triangle PQR: PQ = 5, QR = 10, angle Q = 70 (between QP and QR).
 % (v) triangle ABC: AB = 2.5, BC = 3, angle A = 80; triangle DEF: DF = 5, EF = 6, angle F = 80.
 % (vi) triangle DEF: angle D = 70, angle E = 80; triangle PQR: angle Q = 80, angle R = 30.
-\figph{NCERT Fig. 6.34: six pairs of triangles (i) to (vi).}
+\begin{center}
+\newcommand{\ang}[2]{\pic[draw,"\scriptsize$#1$",angle radius=3mm,angle eccentricity=2.1]{angle=#2};}
+\begin{tikzpicture}[scale=.47, every node/.style={font=\scriptsize}]
+% (i)
+\begin{scope}
+\coordinate (B) at (0,0); \coordinate (C) at (4.5,0); \coordinate (A) at (0.58,3.29);
+\coordinate (Q) at (6.6,0); \coordinate (R) at (11.1,0); \coordinate (P) at (7.18,3.29);
+\draw (A)--(B)--(C)--cycle; \draw (P)--(Q)--(R)--cycle;
+\ang{60^\circ}{B--A--C} \ang{80^\circ}{C--B--A} \ang{40^\circ}{A--C--B}
+\ang{60^\circ}{Q--P--R} \ang{80^\circ}{R--Q--P} \ang{40^\circ}{P--R--Q}
+\node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
+\node[above] at (P) {$P$}; \node[below left] at (Q) {$Q$}; \node[below right] at (R) {$R$};
+\node at (5.25,-1.4) {(i)};
+\end{scope}
+% (ii)
+\begin{scope}[xshift=14cm]
+\coordinate (B) at (0,0); \coordinate (C) at (2.5,0); \coordinate (A) at (0.25,1.984);
+\coordinate (Q) at (4.5,0); \coordinate (R) at (8.5,0); \coordinate (P) at (7.875,4.961);
+\draw (A)--(B)--(C)--cycle; \draw (P)--(Q)--(R)--cycle;
+\node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
+\node[above] at (P) {$P$}; \node[below left] at (Q) {$Q$}; \node[below right] at (R) {$R$};
+\node[left] at ($(A)!.5!(B)$) {$2$}; \node[below] at ($(B)!.5!(C)$) {$2.5$}; \node[above right] at ($(A)!.5!(C)$) {$3$};
+\node[above left] at ($(P)!.5!(Q)$) {$6$}; \node[below] at ($(Q)!.5!(R)$) {$4$}; \node[right] at ($(P)!.5!(R)$) {$5$};
+\node at (4.25,-1.4) {(ii)};
+\end{scope}
+% (iii)
+\begin{scope}[yshift=-8cm]
+\coordinate (M) at (0,0); \coordinate (P) at (2,0); \coordinate (L) at (0.57,2.64);
+\coordinate (E) at (4,0); \coordinate (F) at (9,0); \coordinate (D) at (4.5,3.97);
+\draw (L)--(M)--(P)--cycle; \draw (D)--(E)--(F)--cycle;
+\node[above] at (L) {$L$}; \node[below left] at (M) {$M$}; \node[below right] at (P) {$P$};
+\node[above] at (D) {$D$}; \node[below left] at (E) {$E$}; \node[below right] at (F) {$F$};
+\node[left] at ($(L)!.5!(M)$) {$2.7$}; \node[below] at ($(M)!.5!(P)$) {$2$}; \node[right] at ($(L)!.5!(P)$) {$3$};
+\node[left] at ($(D)!.5!(E)$) {$4$}; \node[below] at ($(E)!.5!(F)$) {$5$}; \node[above right] at ($(D)!.5!(F)$) {$6$};
+\node at (4.5,-1.4) {(iii)};
+\end{scope}
+% (iv)
+\begin{scope}[xshift=14cm,yshift=-8cm]
+\coordinate (M) at (0.855,3.214); \coordinate (N) at (0,0.865); \coordinate (L) at (4.685,0);
+\coordinate (Q) at (6.5,0); \coordinate (R) at (16.5,0); \coordinate (P) at (8.21,4.7);
+\draw (M)--(N)--(L)--cycle; \draw (P)--(Q)--(R)--cycle;
+\ang{70^\circ}{N--M--L} \ang{70^\circ}{R--Q--P}
+\node[above] at (M) {$M$}; \node[left] at (N) {$N$}; \node[below] at (L) {$L$};
+\node[above] at (P) {$P$}; \node[below left] at (Q) {$Q$}; \node[below right] at (R) {$R$};
+\node[left] at ($(M)!.5!(N)$) {$2.5$}; \node[above right] at ($(M)!.5!(L)$) {$5$};
+\node[left] at ($(P)!.5!(Q)$) {$5$}; \node[below] at ($(Q)!.5!(R)$) {$10$};
+\node at (8.25,-1.4) {(iv)};
+\end{scope}
+% (v)
+\begin{scope}[yshift=-16.5cm]
+\coordinate (B) at (0,0); \coordinate (C) at (4.8,0); \coordinate (A) at (2.84,2.82);
+\coordinate (E) at (6.9,0); \coordinate (F) at (12.9,0); \coordinate (D) at (12.03,4.92);
+\draw (A)--(B)--(C)--cycle; \draw (D)--(E)--(F)--cycle;
+\ang{80^\circ}{B--A--C} \ang{80^\circ}{D--F--E}
+\node[above] at (A) {$A$}; \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$};
+\node[above] at (D) {$D$}; \node[below left] at (E) {$E$}; \node[below right] at (F) {$F$};
+\node[above left] at ($(A)!.5!(B)$) {$2.5$}; \node[below] at ($(B)!.5!(C)$) {$3$};
+\node[right] at ($(D)!.5!(F)$) {$5$}; \node[below] at ($(E)!.5!(F)$) {$6$};
+\node at (6.15,-1.4) {(v)};
+\end{scope}
+% (vi)
+\begin{scope}[xshift=15cm,yshift=-16.5cm]
+\coordinate (E) at (0,0); \coordinate (F) at (6.4,0); \coordinate (D) at (0.59,3.35);
+\coordinate (Q) at (8.6,0); \coordinate (R) at (14.6,0); \coordinate (P) at (9.155,3.144);
+\draw (D)--(E)--(F)--cycle; \draw (P)--(Q)--(R)--cycle;
+\ang{70^\circ}{E--D--F} \ang{80^\circ}{F--E--D}
+\ang{80^\circ}{R--Q--P} \ang{30^\circ}{P--R--Q}
+\node[above] at (D) {$D$}; \node[below left] at (E) {$E$}; \node[below right] at (F) {$F$};
+\node[above] at (P) {$P$}; \node[below left] at (Q) {$Q$}; \node[below right] at (R) {$R$};
+\node at (7,-1.4) {(vi)};
+\end{scope}
+\end{tikzpicture}
+\end{center}
 \begin{solution}
 \begin{steps}
   \item[(i)] All three pairs of angles are equal. $\tr ABC\sim\tr PQR$ (AAA).

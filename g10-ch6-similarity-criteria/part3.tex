@@ -5,7 +5,27 @@ At the same time of day, the sun's rays fall on the ground at the same angle eve
 \begin{example}[NCERT Example 7]
 A girl of height $90$ cm walks away from the base of a lamp-post at a speed of $120$ cm per second. The lamp is $360$ cm above the ground. Find the length of her shadow after $4$ seconds.
 %FIG: lamp-post AB vertical at the left (A the lamp at the top, B the base on the ground). Girl CD vertical further right (C her head, D her feet), shorter. The ground line from B through D to E, where E is the tip of the shadow. A dashed ray from A through C to E. Right-angle marks at B and D. Mark AB = 360, CD = 90, BD = 480, DE = x.
-\figph{Lamp-post AB (360 cm) and girl CD (90 cm) on the ground BE; ray from the lamp A through her head C to the shadow tip E; BD = 480 cm, DE = x.}
+\exfig{%
+\coordinate (A) at (0,6);
+\coordinate (B) at (0,0);
+\coordinate (C) at (8,1.5);
+\coordinate (D) at (8,0);
+\coordinate (E) at (10.6667,0);
+\draw (A)--(B)--(E);
+\draw (C)--(D);
+\draw[dashed] (A)--(E);
+\ramark{B}{A}{E}
+\ramark{D}{C}{E}
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[above right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[below right] at (E) {$E$};
+\node[left] at ($(A)!0.5!(B)$) {$360$};
+\node[left] at ($(C)!0.5!(D)$) {$90$};
+\node[below] at ($(B)!0.5!(D)$) {$480$};
+\node[below] at ($(D)!0.5!(E)$) {$x$};
+}
 \textbf{Given:} lamp height $AB=360$ cm; girl's height $CD=90$ cm; speed $120$ cm/s; time $4$ s.\\
 \textbf{To find:} the length of the shadow $DE$.\\
 \textbf{Solution:} Let $DE=x$ cm.
@@ -26,7 +46,34 @@ In similar triangles, every pair of corresponding lengths is in the same ratio a
 $CM$ and $RN$ are the medians of $\tr ABC$ and $\tr PQR$, and $\tr ABC\sim\tr PQR$. Prove that:
 (i)~$\tr AMC\sim\tr PNR$;\quad (ii)~$\dfrac{CM}{RN}=\dfrac{AB}{PQ}$;\quad (iii)~$\tr CMB\sim\tr RNQ$.
 %FIG: triangle ABC (A bottom-left, B bottom-right, C top) with M the midpoint of AB and median CM; and a larger triangle PQR (P bottom-left, Q bottom-right, R top) with N the midpoint of PQ and median RN. Tick marks: AM = MB (one tick each), PN = NQ (two ticks each).
-\figph{Triangle ABC with median CM (M the midpoint of AB) and triangle PQR with median RN (N the midpoint of PQ).}
+\exfig{%
+\coordinate (A) at (0,0);
+\coordinate (B) at (4,0);
+\coordinate (C) at (1.7,2.8);
+\coordinate (M) at (2,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (C)--(M);
+\tick{A}{M}
+\tick{M}{B}
+\node[below left] at (A) {$A$};
+\node[below right] at (B) {$B$};
+\node[above] at (C) {$C$};
+\node[below] at (M) {$M$};
+\coordinate (P) at (5.5,0);
+\coordinate (Q) at (11.5,0);
+\coordinate (R) at (8.05,4.2);
+\coordinate (N) at (8.5,0);
+\draw (P)--(Q)--(R)--cycle;
+\draw (R)--(N);
+\draw[thin] ($($(P)!0.40!(N)$)!1.2mm!90:(N)$) -- ($($(P)!0.40!(N)$)!1.2mm!-90:(N)$);
+\draw[thin] ($($(P)!0.50!(N)$)!1.2mm!90:(N)$) -- ($($(P)!0.50!(N)$)!1.2mm!-90:(N)$);
+\draw[thin] ($($(N)!0.40!(Q)$)!1.2mm!90:(Q)$) -- ($($(N)!0.40!(Q)$)!1.2mm!-90:(Q)$);
+\draw[thin] ($($(N)!0.50!(Q)$)!1.2mm!90:(Q)$) -- ($($(N)!0.50!(Q)$)!1.2mm!-90:(Q)$);
+\node[below left] at (P) {$P$};
+\node[below right] at (Q) {$Q$};
+\node[above] at (R) {$R$};
+\node[below] at (N) {$N$};
+}
 \textbf{Given:} $\tr ABC\sim\tr PQR$; $M$ is the midpoint of $AB$; $N$ is the midpoint of $PQ$.\\
 \textbf{To prove:} (i), (ii) and (iii) above.\\
 \textbf{Proof:}
@@ -52,7 +99,24 @@ Hence proved.
 \end{steps}
 \textbf{Answer:} The tower is $42$ m high.}{%
 %FIG: two right triangles side by side: small one with vertical side 6 (pole) and base 4 (shadow); large one with vertical side h (tower) and base 28. Dashed sun's ray as the hypotenuse of each. Right-angle marks at the bases.
-\node {[fig]};
+\coordinate (P) at (0,0);
+\coordinate (Q) at (0,0.9231);
+\coordinate (S) at (0.6154,0);
+\draw (P)--(Q);
+\draw (P)--(S);
+\draw[dashed] (Q)--(S);
+\ramark{P}{Q}{S}
+\node[left] at ($(P)!0.5!(Q)$) {$6$};
+\node[below] at ($(P)!0.5!(S)$) {$4$};
+\coordinate (F) at (1.4657,0);
+\coordinate (T) at (1.4657,6.4615);
+\coordinate (U) at (5.7734,0);
+\draw (F)--(T);
+\draw (F)--(U);
+\draw[dashed] (T)--(U);
+\ramark{F}{T}{U}
+\node[left] at ($(F)!0.5!(T)$) {$h$};
+\node[below] at ($(F)!0.5!(U)$) {$28$};
 }
 \end{solution}
 
@@ -72,7 +136,21 @@ Hence proved.
 \end{steps}
 \textbf{Answer:} (a) $3$ m; (b) $4$ m, $1$ m longer.}{%
 %FIG: lamp-post 600 on the left, boy 150 at distance 900 from it, shadow x beyond the boy; dashed ray from the lamp over the boy's head to the shadow tip; right-angle marks.
-\node {[fig]};
+\coordinate (A) at (0,2.5);
+\coordinate (B) at (0,0);
+\coordinate (D) at (3.75,0);
+\coordinate (C) at (3.75,0.625);
+\coordinate (E) at (5,0);
+\draw (A)--(B);
+\draw (B)--(E);
+\draw (C)--(D);
+\draw[dashed] (A)--(E);
+\ramark{B}{A}{E}
+\ramark{D}{C}{E}
+\node[left] at ($(A)!0.5!(B)$) {$600$};
+\node[left] at ($(C)!0.5!(D)$) {$150$};
+\node[below] at ($(B)!0.5!(D)$) {$900$};
+\node[below] at ($(D)!0.5!(E)$) {$x$};
 }
 \end{solution}
 
@@ -91,7 +169,26 @@ Hence proved.
 \end{steps}
 \textbf{Answer:} (b) The tree is $6$ m high.}{%
 %FIG: ground line with F (foot of tree) at the left, M (mirror) in the middle, P (Priya's feet) at the right; FM = 8, MP = 2. Tree TF vertical at F (tall), Priya EP vertical at P (short, E her eyes). Rays T to M and M to E (a V shape at M). Right-angle marks at F and P; equal angle marks at M on both sides.
-\node {[fig]};
+\coordinate (F) at (0,0);
+\coordinate (M) at (4,0);
+\coordinate (P) at (5,0);
+\coordinate (T) at (0,3);
+\coordinate (E) at (5,0.75);
+\draw (T)--(F)--(P);
+\draw (E)--(P);
+\draw (T)--(M)--(E);
+\ramark{F}{T}{M}
+\ramark{P}{E}{M}
+\pic[draw,angle radius=3mm]{angle=T--M--F};
+\pic[draw,angle radius=3mm]{angle=P--M--E};
+\node[below left] at (F) {$F$};
+\node[below left] at (M) {$M$};
+\node[below right] at (P) {$P$};
+\node[above] at (T) {$T$};
+\node[above] at (E) {$E$};
+\node[below] at ($(F)!0.5!(M)$) {$8$};
+\node[below] at ($(M)!0.5!(P)$) {$2$};
+\node[right] at ($(E)!0.5!(P)$) {$150$};
 }
 \end{solution}
 
@@ -108,7 +205,26 @@ Hence proved.
 \end{steps}
 Hence proved.}{%
 %FIG: triangle ABC (A top, B bottom-left, C bottom-right) with median AD to the midpoint D of BC; larger triangle PQR (P top, Q bottom-left, R bottom-right) with median PM.
-\node {[fig]};
+\coordinate (B) at (0,0);
+\coordinate (C) at (1.9,0);
+\coordinate (A) at (0.75,2.2);
+\coordinate (D) at (0.95,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (A)--(D);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
+\coordinate (Q) at (3.6,0);
+\coordinate (R) at (6.165,0);
+\coordinate (P) at (4.6125,2.97);
+\coordinate (M) at (4.8825,0);
+\draw (P)--(Q)--(R)--cycle;
+\draw (P)--(M);
+\node[above] at (P) {$P$};
+\node[below left] at (Q) {$Q$};
+\node[below right] at (R) {$R$};
+\node[below] at (M) {$M$};
 }
 \end{solution}
 
@@ -126,7 +242,30 @@ Hence proved.}{%
 \end{steps}
 Hence proved.}{%
 %FIG: triangle ABC (A bottom-left, B bottom-right, C top) with the angle bisector CD meeting AB at D; larger triangle FEG (F bottom-left, E bottom-right, G top) with the bisector GH meeting FE at H. Equal half-angle marks at C and at G.
-\node {[fig]};
+\coordinate (A) at (0,0);
+\coordinate (B) at (2.2,0);
+\coordinate (C) at (0.7,2);
+\coordinate (D) at (1.0092,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (C)--(D);
+\pic[draw,angle radius=3mm]{angle=A--C--D};
+\pic[draw,angle radius=3mm]{angle=D--C--B};
+\node[below left] at (A) {$A$};
+\node[below right] at (B) {$B$};
+\node[above] at (C) {$C$};
+\node[below] at (D) {$D$};
+\coordinate (F) at (3.8,0);
+\coordinate (E) at (6.66,0);
+\coordinate (G) at (4.71,2.6);
+\coordinate (H) at (5.112,0);
+\draw (F)--(E)--(G)--cycle;
+\draw (G)--(H);
+\pic[draw,angle radius=3mm]{angle=F--G--H};
+\pic[draw,angle radius=3mm]{angle=H--G--E};
+\node[below left] at (F) {$F$};
+\node[below right] at (E) {$E$};
+\node[above] at (G) {$G$};
+\node[below] at (H) {$H$};
 }
 \end{solution}
 
@@ -158,13 +297,45 @@ Hence proved.}{%
 \end{steps}
 Hence proved.}{%
 %FIG: triangle ABC with B bottom-left, C bottom-right, A top. D on BC nearer C; segment AD. Mark angle ADC (at D, inside triangle ADC) and angle BAC (at A) with one arc each.
-\node {[fig]};
+\coordinate (B) at (0,0);
+\coordinate (C) at (5,0);
+\coordinate (A) at (2.815,2.605);
+\coordinate (D) at (2.688,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (A)--(D);
+\pic[draw,angle radius=4mm]{angle=C--D--A};
+\pic[draw,angle radius=4mm]{angle=B--A--C};
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
 }
 \end{solution}
 
 \item In the figure, the sides $AB$ and $BC$ and the median $AD$ of $\tr ABC$ are proportional to the sides $PQ$ and $QR$ and the median $PM$ of $\tr PQR$. Show that $\tr ABC\sim\tr PQR$.
 %FIG: NCERT Fig 6.41 style. Triangle ABC (A top, B bottom-left, C bottom-right) with median AD (D midpoint of BC); larger triangle PQR (P top, Q bottom-left, R bottom-right) with median PM (M midpoint of QR).
-\figph{Triangle ABC with median AD and triangle PQR with median PM.}
+\exfig{%
+\coordinate (B) at (0,0);
+\coordinate (C) at (4.6,0);
+\coordinate (A) at (1.9,4);
+\coordinate (D) at (2.3,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (A)--(D);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
+\coordinate (Q) at (6.1,0);
+\coordinate (R) at (12.54,0);
+\coordinate (P) at (8.76,5.6);
+\coordinate (M) at (9.32,0);
+\draw (P)--(Q)--(R)--cycle;
+\draw (P)--(M);
+\node[above] at (P) {$P$};
+\node[below left] at (Q) {$Q$};
+\node[below right] at (R) {$R$};
+\node[below] at (M) {$M$};
+}
 \begin{solution}
 \textbf{Given:} $\dfrac{AB}{PQ}=\dfrac{BC}{QR}=\dfrac{AD}{PM}$; $D$ and $M$ are the midpoints of $BC$ and $QR$.\\
 \textbf{To prove:} $\tr ABC\sim\tr PQR$.\\
@@ -195,7 +366,20 @@ Hence proved.
 \end{steps}
 Hence proved.}{%
 %FIG: triangle ABC (A top, B bottom-left, C bottom-right), D the midpoint of BC, AD produced below BC to E with DE = AD (dashed), BE and CE dashed (ABEC a parallelogram).
-\node {[fig]};
+\coordinate (A) at (1,2.4);
+\coordinate (B) at (0,0);
+\coordinate (C) at (3.2,0);
+\coordinate (D) at (1.6,0);
+\coordinate (E) at (2.2,-2.4);
+\draw (A)--(B)--(C)--cycle;
+\draw (A)--(D);
+\draw[dashed] (D)--(E);
+\draw[dashed] (B)--(E)--(C);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[below right] at (E) {$E$};
 }
 \end{solution}
 \end{exercise}
@@ -211,15 +395,15 @@ If the hypotenuse and one side of one right triangle are proportional to the hyp
 \section{Summary}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.6}
-\begin{tabular}{@{}p{0.2\linewidth}p{0.48\linewidth}p{0.24\linewidth}@{}}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{@{}p{0.22\linewidth}p{0.72\linewidth}@{}}
 \hline
-\textbf{Criterion} & \textbf{What to check} & \textbf{Gives} \\
+\textbf{Criterion} & \textbf{What to check for $\tr ABC\sim\tr DEF$} \\
 \hline
-AA (AAA) & Two pairs of equal angles. & $\tr ABC\sim\tr DEF$ \\
-SSS & $\dfrac{AB}{DE}=\dfrac{BC}{EF}=\dfrac{CA}{FD}$ & $\tr ABC\sim\tr DEF$ \\
-SAS & $\angle A=\angle D$ and $\dfrac{AB}{DE}=\dfrac{AC}{DF}$ (the angle is between the sides) & $\tr ABC\sim\tr DEF$ \\
-RHS & Right angles; hypotenuses and one pair of sides proportional. & $\tr ABC\sim\tr DEF$ \\
+AA (AAA) & Two pairs of equal angles. \\
+SSS & $\dfrac{AB}{DE}=\dfrac{BC}{EF}=\dfrac{CA}{FD}$ \\
+SAS & $\angle A=\angle D$ and $\dfrac{AB}{DE}=\dfrac{AC}{DF}$ (the angle is between the sides) \\
+RHS & Right angles; hypotenuses and one pair of sides proportional. \\
 \hline
 \end{tabular}
 \end{center}

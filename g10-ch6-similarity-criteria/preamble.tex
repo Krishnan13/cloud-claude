@@ -70,6 +70,7 @@
 \newcommand{\ramark}[3]{\coordinate (ra1) at ($(#1)!2mm!(#2)$);\coordinate (ra2) at ($(#1)!2mm!(#3)$);\draw[thin] (ra1) -- ($(ra1)+(ra2)-(#1)$) -- (ra2);}
 % tick mark across the midpoint of segment #1--#2 (equal lengths)
 \newcommand{\tick}[2]{\draw[thin] ($($(#1)!0.5!(#2)$)!1.2mm!90:(#2)$) -- ($($(#1)!0.5!(#2)$)!1.2mm!-90:(#2)$);}
+\newcommand{\exfigs}[2]{\begin{center}\begin{tikzpicture}[scale=#1, every node/.style={font=\small}]#2\end{tikzpicture}\end{center}}
 \newcommand{\exfig}[1]{\begin{center}\begin{tikzpicture}[scale=.75, every node/.style={font=\small}]#1\end{tikzpicture}\end{center}}
 % rough answer diagram (teacher copy only; it sits inside answerblock)
 \newcommand{\ansfig}[1]{\begin{center}\begin{tikzpicture}[scale=.6, every node/.style={font=\footnotesize}, draw=muted]#1\end{tikzpicture}\end{center}}
