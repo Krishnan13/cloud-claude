@@ -24,6 +24,14 @@ Two triangles are \textbf{similar} if (i) their corresponding angles are equal a
     \item Raju writes $\tr ABC\sim\tr QPR$ for the same two triangles. Is he correct? Give a reason.
     \item Is it correct to write $\tr BCA\sim\tr QRP$? Give a reason.
   \end{enumerate}
+\begin{solution}
+\begin{steps}
+  \item[(a)] $\angle A=\angle P$, $\angle B=\angle Q$, $\angle C=\angle R$.
+  \item[(b)] $\dfrac{AB}{PQ}=\dfrac{BC}{QR}=\dfrac{CA}{RP}$.
+  \item[(c)] No. $\tr ABC\sim\tr QPR$ says that $A$ matches $Q$ and $B$ matches $P$. This is not the matching that is given.
+  \item[(d)] Yes. $B$ still matches $Q$, $C$ matches $R$ and $A$ matches $P$. Only the starting vertex changed.
+\end{steps}
+\end{solution}
   \item In the figure, $\tr ABC$ has $AB=4$ cm, $BC=6$ cm and $CA=5$ cm. $\tr XYZ$ has $XY=12$ cm, $YZ=8$ cm and $ZX=10$ cm. Also $\angle A=\angle Z$, $\angle B=\angle Y$ and $\angle C=\angle X$.
   %FIG: two triangles side by side. Left: triangle ABC, B bottom-left, C bottom-right, A top (sides AB=4, BC=6, CA=5 drawn to scale, label the three lengths outside the sides). Right: triangle XYZ, drawn turned so that the matching is not obvious: Y at the bottom-right, Z at the bottom-left... use YZ=8, XY=12, ZX=10 to scale (twice the left triangle), X at the top. Label the three lengths outside the sides. Mark angle B and angle Y with one arc each, angle A and angle Z with two arcs each, angle C and angle X with three arcs each.
   \exfig{%
@@ -57,23 +65,15 @@ Two triangles are \textbf{similar} if (i) their corresponding angles are equal a
     \item Which side of $\tr XYZ$ corresponds to $BC$? Which side corresponds to $CA$?
     \item Find the three ratios $\dfrac{AB}{ZY}$, $\dfrac{BC}{YX}$ and $\dfrac{CA}{XZ}$. What do you notice?
   \end{enumerate}
-\end{solvefirst}
 
-\begin{answerblock}
-\ans{P1.}
-\begin{steps}
-  \item[(a)] $\angle A=\angle P$, $\angle B=\angle Q$, $\angle C=\angle R$.
-  \item[(b)] $\dfrac{AB}{PQ}=\dfrac{BC}{QR}=\dfrac{CA}{RP}$.
-  \item[(c)] No. $\tr ABC\sim\tr QPR$ says that $A$ matches $Q$ and $B$ matches $P$. This is not the matching that is given.
-  \item[(d)] Yes. $B$ still matches $Q$, $C$ matches $R$ and $A$ matches $P$. Only the starting vertex changed.
-\end{steps}
-\ans{P2.}
+\begin{solution}
 \begin{steps}
   \item[(a)] $\tr ABC\sim\tr ZYX$ ($A$ matches $Z$, $B$ matches $Y$, $C$ matches $X$).
   \item[(b)] $BC$ corresponds to $YX$. $CA$ corresponds to $XZ$.
   \item[(c)] $\dfrac{AB}{ZY}=\dfrac{4}{8}=\dfrac12$, $\dfrac{BC}{YX}=\dfrac{6}{12}=\dfrac12$, $\dfrac{CA}{XZ}=\dfrac{5}{10}=\dfrac12$. All three ratios are equal.
 \end{steps}
-\end{answerblock}
+\end{solution}
+\end{solvefirst}
 
 \facilitatornote{Students often write the letters in alphabetical order. Ask them to start from one pair of equal angles and match the other two pairs before they write the statement.}
 
@@ -92,16 +92,7 @@ To show that two triangles are similar, must we check all three pairs of angles 
     \item Find $\dfrac{AB}{DE}$, $\dfrac{BC}{EF}$ and $\dfrac{CA}{FD}$. What do you notice?
     \item Are the two triangles similar? Write the similarity statement.
   \end{enumerate}
-  \item A square has sides of $4$ cm. A rectangle has sides of $4$ cm and $8$ cm.
-  \begin{enumerate}[label=(\alph*),itemsep=1pt]
-    \item Are the angles of the square equal to the angles of the rectangle?
-    \item Are the sides of the square proportional to the sides of the rectangle? Give a reason.
-    \item Are the square and the rectangle similar? What does this tell you about equal angles in figures with four sides?
-  \end{enumerate}
-\end{solvefirst}
-
-\begin{answerblock}
-\ans{P3.}
+\begin{solution}
 \anspair{%
 \begin{steps}
   \item[(a)] $\angle A=180^\circ-60^\circ-40^\circ=80^\circ$ and $\angle D=80^\circ$ (angle sum property of a triangle).
@@ -126,13 +117,22 @@ To show that two triangles are similar, must we check all three pairs of angles 
 \node[below] at ($(E)!0.5!(F)$) {$6$};
 
 }
-\ans{P4.}
+\end{solution}
+  \item A square has sides of $4$ cm. A rectangle has sides of $4$ cm and $8$ cm.
+  \begin{enumerate}[label=(\alph*),itemsep=1pt]
+    \item Are the angles of the square equal to the angles of the rectangle?
+    \item Are the sides of the square proportional to the sides of the rectangle? Give a reason.
+    \item Are the square and the rectangle similar? What does this tell you about equal angles in figures with four sides?
+  \end{enumerate}
+
+\begin{solution}
 \begin{steps}
   \item[(a)] Yes. Every angle is $90^\circ$.
   \item[(b)] No. $\dfrac44=1$ but $\dfrac48=\dfrac12$.
   \item[(c)] No. In figures with four sides, equal angles do not make the sides proportional. P3 suggests that triangles behave differently.
 \end{steps}
-\end{answerblock}
+\end{solution}
+\end{solvefirst}
 
 P3 suggests that equal angles are enough for triangles. The next theorem says that this is always true.
 
