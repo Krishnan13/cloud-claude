@@ -1,0 +1,294 @@
+% AA Similarity worksheet
+% Teacher copy:  pdflatex -jobname "AA Similarity 1 fc" aa-similarity.tex
+% Student copy:  pdflatex -jobname "AA Similarity 1" "\def\studentcopy{1}\input{aa-similarity.tex}"
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc,decorations.markings}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+
+\newif\ifsol
+\ifdefined\studentcopy \solfalse \else \soltrue \fi
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist{itemsep=2pt,topsep=3pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Similar Triangles: the AA Criterion}
+\rhead{\small \ifsol With solutions\else Student copy\fi}
+\cfoot{\small \thepage}
+
+\newcommand{\tri}{\triangle\,}
+\newcommand{\ang}{\angle\,}
+\newcommand{\cm}{\text{ cm}}
+
+% Teacher-only material
+\ifsol
+  \newtcolorbox{sol}{breakable,colback=green!3!white,colframe=green!35!black,
+     title={Solution},fonttitle=\bfseries\small,boxrule=0.6pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+  \newcommand{\workspace}{}
+\else
+  \newenvironment{sol}{\setbox0\vbox\bgroup}{\egroup}
+  \newcommand{\workspace}{\vspace{3.6cm}}
+\fi
+
+\newtcolorbox{toolbox}{colback=gray!4!white,colframe=gray!60!black,
+   title={Remember (NCERT Class X, Chapter 6, Section 6.4)},fonttitle=\bfseries\small,boxrule=0.6pt}
+
+% Teacher copy: reserve room for question + solution so they stay on one page
+\newcommand{\q}[1]{\ifsol\needspace{11.5cm}\else\needspace{12\baselineskip}\fi\subsection*{Question #1}}
+
+% Problem text on the left, figure on the right
+\newcommand{\probfig}[2]{\noindent
+  \begin{minipage}[t]{0.54\linewidth}\vspace{0pt}#1\end{minipage}\hfill
+  \begin{minipage}[t]{0.42\linewidth}\vspace{0pt}\centering #2\end{minipage}\par\medskip}
+
+% Dimension line beside segment #1--#2, label #3, offset #4 (sign picks the side)
+\newcommand{\dimline}[4]{%
+  \draw[<->,gray,thin] ($(#1)!#4!90:(#2)$) -- node[fill=white,inner sep=1pt,font=\scriptsize,text=black]{#3} ($(#2)!#4!-90:(#1)$);}
+
+\tikzset{dot/.style={fill,circle,inner sep=0pt,minimum size=3pt},
+         amark/.style={draw,angle radius=5mm,font=\scriptsize,angle eccentricity=1.75},
+         parallel/.style={postaction={decorate},decoration={markings,mark=at position 0.55 with {\arrow{>}}}}}
+
+% ---------------- Figures ----------------
+% Main figure: right angle at B, BD perpendicular to AC
+\newcommand{\MainFig}[1]{%
+\begin{tikzpicture}[scale=0.42,font=\small]
+  \coordinate (A) at (0,0); \coordinate (D) at (4,0); \coordinate (C) at (13,0); \coordinate (B) at (4,6);
+  \draw[thick] (A)--(B)--(C)--cycle;
+  \draw[thick,blue!70!black] (B)--(D);
+  \pic[draw,angle radius=2.2mm] {right angle=B--D--A};
+  \pic[draw,angle radius=2.2mm] {right angle=C--D--B};
+  #1
+  \foreach \p in {A,B,C,D} \node[dot] at (\p) {};
+  \node[below left] at (A) {$A$}; \node[above] at (B) {$B$}; \node[below right] at (C) {$C$};
+  \node[below] at (D) {$D$};
+\end{tikzpicture}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Similar Triangles: the AA Criterion}\\[4pt]
+  {\large Grade 10, NCERT Chapter 6 (Triangles)}
+\end{center}
+
+\textbf{In this sheet you will:} decide whether two triangles are similar using their angles, write the similarity with the vertices in the correct order, and use it to find lengths and an area.
+
+\begin{toolbox}
+\begin{itemize}[leftmargin=1.2em]
+  \item \textbf{AAA (Theorem 6.3):} if the corresponding angles of two triangles are equal, the triangles are similar.
+  \item \textbf{AA (Corollary of Theorem 6.3):} if two angles of one triangle are equal to two angles of another, the triangles are similar (the third angles are then equal too).
+  \item \textbf{Order matters:} in $\tri ABC \sim \tri PQR$, A matches P, B matches Q and C matches R. So
+  $\dfrac{AB}{PQ} = \dfrac{BC}{QR} = \dfrac{CA}{RP}$ and $\ang A = \ang P$, $\ang B = \ang Q$, $\ang C = \ang R$.
+\end{itemize}
+\end{toolbox}
+
+In Questions 1 and 2, decide whether the two triangles are similar. If they are, give the reason and write the similarity with the vertices in the correct order.
+
+% ---- Q1
+\q{1}
+\begin{center}
+\begin{tikzpicture}[scale=0.6,font=\small]
+  \coordinate (A) at (0,0); \coordinate (B) at (4,0); \coordinate (C) at (2.790,3.325);
+  \draw[thick] (A)--(B)--(C)--cycle;
+  \pic[amark,"$50^\circ$"] {angle=B--A--C};
+  \pic[amark,"$70^\circ$"] {angle=C--B--A};
+  \node[below left] at (A){$A$}; \node[below right] at (B){$B$}; \node[above] at (C){$C$};
+  \begin{scope}[xshift=7cm]
+  \coordinate (P) at (0,0); \coordinate (R) at (4.2,0); \coordinate (Q) at (1.624,4.462);
+  \draw[thick] (P)--(R)--(Q)--cycle;
+  \pic[amark,"$70^\circ$"] {angle=R--P--Q};
+  \pic[amark,"$60^\circ$"] {angle=Q--R--P};
+  \node[below left] at (P){$P$}; \node[below right] at (R){$R$}; \node[above] at (Q){$Q$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\workspace
+\begin{sol}
+In $\tri ABC$: $\ang C = 180^\circ - 50^\circ - 70^\circ = 60^\circ$.\\
+In $\tri PQR$: $\ang Q = 180^\circ - 70^\circ - 60^\circ = 50^\circ$.\\[2pt]
+So $\ang A = \ang Q = 50^\circ$, $\ang B = \ang P = 70^\circ$ and $\ang C = \ang R = 60^\circ$.\\[2pt]
+\textbf{Similar by AA} (two pairs of equal angles are enough). A matches Q, B matches P, C matches R: $\tri ABC \sim \tri QPR$.
+\end{sol}
+
+% ---- Q2
+\q{2}
+\begin{center}
+\begin{tikzpicture}[scale=0.6,font=\small]
+  \coordinate (A) at (2,4); \coordinate (B) at (0,0); \coordinate (C) at (5,0);
+  \coordinate (D) at ($(A)!0.45!(B)$); \coordinate (E) at ($(A)!0.45!(C)$);
+  \draw[thick] (A)--(B); \draw[thick] (A)--(C);
+  \draw[thick,parallel] (B)--(C); \draw[thick,parallel,blue!70!black] (D)--(E);
+  \node[above] at (A){$A$}; \node[below left] at (B){$B$}; \node[below right] at (C){$C$};
+  \node[left] at (D){$D$}; \node[right] at (E){$E$};
+\end{tikzpicture}\\[2pt]
+{\small D lies on AB, E lies on AC, and $DE \parallel BC$. Compare $\tri ADE$ and $\tri ABC$.}
+\end{center}
+\workspace
+\begin{sol}
+AB is a transversal of the parallel lines DE and BC, so $\ang ADE = \ang ABC$ (corresponding angles).\\
+AC is a transversal, so $\ang AED = \ang ACB$ (corresponding angles).\\
+(Also $\ang A$ is common.)\\[2pt]
+\textbf{Similar by AA.} $\tri ADE \sim \tri ABC$.
+\end{sol}
+
+\bigskip\needspace{22\baselineskip}
+\textbf{Questions 3 to 9 use the same figure:} in $\tri ABC$, $\ang ABC = 90^\circ$, and D is the point on AC with $BD \perp AC$.
+
+% ---- Q3
+\q{3}
+\probfig{In the figure, $\ang ABC = 90^\circ$ and $BD \perp AC$. Also $\ang BAD = 56^\circ$.
+\begin{enumerate}[label=(\alph*)]
+  \item Find $\ang ABD$, $\ang DBC$ and $\ang BCD$.
+  \item Which two pairs of angles are equal?
+  \item Repeat (a) with $\ang BAD = x^\circ$.
+\end{enumerate}}
+{\MainFig{\pic[amark,"$56^\circ$"] {angle=D--A--B};
+  \pic[draw,angle radius=2.2mm] {right angle=A--B--C};}}
+\workspace
+\begin{sol}
+(a) In $\tri ABD$: $\ang ADB = 90^\circ$ (since $BD \perp AC$). Angles add to $180^\circ$, so\\
+$\ang ABD = 180^\circ - 90^\circ - 56^\circ = 34^\circ$.\\[2pt]
+$\ang ABC = 90^\circ$ and $\ang ABC = \ang ABD + \ang DBC$, so $\ang DBC = 90^\circ - 34^\circ = 56^\circ$.\\[2pt]
+In $\tri BDC$: $\ang BDC = 90^\circ$, so $\ang BCD = 180^\circ - 90^\circ - 56^\circ = 34^\circ$.
+
+(b) $\ang BAD = \ang DBC = 56^\circ$ and $\ang ABD = \ang BCD = 34^\circ$. (Also $\ang ADB = \ang BDC = 90^\circ$.)
+
+(c) $\ang ABD = 180^\circ - 90^\circ - x^\circ = (90 - x)^\circ$.\\
+$\ang DBC = 90^\circ - (90 - x)^\circ = x^\circ$.\\
+$\ang BCD = 180^\circ - 90^\circ - x^\circ = (90 - x)^\circ$.\\
+So the same two pairs of angles are equal, whatever the value of $\ang BAD$.
+\end{sol}
+
+% ---- Q4
+\q{4}
+\probfig{In the figure, $BD \perp AC$ and $\ang BAD = \ang CBD$.
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that $\tri ADB \sim \tri BDC$, writing the vertices in the correct order.
+  \item Write the three equal ratios.
+\end{enumerate}}
+{\MainFig{\pic[amark,draw=red!70!black] {angle=D--A--B};
+  \pic[amark,draw=red!70!black] {angle=D--B--C};}}
+\workspace
+\begin{sol}
+(a) In $\tri ADB$ and $\tri BDC$:\\[2pt]
+$\ang ADB = \ang BDC = 90^\circ$ (since $BD \perp AC$).\\[2pt]
+$\ang BAD = \ang CBD$ (given).\\[2pt]
+So, by AA similarity (Corollary of Theorem 6.3), the triangles are similar.\\[2pt]
+Matching: the angle at A in $\tri ADB$ equals the angle at B in $\tri BDC$, so A matches B. The right angles match, so D matches D. The remaining vertices match, so B matches C. In order: $\tri ADB \sim \tri BDC$.
+
+(b) $\dfrac{AD}{BD} = \dfrac{DB}{DC} = \dfrac{AB}{BC}$.
+\end{sol}
+
+% ---- Q5
+\q{5}
+\probfig{In the figure, $\tri ADB \sim \tri BDC$.
+\begin{enumerate}[label=(\alph*)]
+  \item Show that $BD^2 = AD \times DC$.
+  \item If AD = 4 cm and DC = 9 cm, find BD.
+  \item Find the area of $\tri ABC$.
+\end{enumerate}}
+{\MainFig{\path (A)--(D) node[midway,below] {4};
+  \path (D)--(C) node[midway,below] {9};
+  \path (B)--(D) node[midway,right,blue!70!black] {?};}}
+\workspace
+\begin{sol}
+(a) From $\tri ADB \sim \tri BDC$ (A matches B, D matches D, B matches C):\\
+$\dfrac{AD}{BD} = \dfrac{DB}{DC}$.\\[3pt]
+Cross-multiply: $BD \times DB = AD \times DC$. Since $BD = DB$, this is $BD^2 = AD \times DC$.
+
+(b) $BD^2 = 4 \times 9 = 36$, so $BD = 6$ cm (a length is positive, so we take the positive square root).
+
+(c) $AC = AD + DC = 4 + 9 = 13$ cm. BD is perpendicular to AC, so BD is the height on base AC.\\[2pt]
+Area of $\tri ABC = \dfrac{1}{2} \times AC \times BD = \dfrac{1}{2} \times 13 \times 6 = 39 \text{ cm}^2$.
+\end{sol}
+
+% ---- Q6
+\q{6}
+\probfig{In the figure, $\ang ABC = 90^\circ$ and $BD \perp AC$.\\[4pt]
+Prove that $\tri ADB \sim \tri BDC$.}
+{\MainFig{\pic[draw,angle radius=2.2mm] {right angle=A--B--C};}}
+\workspace
+\begin{sol}
+Let $\ang BAD = x^\circ$.\\[2pt]
+In $\tri ABD$: $\ang ADB = 90^\circ$, so $\ang ABD = 180^\circ - 90^\circ - x^\circ = (90 - x)^\circ$.\\[2pt]
+Since $\ang ABC = 90^\circ$: $\ang DBC = 90^\circ - \ang ABD = 90^\circ - (90 - x)^\circ = x^\circ$.\\[2pt]
+Now in $\tri ADB$ and $\tri BDC$:\\
+$\ang ADB = \ang BDC = 90^\circ$, and $\ang BAD = \ang DBC = x^\circ$.\\[2pt]
+So, by AA similarity, $\tri ADB \sim \tri BDC$ (A matches B, D matches D, B matches C).
+\end{sol}
+
+% ---- Q7
+\q{7}
+\probfig{In the figure, $BD \perp AC$ and $\ang BAD = \ang CBD$. AD = 4 cm and DC = 9 cm.
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that $\tri ADB \sim \tri BDC$.
+  \item Find BD.
+\end{enumerate}}
+{\MainFig{\pic[amark,draw=red!70!black] {angle=D--A--B};
+  \pic[amark,draw=red!70!black] {angle=D--B--C};
+  \path (A)--(D) node[midway,below] {4};
+  \path (D)--(C) node[midway,below] {9};}}
+\workspace
+\begin{sol}
+(a) $\ang ADB = \ang BDC = 90^\circ$ and $\ang BAD = \ang CBD$ (given). By AA, $\tri ADB \sim \tri BDC$.
+
+(b) From (a), $\dfrac{AD}{BD} = \dfrac{DB}{DC}$. Cross-multiply: $BD^2 = AD \times DC = 4 \times 9 = 36$. So $BD = 6$ cm.
+\end{sol}
+
+% ---- Q8
+\q{8}
+\probfig{In the figure, $\ang ABC = 90^\circ$ and $BD \perp AC$. You are told that $\tri ADB$ and $\tri BDC$ are similar, but not which vertices match. AD = 4 cm and BD = 6 cm.
+\begin{enumerate}[label=(\alph*)]
+  \item Use angles to decide which vertex of $\tri BDC$ matches A.
+  \item Find DC and AC.
+\end{enumerate}}
+{\MainFig{\pic[draw,angle radius=2.2mm] {right angle=A--B--C};
+  \path (A)--(D) node[midway,below] {4};
+  \path (B)--(D) node[midway,right] {6};
+  \path (D)--(C) node[midway,below,blue!70!black] {?};}}
+\workspace
+\begin{sol}
+(a) Let $\ang BAD = x^\circ$. As in Question 3: $\ang ABD = (90 - x)^\circ$, $\ang DBC = x^\circ$ and $\ang BCD = (90 - x)^\circ$.\\[2pt]
+The angle at A is $x^\circ$. In $\tri BDC$ the angle equal to $x^\circ$ is at B. So \textbf{A matches B}. The right angles match, so D matches D, and then B matches C. So $\tri ADB \sim \tri BDC$.
+
+(b) $\dfrac{AD}{BD} = \dfrac{DB}{DC}$, so $\dfrac{4}{6} = \dfrac{6}{DC}$.\\[3pt]
+Cross-multiply: $4 \times DC = 6 \times 6 = 36$, so $DC = \dfrac{36}{4} = 9$ cm.\\[2pt]
+$AC = AD + DC = 4 + 9 = 13$ cm.
+\end{sol}
+
+% ---- Q9
+\q{9}
+\probfig{In $\tri ABC$, $\ang ABC = 90^\circ$ and BD is perpendicular to AC, with D on AC.
+\begin{enumerate}[label=(\roman*)]
+  \item Prove that $\tri ADB \sim \tri BDC$.
+  \item Hence prove that $BD^2 = AD \times DC$.
+  \item If AD = 4 cm and DC = 9 cm, find BD and the area of $\tri ABC$.
+\end{enumerate}}
+{\MainFig{\pic[draw,angle radius=2.2mm] {right angle=A--B--C};
+  \path (A)--(D) node[midway,below] {4};
+  \path (D)--(C) node[midway,below] {9};}}
+\workspace
+\begin{sol}
+(i) Let $\ang BAD = x^\circ$. In $\tri ABD$, $\ang ADB = 90^\circ$, so $\ang ABD = 180^\circ - 90^\circ - x^\circ = (90 - x)^\circ$.\\[2pt]
+Since $\ang ABC = 90^\circ$, $\ang DBC = 90^\circ - (90 - x)^\circ = x^\circ$.\\[2pt]
+In $\tri ADB$ and $\tri BDC$: $\ang ADB = \ang BDC = 90^\circ$ and $\ang BAD = \ang DBC = x^\circ$.\\[2pt]
+So, by AA similarity, $\tri ADB \sim \tri BDC$.
+
+(ii) From (i), $\dfrac{AD}{BD} = \dfrac{DB}{DC}$. Cross-multiplying, $BD \times DB = AD \times DC$, that is $BD^2 = AD \times DC$.
+
+(iii) $BD^2 = 4 \times 9 = 36$, so $BD = 6$ cm.\\[2pt]
+$AC = 4 + 9 = 13$ cm, and BD is the height on base AC.\\[2pt]
+Area of $\tri ABC = \dfrac{1}{2} \times 13 \times 6 = 39 \text{ cm}^2$.
+\end{sol}
+
+\end{document}
